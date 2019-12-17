@@ -1,30 +1,62 @@
-import React from 'react';
-import styled from 'styled-components';
-import ComparisonItem from './ComparisonItem';
-import ComparisonLabel from './ComparisonLabel';
+import React from "react";
+import styled from "styled-components";
+import ComparisonItem from "./ComparisonItem";
+import ComparisonLabel from "./ComparisonLabel";
 
 const Container = styled.span`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: 0 5%;
-padding: 20px 0;
-font-family: var(--secondary-font);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5%;
+  padding: 0 0 30px 0;
+  font-family: var(--secondary-font);
 
   @media (max-width: 768px) {
   }
 `;
 
-
-
 const ComparisonTable = props => {
-    return (
-      <Container>
-        <ComparisonLabel/>
-      <ComparisonItem PortfolioLogo="../img/portfolio_01.png" PortfolioName="Get early access" InitialAmount="Get early access" OneYearGains="+ $ 2,000.00" APY="10%" />
-      </Container>
-    );
-  };
-  
-  export default ComparisonTable;
+  return (
+    <Container>
+      <ComparisonLabel />
+      <ComparisonItem
+        PortfolioLogo="../img/portfolio_01.png"
+        PortfolioName="All Weather++ by PIE"
+        InitialAmount="10,000.00"
+        OneYearGains="+ $ 2,000.00"
+        APY="10.0%"
+      />
+      <ComparisonItem
+        PortfolioLogo="../img/portfolio_02.jpg"
+        PortfolioName="AWP by Ray Dalio"
+        InitialAmount="10,000.00"
+        OneYearGains="+ $ 1,390.00"
+        APY="6.8%"
+      />
+      <ComparisonItem
+        PortfolioLogo="../img/portfolio_03.png"
+        PortfolioName="IDLE Finance"
+        InitialAmount="10,000.00"
+        OneYearGains="+ $ 1,030.00"
+        APY="5.5%"
+      />
+      <ComparisonItem
+        PortfolioLogo="../img/portfolio_04.png"
+        PortfolioName="TokenSets"
+        InitialAmount="10,000.00"
+        OneYearGains="+ $ 500.00"
+        APY="4.7%"
+      />
+      <ComparisonItem
+        PortfolioLogo="../img/portfolio_05.png"
+        PortfolioName="DyDx Lending"
+        InitialAmount="10,000.00"
+        OneYearGains="+ $ 300.00"
+        APY="3.8%"
+      />
+    </Container>
+  );
+};
+
+export default ComparisonTable;

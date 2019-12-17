@@ -90,13 +90,24 @@ border-radius: 3px;
   }
 `;
 
+const LabelBlack = styled.span`
+background-color: var(--almost-black);
+color: var(--white);
+padding: 3px 6px;
+border-radius: 3px;
+margin-right: 5px;
+
+  @media (max-width: 768px) {
+  }
+`;
+
 
 const ComparisonItem = props => {
     return (
       <Gradient>
       <Container>
       <PortfolioName><LogoContainer src={props.PortfolioLogo} className="App-logo" alt="logo" />{props.PortfolioName}</PortfolioName>
-      <InitialAmount>{props.InitialAmount}</InitialAmount>
+      <InitialAmount><LabelBlack>$</LabelBlack>{props.InitialAmount}</InitialAmount>
       <OneYearGains><LabelYellow>{props.OneYearGains}</LabelYellow></OneYearGains>
       <APY><LabelGreen>{props.APY}</LabelGreen></APY>
       </Container>
