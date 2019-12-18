@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PrimaryButton from './PrimaryButton';
 import SmallText from './SmallText';
 
-const Container = styled.span`
+const Container = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -16,7 +16,7 @@ font-family: var(--secondary-font);
   }
 `;
 
-const PreTitle = styled.span`
+const PreTitle = styled.div`
 font-family: var(--primary-font);
 color: var(--almost-black);
 font-size: var(--text-big);
@@ -27,7 +27,7 @@ text-align: center;
   }
 `;
 
-const Title = styled.span`
+const Title = styled.div`
 font-family: var(--primary-font);
 color: var(--almost-black);
 font-size: var(--text-verybig);
@@ -42,7 +42,7 @@ line-height: 11rem;
   }
 `;
 
-const SubTitle = styled.span`
+const SubTitle = styled.div`
 font-family: var(--primary-font);
 color: var(--almost-black);
 font-size: var(--text-medium);

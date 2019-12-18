@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ComparisonItem from "./ComparisonItem";
 import ComparisonLabel from "./ComparisonLabel";
 
-const Container = styled.span`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

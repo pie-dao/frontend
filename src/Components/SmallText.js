@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Small = styled.span`
+const Small = styled.div`
 font-family: var(--secondary-font);
 font-size: var(--text-verysmall);
 

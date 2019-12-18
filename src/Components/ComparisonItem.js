@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Gradient = styled.span`
+const Gradient = styled.div`
 width: 90%;
 padding:1px;
 margin: -1px 0 0 0;
@@ -13,7 +13,7 @@ font-size: var(--text-normal);
   }
 `;
 
-const Container = styled.span`
+const Container = styled.div`
 display: flex;
 background-color: #ffffff;
 padding: 15px 5px 15px 15px;
@@ -31,7 +31,7 @@ margin-right: 10px;
   }
 `;
 
-const PortfolioName = styled.span`
+const PortfolioName = styled.div`
 display: flex;
 width: 36%;
 align-items: center;
@@ -40,7 +40,7 @@ align-items: center;
   }
 `;
 
-const InitialAmount = styled.span`
+const InitialAmount = styled.div`
 display: flex;
 width: 27%;
 align-items: center;
@@ -50,7 +50,7 @@ font-weight: 500;
   }
 `;
 
-const OneYearGains = styled.span`
+const OneYearGains = styled.div`
 display: flex;
 width: 27%;
 align-items: center;
@@ -60,7 +60,7 @@ font-weight: 500;
   }
 `;
 
-const APY = styled.span`
+const APY = styled.div`
 display: flex;
 width: 12%;
 align-items: center;
@@ -70,7 +70,7 @@ font-weight: 500;
   }
 `;
 
-const LabelGreen = styled.span`
+const LabelGreen = styled.div`
 background-color: #2DB400;
 color: var(--white);
 padding: 3px 6px;
@@ -80,7 +80,7 @@ border-radius: 3px;
   }
 `;
 
-const LabelYellow = styled.span`
+const LabelYellow = styled.div`
 background-color: #F8E71C;
 color: var(--almost-black);
 padding: 3px 6px;
@@ -90,7 +90,7 @@ border-radius: 3px;
   }
 `;
 
-const LabelBlack = styled.span`
+const LabelBlack = styled.div`
 background-color: var(--almost-black);
 color: var(--white);
 padding: 3px 6px;

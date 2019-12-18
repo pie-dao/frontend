@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Gradient = styled.span`
+const Gradient = styled.div`
 width: 90%;
 color: var(--almost-black);
 font-size: var(--text-prettysmall);
@@ -9,7 +9,7 @@ font-size: var(--text-prettysmall);
   }
 `;
 
-const Container = styled.span`
+const Container = styled.div`
 display: flex;
 padding: 15px;
 
@@ -17,14 +17,14 @@ padding: 15px;
   }
 `;
 
-const PortfolioName = styled.span`
+const PortfolioName = styled.div`
 display: flex;
 width: 36%;
   @media (max-width: 768px) {
   }
 `;
 
-const InitialAmount = styled.span`
+const InitialAmount = styled.div`
 display: flex;
 width: 27%;
 
@@ -32,7 +32,7 @@ width: 27%;
   }
 `;
 
-const OneYearGains = styled.span`
+const OneYearGains = styled.div`
 display: flex;
 width: 27%;
 
@@ -40,7 +40,7 @@ width: 27%;
   }
 `;
 
-const APY = styled.span`
+const APY = styled.div`
 display: flex;
 width: 12%;
 

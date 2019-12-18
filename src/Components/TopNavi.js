@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from './Logo';
 
-const Container = styled.span`
+const Container = styled.div`
 display: flex;
 padding: 20px 0;
 margin: 0 5%;
@@ -12,7 +12,7 @@ font-family: var(--secondary-font);
   }
 `;
 
-const Left = styled.span`
+const Left = styled.div`
 display: flex;
 align-items: center;
 flex-grow: 1;
@@ -21,7 +21,7 @@ flex-grow: 1;
   }
 `;
 
-const Right = styled.span`
+const Right = styled.div`
 display: flex;
 justify-content: flex-end;
 align-items: center;

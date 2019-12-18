@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Container = styled.span`
+const Container = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -16,7 +16,7 @@ font-family: var(--secondary-font);
 
 
 
-const Title = styled.span`
+const Title = styled.div`
 font-family: var(--primary-font);
 color: var(--almost-black);
 font-size: var(--text-ratherbig);

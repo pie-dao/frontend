@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.span`
+const Container = styled.div`
 display: flex;
 padding: 100px 10%;
 background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
@@ -10,7 +10,7 @@ background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
   }
 `;
 
-const Text = styled.span`
+const Text = styled.div`
 font-family: var(--primary-font);
 color: var(--almost-black);
 font-size: var(--text-big);

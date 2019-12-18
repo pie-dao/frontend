@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Container = styled.span`
+const Container = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -17,7 +17,7 @@ padding: 10%;
 
 
 
-const Title = styled.span`
+const Title = styled.div`
 font-family: var(--primary-font);
 color: var(--almost-black);
 font-size: var(--text-ratherbig);
@@ -29,7 +29,7 @@ text-align: center;
   }
 `;
 
-const WP = styled.span`
+const WP = styled.div`
 font-size: 6rem;
 font-weight: 700;
 text-align: center;

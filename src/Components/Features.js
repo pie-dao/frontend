@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import SmallText from "./SmallText";
 
-const Container = styled.span`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,7 @@ const Container = styled.span`
   }
 `;
 
-const LR = styled.span`
+const LR = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -22,7 +22,7 @@ const LR = styled.span`
   }
 `;
 
-const RL = styled.span`
+const RL = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row-reverse;
@@ -31,7 +31,7 @@ const RL = styled.span`
   }
 `;
 
-const Box = styled.span`
+const Box = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@ const Box = styled.span`
   }
 `;
 
-const Content = styled.span`
+const Content = styled.div`
   display: flex;
   width: 80%;
   padding: 10%;
@@ -60,7 +60,7 @@ const Content = styled.span`
   }
 `;
 
-const Title = styled.span`
+const Title = styled.div`
   text-align: center;
   font-family: var(--primary-font);
   color: var(--almost-black);
@@ -71,7 +71,7 @@ const Title = styled.span`
   }
 `;
 
-const Text = styled.span`
+const Text = styled.div`
   text-align: left;
   font-family: var(--primary-font);
   color: var(--almost-black);
@@ -83,7 +83,7 @@ const Text = styled.span`
   }
 `;
 
-const CryptoPortfolio = styled.span`
+const CryptoPortfolio = styled.div`
   width: 100%;
   height: 400px;
   padding: 0;
@@ -100,7 +100,7 @@ const CryptoPortfolio = styled.span`
   }
 `;
 
-const AWPCrypto = styled.span`
+const AWPCrypto = styled.div`
   width: 100%;
   height: 400px;
   padding: 0;
