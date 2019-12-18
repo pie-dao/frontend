@@ -37,7 +37,7 @@ text-decoration: none;
 margin-left: 2rem;
 font-size: var(--text-prettysmall);
 :hover {
-    opacity: 0.8;
+    opacity: 0.6;
   }
   @media (max-width: 768px) {
   }
