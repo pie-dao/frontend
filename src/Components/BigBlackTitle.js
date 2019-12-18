@@ -29,6 +29,18 @@ text-align: center;
   }
 `;
 
+const WP = styled.span`
+font-size: 6rem;
+font-weight: 700;
+text-align: center;
+margin-top: 12px;
+
+
+  @media (max-width: 768px) {
+  }
+`;
+
+
 
 
 
@@ -41,6 +53,7 @@ const BigBlackTitle = props => {
 <Container>
 <Title>Don’t be that guy.
 Read the Whitepaper.</Title>
+<WP>📄</WP>
   </Container>
     );
   };
