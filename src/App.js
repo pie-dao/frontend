@@ -18,6 +18,7 @@ function App() {
       <ComparisonTable/>
       <GradienBgSection/>
       <GradientText/>
+      <Newsletter/>
       <Features/>
       <BlackBGgradientText/>
       <BigBlackTitle/>
