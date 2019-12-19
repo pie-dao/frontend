@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import SmallText from "./SmallText";
 
-const Container = styled.div`
+const Contenitore = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -119,7 +119,7 @@ const AWPCrypto = styled.div`
 
 const Features = props => {
   return (
-    <Container>
+    <Contenitore>
       <LR>
         <Box>
           <AWPCrypto />
@@ -165,7 +165,7 @@ const Features = props => {
           </Content>
         </Box>
       </RL>
-    </Container>
+    </Contenitore>
   );
 };
 
