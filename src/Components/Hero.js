@@ -33,10 +33,25 @@ color: var(--almost-black);
 font-size: var(--text-verybig);
 font-weight: 700;
 text-align: center;
-background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
+/* background: linear-gradient(to right, #F10096 0%, #21D7FF 100%); */
+background: linear-gradient(-60deg, #F10096, #21D7FF);
+background-size: 300%;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 line-height: 11rem;
+animation: flow 7s ease-in-out infinite;
+
+@keyframes flow {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  110% {
+    background-position: 0 50%;
+  }
+}
 
   @media (max-width: 768px) {
   }
