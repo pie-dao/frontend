@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Container = styled.div`
+const BlackContainer = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -40,10 +40,10 @@ background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
 
 const BlackBGgradientText = props => {
     return (
-<Container>
+<BlackContainer>
 <Title>If you invested $100 per month in the last 10 years, you would have $111,324.92 now.
  We don’t want you to make the same mistake again.</Title>
-  </Container>
+  </BlackContainer>
     );
   };
   
