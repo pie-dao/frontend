@@ -40,7 +40,10 @@ margin-top: 12px;
   }
 `;
 
+const A = styled.a`
+color:  #F10096;
 
+`;
 
 
 
@@ -51,9 +54,9 @@ margin-top: 12px;
 const BigBlackTitle = props => {
     return (
 <Container>
-<Title>Don’t be that guy.
-Read the Whitepaper.</Title>
-<WP>📄</WP>
+<Title>We promise it's good stuff.
+Read the Whitepaper</Title>
+<A href="#"><WP>📄</WP></A>
   </Container>
     );
   };
