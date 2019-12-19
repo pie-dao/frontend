@@ -9,7 +9,6 @@ import Features from './Components/Features';
 import BlackBGgradientText from './Components/BlackBGgradientText';
 import BigBlackTitle from './Components/BigBlackTitle';
 import Newsletter from './Components/Newsletter';
-import TemporaryFeatures from './Components/TemporaryFeatures';
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
       <GradientText/>
       <Newsletter/>
       <Features/>
-      <TemporaryFeatures/>
       <BlackBGgradientText/>
       <BigBlackTitle/>
       <Newsletter/>
