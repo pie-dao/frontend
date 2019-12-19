@@ -19,7 +19,7 @@ function App() {
       <GradienBgSection/>
       <GradientText/>
       <Newsletter/>
-      <Features/>
+      {/* <Features/> */}
       <BlackBGgradientText/>
       <BigBlackTitle/>
       <Newsletter/>
