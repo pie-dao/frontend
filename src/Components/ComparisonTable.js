@@ -21,7 +21,7 @@ const ComparisonTable = props => {
     <Container>
       <ComparisonLabel />
       <ComparisonItem
-        PortfolioLogo="../img/portfolio_01.png"
+        PortfolioLogo="../img/portfolio_02.png"
         PortfolioName="All Weather++ by PIE"
         InitialAmount="10,000.00"
         OneYearGains="+ $ 2,000.00"
