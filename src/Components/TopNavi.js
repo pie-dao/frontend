@@ -1,6 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Logo from './Logo';
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+} from 'react-router-dom';
 
 const Container = styled.div`
 display: flex;
@@ -61,7 +67,7 @@ const TopNavi = props => {
   <Left><Logo/></Left>
   <Right>
     <A href="#">whitepaper</A>
-    <A href="/invstment-detail">Investment Details</A>
+    <Link to="/Investment">Investment Details</Link>
     <MobileNone><A href="#">discord</A></MobileNone>
     <MobileNone> <A href="#">contact</A></MobileNone>
   </Right>
