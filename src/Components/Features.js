@@ -10,6 +10,8 @@ const Contenitore = styled.div`
   margin: 80px 10%;
 
   @media (max-width: 768px) {
+    margin: 5% 0 0 0;
+    padding: 10% 5%;
   }
 `;
 
@@ -19,6 +21,8 @@ const LR = styled.div`
   flex-direction: row;
 
   @media (max-width: 768px) {
+    flex-direction: column;
+
   }
 `;
 
@@ -28,6 +32,8 @@ const RL = styled.div`
   flex-direction: row-reverse;
 
   @media (max-width: 768px) {
+    flex-direction: column;
+
   }
 `;
 
@@ -42,6 +48,7 @@ const Box = styled.div`
   margin: 0;
 
   @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -97,6 +104,10 @@ const CryptoPortfolio = styled.div`
   background-repeat: no-repeat;
 
   @media (max-width: 768px) {
+    width: 100%;
+    background-position: center;
+
+
   }
 `;
 
@@ -114,6 +125,8 @@ const AWPCrypto = styled.div`
   background-repeat: no-repeat;
 
   @media (max-width: 768px) {
+    width: 100%;
+    background-position: center;
   }
 `;
 
