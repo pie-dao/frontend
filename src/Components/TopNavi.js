@@ -52,6 +52,21 @@ font-size: var(--text-prettysmall);
   }
 `;
 
+const StyledLink = styled(Link)`
+color: var(--almost-black);
+text-decoration: none;
+margin-left: 2rem;
+font-size: var(--text-prettysmall);
+:hover {
+    opacity: 0.6;
+  }
+  @media (max-width: 768px) {
+    font-size: var(--text-prettysmall-mobile);
+    margin-left: 0;
+  }
+`;
+
+
 const MobileNone = styled.div`
 display: block;
   @media (max-width: 768px) {
@@ -69,8 +84,8 @@ const TopNavi = props => {
   </Left>
   <Right>
     <A href="#">whitepaper</A>
-    <Link to="/charts">charts</Link>
-    <Link to="/Investment">Investment Details</Link>
+    <MobileNone><StyledLink to="/charts">charts</StyledLink></MobileNone>
+    <MobileNone><StyledLink to="/Investment">investment detail</StyledLink></MobileNone>
     <MobileNone><A href="#">discord</A></MobileNone>
     <MobileNone> <A href="#">contact</A></MobileNone>
   </Right>
