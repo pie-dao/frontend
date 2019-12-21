@@ -1,21 +1,23 @@
 import React from 'react';
 import './App.css';
 import TopNavi from './Components/TopNavi';
-import Main from './Components/Main';
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import Routes from "./routes";
+import { Router } from "react-router-dom";
+
+import { createBrowserHistory } from 'history';
+
+const instance = createBrowserHistory();
+
+export const navigateTo = path => instance.push(path);
 
 function App() {
   return (
-    <div className="App">
-      <TopNavi/>
-      <Main/>
-
-    </div>
+    <Router history={instance}>
+      <div className="App">
+        <TopNavi/>
+        <Routes />
+      </div>
+    </Router>
   );
 }
 
