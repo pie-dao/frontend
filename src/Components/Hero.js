@@ -60,7 +60,7 @@ animation: flow 7s ease-in-out infinite;
 
   @media (max-width: 768px) {
     font-size: var(--text-verybig-mobile);
-    line-height: 9rem;
+    line-height: 7.5rem;
 
   }
 `;
