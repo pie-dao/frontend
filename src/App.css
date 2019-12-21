@@ -31,5 +31,7 @@ body {
   margin: 0;
   background-color: var(--white);
   font-family: 'Rubik', sans-serif;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
