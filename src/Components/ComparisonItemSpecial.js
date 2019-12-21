@@ -15,12 +15,14 @@ font-size: var(--text-normal);
 
 const Container = styled.div`
 display: flex;
+flex-direction: row;
 background-color: #ffffff;
 padding: 15px 5px 15px 15px;
 font-family: var(--primary-font);
 font-weight: 300;
 
   @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 

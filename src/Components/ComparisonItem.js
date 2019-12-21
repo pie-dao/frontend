@@ -10,6 +10,8 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 font-size: var(--text-normal);
 
   @media (max-width: 768px) {
+    font-size: var(  --text-table-mobile);
+    
   }
 `;
 
