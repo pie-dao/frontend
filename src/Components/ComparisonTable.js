@@ -23,7 +23,7 @@ const ComparisonTable = props => {
       <ComparisonLabel />
       <ComparisonItemSpecial
         PortfolioLogo="../img/portfolio_02.png"
-        PortfolioName="All Weather++"
+        PortfolioName="AWP++"
         InitialAmount="10,000.00"
         OneYearGains="+ $ 2,000.00"
         APY="10.0%"

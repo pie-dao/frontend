@@ -6,6 +6,9 @@ width: 90%;
 color: var(--almost-black);
 font-size: var(--text-prettysmall);
   @media (max-width: 768px) {
+    padding: 0 10px;
+    width: 100%;
+    font-size: var(  --text-label-mobile);
   }
 `;
 
@@ -21,6 +24,7 @@ const PortfolioName = styled.div`
 display: flex;
 width: 36%;
   @media (max-width: 768px) {
+    width: 38%;
   }
 `;
 
@@ -45,6 +49,7 @@ display: flex;
 width: 12%;
 
   @media (max-width: 768px) {
+    width: 10%;
   }
 `;
 
@@ -53,9 +58,9 @@ const ComparisonLabel = props => {
     return (
       <Gradient>
       <Container>
-      <PortfolioName>Investment Stragety</PortfolioName>
+      <PortfolioName>Stragety Name</PortfolioName>
       <InitialAmount>Initial Amount</InitialAmount>
-      <OneYearGains>24 Months Returns</OneYearGains>
+      <OneYearGains>24/mo Returns</OneYearGains>
       <APY>APY</APY>
       </Container>
       </Gradient>

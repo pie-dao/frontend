@@ -11,6 +11,8 @@ font-size: var(--text-normal);
 
   @media (max-width: 768px) {
     width: 100%;
+    font-size: var(  --text-table-mobile);
+    
   }
 `;
 
@@ -23,7 +25,7 @@ font-family: var(--primary-font);
 font-weight: 300;
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    padding: 10px;
   }
 `;
 
@@ -41,6 +43,7 @@ align-items: center;
 font-weight: 500;
 
   @media (max-width: 768px) {
+    width: 38%;
   }
 `;
 
@@ -71,6 +74,7 @@ align-items: center;
 font-weight: 500;
 
   @media (max-width: 768px) {
+    width: 10%;
   }
 `;
 
@@ -81,6 +85,7 @@ padding: 3px 6px;
 border-radius: 3px;
 
   @media (max-width: 768px) {
+    padding: 2px 3px;
   }
 `;
 
@@ -91,6 +96,7 @@ padding: 3px 6px;
 border-radius: 3px;
 
   @media (max-width: 768px) {
+    padding: 2px 3px;
   }
 `;
 
@@ -99,8 +105,10 @@ const LabelGradient = styled.div`
 color: var(--white);
 padding: 3px 6px;
 border-radius: 3px;
+margin-left: 5px;
 
   @media (max-width: 768px) {
+    padding: 2px 3px;
   }
 `;
 
@@ -112,6 +120,8 @@ border-radius: 3px;
 margin-right: 5px;
 
   @media (max-width: 768px) {
+    padding: 2px 3px;
+    margin-left: 3px;
   }
 `;
 

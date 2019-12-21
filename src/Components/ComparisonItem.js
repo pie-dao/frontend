@@ -10,6 +10,7 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 font-size: var(--text-normal);
 
   @media (max-width: 768px) {
+  
     width: 100%;
     font-size: var(  --text-table-mobile);
     
@@ -24,6 +25,7 @@ font-family: var(--primary-font);
 font-weight: 300;
 
   @media (max-width: 768px) {
+    padding: 10px;
   }
 `;
 
@@ -40,6 +42,7 @@ width: 36%;
 align-items: center;
 
   @media (max-width: 768px) {
+    width: 38%;
   }
 `;
 
@@ -70,6 +73,7 @@ align-items: center;
 font-weight: 500;
 
   @media (max-width: 768px) {
+    width: 10%;
   }
 `;
 
@@ -80,6 +84,7 @@ padding: 3px 6px;
 border-radius: 3px;
 
   @media (max-width: 768px) {
+    padding: 2px 3px;
   }
 `;
 
@@ -90,6 +95,7 @@ padding: 3px 6px;
 border-radius: 3px;
 
   @media (max-width: 768px) {
+    padding: 2px 3px;
   }
 `;
 
@@ -102,6 +108,8 @@ margin-right: 5px;
 
   @media (max-width: 768px) {
   }
+  padding: 2px 3px;
+  
 `;
 
 
