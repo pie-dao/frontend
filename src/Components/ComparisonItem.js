@@ -43,6 +43,7 @@ align-items: center;
 
   @media (max-width: 768px) {
     width: 38%;
+    max-width: 38%;
   }
 `;
 

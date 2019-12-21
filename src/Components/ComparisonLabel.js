@@ -25,6 +25,7 @@ display: flex;
 width: 36%;
   @media (max-width: 768px) {
     width: 38%;
+    max-width: 38%;
   }
 `;
 

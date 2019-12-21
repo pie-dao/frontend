@@ -43,7 +43,7 @@ align-items: center;
 font-weight: 500;
 
   @media (max-width: 768px) {
-    width: 38%;
+    max-width: 38%;
   }
 `;
 
@@ -130,7 +130,7 @@ const ComparisonItemSpecial = props => {
     return (
       <Gradient>
       <Container>
-      <PortfolioName><LogoContainer src={props.PortfolioLogo} alt="portfolio logo" />{props.PortfolioName}<LabelGradient>by PIE</LabelGradient></PortfolioName>
+      <PortfolioName><LogoContainer src={props.PortfolioLogo} alt="portfolio logo" />{props.PortfolioName}<LabelGradient>PIE</LabelGradient></PortfolioName>
       <InitialAmount><LabelBlack>$</LabelBlack>{props.InitialAmount}</InitialAmount>
       <OneYearGains><LabelYellow>{props.OneYearGains}</LabelYellow></OneYearGains>
       <APY><LabelGreen>{props.APY}</LabelGreen></APY>

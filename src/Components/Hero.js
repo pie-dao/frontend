@@ -14,6 +14,7 @@ font-family: var(--secondary-font);
 
   @media (max-width: 768px) {
     width: 90%;
+    padding: 0 0 10px 0;
   }
 `;
 
