@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ComparisonItem from "./ComparisonItem";
+import ComparisonItemSpecial from "./ComparisonItemSpecial";
 import ComparisonLabel from "./ComparisonLabel";
 
 const Container = styled.div`
@@ -20,9 +21,9 @@ const ComparisonTable = props => {
   return (
     <Container>
       <ComparisonLabel />
-      <ComparisonItem
+      <ComparisonItemSpecial
         PortfolioLogo="../img/portfolio_02.png"
-        PortfolioName="All Weather++ by PIE"
+        PortfolioName="All Weather++"
         InitialAmount="10,000.00"
         OneYearGains="+ $ 2,000.00"
         APY="10.0%"

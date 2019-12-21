@@ -35,6 +35,7 @@ const PortfolioName = styled.div`
 display: flex;
 width: 36%;
 align-items: center;
+font-weight: 500;
 
   @media (max-width: 768px) {
   }
@@ -90,6 +91,16 @@ border-radius: 3px;
   }
 `;
 
+const LabelGradient = styled.div`
+  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+color: var(--white);
+padding: 3px 6px;
+border-radius: 3px;
+
+  @media (max-width: 768px) {
+  }
+`;
+
 const LabelBlack = styled.div`
 background-color: var(--almost-black);
 color: var(--white);
@@ -102,11 +113,11 @@ margin-right: 5px;
 `;
 
 
-const ComparisonItem = props => {
+const ComparisonItemSpecial = props => {
     return (
       <Gradient>
       <Container>
-      <PortfolioName><LogoContainer src={props.PortfolioLogo} alt="portfolio logo" />{props.PortfolioName}</PortfolioName>
+      <PortfolioName><LogoContainer src={props.PortfolioLogo} alt="portfolio logo" />{props.PortfolioName}<LabelGradient>by PIE</LabelGradient></PortfolioName>
       <InitialAmount><LabelBlack>$</LabelBlack>{props.InitialAmount}</InitialAmount>
       <OneYearGains><LabelYellow>{props.OneYearGains}</LabelYellow></OneYearGains>
       <APY><LabelGreen>{props.APY}</LabelGreen></APY>
@@ -115,4 +126,4 @@ const ComparisonItem = props => {
     );
   };
   
-  export default ComparisonItem;
+  export default ComparisonItemSpecial;
