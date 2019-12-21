@@ -104,11 +104,24 @@ margin: 20px 0 0 0;
 `;
 
 const Counter = styled.div`
+  display: flex;
+  align-items: center;
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-normal);
   font-weight: 500;
   text-align: center;
+
+  @media (max-width: 768px) {
+  }
+`;
+
+const LabelGradient = styled.div`
+background-color: var(--white);
+color: var(--almost-black);
+padding: 1px 6px;
+border-radius: 3px;
+margin-right: 7px;
 
   @media (max-width: 768px) {
   }
@@ -186,7 +199,7 @@ function Newsletter() {
             >Get early access</Button>
         </section>
       </Form>
-      <Counter>Spots left 405/500</Counter>
+      <Counter><LabelGradient>128</LabelGradient>/ 500 Hurry up!</Counter>
     </Container>
   );
 }
