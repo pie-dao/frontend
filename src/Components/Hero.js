@@ -43,6 +43,8 @@ background-size: 300%;
 -webkit-text-fill-color: transparent;
 line-height: 11rem;
 animation: flow 7s ease-in-out infinite;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 
 @keyframes flow {
   0% {
