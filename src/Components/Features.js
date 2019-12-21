@@ -88,6 +88,7 @@ const Text = styled.div`
   margin-top: 30px;
 
   @media (max-width: 768px) {
+    font-size: var(--text-medium-mobile);
   }
 `;
 
