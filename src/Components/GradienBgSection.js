@@ -34,7 +34,7 @@ font-size: var(--text-big);
 
 
   @media (max-width: 768px) {
-    font-size: var(--text-medium-mobile);
+    font-size: var(--text-ratherbig-mobile);
   }
 `;
 
@@ -48,7 +48,7 @@ const GradienBgSection = props => {
 We are changing this by making the best wealth creation strategies accessible to everyone, with no minimum.
 
 We use a combination of cryptocurrencies and synthetic assets to replicate the best in class hedge funds.<p></p>
-<A href="#">Read the Litepaper</A>
+<A href="#">Read the Lightpaper</A>
   </Text>
       </Container>
     );

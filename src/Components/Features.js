@@ -105,7 +105,9 @@ const CryptoPortfolio = styled.div`
   background-repeat: no-repeat;
 
   @media (max-width: 768px) {
+    background-image: url("../img/cryptofolio-mobile.jpg");
     width: 100%;
+    height: 270px;
     background-position: center;
 
 
@@ -126,7 +128,9 @@ const AWPCrypto = styled.div`
   background-repeat: no-repeat;
 
   @media (max-width: 768px) {
+    background-image: url("../img/awpcrypto-mobile.jpg");
     width: 100%;
+    height: 270px;
     background-position: center;
   }
 `;
