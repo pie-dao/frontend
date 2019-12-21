@@ -7,6 +7,7 @@ padding: 100px 10%;
 background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
 
   @media (max-width: 768px) {
+    padding: 10% 5%;
   }
 `;
 
@@ -18,6 +19,7 @@ font-weight: 500;
 text-align: left;
 
   @media (max-width: 768px) {
+    font-size: var(--text-medium-mobile);
   }
 `;
 
@@ -32,6 +34,7 @@ font-size: var(--text-big);
 
 
   @media (max-width: 768px) {
+    font-size: var(--text-medium-mobile);
   }
 `;
 

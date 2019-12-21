@@ -12,6 +12,7 @@ background-color: var(--white);
 padding: 10%;
 
   @media (max-width: 768px) {
+    padding: 10% 5%;
   }
 `;
 
@@ -26,6 +27,7 @@ text-align: center;
 
 
   @media (max-width: 768px) {
+    font-size: var(--text-ratherbig-mobile);
   }
 `;
 
@@ -37,6 +39,7 @@ margin-top: 12px;
 
 
   @media (max-width: 768px) {
+    font-size: 3rem;
   }
 `;
 

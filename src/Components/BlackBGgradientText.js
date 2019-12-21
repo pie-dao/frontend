@@ -12,6 +12,7 @@ background-color: var(--almost-black);
 padding: 10%;
 
   @media (max-width: 768px) {
+    padding: 10% 5%;
   }
 `;
 
@@ -28,6 +29,7 @@ background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
 -webkit-text-fill-color: transparent;
 
   @media (max-width: 768px) {
+    font-size: var(--text-ratherbig-mobile);
   }
 `;
 

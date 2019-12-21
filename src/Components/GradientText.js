@@ -11,6 +11,8 @@ margin: 80px 10% 50px 10%;
 font-family: var(--secondary-font);
 
   @media (max-width: 768px) {
+    margin: 10% 5%;
+
   }
 `;
 
@@ -27,6 +29,7 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 -webkit-text-fill-color: transparent;
 
   @media (max-width: 768px) {
+    font-size: var(--text-ratherbig-mobile);
   }
 `;
 
