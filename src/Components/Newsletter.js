@@ -16,6 +16,7 @@ const Container = styled.div`
   @media (max-width: 680px) {
     flex-wrap: wrap;
     padding: 10% 5%;
+    line-height: auto;
 
   }
 `;
@@ -65,6 +66,8 @@ const PreTitle = styled.div`
   text-align: center;
 
   @media (max-width: 768px) {
+    font-size: var(--text-medium-mobile);
+
   }
 `;
 
