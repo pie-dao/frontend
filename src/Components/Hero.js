@@ -13,6 +13,7 @@ padding: 0 0 30px 0;
 font-family: var(--secondary-font);
 
   @media (max-width: 768px) {
+    width: 90%;
   }
 `;
 
@@ -24,6 +25,7 @@ font-weight: 700;
 text-align: center;
 
   @media (max-width: 768px) {
+    font-size: var(--text-medium-mobile);
   }
 `;
 
@@ -54,6 +56,9 @@ animation: flow 7s ease-in-out infinite;
 }
 
   @media (max-width: 768px) {
+    font-size: var(--text-verybig-mobile);
+    line-height: 9rem;
+
   }
 `;
 
@@ -66,6 +71,8 @@ text-align: center;
 padding: 0 18%;
 
   @media (max-width: 768px) {
+    font-size: var(--text-medium-mobile);
+    padding: 0 0;
   }
 `;
 
