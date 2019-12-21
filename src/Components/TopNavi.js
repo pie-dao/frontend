@@ -64,9 +64,12 @@ display: block;
 const TopNavi = props => {
     return (
 <Container>
-  <Left><Logo/></Left>
+  <Left>
+    <Link to="/"><Logo/></Link>
+  </Left>
   <Right>
     <A href="#">whitepaper</A>
+    <Link to="/charts">charts</Link>
     <Link to="/Investment">Investment Details</Link>
     <MobileNone><A href="#">discord</A></MobileNone>
     <MobileNone> <A href="#">contact</A></MobileNone>
