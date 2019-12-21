@@ -66,7 +66,7 @@ const PreTitle = styled.div`
   text-align: center;
 
   @media (max-width: 768px) {
-    font-size: var(--text-medium-mobile);
+    font-size: var(--text-ratherbig-mobile);
 
   }
 `;

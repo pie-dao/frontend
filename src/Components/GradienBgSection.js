@@ -19,7 +19,7 @@ font-weight: 500;
 text-align: left;
 
   @media (max-width: 768px) {
-    font-size: var(--text-medium-mobile);
+    font-size: var(--text-ratherbig-mobile);
   }
 `;
 
