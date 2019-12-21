@@ -61,6 +61,7 @@ const TopNavi = props => {
   <Left><Logo/></Left>
   <Right>
     <A href="#">whitepaper</A>
+    <A href="/invstment-detail">Investment Details</A>
     <MobileNone><A href="#">discord</A></MobileNone>
     <MobileNone> <A href="#">contact</A></MobileNone>
   </Right>
