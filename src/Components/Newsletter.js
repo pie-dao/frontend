@@ -15,6 +15,8 @@ const Container = styled.div`
 
   @media (max-width: 680px) {
     flex-wrap: wrap;
+    padding: 10% 5%;
+
   }
 `;
 
@@ -99,7 +101,7 @@ margin: 20px 0 0 0;
     display: flex;
     width: 100%;
     justify-content: center;
-    margin: 2%;
+    margin: 2% 0;
   }
 `;
 
@@ -107,7 +109,7 @@ const Counter = styled.div`
   display: flex;
   align-items: center;
   font-family: var(--primary-font);
-  color: var(--almost-black);
+  color: var(--white);
   font-size: var(--text-normal);
   font-weight: 500;
   text-align: center;
@@ -199,7 +201,7 @@ function Newsletter() {
             >Get early access</Button>
         </section>
       </Form>
-      <Counter><LabelGradient>128</LabelGradient>/ 500 Hurry up!</Counter>
+      <Counter><LabelGradient>128</LabelGradient>/ 500 Hurry Up!</Counter>
     </Container>
   );
 }
