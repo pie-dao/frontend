@@ -41,6 +41,7 @@ font-size: var(--text-prettysmall);
     opacity: 0.6;
   }
   @media (max-width: 768px) {
+    font-size: var(--text-prettysmall-mobile);
     margin-left: 0;
   }
 `;
