@@ -9,6 +9,7 @@ margin: 0 5%;
 font-family: var(--secondary-font);
 
   @media (max-width: 768px) {
+    width: 90%;
   }
 `;
 
@@ -40,6 +41,14 @@ font-size: var(--text-prettysmall);
     opacity: 0.6;
   }
   @media (max-width: 768px) {
+    margin-left: 0;
+  }
+`;
+
+const MobileNone = styled.div`
+display: block;
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -51,8 +60,8 @@ const TopNavi = props => {
   <Left><Logo/></Left>
   <Right>
     <A href="#">whitepaper</A>
-    <A href="#">discord</A>
-    <A href="#">contact</A>
+    <MobileNone><A href="#">discord</A></MobileNone>
+    <MobileNone> <A href="#">contact</A></MobileNone>
   </Right>
   </Container>
     );
