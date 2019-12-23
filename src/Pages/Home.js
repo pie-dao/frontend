@@ -6,6 +6,7 @@ import GradientText from '../Components/GradientText';
 import Features from '../Components/Features';
 import BlackBGgradientText from '../Components/BlackBGgradientText';
 import BigBlackTitle from '../Components/BigBlackTitle';
+import FAQ from '../Components/FAQ';
 import Newsletter from '../Components/Newsletter';
 
 
@@ -21,6 +22,7 @@ function Home() {
       <Features/>
       <BlackBGgradientText/>
       <BigBlackTitle/>
+      <FAQ/>
       <Newsletter/>
     </div>
   );
