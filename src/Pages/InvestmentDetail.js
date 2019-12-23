@@ -12,11 +12,8 @@ function InvestmentDetail() {
     <div className="App">
       <GradientText GradientTextContent="You will gain way more"/>
       <AWPDetail />
-      <ComparisonTable />
       <Newsletter />
-      <Features />
-      <BlackBGgradientText />
-      <BigBlackTitle />
+      <BlackBGgradientText BlackBGgradientContent="If you had invested $100 per month over the past 10 years, you would have $111,324.92 today. The next best time to invest is now." />
       <Newsletter />
     </div>
   );

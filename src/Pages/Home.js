@@ -19,7 +19,7 @@ function Home() {
       <GradientText GradientTextContent="3% better performing than the top portfolios in the World*. How about that?" />
       <Newsletter />
       <Features />
-      <BlackBGgradientText />
+      <BlackBGgradientText BlackBGgradientContent="If you had invested $100 per month over the past 10 years, you would have $111,324.92 today. The next best time to invest is now."/>
       <BigBlackTitle />
       <Newsletter />
     </div>

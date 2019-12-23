@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import PrimaryButton from './PrimaryButton';
+
 
 const Contenitore = styled.div`
   display: flex;
@@ -58,7 +60,6 @@ const Content = styled.div`
   align-items: center;
   align-content: center;
   justify-content: center;
-  background-color: #f6f6f6;
 
   @media (max-width: 768px) {
   }
@@ -70,6 +71,7 @@ const Title = styled.div`
   color: var(--almost-black);
   font-size: var(--text-big);
   font-weight: 700;
+  line-height: 4rem;
 
   @media (max-width: 768px) {
     font-size: var(--text-ratherbig-mobile);
@@ -97,11 +99,10 @@ const AWPDetail = props => {
       <LR>
         <Box>
           <Content>
-            <Title>Crypto Exposure</Title>
             <Text>
-              The crypto basket, allocated for a maximum of 10%, aims to give
-              exposure to different assets in the blockchain industry between:
+Chart
             </Text>
+
           </Content>{" "}
         </Box>
         <Box>
@@ -110,14 +111,8 @@ const AWPDetail = props => {
             <Text>
               The crypto basket, allocated for a maximum of 10%, aims to give
               exposure to different assets in the blockchain industry between:
-              <p></p>
-              <ul>
-                <li> Settlement Layer</li>
-                <li> Privacy coins</li>
-                <li> Gaming</li>
-                <li> Decentralized Finance Protocols Coins</li>
-              </ul>
             </Text>
+            <PrimaryButton ButtonLabel="Get early access" />
           </Content>
         </Box>
       </LR>
@@ -125,25 +120,16 @@ const AWPDetail = props => {
       <RL>
         <Box>
         <Content>
-            <Title>APY Comparison Chart</Title>
             <Text>
-              The crypto basket, allocated for a maximum of 10%, aims to give
-              exposure to different assets in the blockchain industry between:
+            Chart
             </Text>
           </Content>        </Box>
         <Box>
-          <Content>
-            <Title>Crypto Exposure</Title>
+        <Content>
+            <Title>Performance</Title>
             <Text>
               The crypto basket, allocated for a maximum of 10%, aims to give
               exposure to different assets in the blockchain industry between:
-              <p></p>
-              <ul>
-                <li> Settlement Layer</li>
-                <li> Privacy coins</li>
-                <li> Gaming</li>
-                <li> Decentralized Finance Protocols Coins</li>
-              </ul>
             </Text>
           </Content>
         </Box>
