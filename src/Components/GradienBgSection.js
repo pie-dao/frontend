@@ -20,6 +20,7 @@ text-align: left;
 
   @media (max-width: 768px) {
     font-size: var(--text-ratherbig-mobile);
+    line-height: 2.6rem;
   }
 `;
 
@@ -43,12 +44,12 @@ font-size: var(--text-big);
 const GradienBgSection = props => {
     return (
       <Container>
-        <Text>Best investment deals are impossible to get for the most of us.<p></p>
+        <Text>Top investment deals are impossible to get for the most of us.<p></p>
 
 We are changing this by making the best wealth creation strategies accessible to everyone, with no minimum.
 
-We use a combination of cryptocurrencies and synthetic assets to replicate the best in class hedge funds.<p></p>
-<A href="#">Read the Lightpaper</A>
+We use a combination of synthetic assets and cryptocurrencies to mirror battle proof hedge funds.<p></p>
+<A href="#">Lightpaper</A>
   </Text>
       </Container>
     );

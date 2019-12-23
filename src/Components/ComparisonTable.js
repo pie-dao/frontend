@@ -14,7 +14,7 @@ const Container = styled.div`
   font-family: var(--secondary-font);
 
   @media (max-width: 768px) {
-    padding: 0 0 5% 0;
+    padding: 0 0 10% 0;
   }
 `;
 

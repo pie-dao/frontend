@@ -76,6 +76,7 @@ padding: 0 18%;
   @media (max-width: 768px) {
     font-size: var(--text-medium-mobile);
     padding: 0 0;
+    line-height: 2rem;
   }
 `;
 
@@ -87,9 +88,9 @@ padding: 0 18%;
 const Hero = props => {
     return (
 <Container>
-<PreTitle>Now you can finally invest like</PreTitle>
+<PreTitle>You can finally invest like</PreTitle>
 <Title>Ray Dalio</Title>
-<SubTitle>The richest people in the worlds have gained 10% every year in the last 10 years. It's time for you to make some <strong>real money</strong> too.</SubTitle>
+<SubTitle>The richest people in the World have gained 10% every year for the last 10 years. It's time for you to make some <strong>real money</strong> too.</SubTitle>
 <PrimaryButton ButtonLabel="Get early access" />
 <SmallText SmallContent="Reserved to the first 500 users only"/>
 

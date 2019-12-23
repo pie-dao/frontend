@@ -17,12 +17,12 @@ function Home() {
       <Hero/>
       <ComparisonTable/>
       <GradienBgSection/>
+      <FAQ/>
       <GradientText/>
       <Newsletter/>
       <Features/>
       <BlackBGgradientText/>
       <BigBlackTitle/>
-      <FAQ/>
       <Newsletter/>
     </div>
   );
