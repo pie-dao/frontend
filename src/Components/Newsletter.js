@@ -69,6 +69,7 @@ const PreTitle = styled.div`
   font-size: var(--text-big);
   font-weight: 700;
   text-align: center;
+  margin-bottom: 10px;
 
   @media (max-width: 768px) {
     font-size: var(--text-ratherbig-mobile);
@@ -79,7 +80,7 @@ const PreTitle = styled.div`
 const Button = styled.button`
 min-width: 300px;
 width: 60%;
-margin: 20px 0 0 0;
+margin: 10px 0 0 0;
   padding: 20px;
   background-color: #000;
   color: #fff;
@@ -145,6 +146,8 @@ function Newsletter() {
   return (
     <Container>
               <PreTitle>Be on top of the game</PreTitle>
+              <Counter>Zero fee for the first 500 Beta-testers</Counter>
+
 
       <Form
         action="https://dexlab.us17.list-manage.com/subscribe/post?u=98c7ba21bb6d63c6d14827c6e&amp;id=a51cc8153c"

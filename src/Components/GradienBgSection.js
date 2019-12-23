@@ -48,7 +48,7 @@ const GradienBgSection = props => {
 
 We are changing this by making the best wealth creation strategies accessible to everyone, with no minimum.
 
-We use a combination of synthetic assets and cryptocurrencies to mirror battle proof hedge funds.<p></p>
+We use a combination of derivatives, synthetic assets and cryptocurrencies to mirror battle proof hedge funds.<p></p>
 <A href="#">Lightpaper</A>
   </Text>
       </Container>

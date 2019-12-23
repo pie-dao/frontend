@@ -43,7 +43,7 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 const GradientText = props => {
     return (
 <Container>
-<Title>3% more of the best performing portfolio in the world*. How about that?</Title>
+<Title>3% better performing than the top portfolios in the World*. How about that?</Title>
   </Container>
     );
   };
