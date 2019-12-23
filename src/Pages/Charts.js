@@ -15,11 +15,12 @@ class Charts extends Component {
 
   state = {
     chartData: null,
-    compoundData: null
+    compoundData: null,
+    etfData: null,
   }
   componentDidMount(){
-    this.getData();
     this.getDataCompound();
+    this.getEtfData();
   }
 
   
@@ -43,6 +44,15 @@ class Charts extends Component {
     })
   }
 
+  async getEtfData() {
+    const res = await fetch(`http://localhost:3999/charts/etf`);
+    
+    const data = await res.json();
+    this.setState({
+      etfData: data.reverse()
+    })
+  }
+
   renderCompoundChart() {
     const {compoundData} = this.state;
     return (
@@ -62,25 +72,36 @@ class Charts extends Component {
     );
   }
 
-  render() {
-    const {chartData} = this.state;
-    console.log('chartData', chartData)
+  renderEtfChart() {
+    const {etfData} = this.state;
     return (
       <div>
-        <h3>Compound APR for SAI</h3>
-        {this.renderCompoundChart()}
-        <h3>Price for VTI</h3>
-        {!chartData ? 'Loading' :
-          <LineChart width={600} height={300} data={chartData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-            <XAxis dataKey="date"/>
+        {!etfData ? 'Loading' :
+          <LineChart width={600} height={300} data={etfData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+            <XAxis dataKey="month"/>
             <YAxis/>
             <CartesianGrid strokeDasharray="3 3"/>
             <Tooltip/>
             <Legend />
-            <Line type="monotone" dataKey="price" stroke="#8884d8" activeDot={{r: 8}}/>
+            <Line type="monotone" dataKey="VTI" stroke="#EC774C" activeDot={{r: 8}}/>
+            <Line type="monotone" dataKey="TLT" stroke="#FCAC50" activeDot={{r: 8}}/>
+            <Line type="monotone" dataKey="IEI" stroke="#ECC74C" activeDot={{r: 8}}/>
+            <Line type="monotone" dataKey="GLD" stroke="#4CE5EC" activeDot={{r: 8}}/>
+            <Line type="monotone" dataKey="GSG" stroke="#9F4CEC" activeDot={{r: 8}}/>
             {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
           </LineChart>
         }
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>Compound APR for SAI</h3>
+        {this.renderCompoundChart()}
+        <h3>ETF prices comparison</h3>
+        {this.renderEtfChart()}
       </div>
     );
   }
