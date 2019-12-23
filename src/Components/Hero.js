@@ -72,11 +72,11 @@ font-size: var(--text-medium);
 font-weight: 300;
 text-align: center;
 padding: 0 18%;
+line-height: 2rem;
 
   @media (max-width: 768px) {
     font-size: var(--text-medium-mobile);
     padding: 0 0;
-    line-height: 2rem;
   }
 `;
 
