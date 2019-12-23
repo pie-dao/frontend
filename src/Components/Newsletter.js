@@ -37,6 +37,8 @@ const Input = styled.input`
   -moz-box-shadow: none;
   box-shadow: none;
   margin: 30px 0 0 0;
+  font-size: var(--text-prettysmall);
+
 
   ::placeholder {
     color: var(--medium-grey);
@@ -46,8 +48,11 @@ const Input = styled.input`
 
   :focus {
     outline: none !important;
-    border: 1px solid var(--primary-color);
-    box-shadow: 0 0 10px var(--primary-color);
+    border: 1px solid var(--almost-black);
+    box-shadow: 0 0 10px var(--white);
+    font-size: var(--text-prettysmall);
+
+
   }
   :focus::placeholder {
     color: transparent;
