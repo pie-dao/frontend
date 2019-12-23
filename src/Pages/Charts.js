@@ -45,7 +45,8 @@ class Charts extends Component {
   }
 
   async getEtfData() {
-    const res = await fetch(`http://localhost:3999/charts/etf`);
+    const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/etf`);
+    //const res = await fetch(`http://localhost:3999/charts/etf`);
     
     const data = await res.json();
     this.setState({
