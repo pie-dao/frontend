@@ -7,9 +7,9 @@ import {
 /**
  * Import all page components here
  */
-import Home from './Pages/Home';
-import InvestmentDetail from './Pages/InvestmentDetail';
-import Charts from './Pages/Charts';
+import Home from './pages/Home';
+import InvestmentDetail from './pages/InvestmentDetail';
+import Charts from './pages/Charts';
 
 
 /**

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SmallText from "./SmallText";
+import SmallText from "../../ui/SmallText";
 
 const Contenitore = styled.div`
   display: flex;
@@ -156,7 +156,7 @@ const Features = props => {
                 <li> Gaming</li>
                 <li> Decentralized Finance Protocols Coins</li>
               </ul>
-              <SmallText SmallContent="*Portfolio Returns, up to December 2007, are simulated. They have been calculated using the historical series of equivalent ETFs / Assets, instead of the actual ETFs of the portfolio." />
+              <SmallText>*Portfolio Returns, up to December 2007, are simulated. They have been calculated using the historical series of equivalent ETFs / Assets, instead of the actual ETFs of the portfolio.</SmallText>
             </Text>
           </Content>
         </Box>
@@ -179,7 +179,7 @@ const Features = props => {
                 <li> Gaming</li>
                 <li> Decentralized Finance Protocols Coins</li>
               </ul>
-              <SmallText SmallContent="*Portfolio Returns, up to December 2007, are simulated. They have been calculated using the historical series of equivalent ETFs / Assets, instead of the actual ETFs of the portfolio." />
+              <SmallText>*Portfolio Returns, up to December 2007, are simulated. They have been calculated using the historical series of equivalent ETFs / Assets, instead of the actual ETFs of the portfolio.</SmallText>
             </Text>
           </Content>
         </Box>

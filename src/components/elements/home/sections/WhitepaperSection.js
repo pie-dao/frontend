@@ -68,7 +68,7 @@ animation-name: wave-animation;
 
 
 
-const BigBlackTitle = props => {
+const WhitepaperSection = props => {
     return (
 <Container>
 <Title>We promise it's good stuff.
@@ -78,4 +78,4 @@ Read the Whitepaper</Title>
     );
   };
   
-  export default BigBlackTitle;
+  export default WhitepaperSection;

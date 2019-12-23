@@ -40,7 +40,7 @@ background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
 
 
 
-const BlackBGgradientText = props => {
+const IfYouHadSection = props => {
     return (
 <BlackContainer>
 <Title>If you had invested $100 per month over the past 10 years, you would have $111,324.92 today.
@@ -49,4 +49,4 @@ const BlackBGgradientText = props => {
     );
   };
   
-  export default BlackBGgradientText;
+  export default IfYouHadSection;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import PrimaryButton from './PrimaryButton';
-import SmallText from './SmallText';
+import PrimaryButton from '../ui/PrimaryButton';
+import SmallText from '../ui/SmallText';
 
 const Container = styled.div`
 display: flex;
@@ -91,8 +91,8 @@ const Hero = props => {
 <PreTitle>You can finally invest like</PreTitle>
 <Title>Ray Dalio</Title>
 <SubTitle>The richest people in the World have gained 10% every year for the past 10 years. It's time for you to make some <strong>real money</strong> too.</SubTitle>
-<PrimaryButton ButtonLabel="Get early access" />
-<SmallText SmallContent="Reserved to the first 500 users only"/>
+<PrimaryButton>Get early access</PrimaryButton>
+<SmallText>Reserved to the first 500 users only</SmallText>
 
   </Container>
     );

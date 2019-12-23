@@ -1,13 +1,13 @@
 import React from 'react';
-import TopNavi from '../Components/TopNavi';
-import Hero from '../Components/Hero';
-import ComparisonTable from '../Components/ComparisonTable';
-import GradienBgSection from '../Components/GradienBgSection';
-import GradientText from '../Components/GradientText';
-import Features from '../Components/Features';
-import BlackBGgradientText from '../Components/BlackBGgradientText';
-import BigBlackTitle from '../Components/BigBlackTitle';
-import Newsletter from '../Components/Newsletter';
+import TopNavi from '../components/partials/TopNavi';
+import Hero from '../components/elements/home/Hero';
+import ComparisonTable from '../components/elements/home/comparison/ComparisonTable';
+import GradienBgSection from '../components/GradienBgSection';
+import GradientText from '../components/elements/home/sections/BetterPerformingSection';
+import Features from '../components/elements/home/sections/FeaturesSection';
+import BlackBGgradientText from '../components/elements/home/sections/IfYouHadSection';
+import NewsletterSection from '../components/elements/home/sections/NewsletterSection';
+import WhitepaperSection from '../components/elements/home/sections/WhitepaperSection';
 
 function InvestmentDetail() {
   return (
@@ -15,11 +15,11 @@ function InvestmentDetail() {
       <Hero/>
       <ComparisonTable/>
       <GradientText/>
-      <Newsletter/>
+      <NewsletterSection/>
       <Features/>
       <BlackBGgradientText/>
-      <BigBlackTitle/>
-      <Newsletter/>
+      <WhitepaperSection/>
+      <NewsletterSection/>
     </div>
   );
 }

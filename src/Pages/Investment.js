@@ -4,9 +4,9 @@ import ComparisonTable from '../ComparisonTable';
 import GradienBgSection from '../GradienBgSection';
 import GradientText from '../GradientText';
 import Features from '../Features';
-import BlackBGgradientText from '../BlackBGgradientText';
-import BigBlackTitle from '../BigBlackTitle';
-import Newsletter from '../Newsletter';
+import BlackBGgradientText from '../elements/home/BlackBGgradientText';
+import WhitepaperSection from '../components/elements/WhitepaperSection';
+import NewsletterSection from '../components/elements/home/sections/NewsletterSection';
 
 function Investment() {
   return (
@@ -14,11 +14,11 @@ function Investment() {
       <Hero/>
       <GradienBgSection/>
       <GradientText/>
-      <Newsletter/>
+      <NewsletterSection/>
       <Features/>
       <BlackBGgradientText/>
-      <BigBlackTitle/>
-      <Newsletter/>
+      <WhitepaperSection/>
+      <NewsletterSection/>
     </div>
   );
 }

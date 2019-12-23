@@ -13,7 +13,7 @@ font-size: var(--text-verysmall);
 
 const SmallText = props => {
     return (
-      <Small>{props.SmallContent}</Small>
+      <Small>{props.children}</Small>
     );
   };
   

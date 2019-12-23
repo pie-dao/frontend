@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import TopNavi from './Components/TopNavi';
+import TopNavi from './components/partials/TopNavi';
 import Routes from "./routes";
 import { Router } from "react-router-dom";
 
