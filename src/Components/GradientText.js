@@ -7,7 +7,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-margin: 80px 10% 50px 10%;
+margin: 5% 10%;
 font-family: var(--secondary-font);
 
   @media (max-width: 768px) {
@@ -43,7 +43,7 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 const GradientText = props => {
     return (
 <Container>
-<Title>3% better performing than the top portfolios in the World*. How about that?</Title>
+<Title>{props.GradientTextContent}</Title>
   </Container>
     );
   };
