@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Button = styled.button`
   margin: 30px 0 20px 0;
   padding: 20px;
-  background-color: #000;
+  /* background-color: #D71B97; */
   color: #fff;
   text-align: center;
   font-size: var(--font-main-button);
@@ -14,6 +14,10 @@ const Button = styled.button`
   border: none;
   transition-property: background-color, color;
   transition-duration: 0.3s;
+  background: linear-gradient(-60deg, #CB1A8F, #FC02A7);
+background-size: 100%;
+
+
 
   :hover {
     opacity: 0.8;

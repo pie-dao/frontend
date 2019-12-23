@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import PrimaryButton from './PrimaryButton';
 
 const Container = styled.div`
   display: flex;
@@ -11,7 +10,9 @@ const Container = styled.div`
   padding: 100px 10%;
   font-size: var(--p-text);
   line-height: 1.8rem;
-  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+  /* background: linear-gradient(to right, #f10096 0%, #21d7ff 100%); */
+  background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
+
 
   @media (max-width: 680px) {
     flex-wrap: wrap;
@@ -65,7 +66,7 @@ const Input = styled.input`
 
 const PreTitle = styled.div`
   font-family: var(--primary-font);
-  color: var(--white);
+  color: var(--almost-black);
   font-size: var(--text-big);
   font-weight: 700;
   text-align: center;
@@ -82,7 +83,9 @@ min-width: 300px;
 width: 60%;
 margin: 10px 0 0 0;
   padding: 20px;
-  background-color: #000;
+  /* background-color: #000; */
+  background: linear-gradient(-60deg, #CB1A8F, #FC02A7);
+background-size: 100%;
   color: #fff;
   text-align: center;
   font-size: var(--font-main-button);
@@ -118,7 +121,7 @@ const Counter = styled.div`
   display: flex;
   align-items: center;
   font-family: var(--primary-font);
-  color: var(--white);
+  color: var(--almost-black);
   font-size: var(--text-normal);
   font-weight: 500;
   text-align: center;
@@ -128,8 +131,8 @@ const Counter = styled.div`
 `;
 
 const LabelGradient = styled.div`
-background-color: var(--white);
-color: var(--almost-black);
+background-color: var(--almost-black);
+color: var(--white);
 padding: 1px 6px;
 border-radius: 3px;
 margin-right: 7px;

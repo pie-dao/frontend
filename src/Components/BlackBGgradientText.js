@@ -43,8 +43,8 @@ background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
 const BlackBGgradientText = props => {
     return (
 <BlackContainer>
-<Title>If you had invested $100 per month in the last 10 years, you would have $111,324.92 today.
- The new best time to invest is now.</Title>
+<Title>If you had invested $100 per month over the past 10 years, you would have $111,324.92 today.
+ The next best time to invest is now.</Title>
   </BlackContainer>
     );
   };
