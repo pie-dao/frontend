@@ -7,7 +7,7 @@ const Contenitore = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 80px 10%;
+  margin: 0;
 
   @media (max-width: 768px) {
     margin: 5% 0 0 0;
@@ -20,6 +20,7 @@ const LR = styled.div`
   width: 100%;
   flex-direction: row;
 
+
   @media (max-width: 768px) {
     flex-direction: column;
 
@@ -31,6 +32,7 @@ const RL = styled.div`
   width: 100%;
   flex-direction: row-reverse;
 
+
   @media (max-width: 768px) {
     flex-direction: column;
 
@@ -38,7 +40,7 @@ const RL = styled.div`
 `;
 
 const Box = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,7 +57,7 @@ const Box = styled.div`
 const Content = styled.div`
   display: flex;
   width: 80%;
-  padding: 10%;
+  padding: 12% 10%;
   max-height: 400;
   flex-direction: column;
   align-items: center;
@@ -98,10 +100,10 @@ const CryptoPortfolio = styled.div`
   padding: 0;
   margin: 0;
   background-image: url("../img/cryptofolio.jpg");
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
+  -webkit-background-size: 90%;
+  -moz-background-size: 90%;
+  -o-background-size: 90%;
+  background-size: 90%;
   background-position: left top;
   background-repeat: no-repeat;
 
@@ -121,10 +123,10 @@ const AWPCrypto = styled.div`
   padding: 0;
   margin: 0;
   background-image: url("../img/awpcrypto.jpg");
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
+  -webkit-background-size: 90%;
+  -moz-background-size: 90%;
+  -o-background-size: 90%;
+  background-size: 90%;
   background-position: right bottom;
   background-repeat: no-repeat;
 
