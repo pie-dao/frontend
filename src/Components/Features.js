@@ -63,7 +63,7 @@ const Content = styled.div`
   align-items: center;
   align-content: center;
   justify-content: center;
-  background-color: #f6f6f6;
+  /* background-color: #f6f6f6; */
 
   @media (max-width: 768px) {
   }
@@ -100,19 +100,26 @@ const CryptoPortfolio = styled.div`
   padding: 0;
   margin: 0;
   background-image: url("../img/cryptofolio.jpg");
-  -webkit-background-size: 90%;
-  -moz-background-size: 90%;
-  -o-background-size: 90%;
-  background-size: 90%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
   background-position: left top;
   background-repeat: no-repeat;
+
+  @media (max-width: 900px) {
+    background-image: url("../img/cryptofolio-mobile.jpg");
+    width: 100%;
+    height: 400px;
+    background-position: center;
+
+  }
 
   @media (max-width: 768px) {
     background-image: url("../img/cryptofolio-mobile.jpg");
     width: 100%;
-    height: 270px;
+    height: 70vw;
     background-position: center;
-
 
   }
 `;
@@ -123,17 +130,17 @@ const AWPCrypto = styled.div`
   padding: 0;
   margin: 0;
   background-image: url("../img/awpcrypto.jpg");
-  -webkit-background-size: 90%;
-  -moz-background-size: 90%;
-  -o-background-size: 90%;
-  background-size: 90%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
   background-position: right bottom;
   background-repeat: no-repeat;
 
   @media (max-width: 768px) {
     background-image: url("../img/awpcrypto-mobile.jpg");
     width: 100%;
-    height: 270px;
+    height: 70vw;
     background-position: center;
   }
 `;
