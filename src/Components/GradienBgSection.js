@@ -44,6 +44,7 @@ font-size: var(--text-big);
 const GradienBgSection = props => {
     return (
       <Container>
+        <section class="content center">
         <Text>Top investment deals are impossible to get for the most of us.<p></p>
 
 We are changing this by making the best wealth creation strategies accessible to everyone, with no minimum.
@@ -51,6 +52,7 @@ We are changing this by making the best wealth creation strategies accessible to
 We use a combination of derivatives, synthetic assets and cryptocurrencies to mirror battle proof hedge funds.<p></p>
 <A href="#">Lightpaper</A>
   </Text>
+      </section>
       </Container>
     );
   };

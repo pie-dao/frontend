@@ -17,3 +17,17 @@ body {
   background-color: var(--almost-black);
   font-family: 'Rubik', sans-serif;
 }
+
+
+@media screen and (min-width: 1216px) {
+  section.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1152px;
+  }
+}
+
+.center {
+  justify-content: center;
+  text-align:center;
+}

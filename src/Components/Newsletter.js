@@ -118,8 +118,7 @@ background-size: 100%;
 `;
 
 const Counter = styled.div`
-  display: flex;
-  align-items: center;
+  
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-normal);
@@ -130,7 +129,7 @@ const Counter = styled.div`
   }
 `;
 
-const LabelGradient = styled.div`
+const LabelGradient = styled.span`
 background-color: var(--almost-black);
 color: var(--white);
 padding: 1px 6px;
@@ -148,6 +147,7 @@ const None = styled.div`
 function Newsletter() {
   return (
     <Container>
+      <section class="content center">
               <PreTitle>Be on top of the game</PreTitle>
               <Counter>Zero fee for the first 500 Beta-testers</Counter>
 
@@ -215,7 +215,8 @@ function Newsletter() {
             >Get early access</Button>
         </section>
       </Form>
-      <Counter><LabelGradient>128</LabelGradient>/ 500 Hurry Up!</Counter>
+      <LabelGradient>128</LabelGradient>/ 500 Hurry Up!
+      </section>
     </Container>
   );
 }
