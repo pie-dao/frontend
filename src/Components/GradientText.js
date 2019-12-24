@@ -7,11 +7,11 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-margin: 5% 10%;
+margin: 5% 0;
 font-family: var(--secondary-font);
 
 @media (max-width: 768px) {
-  margin: 10% 5%;
+  margin: 10% 0;
   
 }
 `;
