@@ -9,10 +9,10 @@ justify-content: center;
 align-items: center;
 font-family: var(--secondary-font);
 background-color: var(--white);
-padding: 10%;
+padding: 10% 0;
 
   @media (max-width: 768px) {
-    padding: 10% 5%;
+    padding: 10% 0;
   }
 `;
 
@@ -71,10 +71,11 @@ animation-name: wave-animation;
 const WhitepaperSection = props => {
     return (
 <Container>
-<Title>We promise it's good stuff.
-Read the Whitepaper</Title>
-<A href="#"><WP>📄</WP></A>
-  </Container>
+  <section class="content center">
+    <Title>We promise it's good stuff. Read the Whitepaper</Title>
+    <A href="#"><WP>📄</WP></A>
+  </section>
+</Container>
     );
   };
   

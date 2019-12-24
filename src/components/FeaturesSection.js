@@ -7,10 +7,10 @@ const Contenitore = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 80px 10%;
+  margin: 0;
 
   @media (max-width: 768px) {
-    margin: 5% 0 0 0;
+    margin: 5% 0;
     padding: 0;
   }
 `;
@@ -19,6 +19,7 @@ const LR = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
+
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -31,6 +32,7 @@ const RL = styled.div`
   width: 100%;
   flex-direction: row-reverse;
 
+
   @media (max-width: 768px) {
     flex-direction: column;
 
@@ -38,7 +40,7 @@ const RL = styled.div`
 `;
 
 const Box = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,13 +57,13 @@ const Box = styled.div`
 const Content = styled.div`
   display: flex;
   width: 80%;
-  padding: 10%;
+  padding: 12% 10%;
   max-height: 400;
   flex-direction: column;
   align-items: center;
   align-content: center;
   justify-content: center;
-  background-color: #f6f6f6;
+  /* background-color: #f6f6f6; */
 
   @media (max-width: 768px) {
   }
@@ -105,12 +107,19 @@ const CryptoPortfolio = styled.div`
   background-position: left top;
   background-repeat: no-repeat;
 
+  @media (max-width: 900px) {
+    background-image: url("../img/cryptofolio-mobile.jpg");
+    width: 100%;
+    height: 400px;
+    background-position: center;
+
+  }
+
   @media (max-width: 768px) {
     background-image: url("../img/cryptofolio-mobile.jpg");
     width: 100%;
-    height: 270px;
+    height: 70vw;
     background-position: center;
-
 
   }
 `;
@@ -131,7 +140,7 @@ const AWPCrypto = styled.div`
   @media (max-width: 768px) {
     background-image: url("../img/awpcrypto-mobile.jpg");
     width: 100%;
-    height: 270px;
+    height: 70vw;
     background-position: center;
   }
 `;
@@ -139,6 +148,7 @@ const AWPCrypto = styled.div`
 const Features = props => {
   return (
     <Contenitore>
+      <section class="content">
       <LR>
         <Box>
           <AWPCrypto />
@@ -184,6 +194,7 @@ const Features = props => {
           </Content>
         </Box>
       </RL>
+      </section>
     </Contenitore>
   );
 };

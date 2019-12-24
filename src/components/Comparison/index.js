@@ -9,7 +9,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 5%;
   padding: 0 0 100px 0;
   font-family: var(--secondary-font);
 
@@ -21,6 +20,7 @@ const Container = styled.div`
 const Comparison = props => {
   return (
     <Container>
+      <section class="content">
       <ComparisonLabel />
       <ComparisonItemSpecial
         PortfolioLogo="../img/portfolio_02.png"
@@ -57,6 +57,7 @@ const Comparison = props => {
         OneYearGains="+ $ 300.00"
         APY="3.8%"
       />
+      </section>
     </Container>
   );
 };

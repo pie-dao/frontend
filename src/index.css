@@ -17,3 +17,37 @@ body {
   background-color: var(--almost-black);
   font-family: 'Rubik', sans-serif;
 }
+
+.center {
+  justify-content: center;
+  text-align:center;
+}
+
+@media screen and (min-width: 1216px) {
+  section.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    max-width: 980px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  section.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 980px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 980px;
+  }
+}
+
+

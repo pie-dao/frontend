@@ -85,7 +85,7 @@ const TopNavi = props => {
   <Right>
     <A href="#">whitepaper</A>
     <MobileNone><StyledLink to="/charts">charts</StyledLink></MobileNone>
-    <MobileNone><StyledLink to="/Investment">investment detail</StyledLink></MobileNone>
+    <MobileNone><StyledLink to="/Investment">investment</StyledLink></MobileNone>
     <MobileNone><A href="#">discord</A></MobileNone>
     <MobileNone> <A href="#">contact</A></MobileNone>
   </Right>

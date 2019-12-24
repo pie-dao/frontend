@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Gradient = styled.div`
-width: 90%;
 color: var(--almost-black);
 font-size: var(--text-prettysmall);
   @media (max-width: 768px) {

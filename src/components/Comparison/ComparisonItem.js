@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 
 const Gradient = styled.div`
-width: 90%;
 padding:1px;
 margin: -1px 0 0 0;
 background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);

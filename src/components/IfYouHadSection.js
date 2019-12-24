@@ -9,10 +9,10 @@ justify-content: center;
 align-items: center;
 font-family: var(--secondary-font);
 background-color: var(--almost-black);
-padding: 10%;
+padding: 10% 0;
 
   @media (max-width: 768px) {
-    padding: 10% 5%;
+    padding: 10% 0;
   }
 `;
 
@@ -42,10 +42,11 @@ background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
 
 const IfYouHadSection = props => {
     return (
-<BlackContainer>
-<Title>If you had invested $100 per month over the past 10 years, you would have $111,324.92 today.
- The next best time to invest is now.</Title>
-  </BlackContainer>
+    <BlackContainer>
+      <section class="content center">
+        <Title>{props.BlackBGgradientContent}</Title>
+      </section>
+    </BlackContainer>
     );
   };
   

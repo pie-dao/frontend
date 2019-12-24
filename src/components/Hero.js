@@ -8,12 +8,10 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-margin: 0 5%;
 padding: 0 0 30px 0;
 font-family: var(--secondary-font);
 
   @media (max-width: 768px) {
-    width: 90%;
     padding: 0 0 10px 0;
   }
 `;
@@ -72,11 +70,11 @@ font-size: var(--text-medium);
 font-weight: 300;
 text-align: center;
 padding: 0 18%;
+line-height: 2rem;
 
   @media (max-width: 768px) {
     font-size: var(--text-medium-mobile);
     padding: 0 0;
-    line-height: 2rem;
   }
 `;
 
@@ -87,14 +85,15 @@ padding: 0 18%;
 
 const Hero = props => {
     return (
-<Container>
-<PreTitle>You can finally invest like</PreTitle>
-<Title>Ray Dalio</Title>
-<SubTitle>The richest people in the World have gained 10% every year for the past 10 years. It's time for you to make some <strong>real money</strong> too.</SubTitle>
-<PrimaryButton>Get early access</PrimaryButton>
-<SmallText>Reserved to the first 500 users only</SmallText>
-
-  </Container>
+      <Container>
+        <section class="content center">
+          <PreTitle>You can finally invest like</PreTitle>
+          <Title>Ray Dalio</Title>
+          <SubTitle>The richest people in the World have gained 10% every year for the past 10 years. It's time for you to make some <strong>real money</strong> too.</SubTitle>
+          <PrimaryButton>Get early access</PrimaryButton>
+          <SmallText>Reserved to the first 500 users only</SmallText>
+        </section>
+      </Container>
     );
   };
   

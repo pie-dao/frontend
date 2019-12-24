@@ -7,13 +7,13 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-margin: 80px 10% 50px 10%;
+margin: 5% 0;
 font-family: var(--secondary-font);
 
-  @media (max-width: 768px) {
-    margin: 10% 5%;
-
-  }
+@media (max-width: 768px) {
+  margin: 10% 0;
+  
+}
 `;
 
 
@@ -28,9 +28,9 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 
-  @media (max-width: 768px) {
-    font-size: var(--text-ratherbig-mobile);
-  }
+@media (max-width: 768px) {
+  font-size: var(--text-ratherbig-mobile);
+}
 `;
 
 
@@ -41,10 +41,12 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 
 
 const GradientText = props => {
-    return (
-<Container>
-<Title>3% better performing than the top portfolios in the World*. How about that?</Title>
-  </Container>
+  return (
+    <Container>
+      <section class="content center">
+        <Title>{props.GradientTextContent}</Title>
+      </section>
+    </Container>
     );
   };
   
