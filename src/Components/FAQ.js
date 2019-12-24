@@ -5,13 +5,12 @@ import Collapsible from "react-collapsible";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 5% 5% 10% 5%;
+  padding: 5% 0 10% 0;
   font-family: var(--secondary-font);
   background-color: #f6f6f6;
 
 
   @media (max-width: 768px) {
-    width: 90%;
   }
 `;
 
