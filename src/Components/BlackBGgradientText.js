@@ -9,10 +9,10 @@ justify-content: center;
 align-items: center;
 font-family: var(--secondary-font);
 background-color: var(--almost-black);
-padding: 10%;
+padding: 10% 0;
 
   @media (max-width: 768px) {
-    padding: 10% 5%;
+    padding: 10% 0;
   }
 `;
 
