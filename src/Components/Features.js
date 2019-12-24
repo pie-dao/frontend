@@ -10,7 +10,7 @@ const Contenitore = styled.div`
   margin: 0;
 
   @media (max-width: 768px) {
-    margin: 5% 0 0 0;
+    margin: 5% 0;
     padding: 0;
   }
 `;
