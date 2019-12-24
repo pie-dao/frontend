@@ -18,7 +18,7 @@ const Container = styled.div`
   }
 `;
 
-const ComparisonTable = props => {
+const Comparison = props => {
   return (
     <Container>
       <ComparisonLabel />
@@ -61,4 +61,4 @@ const ComparisonTable = props => {
   );
 };
 
-export default ComparisonTable;
+export default Comparison;

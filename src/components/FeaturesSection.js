@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SmallText from "../../ui/SmallText";
+import SmallText from "./SmallText";
 
 const Contenitore = styled.div`
   display: flex;

@@ -1,13 +1,13 @@
 import React from 'react';
-import Hero from '../components/elements/home/Hero';
-import ComparisonTable from '../components/elements/home/comparison/ComparisonTable';
+import Hero from '../components/Hero';
+import Comparison from '../components/Comparison';
 import GradienBgSection from '../components/GradienBgSection';
-import GradientText from '../components/elements/home/sections/BetterPerformingSection';
-import Features from '../components/elements/home/sections/FeaturesSection';
-import BlackBGgradientText from '../components/elements/home/sections/IfYouHadSection';
-import FAQ from '../components/elements/home/sections/FAQSection';
-import NewsletterSection from '../components/elements/home/sections/NewsletterSection';
-import WhitepaperSection from '../components/elements/home/sections/WhitepaperSection';
+import GradientText from '../components/BetterPerformingSection';
+import Features from '../components/FeaturesSection';
+import BlackBGgradientText from '../components/IfYouHadSection';
+import FAQ from '../components/FAQSection';
+import NewsletterSection from '../components/NewsletterSection';
+import WhitepaperSection from '../components/WhitepaperSection';
 
 
 
@@ -15,7 +15,7 @@ function Home() {
   return (
     <div>
       <Hero/>
-      <ComparisonTable/>
+      <Comparison/>
       <GradienBgSection/>
       <FAQ/>
       <GradientText/>

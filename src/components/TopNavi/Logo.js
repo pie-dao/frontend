@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../../../logo.png';
+import logo from '../../logo.png';
 
 const LogoContainer = styled.img`
     height: 50px;

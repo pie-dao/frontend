@@ -6,7 +6,7 @@ import GradientText from '../GradientText';
 import Features from '../Features';
 import BlackBGgradientText from '../elements/home/BlackBGgradientText';
 import WhitepaperSection from '../components/elements/WhitepaperSection';
-import NewsletterSection from '../components/elements/home/sections/NewsletterSection';
+import NewsletterSection from '../components/NewsletterSection';
 
 function Investment() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import PrimaryButton from '../ui/PrimaryButton';
-import SmallText from '../ui/SmallText';
+import PrimaryButton from './PrimaryButton';
+import SmallText from './SmallText';
 
 const Container = styled.div`
 display: flex;
