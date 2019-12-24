@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 display: flex;
-padding: 100px 10%;
+padding: 100px 0;
 background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
 
   @media (max-width: 768px) {
-    padding: 10% 5%;
+    padding: 10% 0;
   }
 `;
 
