@@ -141,6 +141,7 @@ const AWPCrypto = styled.div`
 const Features = props => {
   return (
     <Contenitore>
+      <section class="content">
       <LR>
         <Box>
           <AWPCrypto />
@@ -186,6 +187,7 @@ const Features = props => {
           </Content>
         </Box>
       </RL>
+      </section>
     </Contenitore>
   );
 };

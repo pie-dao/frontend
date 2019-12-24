@@ -21,6 +21,7 @@ const Container = styled.div`
 const ComparisonTable = props => {
   return (
     <Container>
+      <section class="content">
       <ComparisonLabel />
       <ComparisonItemSpecial
         PortfolioLogo="../img/portfolio_02.png"
@@ -57,6 +58,7 @@ const ComparisonTable = props => {
         OneYearGains="+ $ 300.00"
         APY="3.8%"
       />
+      </section>
     </Container>
   );
 };

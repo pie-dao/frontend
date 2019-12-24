@@ -59,6 +59,7 @@ const Title = styled.div`
 const FAQ = props => {
   return (
     <Container>
+      <section class="content">
         <Title>FAQ</Title>
       <Gradient>
         <SingleItem>
@@ -144,6 +145,7 @@ const FAQ = props => {
           </Collapsible>
         </SingleItem>
       </Gradient>
+      </section>
     </Container>
   );
 };
