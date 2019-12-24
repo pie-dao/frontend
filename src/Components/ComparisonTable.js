@@ -9,7 +9,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 5%;
   padding: 0 0 100px 0;
   font-family: var(--secondary-font);
 
