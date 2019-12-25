@@ -66,7 +66,7 @@ const FAQ = props => {
               easing="ease-in"
               transitionTime="100"
               open={false}
-              triggerTagName='div'
+              triggerTagName="div"
             >
               <p>
                 This is the collapsible content. It can be any element or React
@@ -85,6 +85,7 @@ const FAQ = props => {
               trigger="What about derivatives?"
               easing="ease-in"
               transitionTime="100"
+              triggerTagName="div"
             >
               <p>
                 This is the collapsible content. It can be any element or React
@@ -103,6 +104,7 @@ const FAQ = props => {
               trigger="How much does PIE cost?"
               easing="ease-in"
               transitionTime="100"
+              triggerTagName="div"
             >
               <p>
                 This is the collapsible content. It can be any element or React
@@ -121,6 +123,7 @@ const FAQ = props => {
               trigger="How can I invest?"
               easing="ease-in"
               transitionTime="100"
+              triggerTagName="div"
             >
               <p>
                 This is the collapsible content. It can be any element or React
@@ -139,6 +142,7 @@ const FAQ = props => {
               trigger="Is it better than Compound?"
               easing="ease-in"
               transitionTime="100"
+              triggerTagName="div"
             >
               <p>
                 This is the collapsible content. It can be any element or React
@@ -157,6 +161,7 @@ const FAQ = props => {
               trigger="Is it safe?"
               easing="ease-in"
               transitionTime="100"
+              triggerTagName="div"
             >
               <p>
                 This is the collapsible content. It can be any element or React
