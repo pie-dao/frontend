@@ -9,7 +9,6 @@ const Container = styled.div`
   font-family: var(--secondary-font);
   background-color: #f6f6f6;
 
-
   @media (max-width: 768px) {
   }
 `;
@@ -60,90 +59,116 @@ const FAQ = props => {
     <Container>
       <section class="content">
         <Title>FAQ</Title>
-      <Gradient>
-        <SingleItem>
-          <Collapsible trigger="Who the hell is Ray Dalio?">
-            <p>
-              This is the collapsible content. It can be any element or React
-              component you like.
-            </p>
-            <p>
-              It can even be another Collapsible component. Check out the next
-              section!
-            </p>
-          </Collapsible>
-        </SingleItem>
-      </Gradient>
-      <Gradient>
-        <SingleItem>
-          <Collapsible trigger="What about derivatives?">
-            <p>
-              This is the collapsible content. It can be any element or React
-              component you like.
-            </p>
-            <p>
-              It can even be another Collapsible component. Check out the next
-              section!
-            </p>
-          </Collapsible>
-        </SingleItem>
-      </Gradient>
-      <Gradient>
-        <SingleItem>
-          <Collapsible trigger="How much does PIE cost?">
-            <p>
-              This is the collapsible content. It can be any element or React
-              component you like.
-            </p>
-            <p>
-              It can even be another Collapsible component. Check out the next
-              section!
-            </p>
-          </Collapsible>
-        </SingleItem>
-      </Gradient>
-      <Gradient>
-        <SingleItem>
-          <Collapsible trigger="How can I invest?">
-            <p>
-              This is the collapsible content. It can be any element or React
-              component you like.
-            </p>
-            <p>
-              It can even be another Collapsible component. Check out the next
-              section!
-            </p>
-          </Collapsible>
-        </SingleItem>
-      </Gradient>
-      <Gradient>
-        <SingleItem>
-          <Collapsible trigger="Is it better than Compound?">
-            <p>
-              This is the collapsible content. It can be any element or React
-              component you like.
-            </p>
-            <p>
-              It can even be another Collapsible component. Check out the next
-              section!
-            </p>
-          </Collapsible>
-        </SingleItem>
-      </Gradient>
-      <Gradient>
-        <SingleItem>
-          <Collapsible trigger="Is it safe?">
-            <p>
-              This is the collapsible content. It can be any element or React
-              component you like.
-            </p>
-            <p>
-              It can even be another Collapsible component. Check out the next
-              section!
-            </p>
-          </Collapsible>
-        </SingleItem>
-      </Gradient>
+        <Gradient>
+          <SingleItem>
+            <Collapsible
+              trigger="Who the hell is Ray Dalio?"
+              easing="ease-in"
+              transitionTime="100"
+              open={false}
+              triggerTagName='div'
+            >
+              <p>
+                This is the collapsible content. It can be any element or React
+                component you like.
+              </p>
+              <p>
+                It can even be another Collapsible component. Check out the next
+                section!
+              </p>
+            </Collapsible>
+          </SingleItem>
+        </Gradient>
+        <Gradient>
+          <SingleItem>
+            <Collapsible
+              trigger="What about derivatives?"
+              easing="ease-in"
+              transitionTime="100"
+            >
+              <p>
+                This is the collapsible content. It can be any element or React
+                component you like.
+              </p>
+              <p>
+                It can even be another Collapsible component. Check out the next
+                section!
+              </p>
+            </Collapsible>
+          </SingleItem>
+        </Gradient>
+        <Gradient>
+          <SingleItem>
+            <Collapsible
+              trigger="How much does PIE cost?"
+              easing="ease-in"
+              transitionTime="100"
+            >
+              <p>
+                This is the collapsible content. It can be any element or React
+                component you like.
+              </p>
+              <p>
+                It can even be another Collapsible component. Check out the next
+                section!
+              </p>
+            </Collapsible>
+          </SingleItem>
+        </Gradient>
+        <Gradient>
+          <SingleItem>
+            <Collapsible
+              trigger="How can I invest?"
+              easing="ease-in"
+              transitionTime="100"
+            >
+              <p>
+                This is the collapsible content. It can be any element or React
+                component you like.
+              </p>
+              <p>
+                It can even be another Collapsible component. Check out the next
+                section!
+              </p>
+            </Collapsible>
+          </SingleItem>
+        </Gradient>
+        <Gradient>
+          <SingleItem>
+            <Collapsible
+              trigger="Is it better than Compound?"
+              easing="ease-in"
+              transitionTime="100"
+            >
+              <p>
+                This is the collapsible content. It can be any element or React
+                component you like.
+              </p>
+              <p>
+                It can even be another Collapsible component. Check out the next
+                section!
+              </p>
+            </Collapsible>
+          </SingleItem>
+        </Gradient>
+        <Gradient>
+          <SingleItem>
+            <Collapsible
+              trigger="Is it safe?"
+              easing="ease-in"
+              transitionTime="100"
+            >
+              <p>
+                This is the collapsible content. It can be any element or React
+                component you like.
+              </p>
+              <p>
+                It can even be another Collapsible component. Check out the next
+                section!
+              </p>
+            </Collapsible>
+          </SingleItem>
+        </Gradient>
       </section>
     </Container>
   );

@@ -41,6 +41,27 @@ body {
   }
 }
 
+
+.Collapsible
+{
+  width: 100%;
+}
+
+.Collapsible__trigger {
+  width: 100%;
+  font-weight: 500;
+}
+
+.Collapsible__contentOuter
+{
+  width: 100%;
+}
+
+.Collapsible__contentInner
+{
+  width: 100%;
+}
+
 @media screen and (max-width: 768px) {
   section.content {
     margin-left: auto;
