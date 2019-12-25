@@ -1,25 +1,19 @@
-import React from 'react';
-import TopNavi from '../components/TopNavi';
-import Hero from '../components/Hero';
-import ComparisonTable from '../components/Comparison';
-import GradienBgSection from '../components/GradienBgSection';
-import GradientText from '../components/BetterPerformingSection';
-import Features from '../components/FeaturesSection';
-import BlackBGgradientText from '../components/IfYouHadSection';
-import NewsletterSection from '../components/NewsletterSection';
-import WhitepaperSection from '../components/WhitepaperSection';
+import React from "react";
+import GradientTextSection from "../components/GradientTextSection";
+import BlackBgGradientText from "../components/BlackBgGradientText";
+import NewsletterSection from "../components/NewsletterSection";
+import AWPDetail from "../components/AWPDetail";
 
 function InvestmentDetail() {
   return (
     <div className="App">
-      <Hero/>
-      <ComparisonTable/>
-      <GradientText/>
-      <NewsletterSection/>
-      <Features/>
-      <BlackBGgradientText/>
-      <WhitepaperSection/>
-      <NewsletterSection/>
+      <GradientTextSection>You will gain way more</GradientTextSection>
+      <AWPDetail />
+      <NewsletterSection />
+      <BlackBgGradientText>
+        If you had invested $100 per month over the past 10 years, you would have $111,324.92 today. The next best time to invest is now.
+      </BlackBgGradientText>
+      <NewsletterSection />
     </div>
   );
 }

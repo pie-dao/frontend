@@ -112,7 +112,7 @@ Chart
               The crypto basket, allocated for a maximum of 10%, aims to give
               exposure to different assets in the blockchain industry between:
             </Text>
-            <PrimaryButton ButtonLabel="Get early access" />
+            <PrimaryButton>Get early access</PrimaryButton>
           </Content>
         </Box>
       </LR>

@@ -2,18 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Container = styled.div`
+const BlackContainer = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-margin: 5% 0;
 font-family: var(--secondary-font);
-
-@media (max-width: 768px) {
-  margin: 10% 0;
-  
-}
+background-color: var(--almost-black);
+padding: 10% 0;
+  @media (max-width: 768px) {
+    padding: 10% 0;
+  }
 `;
 
 
@@ -24,13 +23,12 @@ color: var(--almost-black);
 font-size: var(--text-ratherbig);
 font-weight: 700;
 text-align: center;
-background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
+background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
-
-@media (max-width: 768px) {
-  font-size: var(--text-ratherbig-mobile);
-}
+  @media (max-width: 768px) {
+    font-size: var(--text-ratherbig-mobile);
+  }
 `;
 
 
@@ -40,14 +38,14 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 
 
 
-const GradientText = props => {
-  return (
-    <Container>
+const BlackBgGradientText = props => {
+    return (
+    <BlackContainer>
       <section class="content center">
-        <Title>{props.GradientTextContent}</Title>
+        <Title>{props.children}</Title>
       </section>
-    </Container>
+    </BlackContainer>
     );
   };
   
-  export default GradientText;
+  export default BlackBgGradientText;
