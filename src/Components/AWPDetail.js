@@ -1,14 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import PrimaryButton from "./PrimaryButton";
 import CompoundAPR from "./CompoundAPR";
 
 const Contenitore = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 80px 0;
+  margin: 10px 0;
+  padding: 0 5%;
 
   @media (max-width: 768px) {
     margin: 5% 0 0 0;
@@ -16,52 +17,29 @@ const Contenitore = styled.div`
   }
 `;
 
-const LR = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const RL = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: row-reverse;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const Box = styled.div`
-  width: 100%;
+const Left = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  align-content: center;
   justify-content: center;
-  padding: 0;
-  margin: 0;
+  align-items: center;
+  margin: 80px 2% 80px 0;
 
   @media (max-width: 768px) {
-    width: 100%;
+    margin: 5% 0 0 0;
+    padding: 0;
   }
 `;
 
-const Content = styled.div`
+const Right = styled.div`
   display: flex;
-  width: 80%;
-  padding: 10%;
-  max-height: 400;
   flex-direction: column;
-  align-items: center;
-  align-content: center;
   justify-content: center;
+  align-items: center;
+  margin: 80px 0 80px 2%;
 
   @media (max-width: 768px) {
+    margin: 5% 0 0 0;
+    padding: 0;
   }
 `;
 
@@ -95,42 +73,18 @@ const Text = styled.div`
 const AWPDetail = props => {
   return (
     <Contenitore>
-      <LR>
-        <Box>
-          <Content>
-            <Text>
-              <CompoundAPR />
-            </Text>
-          </Content>{" "}
-        </Box>
-        <Box>
-          <Content>
-            <Title>DeFi Lending is doomed</Title>
-            <Text>
-              The crypto basket, allocated for a maximum of 10%, aims to give
-              exposure to different assets in the blockchain industry between:
-            </Text>
-            <PrimaryButton ButtonLabel="Get early access" />
-          </Content>
-        </Box>
-      </LR>
+      <Left>
+        <CompoundAPR />
+      </Left>
 
-      <RL>
-        <Box>
-          <Content>
-            <Text>Chart</Text>
-          </Content>{" "}
-        </Box>
-        <Box>
-          <Content>
-            <Title>Performance</Title>
-            <Text>
-              The crypto basket, allocated for a maximum of 10%, aims to give
-              exposure to different assets in the blockchain industry between:
-            </Text>
-          </Content>
-        </Box>
-      </RL>
+      <Right>
+        <Title>DeFi Lending is doomed</Title>
+        <Text>
+          The crypto basket, allocated for a maximum of 10%, aims to give
+          exposure to different assets in the blockchain industry between:
+        </Text>
+        <PrimaryButton ButtonLabel="Buy Now" />
+      </Right>
     </Contenitore>
   );
 };

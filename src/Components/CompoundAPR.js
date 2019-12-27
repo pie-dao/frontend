@@ -74,17 +74,15 @@ class CompoundAPR extends Component {
     return (
       <div>
         {!compoundData ? 'Loading' :
-        <ResponsiveContainer width="100%" height="80%">
-          <LineChart data={compoundData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+          <LineChart width={600} height={300} data={compoundData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
             <XAxis dataKey="month"/>
             <YAxis/>
             <CartesianGrid strokeDasharray="3 3"/>
             <Tooltip/>
             <Legend />
-            <Line type="monotone" dataKey="rate" stroke="#8884d8" activeDot={{r: 8}}/>
+            <Line name="Compound APR for SAI" type="monotone" dataKey="rate" stroke="#8884d8" activeDot={{r: 8}}/>
             {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
           </LineChart>
-          </ResponsiveContainer>
         }
       </div>
     );
@@ -95,7 +93,8 @@ class CompoundAPR extends Component {
     return (
       <div>
         {!etfData ? 'Loading' :
-          <LineChart width={600} height={300} data={etfData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+        <ResponsiveContainer width={"100%"}>
+          <LineChart  height={300} data={etfData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
             <XAxis dataKey="month"/>
             <YAxis/>
             <CartesianGrid strokeDasharray="3 3"/>
@@ -108,6 +107,7 @@ class CompoundAPR extends Component {
             <Line type="monotone" dataKey="GSG" stroke="#9F4CEC" activeDot={{r: 8}}/>
             {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
           </LineChart>
+          </ResponsiveContainer>
         }
       </div>
     );
@@ -116,7 +116,7 @@ class CompoundAPR extends Component {
   render() {
     return (
       <div>
-        <Title>Compound APR for SAI</Title>
+        {/* <Title>Compound APR for SAI</Title> */}
         {this.renderCompoundChart()}
       </div>
     );
