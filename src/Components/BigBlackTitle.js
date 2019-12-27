@@ -73,7 +73,7 @@ const BigBlackTitle = props => {
 <Container>
   <section className="content center">
     <Title>We promise it's good stuff. Read the Whitepaper</Title>
-    <A href="#"><WP>📄</WP></A>
+    <A href="#"><WP><span role="img" aria-label="document">📄</span></WP></A>
   </section>
 </Container>
     );
