@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
-import PrimaryButton from './PrimaryButton';
-
+import PrimaryButton from "./PrimaryButton";
+import CompoundAPR from "./CompoundAPR";
 
 const Contenitore = styled.div`
   display: flex;
@@ -71,7 +71,6 @@ const Title = styled.div`
   color: var(--almost-black);
   font-size: var(--text-big);
   font-weight: 700;
-  line-height: 4rem;
 
   @media (max-width: 768px) {
     font-size: var(--text-ratherbig-mobile);
@@ -81,17 +80,17 @@ const Title = styled.div`
 const Text = styled.div`
   text-align: left;
   font-family: var(--primary-font);
-color: var(--almost-black);
-font-size: var(--text-medium);
-font-weight: 300;
-padding: 0;
-line-height: 2rem;
+  color: var(--almost-black);
+  font-size: var(--text-normal);
+  font-weight: 300;
+  padding: 0;
+  line-height: 1.5rem;
 
   @media (max-width: 768px) {
     font-size: var(--text-medium-mobile);
-    padding: 0 0;  }
+    padding: 0 0;
+  }
 `;
-
 
 const AWPDetail = props => {
   return (
@@ -100,14 +99,13 @@ const AWPDetail = props => {
         <Box>
           <Content>
             <Text>
-Chart
+              <CompoundAPR />
             </Text>
-
           </Content>{" "}
         </Box>
         <Box>
           <Content>
-            <Title>AWP++ allocation</Title>
+            <Title>DeFi Lending is doomed</Title>
             <Text>
               The crypto basket, allocated for a maximum of 10%, aims to give
               exposure to different assets in the blockchain industry between:
@@ -119,13 +117,12 @@ Chart
 
       <RL>
         <Box>
-        <Content>
-            <Text>
-            Chart
-            </Text>
-          </Content>        </Box>
+          <Content>
+            <Text>Chart</Text>
+          </Content>{" "}
+        </Box>
         <Box>
-        <Content>
+          <Content>
             <Title>Performance</Title>
             <Text>
               The crypto basket, allocated for a maximum of 10%, aims to give

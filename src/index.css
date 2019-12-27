@@ -62,6 +62,25 @@ body {
   width: 100%;
 }
 
+tspan {
+  font-family: var(--primary-font);
+color: var(--almost-black);
+font-size: var(--text-prettysmall);
+font-weight: 300;
+}
+
+.recharts-legend-item-text {
+  font-family: var(--primary-font);
+  font-size: var(--text-prettysmall);
+  font-weight: 500;
+}
+
+.recharts-tooltip-label, .recharts-default-tooltip {
+  font-family: var(--primary-font);
+  font-size: var(--text-prettysmall);
+  font-weight: 500;
+}
+
 @media screen and (max-width: 768px) {
   section.content {
     margin-left: auto;
