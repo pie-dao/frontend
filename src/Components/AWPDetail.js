@@ -12,7 +12,8 @@ const Contenitore = styled.div`
   padding: 0 5%;
 
   @media (max-width: 768px) {
-    margin: 5% 0 0 0;
+    flex-direction: column;
+    margin: 1% 5%;
     padding: 0;
   }
 `;
@@ -25,7 +26,6 @@ const Left = styled.div`
   margin: 80px 2% 80px 0;
 
   @media (max-width: 768px) {
-    margin: 5% 0 0 0;
     padding: 0;
   }
 `;
@@ -38,7 +38,6 @@ const Right = styled.div`
   margin: 80px 0 80px 2%;
 
   @media (max-width: 768px) {
-    margin: 5% 0 0 0;
     padding: 0;
   }
 `;
