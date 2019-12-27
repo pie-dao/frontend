@@ -20,7 +20,7 @@ const Container = styled.div`
 const ComparisonTable = props => {
   return (
     <Container>
-      <section class="content">
+      <section className="content">
       <ComparisonLabel />
       <ComparisonItemSpecial
         PortfolioLogo="../img/portfolio_02.png"

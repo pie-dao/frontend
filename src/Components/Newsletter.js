@@ -147,7 +147,7 @@ const None = styled.div`
 function Newsletter() {
   return (
     <Container>
-      <section class="content center">
+      <section className="content center">
               <PreTitle>Be on top of the game</PreTitle>
               <Counter>Zero fee for the first 500 Beta-testers</Counter>
 
@@ -169,11 +169,11 @@ function Newsletter() {
             name="EMAIL"
             className="required email newsletterInput"
           />
-          <label for="mce-EMAIL" class="screenreader" style={{ position: "absolute", left: "-5000px" }}
+          <label htmlFor="mce-EMAIL" className="screenreader" style={{ position: "absolute", left: "-5000px" }}
             aria-hidden="true">
             email
           </label>
-          <None class="mc-field-group input-group">
+          <None className="mc-field-group input-group">
             <ul>
               <li>
                 <input
@@ -181,9 +181,9 @@ function Newsletter() {
                   value="2"
                   name="group[7603][2]"
                   id="mce-group[7603]-7603-0"
-                  checked
+                  defaultChecked
                 />
-                <label for="mce-group[7603]-7603-0">pie500</label>
+                <label htmlFor="mce-group[7603]-7603-0">pie500</label>
               </li>
             </ul>
           </None>

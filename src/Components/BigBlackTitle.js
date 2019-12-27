@@ -71,7 +71,7 @@ animation-name: wave-animation;
 const BigBlackTitle = props => {
     return (
 <Container>
-  <section class="content center">
+  <section className="content center">
     <Title>We promise it's good stuff. Read the Whitepaper</Title>
     <A href="#"><WP>📄</WP></A>
   </section>

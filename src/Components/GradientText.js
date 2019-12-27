@@ -43,7 +43,7 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 const GradientText = props => {
   return (
     <Container>
-      <section class="content center">
+      <section className="content center">
         <Title>{props.GradientTextContent}</Title>
       </section>
     </Container>

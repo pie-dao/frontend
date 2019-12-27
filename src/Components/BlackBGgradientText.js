@@ -43,7 +43,7 @@ background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
 const BlackBGgradientText = props => {
     return (
     <BlackContainer>
-      <section class="content center">
+      <section className="content center">
         <Title>{props.BlackBGgradientContent}</Title>
       </section>
     </BlackContainer>

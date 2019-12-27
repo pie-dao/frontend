@@ -57,14 +57,14 @@ const Title = styled.div`
 const FAQ = props => {
   return (
     <Container>
-      <section class="content">
+      <section className="content">
         <Title>FAQ</Title>
         <Gradient>
           <SingleItem>
             <Collapsible
               trigger="Who the hell is Ray Dalio?"
               easing="ease-in"
-              transitionTime="100"
+              transitionTime={100}
               open={false}
               triggerTagName="div"
             >
@@ -84,7 +84,7 @@ const FAQ = props => {
             <Collapsible
               trigger="What about derivatives?"
               easing="ease-in"
-              transitionTime="100"
+              transitionTime={100}
               triggerTagName="div"
             >
               <p>
@@ -103,7 +103,7 @@ const FAQ = props => {
             <Collapsible
               trigger="How much does PIE cost?"
               easing="ease-in"
-              transitionTime="100"
+              transitionTime={100}
               triggerTagName="div"
             >
               <p>
@@ -122,7 +122,7 @@ const FAQ = props => {
             <Collapsible
               trigger="How can I invest?"
               easing="ease-in"
-              transitionTime="100"
+              transitionTime={100}
               triggerTagName="div"
             >
               <p>
@@ -141,7 +141,7 @@ const FAQ = props => {
             <Collapsible
               trigger="Is it better than Compound?"
               easing="ease-in"
-              transitionTime="100"
+              transitionTime={100}
               triggerTagName="div"
             >
               <p>
@@ -160,7 +160,7 @@ const FAQ = props => {
             <Collapsible
               trigger="Is it safe?"
               easing="ease-in"
-              transitionTime="100"
+              transitionTime={100}
               triggerTagName="div"
             >
               <p>
