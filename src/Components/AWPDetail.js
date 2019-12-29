@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PrimaryButton from "./PrimaryButton";
 import CompoundAPR from "./CompoundAPR";
+import { ModalContainer, Modal } from "minimal-react-modal";
+import Input from "./Input";
 
 const Contenitore = styled.div`
   display: flex;
@@ -28,7 +30,6 @@ const Left = styled.div`
   @media (max-width: 1000px) {
     padding: 0;
     margin: 0;
-
   }
 `;
 
@@ -42,7 +43,7 @@ const Right = styled.div`
   @media (max-width: 1000px) {
     padding: 0;
     margin: 10px 0 0 0;
-    text-align: center
+    text-align: center;
   }
 `;
 
@@ -59,13 +60,14 @@ const Title = styled.div`
 `;
 
 const Text = styled.div`
-  text-align: left;
+  text-align: center;
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-normal);
   font-weight: 300;
   padding: 0;
   line-height: 1.5rem;
+  margin-bottom: 3%;
 
   @media (max-width: 768px) {
     font-size: var(--text-medium-mobile);
@@ -86,7 +88,37 @@ const AWPDetail = props => {
           The crypto basket, allocated for a maximum of 10%, aims to give
           exposure to different assets in the blockchain industry between:
         </Text>
-        <PrimaryButton ButtonLabel="Buy Now" />
+        <ModalContainer>
+          {(openModal, closeModal, isActive) => (
+            <div>
+              <button
+                className="buttonModal"
+                ButtonLabel="Buy Now"
+                onClick={openModal}
+              >
+                Buy Now
+              </button>{" "}
+              <Modal className="mainModal"
+                isActive={isActive} // required
+                closeModal={closeModal} // required
+                modalBoxStyle={{
+                  width: "90%",
+                  maxWidth: 600,
+                  padding: "5%",
+                }}
+              >
+                <Title>Buy PIE Tokens now</Title>
+                <Text>
+                  The crypto basket, allocated for a maximum of 10%, aims to
+                  give exposure to different assets in the blockchain industry
+                  between:
+                </Text>
+                <Input inpPlaceholder="i.e. 1000 DAI" inpType="number" inpID="invest"/>
+                <PrimaryButton ButtonLabel="Connect Metamask" />
+              </Modal>
+            </div>
+          )}
+        </ModalContainer>
       </Right>
     </Contenitore>
   );
