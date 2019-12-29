@@ -101,6 +101,7 @@ const AWPDetail = props => {
               <Modal className="mainModal"
                 isActive={isActive} // required
                 closeModal={closeModal} // required
+                showAnimation={true}
                 modalBoxStyle={{
                   width: "90%",
                   maxWidth: 600,
