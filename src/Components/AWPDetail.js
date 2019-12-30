@@ -75,6 +75,30 @@ const Text = styled.div`
   }
 `;
 
+const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  @media (max-width: 768px) {
+  }
+`;
+
+const TokenLabel = styled.div`
+  display: flex;
+  align-items: center;
+  min-width: 100px;
+  @media (max-width: 768px) {
+  }
+`;
+
+const TokenImage = styled.img`
+  height: 30px;
+  margin: 0 10px;
+
+  @media (max-width: 768px) {
+    height: 30px;
+  }
+`;
+
 const AWPDetail = props => {
   return (
     <Contenitore>
@@ -98,14 +122,15 @@ const AWPDetail = props => {
               >
                 Buy Now
               </button>{" "}
-              <Modal className="mainModal"
+              <Modal
+                className="mainModal"
                 isActive={isActive} // required
                 closeModal={closeModal} // required
                 showAnimation={true}
                 modalBoxStyle={{
                   width: "90%",
                   maxWidth: 600,
-                  padding: "5%",
+                  padding: "5%"
                 }}
               >
                 <Title>Buy PIE Tokens now</Title>
@@ -114,7 +139,34 @@ const AWPDetail = props => {
                   give exposure to different assets in the blockchain industry
                   between:
                 </Text>
-                <Input inpPlaceholder="i.e. 1000 DAI" inpType="number" inpID="invest"/>
+                <InputContainer>
+                  <Input
+                    inpPlaceholder="i.e. 1000"
+                    inpType="number"
+                    inpID="invest"
+                  />
+                  <TokenLabel>
+                    <TokenImage
+                      src="../img/dai.png"
+                      alt="token icon"
+                    />
+                    DAI
+                  </TokenLabel>
+                </InputContainer>
+                <InputContainer>
+                  <Input
+                    inpPlaceholder="675"
+                    inpType="number"
+                    inpID="invest"
+                  />
+                  <TokenLabel>
+                    <TokenImage
+                      src="../img/portfolio_02.png"
+                      alt="token icon"
+                    />
+                    pAWP
+                  </TokenLabel>
+                </InputContainer>
                 <PrimaryButton ButtonLabel="Connect Metamask" />
               </Modal>
             </div>
