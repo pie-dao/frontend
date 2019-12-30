@@ -5,8 +5,9 @@ const GenericImput = styled.input`
   display: flex;
   flex-grow: 1;
   min-width: 300px;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
+  /* border: 1px solid #cccccc; */
+  border: none;
+  /* border-radius: 4px; */
   padding: 20px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -22,7 +23,7 @@ const GenericImput = styled.input`
 
   :focus {
     outline: none !important;
-    border: 1px solid var(--almost-black);
+    /* border: 1px solid var(--almost-black); */
     box-shadow: 0 0 10px var(--white);
     font-size: var(--text-prettysmall);
   }

@@ -78,6 +78,9 @@ const Text = styled.div`
 const InputContainer = styled.div`
   display: flex;
   align-items: center;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  margin-bottom: 10px
   @media (max-width: 768px) {
   }
 `;
@@ -85,7 +88,7 @@ const InputContainer = styled.div`
 const TokenLabel = styled.div`
   display: flex;
   align-items: center;
-  min-width: 100px;
+  min-width: 120px;
   @media (max-width: 768px) {
   }
 `;
@@ -146,19 +149,12 @@ const AWPDetail = props => {
                     inpID="invest"
                   />
                   <TokenLabel>
-                    <TokenImage
-                      src="../img/dai.png"
-                      alt="token icon"
-                    />
+                    <TokenImage src="../img/dai.png" alt="token icon" />
                     DAI
                   </TokenLabel>
                 </InputContainer>
                 <InputContainer>
-                  <Input
-                    inpPlaceholder="675"
-                    inpType="number"
-                    inpID="invest"
-                  />
+                  <Input inpPlaceholder="0" inpType="number" inpID="invest" />
                   <TokenLabel>
                     <TokenImage
                       src="../img/portfolio_02.png"
