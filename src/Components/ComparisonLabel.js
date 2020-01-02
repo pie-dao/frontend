@@ -58,7 +58,7 @@ const ComparisonLabel = props => {
     return (
       <Gradient>
       <Container>
-      <PortfolioName>Stragety Name</PortfolioName>
+      <PortfolioName>Strategy Name</PortfolioName>
       <InitialAmount>Initial Amount</InitialAmount>
       <OneYearGains>24/mo Returns</OneYearGains>
       <APY>APY</APY>
