@@ -29,85 +29,38 @@ const data = [
 class CompoundAPR extends Component {
 
   state = {
-    chartData: null,
-    compoundData: null,
-    etfData: null,
+    comparisonData: null,
   }
   componentDidMount(){
-    this.getDataCompound();
-    this.getEtfData();
+    this.getData();
   }
 
   
-  async getDataCompound() {
-    //const res = await fetch(`http://localhost:3999/charts/compound`);
-    const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/compound`);
-    
-    const data = await res.json();
-    this.setState({
-      compoundData: data
-    })
-  }
-
   async getData() {
-    //const res = await fetch(`http://localhost:3999/stock/VTI/monthly/chart`);
-    const res = await fetch(`https://pie-protocol-api.herokuapp.com/stock/VTI/monthly/chart`);
+    const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/comparison`);
     
     const data = await res.json();
     this.setState({
-      chartData: data.reverse()
+      comparisonData: data
     })
   }
 
-  async getEtfData() {
-    const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/etf`);
-    //const res = await fetch(`http://localhost:3999/charts/etf`);
-    
-    const data = await res.json();
-    this.setState({
-      etfData: data.reverse()
-    })
-  }
+  renderComparisonChart() {
+    const {comparisonData} = this.state;
 
-  renderCompoundChart() {
-    const {compoundData} = this.state;
     return (
       <div>
-        {!compoundData ? 'Loading' :
-          <LineChart width={600} height={300} data={compoundData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+        {!(comparisonData) ? 'Loading' :
+          <LineChart width={600} height={300} data={comparisonData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
             <XAxis dataKey="month"/>
             <YAxis/>
             <CartesianGrid strokeDasharray="3 3"/>
             <Tooltip/>
             <Legend />
-            <Line name="Compound APR for SAI" type="monotone" dataKey="rate" stroke="#8884d8" activeDot={{r: 8}}/>
-            {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
+            <Line type="monotone" dataKey="awp" stroke="#00C49F" activeDot={{r: 8}}/>
+            <Line type="monotone" dataKey="awpPlus" stroke="#EC774C" activeDot={{r: 8}}/>
+            <Line type="monotone" dataKey="compound" stroke="#0088FE" activeDot={{r: 8}}/>
           </LineChart>
-        }
-      </div>
-    );
-  }
-
-  renderEtfChart() {
-    const {etfData} = this.state;
-    return (
-      <div>
-        {!etfData ? 'Loading' :
-        <ResponsiveContainer width={"100%"}>
-          <LineChart  height={300} data={etfData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-            <XAxis dataKey="month"/>
-            <YAxis/>
-            <CartesianGrid strokeDasharray="3 3"/>
-            <Tooltip/>
-            <Legend />
-            <Line type="monotone" dataKey="VTI" stroke="#EC774C" activeDot={{r: 8}}/>
-            <Line type="monotone" dataKey="TLT" stroke="#FCAC50" activeDot={{r: 8}}/>
-            <Line type="monotone" dataKey="IEI" stroke="#ECC74C" activeDot={{r: 8}}/>
-            <Line type="monotone" dataKey="GLD" stroke="#4CE5EC" activeDot={{r: 8}}/>
-            <Line type="monotone" dataKey="GSG" stroke="#9F4CEC" activeDot={{r: 8}}/>
-            {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
-          </LineChart>
-          </ResponsiveContainer>
         }
       </div>
     );
@@ -116,8 +69,7 @@ class CompoundAPR extends Component {
   render() {
     return (
       <div>
-        {/* <Title>Compound APR for SAI</Title> */}
-        {this.renderCompoundChart()}
+        {this.renderComparisonChart()}
       </div>
     );
   }
