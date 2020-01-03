@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend , PieChart, Pie, Sector, Cell} from 'recharts';
 
 const data = [
   {name: 'Page A', uv: 4000, pv: 2400, },
@@ -16,16 +16,20 @@ class Charts extends Component {
   state = {
     chartData: null,
     compoundData: null,
+    comparisonData: null,
     etfData: null,
+    awpData: null,
+    awpPie: null,
   }
   componentDidMount(){
     this.getDataCompound();
     this.getEtfData();
+    this.getAWP();
+    this.getDataComparison();
   }
 
   
   async getDataCompound() {
-    //const res = await fetch(`http://localhost:3999/charts/compound`);
     const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/compound`);
     
     const data = await res.json();
@@ -34,10 +38,18 @@ class Charts extends Component {
     })
   }
 
-  async getData() {
-    //const res = await fetch(`http://localhost:3999/stock/VTI/monthly/chart`);
-    const res = await fetch(`https://pie-protocol-api.herokuapp.com/stock/VTI/monthly/chart`);
+  
+  async getDataComparison() {
+    const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/comparison`);
     
+    const data = await res.json();
+    this.setState({
+      comparisonData: data
+    })
+  }
+
+  async getData() {
+    const res = await fetch(`https://pie-protocol-api.herokuapp.com/stock/VTI/monthly/chart`);
     const data = await res.json();
     this.setState({
       chartData: data.reverse()
@@ -46,12 +58,67 @@ class Charts extends Component {
 
   async getEtfData() {
     const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/etf`);
-    //const res = await fetch(`http://localhost:3999/charts/etf`);
     
     const data = await res.json();
     this.setState({
       etfData: data.reverse()
     })
+  }
+
+  async getAWP() {
+    const res = await fetch(`https://pie-protocol-api.herokuapp.com/portfolio/awp`);
+    const data = await res.json();
+
+    this.setState({
+      awpPie: data.assets,
+      awpData: data.MoM.map(o => { return {
+        roi: o.roi_percentage_since_start * 100
+      }})
+    })
+  }
+
+  renderCustomizedLabel = ({
+    cx, cy, midAngle, innerRadius, outerRadius, percent, index,
+  }) => {
+    const {awpPie} = this.state;
+    const RADIAN = Math.PI / 180;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+  
+    const single = awpPie[index].ticker;
+    // {`${single} ${(percent * 100).toFixed(0)}%`}
+    return (
+      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        {`${single}`}
+      </text>
+    );
+  };
+
+  renderAwpPie() {
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+    const {awpPie} = this.state;
+    if(!awpPie) {
+      return null;
+    }
+    return (
+      <PieChart width={400} height={400}>
+        <Pie
+          data={awpPie}
+          cx={200}
+          cy={200}
+          labelLine={false}
+          label={this.renderCustomizedLabel}
+          outerRadius={80}
+          fill="#8884d8"
+          dataKey="ratio"
+        >
+          {
+            data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+          }
+        </Pie>
+      </PieChart>
+    );
   }
 
   renderCompoundChart() {
@@ -66,7 +133,45 @@ class Charts extends Component {
             <Tooltip/>
             <Legend />
             <Line type="monotone" dataKey="rate" stroke="#8884d8" activeDot={{r: 8}}/>
-            {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
+          </LineChart>
+        }
+      </div>
+    );
+  }
+
+  renderComparisonChart() {
+    const {comparisonData} = this.state;
+
+    return (
+      <div>
+        {!(comparisonData) ? 'Loading' :
+          <LineChart width={600} height={300} data={comparisonData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+            <XAxis dataKey="month"/>
+            <YAxis/>
+            <CartesianGrid strokeDasharray="3 3"/>
+            <Tooltip/>
+            <Legend />
+            <Line type="monotone" dataKey="awp" stroke="#00C49F" activeDot={{r: 8}}/>
+            <Line type="monotone" dataKey="awpPlus" stroke="#EC774C" activeDot={{r: 8}}/>
+            <Line type="monotone" dataKey="rate" stroke="#0088FE" activeDot={{r: 8}}/>
+          </LineChart>
+        }
+      </div>
+    );
+  }
+
+  renderAWPChart() {
+    const {awpData, compoundData} = this.state;
+    return (
+      <div>
+        {!(awpData || compoundData) ? 'Loading' :
+          <LineChart width={600} height={300} data={awpData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+            <XAxis dataKey="month"/>
+            <YAxis/>
+            <CartesianGrid strokeDasharray="3 3"/>
+            <Tooltip/>
+            <Legend />
+            <Line type="monotone" dataKey="roi" stroke="#EC774C" activeDot={{r: 8}}/>
           </LineChart>
         }
       </div>
@@ -99,10 +204,18 @@ class Charts extends Component {
   render() {
     return (
       <div>
+        <h3>Rates comparison</h3>
+        {this.renderComparisonChart()}
+        <h3>AWP</h3>
+        {this.renderAWPChart()}
+        {this.renderAwpPie()}
+
         <h3>Compound APR for SAI</h3>
         {this.renderCompoundChart()}
         <h3>ETF prices comparison</h3>
         {this.renderEtfChart()}
+
+        
       </div>
     );
   }

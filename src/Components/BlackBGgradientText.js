@@ -16,8 +16,6 @@ padding: 10% 0;
   }
 `;
 
-
-
 const Title = styled.div`
 font-family: var(--primary-font);
 color: var(--almost-black);
