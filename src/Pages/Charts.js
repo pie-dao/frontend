@@ -22,8 +22,8 @@ class Charts extends Component {
     awpPie: null,
   }
   componentDidMount(){
-    this.getDataCompound();
-    this.getEtfData();
+    // this.getDataCompound();
+    // this.getEtfData();
     this.getAWP();
     this.getDataComparison();
   }
@@ -40,7 +40,8 @@ class Charts extends Component {
 
   
   async getDataComparison() {
-    const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/comparison`);
+    const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/comparison/2019-12`);
+    //const res = await fetch(`http://localhost:3999/charts/comparison/2019-12`);
     
     const data = await res.json();
     this.setState({
@@ -66,14 +67,11 @@ class Charts extends Component {
   }
 
   async getAWP() {
-    const res = await fetch(`https://pie-protocol-api.herokuapp.com/portfolio/awp`);
-    const data = await res.json();
+    // const res = await fetch(`https://pie-protocol-api.herokuapp.com/portfolio/awp`);
+    // const data = await res.json();
 
     this.setState({
-      awpPie: data.assets,
-      awpData: data.MoM.map(o => { return {
-        roi: o.roi_percentage_since_start * 100
-      }})
+      awpPie: [{"ratio":0.3,"ticker":"VTI","initial_allocation":3000},{"ratio":0.4,"ticker":"TLT","initial_allocation":4000},{"ratio":0.15,"ticker":"IEI","initial_allocation":1500},{"ratio":0.075,"ticker":"GLD","initial_allocation":750},{"ratio":0.075,"ticker":"GSG","initial_allocation":750}],
     })
   }
 
@@ -206,14 +204,15 @@ class Charts extends Component {
       <div>
         <h3>Rates comparison</h3>
         {this.renderComparisonChart()}
-        <h3>AWP</h3>
-        {this.renderAWPChart()}
         {this.renderAwpPie()}
+        {/* <h3>AWP</h3>
+        {this.renderAWPChart()}
+        
 
         <h3>Compound APR for SAI</h3>
         {this.renderCompoundChart()}
         <h3>ETF prices comparison</h3>
-        {this.renderEtfChart()}
+        {this.renderEtfChart()} */}
 
         
       </div>
