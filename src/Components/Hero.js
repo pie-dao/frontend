@@ -29,32 +29,32 @@ const PreTitle = styled.div`
 `;
 
 const Title = styled.div`
-  font-family: var(--primary-font);
-  color: var(--almost-black);
-  font-size: var(--text-verybig);
-  font-weight: 700;
-  text-align: center;
-  /* background: linear-gradient(to right, #F10096 0%, #21D7FF 100%); */
-  background: linear-gradient(-60deg, #f10096, #21d7ff);
-  background-size: 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 11rem;
-  animation: flow 7s ease-in-out infinite;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+font-family: var(--primary-font);
+color: var(--almost-black);
+font-size: var(--text-verybig);
+font-weight: 700;
+text-align: center;
+/* background: linear-gradient(to right, #F10096 0%, #21D7FF 100%); */
+background: linear-gradient(-60deg, #F10096, #21D7FF);
+background-size: 300%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+line-height: 12rem;
+animation: flow 7s ease-in-out infinite;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 
-  @keyframes flow {
-    0% {
-      background-position: 0 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    110% {
-      background-position: 0 50%;
-    }
+@keyframes flow {
+  0% {
+    background-position: 0 50%;
   }
+  50% {
+    background-position: 100% 50%;
+  }
+  110% {
+    background-position: 0 50%;
+  }
+}
 
   @media (max-width: 768px) {
     font-size: var(--text-verybig-mobile);

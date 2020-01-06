@@ -23,6 +23,10 @@ body {
   text-align:center;
 }
 
+.verticalMargins {
+margin: 3% 0;
+}
+
 @media screen and (min-width: 1216px) {
   section.content {
     margin-left: auto;
