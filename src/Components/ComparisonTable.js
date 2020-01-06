@@ -26,7 +26,7 @@ const ComparisonTable = props => {
         PortfolioLogo="../img/portfolio_02.png"
         PortfolioName="AWP++"
         InitialAmount="10,000.00"
-        OneYearGains="+ $ 2,000.00"
+        OneYearGains="+ $ 1,759.84"
         APY="10.0%"
       />
       <ComparisonItem
