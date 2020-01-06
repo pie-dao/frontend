@@ -172,7 +172,7 @@ const Features = props => {
         </Box>
       </LR>
 
-      <RL>
+      {/* <RL>
         <Box>
           <CryptoPortfolio />
         </Box>
@@ -193,7 +193,7 @@ const Features = props => {
             </Text>
           </Content>
         </Box>
-      </RL>
+      </RL> */}
       </section>
     </Contenitore>
   );

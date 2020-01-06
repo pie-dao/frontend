@@ -8,6 +8,7 @@ import BlackBGgradientText from "../Components/BlackBGgradientText";
 import BigBlackTitle from "../Components/BigBlackTitle";
 import FAQ from "../Components/FAQ";
 import Newsletter from "../Components/Newsletter";
+import AllocationTab from "../Components/AllocationTab";
 
 function Home() {
   return (
@@ -18,6 +19,7 @@ function Home() {
       <FAQ />
       <GradientText GradientTextContent="3% better performing than the top portfolios in the World*. How about that?" />
       <Features />
+      <AllocationTab />
       <BlackBGgradientText BlackBGgradientContent="If you had invested $100 per month over the past 10 years, you would have $111,324.92 today. The next best time to invest is now."/>
       <BigBlackTitle />
       <Newsletter />
