@@ -12,19 +12,20 @@ const data01 = [
   { name: "Aluminum	", value: 3.49 },
   { name: "Wheat", value: 3.40 },
   { name: "Corn", value: 3.30 },
-  { name: "Live Cattle", value: 2.74 },
-  { name: "Gold", value: 1.95 },
-  { name: "Soybean", value: 1.84 },
-  { name: "Nickel", value: 1.64 },
-  { name: "Lean Hogs", value: 1.53 },
-  { name: "Zinc", value: 1.29 },
-  { name: "Sugar", value: 1.23 },
-  { name: "Cotton", value: 0.90 },
-  { name: "Coffee", value: 0.69 },
-  { name: "Cattle Feeder", value: 0.54 },
-  { name: "Lead", value: 0.52 },
-  { name: "Silver", value: 0.29 },
-  { name: "Cocoa", value: 0.22 }
+  { name: "Other", value: 15.16 },
+  // { name: "Live Cattle", value: 2.74 },
+  // { name: "Gold", value: 1.95 },
+  // { name: "Soybean", value: 1.84 },
+  // { name: "Nickel", value: 1.64 },
+  // { name: "Lean Hogs", value: 1.53 },
+  // { name: "Zinc", value: 1.29 },
+  // { name: "Sugar", value: 1.23 },
+  // { name: "Cotton", value: 0.90 },
+  // { name: "Coffee", value: 0.69 },
+  // { name: "Cattle Feeder", value: 0.54 },
+  // { name: "Lead", value: 0.52 },
+  // { name: "Silver", value: 0.29 },
+
 
 
 ];

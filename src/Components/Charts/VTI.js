@@ -2,15 +2,15 @@ import React, { PureComponent } from "react";
 import { PieChart, Pie, Legend, Tooltip } from "recharts";
 
 const data01 = [
-  { name: "Microsoft Corp (MSFT)", value: 3.68 },
-  { name: "Apple Inc (AAPL)", value: 3.72 },
-  { name: "Amazon.com Inc (AMZN)", value: 2.48 },
-  { name: "Facebook Inc (FB)", value: 1.58 },
-  { name: "Alphabet Inc (GOOG)", value: 1.39 },
-  { name: "Berkshire Hathaway Inc (BRK.B)", value: 1.35 },
-  { name: "JPMorgan Chase & Co (JPM)", value: 1.27 },
-  { name: "Johnson & Johnson (JNJ)", value: 1.19 },
-  { name: "Alphabet Inc (GOOGL)", value: 1.15 },
+  // { name: "Microsoft Corp (MSFT)", value: 3.68 },
+  // { name: "Apple Inc (AAPL)", value: 3.72 },
+  // { name: "Amazon.com Inc (AMZN)", value: 2.48 },
+  // { name: "Facebook Inc (FB)", value: 1.58 },
+  // { name: "Alphabet Inc (GOOG)", value: 1.39 },
+  // { name: "Berkshire Hathaway Inc (BRK.B)", value: 1.35 },
+  // { name: "JPMorgan Chase & Co (JPM)", value: 1.27 },
+  // { name: "Johnson & Johnson (JNJ)", value: 1.19 },
+  // { name: "Alphabet Inc (GOOGL)", value: 1.15 },
   // { name: "Visa Inc (V)", value: 1 },
   // { name: "Procter & Gamble Co (PG)", value: 0.95 },
   // { name: "Exxon Mobil Corp (XOM)", value: 0.92 },
@@ -32,12 +32,19 @@ const data01 = [
   // { name: "PepsiCo Inc (PEP)", value: 0.56 },
   // { name: "Boeing Co (BA)", value: 0.56 },
   // { name: "Citigroup Inc ©", value: 0.54 },
-  { name: "Others", value: 82.19 },
-
-
-
-
-
+  // { name: "Others", value: 82.19 },
+  { name: "Technology", value: 22 },
+  { name: "Healthcare", value: 14 },
+  { name: "Financials", value: 13 },
+  { name: "Consumer - Cylical", value: 10 },
+  { name: "Industrials", value: 10 },
+  { name: "Communications", value: 9 },
+  { name: "Consumer - Non Cylical", value: 6 },
+  { name: "Energy", value: 4 },
+  { name: "Real Estate", value: 4 },
+  { name: "Other", value: 4 },
+  { name: "Utilities", value: 3 },
+  { name: "Basic Materials", value: 2 }
 ];
 
 export default class VTI extends PureComponent {
