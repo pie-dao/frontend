@@ -69,7 +69,7 @@ color: var(--almost-black);
 font-size: var(--text-medium);
 font-weight: 300;
 text-align: center;
-padding: 0 18%;
+padding: 0 10%;
 line-height: 2rem;
 
   @media (max-width: 768px) {
@@ -89,7 +89,12 @@ const Hero = props => {
         <section className="content center">
           <PreTitle>What if you could invest like</PreTitle>
           <Title>Ray Dalio</Title>
-          <SubTitle>The richest people in the World have gained 10% every year for the past 10 years. We think it's fair for you to make some <strong>real money</strong> too.</SubTitle>
+          {/* <SubTitle>The richest people in the World have gained 10% every year for the past 10 years. We think it's fair for you to make some <strong>real money</strong> too.</SubTitle> */}
+          <SubTitle>
+            “What I realized is nobody knows and nobody ever will consistently predict what the future holds. Therefore, I have to design an asset allocation that, even if I’m wrong, I’ll still be okay.”
+             - <i>Ray Dalio</i>
+          </SubTitle>
+          
           <PrimaryButton ButtonLabel="Get early access" />
           <SmallText SmallContent="Reserved to the first 500 users only"/>
         </section>
