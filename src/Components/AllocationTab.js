@@ -21,6 +21,7 @@ const Container = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 
@@ -28,6 +29,7 @@ const Content = styled.div`
   display: flex;
   width: 50%;
   @media (max-width: 768px) {
+    width: auto;
   }
 `;
 
