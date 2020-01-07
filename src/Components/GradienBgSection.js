@@ -57,7 +57,7 @@ const GradienBgSection = props => {
           <br></br><br></br>
           We are making the best asset allocation strategies accessible to everyone on the Ethereum network with no minimum.
           <br></br><br></br>
-          <a href="" target="blank">Request access to Whitepaper</a>
+          <a href="" target="blank">Request Whitepaper</a>
         </Text>
       </section>
       </Container>

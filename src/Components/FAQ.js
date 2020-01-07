@@ -68,8 +68,8 @@ const FAQ = props => {
               triggerTagName="div"
             >
               <p>
-                Pie is a decentralized network of individuals backtesting and reaching consensous on asset allocations and DeFi opportunity.
-                Pie is governed by the PieDAO.
+                Pie is a decentralized network of individuals backtesting and reaching consensous on asset allocations and DeFi opportunities.
+                Pie is governed by the Pie DAO.
               </p>
             </Collapsible>
           </SingleItem>
@@ -85,7 +85,7 @@ const FAQ = props => {
             >
               <p>
                 Governance is a process through which a group of stakeholders come to a decision on a particular change within their system or organization. Many centralized entities have expedited the governance process through the nomination of critical decision makers like board members and executives. 
-                In the context of PieDAO, it is done through a voting system where anyone who owns and has staked PIE can vote on changes to the Asset Allocation within the products offered by Pie Network.
+                In the context of Pie DAO, it is done through a voting system where anyone who owns and has staked PIE can vote on changes to the Asset Allocation within the products offered by Pie Network.
               </p>
             </Collapsible>
           </SingleItem>
@@ -138,7 +138,7 @@ const FAQ = props => {
             >
               <p>
                 For the Pie Network to be successful, the stakeholders in the system need to collaborate and vote on a variety of parameters. 
-                Some examples include: which assets will be included in which index (Ex: AWP++), how much weight a specific asset will have, and the management fees a AWP++ holder is charged. The process is done through on-chain voting mechanism in the Pie Dao. Stakeholders still have the option of voting directly by interacting with the smart contacts via a friendly user interface.
+                Some examples include: which assets will be included in which index (Ex: AWP++), how much weight a specific asset will have, and the management fees a AWP++ holder is charged. The process is done through an on-chain voting mechanism in the Pie Dao. Stakeholders still have the option of voting directly by interacting with the smart contacts via a friendly user interface.
                 <br/> <a href="" target="blank">Request access to Whitepaper</a>
               </p>
             </Collapsible>
@@ -181,7 +181,7 @@ const FAQ = props => {
                 Interest for lenders on Compound are calculated algorithmically at every block, therefore, having predictability on ROI by holding cTokens is challending.
               </p>
               <p>
-                Pie asset allocations by comparison are designed to aim for resiliance and a greated degree of predictability.
+                Pie asset allocations by comparison are designed to aim for resiliance and a greater degree of predictability.
               </p>
             </Collapsible>
           </SingleItem>
@@ -210,7 +210,7 @@ const FAQ = props => {
               triggerTagName="div"
             >
               <p>
-                Asset allocations on Pie Network are created by stakeholder of the PieDao and deployed by individual users of the Pie smart contracts.
+                Asset allocations on Pie Network are created by stakeholder of the Pie Dao and deployed by individual users of the Pie smart contracts.
               </p>
             </Collapsible>
           </SingleItem>
@@ -230,10 +230,10 @@ const FAQ = props => {
               <p>
                 Among other things, the Pie Dao does not:
                 <ul>
-                  <li>Operate an exchange.</li>
-                  <li>Create markets or contracts on the Pie Network.</li>
-                  <li>Escrow, custody, transfer, or otherwise handle funds or cryptocurrencies on the Pie Network.</li>
-                  <li>Control who accesses the Pie Network.</li>
+                  <li>Operate an exchange</li>
+                  <li>Create markets or contracts on the Pie Network</li>
+                  <li>Escrow, custody, transfer, or otherwise handle funds or cryptocurrencies on the Pie Network</li>
+                  <li>Control who accesses the Pie Network</li>
                 </ul>
               </p>
             </Collapsible>
