@@ -249,8 +249,8 @@ const FAQ = props => {
               triggerTagName="div"
             >
               <p>
-              Pie Dao uses existing DeFi protocols as building blocks to unlock the compounding value of multiple financial primitives. Pie Network combine the use synthetic asset platforms, and decentralized exchanges. 
-              Synthetic asset systems, like Maker, Synthetix, UMA, and the Market Protocol, create tokens that are pegged to a target asset but backed by a different collateral asset.
+              Pie Dao uses existing DeFi protocols as building blocks to unlock the compounding value of multiple financial primitives. Pie Network combines the use of synthetic asset platforms, and decentralized exchanges. 
+              Synthetic asset systems, like Maker, Synthetix, UMA, and the Market Protocol, creates tokens that are pegged to a target asset but backed by a different collateral asset.
               </p>
               <p>
                 Among other things, the Pie Network smartcontracts integrate with:
