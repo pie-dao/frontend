@@ -99,7 +99,7 @@ p.Ptab {
 
 .noborder li {
     border:none;
-    padding-inline-start: 20;
+    padding-inline-start: 0;
 }
 
 .lightWeight {

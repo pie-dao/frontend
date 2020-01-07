@@ -66,6 +66,8 @@ const Content = styled.div`
   /* background-color: #f6f6f6; */
 
   @media (max-width: 768px) {
+    width: 100%;
+    padding: 0 10%;
   }
 `;
 
