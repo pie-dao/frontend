@@ -119,5 +119,6 @@ p.Ptab {
       p.Ptab {
         font-weight: 300;
         font-size: var(--text-medium-mobile);
+        text-align: left;
     }
   }
