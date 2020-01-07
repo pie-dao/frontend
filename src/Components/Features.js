@@ -66,8 +66,10 @@ const Content = styled.div`
   /* background-color: #f6f6f6; */
 
   @media (max-width: 768px) {
-    width: 90%;
-    padding: 0 0 5% 0;
+    width: 100%;
+    padding: 12% 0;
+    margin-bottom: 10%;
+    overflow: hidden;
   }
 `;
 
