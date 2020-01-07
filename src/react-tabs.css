@@ -9,9 +9,29 @@
     margin: 0;
     font-family: 'Rubik', sans-serif;
   }
+  :root {
+    --almost-black: #0a0a0a;
+    --text-verybig: 10rem;
+    --text-verybig-mobile: 7rem;
+    --text-ratherbig: 4rem;
+    --text-ratherbig-mobile: 2rem;
+    --text-big: 2.3rem;
+    --text-medium: 1.5rem;
+    --text-medium-mobile: 1.3rem;
+    --text-normal: 1.1rem;
+    --text-prettysmall: 0.9rem;
+    --text-table-mobile: 0.6rem;
+    --text-label-mobile: 0.5rem;
+    --text-verysmall: 0.8rem;
+    --white: #ffffff;
+    --secondary-font: 'Roboto Mono', monospace;
+    --primary-font: 'Rubik', sans-serif;
+  
+  }
 
 p.Ptab {
     font-weight: 300;
+    font-size: var(--text-medium);
 }
 
 .react-tabs {
@@ -95,4 +115,9 @@ p.Ptab {
     .react-tabs__tab {
         padding: 8px 14px;
       }
+
+      p.Ptab {
+        font-weight: 300;
+        font-size: var(--text-medium-mobile);
+    }
   }
