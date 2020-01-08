@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
+import ConnectWeb3Button from "./ConnectWeb3Button";
 
 const Container = styled.div`
   display: flex;
@@ -91,6 +92,7 @@ const TopNavi = props => {
           {" "}
           <A href="#">contact</A>
         </MobileNone>
+        <ConnectWeb3Button />
       </Right>
     </Container>
   );
