@@ -52,7 +52,7 @@ const PrimaryButton = props => {
         });
       }}
     >
-      {props.ButtonLabel}
+      {props.children}
     </Button>
   );
 };
