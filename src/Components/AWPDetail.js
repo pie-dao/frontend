@@ -4,6 +4,7 @@ import PrimaryButton from "./PrimaryButton";
 import CompoundAPR from "./CompoundAPR";
 import { ModalContainer, Modal } from "minimal-react-modal";
 import Input from "./Input";
+import { link, cta } from "../mixpanel";
 
 const Contenitore = styled.div`
   display: flex;
@@ -80,7 +81,7 @@ const InputContainer = styled.div`
   align-items: center;
   border: 1px solid #cccccc;
   border-radius: 4px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
   @media (max-width: 768px) {
   }
 `;
@@ -125,6 +126,18 @@ const AWPDetail = props => {
               >
                 Buy Now
               </button>{" "}
+              <button
+                onClick={() => {
+                  cta({
+                    position: "navbar",
+                    to: "/",
+                    type: "button",
+                    label: "Buy Now"
+                  });
+                }}
+              >
+                BUY
+              </button>
               <Modal
                 className="mainModal"
                 isActive={isActive} // required
