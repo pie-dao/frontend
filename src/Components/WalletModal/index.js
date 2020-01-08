@@ -29,12 +29,19 @@ const TextMessage = styled.div`
   font-size: var(--text-normal);
   font-weight: 700;
   text-align: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   margin: 10px 0;
+  @media (max-width: 768px) {
+    font-size: var(--text-ratherbig-mobile);
+  }
+`;
 
+const DynamicTextMessage = styled.div`
+  font-family: var(--primary-font);
+  color: var(--almost-black);
+  font-size: var(--text-normal);
+  font-weight: 300;
+  text-align: center;
+  margin: 10px 0;
   @media (max-width: 768px) {
     font-size: var(--text-ratherbig-mobile);
   }
@@ -97,19 +104,17 @@ const WalletModal = props => {
                 padding: "5%"
             }}
             >
-            <IF what={walletView == WALLET_VIEWS.OPTIONS}>
+            <IF what={walletView === WALLET_VIEWS.OPTIONS}>
                 <WalletOption onClick={() => { tryActivation(SUPPORTED_WALLETS.METAMASK.connector) }} wallet={SUPPORTED_WALLETS.METAMASK} />
             </IF>
-            <IF what={walletView == WALLET_VIEWS.PENDING}>
-                
-
+            <IF what={walletView === WALLET_VIEWS.PENDING}>
                 {pendingError ? 
                     <>
                         <Container>
                         <ErrorImage src="../../../img/error.jpg" alt="error icon" />
 
                             <TextMessage>Error Connecting</TextMessage>
-                            <TextMessage>{errorMessage}</TextMessage>
+                            <DynamicTextMessage>{errorMessage}</DynamicTextMessage>
                         </Container>
                         
                         <PrimaryButton onClick={() => {setWalletView(WALLET_VIEWS.OPTIONS)}}>GO BACK</PrimaryButton>
@@ -117,7 +122,7 @@ const WalletModal = props => {
                     <Container>Please Log-in to your wallet and Connect it to PIE</Container>
                 }
             </IF>
-            <IF what={walletView == WALLET_VIEWS.ACCOUNT}>
+            <IF what={walletView === WALLET_VIEWS.ACCOUNT}>
                 <Container>Account View</Container>
             </IF>
         </Modal>
