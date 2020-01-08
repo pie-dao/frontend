@@ -46,7 +46,7 @@ background-size: 100%;
 
 const PrimaryButton = props => {
     return (
-      <Button>{props.ButtonLabel}</Button>
+      <Button onClick={props.onClick}>{props.children}</Button>
     );
   };
   

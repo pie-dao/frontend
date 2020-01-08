@@ -90,7 +90,7 @@ const Hero = props => {
           <PreTitle>What if you could invest like</PreTitle>
           <Title>Ray Dalio</Title>
           <SubTitle>The richest people in the World have gained 10% every year for the past 10 years. We think it's fair for you to make some <strong>real money</strong> too.</SubTitle>
-          <PrimaryButton ButtonLabel="Get early access" />
+          <PrimaryButton>Get early access</PrimaryButton>
           <SmallText SmallContent="Reserved to the first 500 users only"/>
         </section>
       </Container>

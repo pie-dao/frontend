@@ -4,6 +4,9 @@ import PrimaryButton from "./PrimaryButton";
 import CompoundAPR from "./CompoundAPR";
 import { ModalContainer, Modal } from "minimal-react-modal";
 import Input from "./Input";
+import ConnectWalletButton from "./ConnectWalletButton";
+import IF from "./IF";
+import { useWeb3React } from "../hooks";
 
 const Contenitore = styled.div`
   display: flex;
@@ -102,7 +105,19 @@ const TokenImage = styled.img`
   }
 `;
 
+const BuyButtons = props => {
+  return(
+    <>
+      <PrimaryButton>Unlock DAI</PrimaryButton>
+    </>
+  )
+}
+
 const AWPDetail = props => {
+  const web3React = useWeb3React();
+
+  console.log(web3React.account);
+
   return (
     <Contenitore>
       <Left>
@@ -163,7 +178,10 @@ const AWPDetail = props => {
                     pAWP
                   </TokenLabel>
                 </InputContainer>
-                <PrimaryButton ButtonLabel="Connect Metamask" />
+                  <IF what={web3React.account == undefined} else={<BuyButtons />}>
+                    <ConnectWalletButton />
+                  </IF>
+                  
               </Modal>
             </div>
           )}
