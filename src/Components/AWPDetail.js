@@ -178,7 +178,7 @@ const AWPDetail = props => {
                     pAWP
                   </TokenLabel>
                 </InputContainer>
-                  <IF what={web3React.account == undefined} else={<BuyButtons />}>
+                  <IF what={web3React.account === undefined} else={<BuyButtons />}>
                     <ConnectWalletButton />
                   </IF>
               </Modal>
