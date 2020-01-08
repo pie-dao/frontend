@@ -67,7 +67,7 @@ const WalletModal = props => {
                 {pendingError && 
                     <>
                         <div>ERROR CONNECTING</div>
-                        <PrimaryButton onClick={() => {setWalletView(WALLET_VIEWS.options)}}>GO BACK</PrimaryButton>
+                        <PrimaryButton onClick={() => {setWalletView(WALLET_VIEWS.OPTIONS)}}>GO BACK</PrimaryButton>
                     </>
                 }
             </IF>
