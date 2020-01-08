@@ -78,16 +78,8 @@ const WalletModal = props => {
     // close modal when a connection is successful
     const activePrevious = usePrevious(active)
     const connectorPrevious = usePrevious(connector)
-
-    const isNotPreviousOrError = () => {
-        return (
-            (active && !activePrevious) 
-            || (connector && connector !== connectorPrevious && !error)
-        );
-    }
-
     useEffect(() => {
-        if (walletModalOpen && isNotPreviousOrError) {
+        if (walletModalOpen && ((active && !activePrevious) || (connector && connector !== connectorPrevious && !error))) {
           setWalletView(WALLET_VIEWS.ACCOUNT);
           toggleWalletModal();
         }
