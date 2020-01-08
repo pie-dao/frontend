@@ -37,7 +37,7 @@ const Content = styled.div`
 const AllocationTab = props => {
   return (
     <section className="content center verticalMargins">
-      <Tabs forceRenderTabPanel defaultIndex={0}>
+      <Tabs defaultIndex={0}>
         <TabList>
           <Tab>Crypto</Tab>
           <Tab>TLT</Tab>
@@ -47,7 +47,7 @@ const AllocationTab = props => {
           <Tab>VTI</Tab>
         </TabList>
         <TabPanel>
-          <Tabs forceRenderTabPanel>
+          <Tabs>
             <TabList className="noborder lightWeight">
               <Tab>Overview</Tab>
               <Tab>Settlement Layer</Tab>
