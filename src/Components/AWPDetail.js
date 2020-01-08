@@ -181,7 +181,6 @@ const AWPDetail = props => {
                   <IF what={web3React.account == undefined} else={<BuyButtons />}>
                     <ConnectWalletButton />
                   </IF>
-                  
               </Modal>
             </div>
           )}

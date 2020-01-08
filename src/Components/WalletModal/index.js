@@ -21,13 +21,15 @@ const WalletModal = props => {
     const toggleWalletModal = useWalletModalToggle();
     const [pendingWallet, setPendingWallet] = useState();
     const [pendingError, setPendingError] = useState();
+    const [errorMessage, setErrorMessage] = useState("");
     const [walletView, setWalletView] = useState(WALLET_VIEWS.OPTIONS);
 
     const tryActivation = async connector => {
         setPendingWallet(connector) // set wallet for pending view
         setWalletView(WALLET_VIEWS.PENDING)
         activate(connector, undefined, true).catch(e => {
-          setPendingError(true)
+            setPendingError(true);
+            setErrorMessage(e.message);
         })
     }
 
@@ -41,8 +43,6 @@ const WalletModal = props => {
         }
       }, [setWalletView, active, error, connector, walletModalOpen, activePrevious, connectorPrevious])
 
-      console.log(walletView);
-
     return (
         <Modal
             className="mainModal"
@@ -55,9 +55,6 @@ const WalletModal = props => {
                 padding: "5%"
             }}
             >
-
-            
-            
             <IF what={walletView == WALLET_VIEWS.OPTIONS}>
                 <WalletOption onClick={() => { tryActivation(SUPPORTED_WALLETS.METAMASK.connector) }} wallet={SUPPORTED_WALLETS.METAMASK} />
             </IF>
@@ -67,6 +64,7 @@ const WalletModal = props => {
                 {pendingError && 
                     <>
                         <div>ERROR CONNECTING</div>
+                        {errorMessage}
                         <PrimaryButton onClick={() => {setWalletView(WALLET_VIEWS.OPTIONS)}}>GO BACK</PrimaryButton>
                     </>
                 }
@@ -74,7 +72,6 @@ const WalletModal = props => {
             <IF what={walletView == WALLET_VIEWS.ACCOUNT}>
                 ACCOUNT VIEW
             </IF>
-
         </Modal>
     );
 }
