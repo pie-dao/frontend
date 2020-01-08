@@ -52,4 +52,3 @@ export function useWalletModalToggle() {
     const [, { toggleWalletConnectionModal }] = useApplicationContext()  
     return toggleWalletConnectionModal
 }
-
