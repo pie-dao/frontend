@@ -41,6 +41,7 @@ const Provider = styled.div`
   border: solid 1px #b7b7b7;
   padding: 20px;
   border-radius: 4px;
+  cursor: pointer;
 
   @media (max-width: 768px) {
     font-size: var(--text-ratherbig-mobile);
