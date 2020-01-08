@@ -6,6 +6,48 @@ import WalletOption from './WalletOption';
 import IF from "../IF";
 import {useWeb3React, usePrevious} from "../../hooks";
 import PrimaryButton from '../PrimaryButton';
+import styled from "styled-components";
+
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--secondary-font);
+  background-color: var(--white);
+  padding: 2% 0;
+
+  @media (max-width: 768px) {
+    padding: 2% 0;
+  }
+`;
+
+const TextMessage = styled.div`
+  font-family: var(--primary-font);
+  color: var(--almost-black);
+  font-size: var(--text-normal);
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+
+  @media (max-width: 768px) {
+    font-size: var(--text-ratherbig-mobile);
+  }
+`;
+
+const ErrorImage = styled.img`
+  height: 200px;
+  margin: 0 10px 0 0;
+
+  @media (max-width: 768px) {
+    height: 100px;
+  }
+`;
 
 const WALLET_VIEWS = {
     OPTIONS: 'options',
@@ -59,18 +101,24 @@ const WalletModal = props => {
                 <WalletOption onClick={() => { tryActivation(SUPPORTED_WALLETS.METAMASK.connector) }} wallet={SUPPORTED_WALLETS.METAMASK} />
             </IF>
             <IF what={walletView == WALLET_VIEWS.PENDING}>
-                PENDING VIEW
+                
 
-                {pendingError && 
+                {pendingError ? 
                     <>
-                        <div>ERROR CONNECTING</div>
-                        {errorMessage}
+                        <Container>
+                        <ErrorImage src="../../../img/error.jpg" alt="error icon" />
+
+                            <TextMessage>Error Connecting</TextMessage>
+                            <TextMessage>{errorMessage}</TextMessage>
+                        </Container>
+                        
                         <PrimaryButton onClick={() => {setWalletView(WALLET_VIEWS.OPTIONS)}}>GO BACK</PrimaryButton>
-                    </>
+                    </> :
+                    <Container>Please Log-in to your wallet and Connect it to PIE</Container>
                 }
             </IF>
             <IF what={walletView == WALLET_VIEWS.ACCOUNT}>
-                ACCOUNT VIEW
+                <Container>Account View</Container>
             </IF>
         </Modal>
     );
