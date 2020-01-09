@@ -62,7 +62,7 @@ const FAQ = props => {
         <Gradient>
           <SingleItem>
             <Collapsible
-              trigger="What is Pie?"
+              trigger="What is Pie Network?"
               easing="ease-in"
               transitionTime={100}
               triggerTagName="div"
