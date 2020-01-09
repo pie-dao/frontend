@@ -9,14 +9,19 @@ import { createBrowserHistory } from 'history';
 import { NetworkContextName } from './constants';
 import WalletModal from './Components/WalletModal';
 import ApplicationContext from "./contexts/Application";
+import AllowanceContext from "./contexts/Allowances";
+import BalancesContext from "./contexts/Balances";
+import { ethers } from 'ethers';
 
 const instance = createBrowserHistory();
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
 
 export const navigateTo = path => instance.push(path);
 
-function getLibrary(provider, connector) {
-  return new Web3(provider) // this will vary according to whether you use e.g. ethers or web3.js
+function getLibrary(provider) {
+  const library = new ethers.providers.Web3Provider(provider)
+  library.pollingInterval = 10000
+  return library
 }
 
 function App() {
@@ -24,13 +29,17 @@ function App() {
     <Web3ReactProvider getLibrary={getLibrary}>
       <Web3ProviderNetwork getLibrary={getLibrary}>
         <ApplicationContext>
-          <Router history={instance}>
-            <div className="App">
-              <TopNavi/>
-              <Routes />
-              <WalletModal />
-            </div>
-          </Router>
+          <AllowanceContext>
+            <BalancesContext>
+              <Router history={instance}>
+                <div className="App">
+                  <TopNavi/>
+                  <Routes />
+                  <WalletModal />
+                </div>
+              </Router>
+            </BalancesContext>
+          </AllowanceContext>
         </ApplicationContext>
       </Web3ProviderNetwork>
     </Web3ReactProvider>
