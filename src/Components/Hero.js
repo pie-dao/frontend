@@ -63,7 +63,7 @@ const Title = styled.div`
     /* font-size: var(--text-quiteverybig-mobile);
     line-height: 7.5rem; */
     margin: 5% 0;
-    font-size: 4.5rem;
+    font-size: 4rem;
     line-height: 4rem;
   }
 `;
