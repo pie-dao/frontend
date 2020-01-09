@@ -10,6 +10,7 @@ import {
 import Home from './Pages/Home';
 import InvestmentDetail from './Pages/InvestmentDetail';
 import Charts from './Pages/Charts';
+import Discord from './Pages/Discord';
 
 
 /**
@@ -23,6 +24,7 @@ export default function Routes() {
         <Route exact path="/" component={Home} />
         <Route path="/investment" component={InvestmentDetail} />
         <Route path="/charts" component={Charts} />
+        <Route path="/discord" component={Discord} />
     </Switch>
   )
 }

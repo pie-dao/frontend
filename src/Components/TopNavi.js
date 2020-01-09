@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
+import { link, cta } from "../mixpanel";
 
 const Container = styled.div`
   display: flex;
@@ -72,24 +73,66 @@ const TopNavi = props => {
   return (
     <Container>
       <Left>
-        <Link to="/">
+        <Link
+          onClick={() => link({ position: "navbar", to: "/", type: "logo" })}
+          to="/"
+        >
           <Logo />
         </Link>
       </Left>
       <Right>
-        <A href="#">whitepaper</A>
+        <A
+          onClick={() =>
+            link({ position: "navbar", to: "whitepaper", type: "text" })
+          }
+          className="navbar-item"
+          href="https://pie283460.typeform.com/to/uy9NZt"
+          target="_blank"
+        >
+          whitepaper
+        </A>
         <MobileNone>
-          <StyledLink to="/charts">charts</StyledLink>
+          <StyledLink
+            to="/charts"
+            onClick={() =>
+              link({ position: "navbar", type: "text", to: "charts" })
+            }
+          >
+            charts
+          </StyledLink>
         </MobileNone>
         <MobileNone>
-          <StyledLink to="/Investment">investment</StyledLink>
+          <StyledLink
+            to="/investment"
+            onClick={() =>
+              link({ position: "navbar", to: "investment", type: "text" })
+            }
+          >
+            investment
+          </StyledLink>
         </MobileNone>
         <MobileNone>
-          <A href="#">discord</A>
+          <StyledLink
+            onClick={() =>
+              link({ position: "navbar", to: "discord", type: "text" })
+            }
+            className="navbar-item"
+            to="/discord"
+          >
+            discord
+          </StyledLink>
         </MobileNone>
         <MobileNone>
           {" "}
-          <A href="#">contact</A>
+          <StyledLink
+            onClick={() =>
+              link({ position: "navbar", to: "contact", type: "text" })
+            }
+            className="navbar-item"
+            to="/discord"
+          >
+            contact
+          </StyledLink>
         </MobileNone>
       </Right>
     </Container>

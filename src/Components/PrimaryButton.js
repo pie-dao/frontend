@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-
+import React from "react";
+import styled from "styled-components";
+import { cta } from "../mixpanel";
 
 const Button = styled.button`
   min-width: 150px;
@@ -15,10 +15,8 @@ const Button = styled.button`
   border: none;
   transition-property: background-color, color;
   transition-duration: 0.3s;
-  background: linear-gradient(-60deg, #CB1A8F, #FC02A7);
-background-size: 100%;
-
-
+  background: linear-gradient(-60deg, #cb1a8f, #fc02a7);
+  background-size: 100%;
 
   :hover {
     opacity: 0.8;
@@ -42,12 +40,21 @@ background-size: 100%;
   }
 `;
 
-
-
 const PrimaryButton = props => {
-    return (
-      <Button>{props.ButtonLabel}</Button>
-    );
-  };
-  
-  export default PrimaryButton;
+  return (
+    <Button
+      onClick={() => {
+        cta({
+          position: "hero",
+          to: "/investment",
+          type: "button",
+          label: "Get early access"
+        });
+      }}
+    >
+      {props.ButtonLabel}
+    </Button>
+  );
+};
+
+export default PrimaryButton;

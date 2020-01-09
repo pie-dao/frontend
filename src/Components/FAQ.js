@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Collapsible from "react-collapsible";
+import { click } from "../mixpanel";
 
 const Container = styled.div`
   display: flex;
@@ -60,7 +61,15 @@ const FAQ = props => {
       <section className="content">
         <Title>FAQ</Title>
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "Who the hell is Ray Dalio?"
+              });
+            }}
+          >
             <Collapsible
               trigger="Who the hell is Ray Dalio?"
               easing="ease-in"
@@ -80,7 +89,15 @@ const FAQ = props => {
           </SingleItem>
         </Gradient>
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "What about derivatives?"
+              });
+            }}
+          >
             <Collapsible
               trigger="What about derivatives?"
               easing="ease-in"
@@ -99,7 +116,15 @@ const FAQ = props => {
           </SingleItem>
         </Gradient>
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "How much does PIE cost?"
+              });
+            }}
+          >
             <Collapsible
               trigger="How much does PIE cost?"
               easing="ease-in"
@@ -118,7 +143,15 @@ const FAQ = props => {
           </SingleItem>
         </Gradient>
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "How can I invest?"
+              });
+            }}
+          >
             <Collapsible
               trigger="How can I invest?"
               easing="ease-in"
@@ -137,7 +170,15 @@ const FAQ = props => {
           </SingleItem>
         </Gradient>
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "Is it better than Compound?"
+              });
+            }}
+          >
             <Collapsible
               trigger="Is it better than Compound?"
               easing="ease-in"
@@ -156,7 +197,15 @@ const FAQ = props => {
           </SingleItem>
         </Gradient>
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "Is it safe?"
+              });
+            }}
+          >
             <Collapsible
               trigger="Is it safe?"
               easing="ease-in"
