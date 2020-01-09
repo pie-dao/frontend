@@ -10,6 +10,8 @@
   --almost-black: #0a0a0a;
   --text-verybig: 10rem;
   --text-verybig-mobile: 7rem;
+  --text-quiteverybig: 6rem;
+  --text-quiteverybig-mobile: 5rem;
   --text-ratherbig: 4rem;
   --text-ratherbig-mobile: 2rem;
   --text-big: 2.3rem;
@@ -36,3 +38,14 @@ body {
   scroll-behavior: smooth;
 }
 
+.textloop {
+  text-align: center;
+  word-wrap: break-word;
+  height: 260px;
+}
+
+@media screen and (max-width: 768px) {
+  .textloop {
+    height: 170px;
+  }
+}
