@@ -1,4 +1,4 @@
-* {
+ * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -30,8 +30,8 @@
   }
 
 p.Ptab {
-    font-weight: 300;
-    font-size: var(--text-medium);
+  font-weight: 300;
+  font-size: var(--text-medium);
 }
 
 .react-tabs {
@@ -93,8 +93,8 @@ p.Ptab {
   /* CUSTOM */
   
 .noborder {
-    border:none;
-    padding-inline-start: 0;
+  border:none;
+  padding-inline-start: 0;
 }
 
 .noborder li {

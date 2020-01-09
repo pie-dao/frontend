@@ -24,7 +24,7 @@ body {
 }
 
 .verticalMargins {
-margin: 3% 0;
+  margin: 3% 0;
 }
 
 @media screen and (min-width: 1216px) {
