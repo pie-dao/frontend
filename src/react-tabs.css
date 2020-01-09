@@ -16,7 +16,7 @@
     --text-ratherbig: 4rem;
     --text-ratherbig-mobile: 2rem;
     --text-big: 2.3rem;
-    --text-medium: 1.5rem;
+    --text-medium: 1.2rem;
     --text-medium-mobile: 1.3rem;
     --text-normal: 1.1rem;
     --text-prettysmall: 0.9rem;
@@ -32,6 +32,7 @@
 p.Ptab {
   font-weight: 300;
   font-size: var(--text-medium);
+  text-align: left;
 }
 
 .react-tabs {

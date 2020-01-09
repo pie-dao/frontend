@@ -16,9 +16,12 @@ const Contenitore = styled.div`
 `;
 
 const data01 = [
-  { name: "BTC", value: 35 },
-  { name: "ETH", value: 35 },
-  { name: "DeFi", value: 30 }
+  { name: "Crypto Basket", value: 10 },  
+  { name: "Equity, U.S., Large Cap", value: 27 },
+  { name: "Bond, U.S., Long-Term", value: 36 },
+  { name: "Bond, U.S., Intermediate-Term", value: 13.5 },
+  { name: "Commodity, Gold", value: 6.75 },
+  { name: "Commodity, Broad Diversified", value: 6.75 },
 ];
 
 const COLORS = [
@@ -35,7 +38,7 @@ const COLORS = [
   "#FF7C42"
 ];
 
-export default class CryptoBasket extends PureComponent {
+export default class AWP extends PureComponent {
   render() {
     return (
       <Contenitore>
