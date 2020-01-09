@@ -30,10 +30,11 @@ const PreTitle = styled.div`
 `;
 
 const Title = styled.div`
+  max-width: 100%;
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-quiteverybig);
-  font-size: 10vw;
+  font-size: 9vw;
   font-weight: 700;
   text-align: center;
   /* background: linear-gradient(to right, #F10096 0%, #21D7FF 100%); */
@@ -41,10 +42,14 @@ const Title = styled.div`
   background-size: 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 11rem;
+  line-height: 6rem;
   animation: flow 7s ease-in-out infinite;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  word-wrap: break-word;
+  margin: 5% 0;
+  display: flex;
+  flex-direction: column;
 
   @keyframes flow {
     0% {
@@ -53,13 +58,13 @@ const Title = styled.div`
     50% {
       background-position: 100% 50%;
     }
-    110% {
-      background-position: 0 50%;
-    }
   }
   @media (max-width: 768px) {
-    font-size: var(--text-quiteverybig-mobile);
-    line-height: 7.5rem;
+    /* font-size: var(--text-quiteverybig-mobile);
+    line-height: 7.5rem; */
+    margin: 5% 0;
+    font-size: 20vw;
+    line-height: 4rem;
   }
 `;
 
@@ -83,8 +88,8 @@ const Hero = props => {
       <Container>
         <section className="content center">
           <PreTitle>What if you could invest like</PreTitle>
-          <TextLoop interval={1400} delay={500} adjustingSpeed={0} defaultStyle={0} mask={true} fade={false} className="textloop">
-            <Title>Ray Dalio</Title>
+          <TextLoop noWrap={false} interval={1400} adjustingSpeed={0} defaultStyle={0} mask={true} fade={false} className="textloop">
+            <Title> <div>Ray</div> <div>Dalio</div></Title>
             <Title>Abigail Johnson</Title>
             <Title>Warren Buffet</Title>
             <Title>Lubna S. Olayan</Title>
