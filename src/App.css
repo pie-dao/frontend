@@ -45,6 +45,6 @@ body {
 
 @media screen and (max-width: 768px) {
   .textloop {
-    height: 170px;
+    height: 150px;
   }
 }
