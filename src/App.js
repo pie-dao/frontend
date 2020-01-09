@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import TopNavi from './Components/TopNavi';
+import PasswordGate from './Components/PasswordGate';
 import Routes from "./routes";
 import { Router } from "react-router-dom";
 
@@ -14,8 +15,10 @@ function App() {
   return (
     <Router history={instance}>
       <div className="App">
-        <TopNavi/>
-        <Routes />
+        <PasswordGate>
+          <TopNavi/>
+          <Routes />
+        </PasswordGate>
       </div>
     </Router>
   );
