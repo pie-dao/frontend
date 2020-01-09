@@ -95,15 +95,14 @@ const Hero = props => {
         <section className="content center">
           <PreTitle>What if you could invest like</PreTitle>
           <TextLoop interval={1400} adjustingSpeed={0} defaultStyle={0} mask={true} fade={false} className="textloop">
-            {/* <Title> <Name>Ray</Name> <Name>Dalio</Name></Title>
+            <h1>nico</h1>
+            <Title> <Name>Ray</Name> <Name>Dalio</Name></Title>
             <Title><Name>Abigail</Name> <Name>Johnson</Name></Title>
             <Title><Name>Warren</Name> <Name>Buffet</Name></Title>
             <Title><Name>Lubna</Name> <Name>Olayan</Name></Title>
             <Title><Name>George</Name> <Name>Soros</Name></Title>
             <Title><Name>Peter</Name> <Name>Lynch</Name></Title>
-            <Title><Name>Muriel</Name> <Name>Siebert</Name></Title> */}
-            <Title>Ray Dalio</Title>
-            <Title>Nico</Title>
+            <Title><Name>Muriel</Name> <Name>Siebert</Name></Title>
           </TextLoop>
           <SubTitle>The richest people in the World have gained 10% every year for the past 10 years. We think it's fair for you to make some <strong>real money</strong> too.</SubTitle>
           <PrimaryButton>Get early access</PrimaryButton>
