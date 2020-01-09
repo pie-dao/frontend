@@ -94,7 +94,7 @@ const Hero = props => {
       <Container>
         <section className="content center">
           <PreTitle>What if you could invest like</PreTitle>
-          <TextLoop noWrap={false} interval={1400} adjustingSpeed={0} defaultStyle={0} mask={true} fade={false} className="textloop">
+          <TextLoop interval={1400} adjustingSpeed={0} defaultStyle={0} mask={true} fade={false} className="textloop">
             <Title> <Name>Ray</Name> <Name>Dalio</Name></Title>
             <Title><Name>Abigail</Name> <Name>Johnson</Name></Title>
             <Title><Name>Warren</Name> <Name>Buffet</Name></Title>
