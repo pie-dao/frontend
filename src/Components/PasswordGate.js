@@ -7,15 +7,22 @@ var solution = "0xfe9341a416aec42a2819008f03768af71d3a13521a29b654903cc31a8064bb
 
 var enviroment = process.env.NODE_ENV 
 // enviroment = "production";
+var skipCheck = localStorage.skipCheck;
+var passwordCorrect;
 
-if(enviroment !== "development") {
+if(!skipCheck) {
     password = prompt("Enter Password", "");
     hashedPassword = utils.keccak256(utils.formatBytes32String(password));
     // console.log(hashedPassword);
+    passwordCorrect = hashedPassword == solution;
+}
+
+if(passwordCorrect) {
+    localStorage.skipCheck = true;
 }
 
 const PasswordGate = props =>{
-    if(hashedPassword === solution || enviroment === "development") {
+    if(hashedPassword === solution || enviroment === "development" || skipCheck) {
         return (
             <>
                 {props.children}
