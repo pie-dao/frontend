@@ -93,7 +93,7 @@ const Hero = props => {
             <Title>Abigail Johnson</Title>
             <Title>Warren Buffet</Title>
             <Title>Lubna S. Olayan</Title>
-            <Title>George Sorod</Title>
+            <Title>George Soros</Title>
             <Title>Peter Lynch</Title>
             <Title>Muriel Siebert</Title>
           </TextLoop>
