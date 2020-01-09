@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Collapsible from "react-collapsible";
+import { click } from "../mixpanel";
 
 const Container = styled.div`
   display: flex;
@@ -60,9 +61,17 @@ const FAQ = props => {
       <section className="content">
         <Title>FAQ</Title>
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "What is the Pie Network?"
+              });
+            }}
+          >
             <Collapsible
-              trigger="What is Pie Network?"
+              trigger="What is the Pie Network?"
               easing="ease-in"
               transitionTime={100}
               triggerTagName="div"
@@ -113,13 +122,13 @@ const FAQ = props => {
         <Gradient>
           <SingleItem>
             <Collapsible
-              trigger="What is Pie DAO?"
+              trigger="What is the Pie DAO?"
               easing="ease-in"
               transitionTime={100}
               triggerTagName="div"
             >
               <p>
-                PieDAO is a decentralized organization dedicated to bringing accessibility and economic empowerment to anyone with an internet connection. 
+                The Pie DAO is a decentralized organization dedicated to bringing accessibility and economic empowerment to anyone with an internet connection. 
                 The PIE token holders are the decision makers in the DAO, anybody in the public community is invited to support these efforts.
                 Pie Network aims to leverage the power of decentralized finance to create an inclusive platform for economic empowerment for everyone by democratizing the access to best in class asset allocations strategies, removing minimum capital requirement and massively reduce fees; 
                 allowing everyone equal access to the global financial marketplace.
@@ -138,7 +147,7 @@ const FAQ = props => {
             >
               <p>
                 For the Pie Network to be successful, the stakeholders in the system need to collaborate and vote on a variety of parameters. 
-                Some examples include: which assets will be included in which index (Ex: AWP++), how much weight a specific asset will have, and the management fees a AWP++ holder is charged. The process is done through an on-chain voting mechanism in the Pie Dao. Stakeholders still have the option of voting directly by interacting with the smart contacts via a friendly user interface.
+                Some examples include: which assets will be included in which index (Ex: AWP++), how much weight a specific asset will have, and the management fees a AWP++ holder is charged. The process is done through an on-chain voting mechanism in the Pie DAO. Stakeholders still have the option of voting directly by interacting with the smart contacts via a friendly user interface.
                 <br/> <a href="" target="blank">Request access to Whitepaper</a>
               </p>
             </Collapsible>
@@ -146,7 +155,15 @@ const FAQ = props => {
         </Gradient>
 
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "Who is Ray Dalio?"
+              });
+            }}
+          >
             <Collapsible
               trigger="Who is Ray Dalio?"
               easing="ease-in"
@@ -169,7 +186,15 @@ const FAQ = props => {
         </Gradient>
         
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "What's different from Compound?"
+              });
+            }}
+          >
             <Collapsible
               trigger="What's different from Compound?"
               easing="ease-in"
@@ -178,7 +203,7 @@ const FAQ = props => {
             >
               <p>
                 Compound is a transparent, autonomous money market— allowing users & applications to frictionlessly earn interest or borrow Ethereum assets without relying on a counterparty.
-                Interest for lenders on Compound are calculated algorithmically at every block, therefore, having predictability on ROI by holding cTokens is challending.
+                The interest rate for lenders on Compound is calculated algorithmically at every block, therefore, having predictability on ROI by holding cTokens is challending.
               </p>
               <p>
                 Pie asset allocations by comparison are designed to aim for resiliance and a greater degree of predictability.
@@ -187,15 +212,23 @@ const FAQ = props => {
           </SingleItem>
         </Gradient>
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "Is Pie Network itself a derivative?"
+              });
+            }}
+          >
             <Collapsible
-              trigger="Is PIE itself a derivative?"
+              trigger="Is Pie Network itself a derivative?"
               easing="ease-in"
               transitionTime={100}
               triggerTagName="div"
             >
               <p>
-                PIE is not a derivative, it is a protocol for cryptocurrency users to create their own tokenized asset allocation using sythetics assets. PIE is a set of open source smart contracts that can be deployed to the Ethereum blockchain. The Pie Network is nothing more than open source software, and individual users of the Pie Network are the ones that create a tokenized derivative using the Pie Network. The Pie DAO has zero involvement in the creation of individual derivative tokens on the Pie Network, and the Pie DAO is not "Pie Network".
+                The Pie Network is not a derivative, it is a protocol for cryptocurrency users to create their own tokenized asset allocation using sythetics assets. PIE is a set of open source smart contracts that can be deployed to the Ethereum blockchain. The Pie Network is nothing more than open source software, and individual users of the Pie Network are the ones that create a tokenized derivative using the Pie Network. The Pie DAO has zero involvement in the creation of individual derivative tokens on the Pie Network, and the Pie DAO is not "Pie Network".
               </p>
             </Collapsible>
           </SingleItem>
@@ -210,22 +243,30 @@ const FAQ = props => {
               triggerTagName="div"
             >
               <p>
-                Asset allocations on Pie Network are created by stakeholder of the Pie Dao and deployed by individual users of the Pie smart contracts.
+                Asset allocations on Pie Network are created by stakeholder of the Pie DAO and deployed by individual users of the Pie smart contracts.
               </p>
             </Collapsible>
           </SingleItem>
         </Gradient>
 
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "What does the Pie DAO do and what does it not do?"
+              });
+            }}
+          >
             <Collapsible
-              trigger="What does the Pie Dao do and what does it not do?"
+              trigger="What does the Pie DAO do and what does it not do?"
               easing="ease-in"
               transitionTime={100}
               triggerTagName="div"
             >
               <p>
-                The Pie Dao writes and publishes open source software on Github. There is a test website for developers at dev.pie.network running on the test network of Ethereum (play money). The Pie Network is a set of Solidity smart contracts that exist on the Ethereum blockchain.
+                The Pie DAO writes and publishes open source software on Github. There is a test website for developers at dev.pie.network running on the test network of Ethereum (play money). The Pie Network is a set of Solidity smart contracts that exist on the Ethereum blockchain.
               </p>
               <p>
                 Among other things, the Pie Dao does not:
@@ -241,7 +282,15 @@ const FAQ = props => {
         </Gradient>
 
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "Which protocol are used inside the Pie Network smart contracts?"
+              });
+            }}
+          >
             <Collapsible
               trigger="Which protocol are used inside the Pie Network smart contracts?"
               easing="ease-in"
@@ -249,7 +298,7 @@ const FAQ = props => {
               triggerTagName="div"
             >
               <p>
-              Pie Dao uses existing DeFi protocols as building blocks to unlock the compounding value of multiple financial primitives. Pie Network combines the use of synthetic asset platforms, and decentralized exchanges. 
+              The Pie DAO uses existing DeFi protocols as building blocks to unlock the compounding value of multiple financial primitives. Pie Network combines the use of synthetic asset platforms, and decentralized exchanges. 
               Synthetic asset systems, like Maker, Synthetix, UMA, and the Market Protocol, creates tokens that are pegged to a target asset but backed by a different collateral asset.
               </p>
               <p>
@@ -273,7 +322,7 @@ const FAQ = props => {
               triggerTagName="div"
             >
               <p>
-                While Pie and Pie Dao gives no guarantees, it is highly unlikely that the value of the asset in the portfolio allocations will reach zero.
+                While Pie Network and Pie DAO gives no guarantees, it is highly unlikely that the value of the asset in the portfolio allocations will reach zero.
                 You are invited to NOT INVEST as you might loose all your money.
               </p>
             </Collapsible>

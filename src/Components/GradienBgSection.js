@@ -55,7 +55,7 @@ const GradienBgSection = props => {
           For example, Ray Dalio used to accept money from investors who had a net worth of at least <strong>$5 billion</strong> and with a minimum investment requirement of <strong>$100 million</strong>. 
           <br></br>Nowadays he won’t accept any new investors.
           <br></br><br></br>
-          We are making the best asset allocation strategies accessible to everyone on the Ethereum network with no minimum.
+          We are making diversified asset allocation strategies accessible to everyone on the Ethereum network with no minimum.
           <br></br><br></br>
           <a href="" target="blank">Request Whitepaper</a>
         </Text>

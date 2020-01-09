@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { cta } from "../mixpanel";
 
 const Container = styled.div`
   display: flex;
@@ -11,14 +12,12 @@ const Container = styled.div`
   font-size: var(--p-text);
   line-height: 1.8rem;
   /* background: linear-gradient(to right, #f10096 0%, #21d7ff 100%); */
-  background: linear-gradient(to right, #FFE2FA 0%, #CCEFF3 100%);
-
+  background: linear-gradient(to right, #ffe2fa 0%, #cceff3 100%);
 
   @media (max-width: 680px) {
     flex-wrap: wrap;
     padding: 10% 5%;
     line-height: auto;
-
   }
 `;
 
@@ -40,7 +39,6 @@ const Input = styled.input`
   margin: 30px 0 0 0;
   font-size: var(--text-prettysmall);
 
-
   ::placeholder {
     color: var(--medium-grey);
     font-size: var(--text-prettysmall);
@@ -52,8 +50,6 @@ const Input = styled.input`
     border: 1px solid var(--almost-black);
     box-shadow: 0 0 10px var(--white);
     font-size: var(--text-prettysmall);
-
-
   }
   :focus::placeholder {
     color: transparent;
@@ -74,18 +70,17 @@ const PreTitle = styled.div`
 
   @media (max-width: 768px) {
     font-size: var(--text-ratherbig-mobile);
-
   }
 `;
 
 const Button = styled.button`
-min-width: 300px;
-width: 60%;
-margin: 10px 0 0 0;
+  min-width: 300px;
+  width: 60%;
+  margin: 10px 0 0 0;
   padding: 20px;
   /* background-color: #000; */
-  background: linear-gradient(-60deg, #CB1A8F, #FC02A7);
-background-size: 100%;
+  background: linear-gradient(-60deg, #cb1a8f, #fc02a7);
+  background-size: 100%;
   color: #fff;
   text-align: center;
   font-size: var(--font-main-button);
@@ -118,7 +113,6 @@ background-size: 100%;
 `;
 
 const Counter = styled.div`
-  
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-normal);
@@ -130,11 +124,11 @@ const Counter = styled.div`
 `;
 
 const LabelGradient = styled.span`
-background-color: var(--almost-black);
-color: var(--white);
-padding: 1px 6px;
-border-radius: 3px;
-margin-right: 7px;
+  background-color: var(--almost-black);
+  color: var(--white);
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 7px;
 
   @media (max-width: 768px) {
   }
@@ -148,74 +142,85 @@ function Newsletter() {
   return (
     <Container>
       <section className="content center">
-              <PreTitle>Be on top of the game</PreTitle>
-              <Counter>Zero fee for the first 500 Beta-testers</Counter>
+        <PreTitle>Be on top of the game</PreTitle>
+        <Counter>Zero fee for the first 500 Beta-testers</Counter>
+        <Form
+          action="https://dexlab.us17.list-manage.com/subscribe/post?u=98c7ba21bb6d63c6d14827c6e&amp;id=a51cc8153c"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          className="validate"
+          target="_blank"
+          noValidate=""
+        >
+          <section className="newsletterField">
+            <Input
+              id="mce-EMAIL"
+              type="email"
+              placeholder="Your@email.here"
+              name="EMAIL"
+              className="required email newsletterInput"
+            />
+            <label
+              htmlFor="mce-EMAIL"
+              className="screenreader"
+              style={{ position: "absolute", left: "-5000px" }}
+              aria-hidden="true"
+            >
+              email
+            </label>
+            <None className="mc-field-group input-group">
+              <ul>
+                <li>
+                  <input
+                    type="checkbox"
+                    value="2"
+                    name="group[7603][2]"
+                    id="mce-group[7603]-7603-0"
+                    defaultChecked
+                  />
+                  <label htmlFor="mce-group[7603]-7603-0">pie500</label>
+                </li>
+              </ul>
+            </None>
 
-
-      <Form
-        action="https://dexlab.us17.list-manage.com/subscribe/post?u=98c7ba21bb6d63c6d14827c6e&amp;id=a51cc8153c"
-        method="post"
-        id="mc-embedded-subscribe-form"
-        name="mc-embedded-subscribe-form"
-        className="validate"
-        target="_blank"
-        noValidate=""
-      >
-        <section className="newsletterField">
-          <Input
-            id="mce-EMAIL"
-            type="email"
-            placeholder="Your@email.here"
-            name="EMAIL"
-            className="required email newsletterInput"
-          />
-          <label htmlFor="mce-EMAIL" className="screenreader" style={{ position: "absolute", left: "-5000px" }}
-            aria-hidden="true">
-            email
-          </label>
-          <None className="mc-field-group input-group">
-            <ul>
-              <li>
-                <input
-                  type="checkbox"
-                  value="2"
-                  name="group[7603][2]"
-                  id="mce-group[7603]-7603-0"
-                  defaultChecked
-                />
-                <label htmlFor="mce-group[7603]-7603-0">pie500</label>
-              </li>
-            </ul>
-          </None>
-
-          <div id="mce-responses" className="clear">
+            <div id="mce-responses" className="clear">
+              <div
+                className="response"
+                id="mce-error-response"
+                style={{ display: "none" }}
+              />
+              <div
+                className="response"
+                id="mce-success-response"
+                style={{ display: "none" }}
+              />
+            </div>
             <div
-              className="response"
-              id="mce-error-response"
-              style={{ display: "none" }}
-            />
-            <div
-              className="response"
-              id="mce-success-response"
-              style={{ display: "none" }}
-            />
-          </div>
-          <div
-            style={{ position: "absolute", left: "-5000px" }}
-            aria-hidden="true"
-          >
-            <input
-              type="text"
-              name="b_98c7ba21bb6d63c6d14827c6e_a51cc8153c"
-              tabIndex="-1"
-            />
-          </div>
+              style={{ position: "absolute", left: "-5000px" }}
+              aria-hidden="true"
+            >
+              <input
+                type="text"
+                name="b_98c7ba21bb6d63c6d14827c6e_a51cc8153c"
+                tabIndex="-1"
+              />
+            </div>
             <Button
               type="submit"
-            >Get early access</Button>
-        </section>
-      </Form>
-      <LabelGradient>128</LabelGradient>/ 500 Hurry Up!
+              onClick={() => {
+                cta({
+                  position: "newsletter",
+                  type: "button",
+                  label: "Get early access"
+                });
+              }}
+            >
+              Get early access
+            </Button>
+          </section>
+        </Form>
+        <LabelGradient>128</LabelGradient>/ 500 Hurry Up!
       </section>
     </Container>
   );

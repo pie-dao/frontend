@@ -4,6 +4,13 @@ import PrimaryButton from "./PrimaryButton";
 import CompoundAPR from "./CompoundAPR";
 import { ModalContainer, Modal } from "minimal-react-modal";
 import Input from "./Input";
+import { link, cta } from "../mixpanel";
+import ConnectWalletButton from "./ConnectWalletButton";
+import IF from "./IF";
+import { useWeb3React } from "../hooks";
+import { useAddressBalance } from "../contexts/Balances";
+import { isAddress, amountFormatter } from '../utils';
+import { DAI_ADDRESS, AWP_ADDRESS} from "../constants";
 
 const Contenitore = styled.div`
   display: flex;
@@ -80,7 +87,7 @@ const InputContainer = styled.div`
   align-items: center;
   border: 1px solid #cccccc;
   border-radius: 4px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
   @media (max-width: 768px) {
   }
 `;
@@ -102,7 +109,23 @@ const TokenImage = styled.img`
   }
 `;
 
+const BuyButtons = props => {
+  return(
+    <>
+      <PrimaryButton>Unlock DAI</PrimaryButton>
+    </>
+  )
+}
+
 const AWPDetail = props => {
+  const {account} = useWeb3React();
+
+  const daiBalance = amountFormatter(useAddressBalance(account, isAddress(DAI_ADDRESS)));
+  const awpBalance = amountFormatter(useAddressBalance(account, isAddress(AWP_ADDRESS)));
+  const daiAllowance = amountFormatter(useAddressBalance(account, isAddress(DAI_ADDRESS)));
+  const awpAllowance = amountFormatter(useAddressBalance(account, isAddress(AWP_ADDRESS)));
+  const ethBalance = amountFormatter(useAddressBalance(account), "ETH");
+
   return (
     <Contenitore>
       <Left>
@@ -125,6 +148,18 @@ const AWPDetail = props => {
               >
                 Buy Now
               </button>{" "}
+              <button
+                onClick={() => {
+                  cta({
+                    position: "navbar",
+                    to: "/",
+                    type: "button",
+                    label: "Buy Now"
+                  });
+                }}
+              >
+                BUY
+              </button>
               <Modal
                 className="mainModal"
                 isActive={isActive} // required
@@ -163,7 +198,9 @@ const AWPDetail = props => {
                     pAWP
                   </TokenLabel>
                 </InputContainer>
-                <PrimaryButton ButtonLabel="Connect Metamask" />
+                  <IF what={account === undefined} else={<BuyButtons />}>
+                    <ConnectWalletButton />
+                  </IF>
               </Modal>
             </div>
           )}
