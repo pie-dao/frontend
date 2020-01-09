@@ -42,14 +42,14 @@ const Title = styled.div`
   background-size: 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 6rem;
+  line-height: 7rem;
   animation: flow 7s ease-in-out infinite;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   word-wrap: break-word;
   margin: 5% 0;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 
   @keyframes flow {
     0% {
@@ -97,13 +97,13 @@ const Hero = props => {
           <PreTitle>What if you could invest like</PreTitle>
           <TextLoop interval={1400} adjustingSpeed={0} defaultStyle={0} mask={true} fade={false} className="textloop">
             {/* <h1>nico</h1> */}
-            <Title> <Name>Ray</Name> <Name>Dalio</Name></Title>
-            <Title><Name>Abigail</Name> <Name>Johnson</Name></Title>
-            <Title><Name>Warren</Name> <Name>Buffet</Name></Title>
-            <Title><Name>Lubna</Name> <Name>Olayan</Name></Title>
-            <Title><Name>George</Name> <Name>Soros</Name></Title>
-            <Title><Name>Peter</Name> <Name>Lynch</Name></Title>
-            <Title><Name>Muriel</Name> <Name>Siebert</Name></Title>
+            <Title>Ray<br></br>Dalio</Title>
+            <Title>Abigail<br></br>Johnson</Title>
+            <Title>Warren<br></br>Buffet</Title>
+            <Title>Lubna<br></br>Olayan</Title>
+            <Title>George<br></br>Soros</Title>
+            <Title>Peter<br></br>Lynch</Title>
+            <Title>Muriel<br></br>Siebert</Title>
           </TextLoop>
           <SubTitle>The richest people in the World have gained 10% every year for the past 10 years. We think it's fair for you to make some <strong>real money</strong> too.</SubTitle>
           <PrimaryButton>Get early access</PrimaryButton>
