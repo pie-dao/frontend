@@ -37,6 +37,7 @@ const Title = styled.div`
   font-weight: 700;
   text-align: center;
   /* background: linear-gradient(to right, #F10096 0%, #21D7FF 100%); */
+  background: #fc02a7;
   background: linear-gradient(-60deg, #F10096, #21D7FF);
   background-size: 300%;
   -webkit-background-clip: text;
@@ -95,7 +96,7 @@ const Hero = props => {
         <section className="content center">
           <PreTitle>What if you could invest like</PreTitle>
           <TextLoop interval={1400} adjustingSpeed={0} defaultStyle={0} mask={true} fade={false} className="textloop">
-            <h1>nico</h1>
+            {/* <h1>nico</h1> */}
             <Title> <Name>Ray</Name> <Name>Dalio</Name></Title>
             <Title><Name>Abigail</Name> <Name>Johnson</Name></Title>
             <Title><Name>Warren</Name> <Name>Buffet</Name></Title>
