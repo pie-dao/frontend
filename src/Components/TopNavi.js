@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import { link, cta } from "../mixpanel";
+import ConnectWeb3Button from "./ConnectWeb3Button";
 
 const Container = styled.div`
   display: flex;
@@ -134,6 +135,7 @@ const TopNavi = props => {
             contact
           </StyledLink>
         </MobileNone>
+        <ConnectWeb3Button />
       </Right>
     </Container>
   );
