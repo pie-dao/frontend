@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import PrimaryButton from "./PrimaryButton";
-import SmallText from "./SmallText";
+import React from 'react';
+import styled from 'styled-components';
+import PrimaryButton from './PrimaryButton';
+import SmallText from './SmallText';
+import TextLoop from "react-text-loop";
 
 const Container = styled.div`
   display: flex;
@@ -31,11 +32,12 @@ const PreTitle = styled.div`
 const Title = styled.div`
   font-family: var(--primary-font);
   color: var(--almost-black);
-  font-size: var(--text-verybig);
+  font-size: var(--text-quiteverybig);
+  font-size: 10vw;
   font-weight: 700;
   text-align: center;
   /* background: linear-gradient(to right, #F10096 0%, #21D7FF 100%); */
-  background: linear-gradient(-60deg, #f10096, #21d7ff);
+  background: linear-gradient(-60deg, #F10096, #21D7FF);
   background-size: 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -55,9 +57,8 @@ const Title = styled.div`
       background-position: 0 50%;
     }
   }
-
   @media (max-width: 768px) {
-    font-size: var(--text-verybig-mobile);
+    font-size: var(--text-quiteverybig-mobile);
     line-height: 7.5rem;
   }
 `;
@@ -82,7 +83,15 @@ const Hero = props => {
       <Container>
         <section className="content center">
           <PreTitle>What if you could invest like</PreTitle>
-          <Title>Ray Dalio</Title>
+          <TextLoop interval={1400} delay={500} adjustingSpeed={0} defaultStyle={0} mask={true} fade={false} className="textloop">
+            <Title>Ray Dalio</Title>
+            <Title>Abigail Johnson</Title>
+            <Title>Warren Buffet</Title>
+            <Title>Lubna S. Olayan</Title>
+            <Title>George Sorod</Title>
+            <Title>Peter Lynch</Title>
+            <Title>Muriel Siebert</Title>
+          </TextLoop>
           <SubTitle>The richest people in the World have gained 10% every year for the past 10 years. We think it's fair for you to make some <strong>real money</strong> too.</SubTitle>
           <PrimaryButton>Get early access</PrimaryButton>
           <SmallText SmallContent="Reserved to the first 500 users only"/>
