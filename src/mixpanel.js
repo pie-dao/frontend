@@ -6,6 +6,10 @@ export const track = (event, obj) => {
     mixpanel.track(event, obj);
 }
 
+export const click = (obj) => {
+    mixpanel.track('Click', obj);
+}
+
 export const link = (obj) => {
     mixpanel.track('Click Link', obj);
 }

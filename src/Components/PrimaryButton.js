@@ -46,7 +46,7 @@ const PrimaryButton = props => {
       onClick={() => {
         cta({
           position: "hero",
-          to: "/Investment",
+          to: "/investment",
           type: "button",
           label: "Get early access"
         });

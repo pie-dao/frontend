@@ -81,7 +81,7 @@ const BigBlackTitle = props => {
             link({ position: "navbar", to: "whitepaper", type: "text" })
           }
           className="navbar-item"
-          href="https://github.com/Alexintosh/whitepaper"
+          href="https://pie283460.typeform.com/to/uy9NZt"
           target="_blank"
         >
           <WP>

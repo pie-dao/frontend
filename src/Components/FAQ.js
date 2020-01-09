@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Collapsible from "react-collapsible";
-import { cta } from "../mixpanel";
+import { click } from "../mixpanel";
 
 const Container = styled.div`
   display: flex;
@@ -63,7 +63,7 @@ const FAQ = props => {
         <Gradient>
           <SingleItem
             onClick={() => {
-              cta({
+              click({
                 position: "FAQ",
                 type: "expandible",
                 label: "Who the hell is Ray Dalio?"
@@ -91,7 +91,7 @@ const FAQ = props => {
         <Gradient>
           <SingleItem
             onClick={() => {
-              cta({
+              click({
                 position: "FAQ",
                 type: "expandible",
                 label: "What about derivatives?"
@@ -118,7 +118,7 @@ const FAQ = props => {
         <Gradient>
           <SingleItem
             onClick={() => {
-              cta({
+              click({
                 position: "FAQ",
                 type: "expandible",
                 label: "How much does PIE cost?"
@@ -145,7 +145,7 @@ const FAQ = props => {
         <Gradient>
           <SingleItem
             onClick={() => {
-              cta({
+              click({
                 position: "FAQ",
                 type: "expandible",
                 label: "How can I invest?"
@@ -172,7 +172,7 @@ const FAQ = props => {
         <Gradient>
           <SingleItem
             onClick={() => {
-              cta({
+              click({
                 position: "FAQ",
                 type: "expandible",
                 label: "Is it better than Compound?"
@@ -199,7 +199,7 @@ const FAQ = props => {
         <Gradient>
           <SingleItem
             onClick={() => {
-              cta({
+              click({
                 position: "FAQ",
                 type: "expandible",
                 label: "Is it safe?"

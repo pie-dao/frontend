@@ -86,7 +86,7 @@ const TopNavi = props => {
             link({ position: "navbar", to: "whitepaper", type: "text" })
           }
           className="navbar-item"
-          href="https://github.com/Alexintosh/whitepaper"
+          href="https://pie283460.typeform.com/to/uy9NZt"
           target="_blank"
         >
           whitepaper
@@ -103,7 +103,7 @@ const TopNavi = props => {
         </MobileNone>
         <MobileNone>
           <StyledLink
-            to="/Investment"
+            to="/investment"
             onClick={() =>
               link({ position: "navbar", to: "investment", type: "text" })
             }
@@ -112,27 +112,27 @@ const TopNavi = props => {
           </StyledLink>
         </MobileNone>
         <MobileNone>
-          <A
+          <StyledLink
             onClick={() =>
               link({ position: "navbar", to: "discord", type: "text" })
             }
             className="navbar-item"
-            href="https://discord.gg/CdzWXc"
+            href="/discord"
           >
             discord
-          </A>
+          </StyledLink>
         </MobileNone>
         <MobileNone>
           {" "}
-          <A
+          <StyledLink
             onClick={() =>
               link({ position: "navbar", to: "contact", type: "text" })
             }
             className="navbar-item"
-            href="https://discord.gg/CdzWXc"
+            href="/discord"
           >
             contact
-          </A>
+          </StyledLink>
         </MobileNone>
       </Right>
     </Container>
