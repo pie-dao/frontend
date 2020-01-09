@@ -30,7 +30,6 @@ const PreTitle = styled.div`
 `;
 
 const Title = styled.div`
-  max-width: 100%;
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-quiteverybig);
@@ -63,7 +62,7 @@ const Title = styled.div`
     /* font-size: var(--text-quiteverybig-mobile);
     line-height: 7.5rem; */
     margin: 5% 0;
-    font-size: 20vw;
+    font-size: 4.5rem;
     line-height: 4rem;
   }
 `;
