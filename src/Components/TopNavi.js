@@ -117,7 +117,7 @@ const TopNavi = props => {
               link({ position: "navbar", to: "discord", type: "text" })
             }
             className="navbar-item"
-            href="/discord"
+            to="/discord"
           >
             discord
           </StyledLink>
@@ -129,7 +129,7 @@ const TopNavi = props => {
               link({ position: "navbar", to: "contact", type: "text" })
             }
             className="navbar-item"
-            href="/discord"
+            to="/discord"
           >
             contact
           </StyledLink>
