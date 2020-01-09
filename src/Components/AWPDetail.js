@@ -8,6 +8,9 @@ import { link, cta } from "../mixpanel";
 import ConnectWalletButton from "./ConnectWalletButton";
 import IF from "./IF";
 import { useWeb3React } from "../hooks";
+import { useAddressBalance } from "../contexts/Balances";
+import { isAddress, amountFormatter } from '../utils';
+import { DAI_ADDRESS, AWP_ADDRESS} from "../constants";
 
 const Contenitore = styled.div`
   display: flex;
@@ -115,9 +118,13 @@ const BuyButtons = props => {
 }
 
 const AWPDetail = props => {
-  const web3React = useWeb3React();
+  const {account} = useWeb3React();
 
-  console.log(web3React.account);
+  const daiBalance = amountFormatter(useAddressBalance(account, isAddress(DAI_ADDRESS)));
+  const awpBalance = amountFormatter(useAddressBalance(account, isAddress(AWP_ADDRESS)));
+  const daiAllowance = amountFormatter(useAddressBalance(account, isAddress(DAI_ADDRESS)));
+  const awpAllowance = amountFormatter(useAddressBalance(account, isAddress(AWP_ADDRESS)));
+  const ethBalance = amountFormatter(useAddressBalance(account), "ETH");
 
   return (
     <Contenitore>
@@ -191,7 +198,7 @@ const AWPDetail = props => {
                     pAWP
                   </TokenLabel>
                 </InputContainer>
-                  <IF what={web3React.account === undefined} else={<BuyButtons />}>
+                  <IF what={account === undefined} else={<BuyButtons />}>
                     <ConnectWalletButton />
                   </IF>
               </Modal>

@@ -100,8 +100,8 @@ const WalletModal = props => {
             <IF what={walletView === WALLET_VIEWS.OPTIONS}>
                 <WalletOption onClick={() => { tryActivation(SUPPORTED_WALLETS.METAMASK.connector) }} wallet={SUPPORTED_WALLETS.METAMASK} />
             </IF>
-            <IF what={walletView == WALLET_VIEWS.PENDING}>
-                
+            <IF what={walletView === WALLET_VIEWS.PENDING}>
+                PENDING VIEW
 
                 {pendingError ? 
                     <>
@@ -117,8 +117,8 @@ const WalletModal = props => {
                     <Container>Please Log-in to your wallet and Connect it to PIE</Container>
                 }
             </IF>
-            <IF what={walletView == WALLET_VIEWS.ACCOUNT}>
-                <Container>Account View</Container>
+            <IF what={walletView === WALLET_VIEWS.ACCOUNT}>
+                ACCOUNT VIEW
             </IF>
         </Modal>
     );
