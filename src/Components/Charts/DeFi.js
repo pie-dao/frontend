@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { PieChart, Pie, Legend, Tooltip, Cell } from "recharts";
+import COLORS from "../../Theme/Colors"
 
 const data01 = [
   { name: "ZRX", value: 11.1 },
@@ -12,21 +13,6 @@ const data01 = [
   { name: "REN", value: 11.1 },
   { name: "LINK", value: 11.1 }
 ];
-
-const COLORS = [
-  "#FFCD1C",
-  "#79F2C3",
-  "#1CAA98",
-  "#1EC0FF",
-  "#305CEE",
-  "#9080DC",
-  "#6F51FD",
-  "#9B10D9",
-  "#D6099B",
-  "#FE04B7",
-  "#FF7C42"
-];
-
 export default class DeFi extends PureComponent {
   render() {
     return (

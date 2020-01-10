@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
-import { link, cta } from "../mixpanel";
+import { link } from "../mixpanel";
 
 const Container = styled.div`
   display: flex;
@@ -92,7 +92,6 @@ const TopNavi = props => {
           whitepaper
         </A>
         <MobileNone>
-          {/* <StyledLink to="/charts">charts</StyledLink> */}
         </MobileNone>
         <MobileNone>
           <StyledLink
@@ -105,7 +104,7 @@ const TopNavi = props => {
           </StyledLink>
         </MobileNone>
         <MobileNone>
-          <A href="https://discord.gg/Mnda9wr">discord</A>
+          <StyledLink to="/discord">discord</StyledLink>
         </MobileNone>
         <MobileNone>
           {" "}
