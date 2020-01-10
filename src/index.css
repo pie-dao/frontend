@@ -23,6 +23,10 @@ body {
   text-align:center;
 }
 
+.verticalMargins {
+  margin: 3% 0;
+}
+
 @media screen and (min-width: 1216px) {
   section.content {
     margin-left: auto;
@@ -36,7 +40,7 @@ body {
   section.content {
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    width: 100%;
     max-width: 980px;
   }
 }

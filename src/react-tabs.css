@@ -1,0 +1,125 @@
+ * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  
+  html,
+  body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+  }
+  :root {
+    --almost-black: #0a0a0a;
+    --text-verybig: 10rem;
+    --text-verybig-mobile: 7rem;
+    --text-ratherbig: 4rem;
+    --text-ratherbig-mobile: 2rem;
+    --text-big: 2.3rem;
+    --text-medium: 1.2rem;
+    --text-medium-mobile: 1.3rem;
+    --text-normal: 1.1rem;
+    --text-prettysmall: 0.9rem;
+    --text-table-mobile: 0.6rem;
+    --text-label-mobile: 0.5rem;
+    --text-verysmall: 0.8rem;
+    --white: #ffffff;
+    --secondary-font: 'Roboto Mono', monospace;
+    --primary-font: 'Rubik', sans-serif;
+  
+  }
+
+p.Ptab {
+  font-weight: 300;
+  font-size: var(--text-medium);
+  text-align: left;
+}
+
+.react-tabs {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .react-tabs__tab-list {
+    border-bottom: 1px solid #d6d6d6;
+    margin: 0 0 30px;
+    padding: 0;
+  }
+  
+  .react-tabs__tab {
+    display: inline-block;
+    border: 1px solid transparent;
+    border-bottom: none;
+    bottom: -1px;
+    position: relative;
+    list-style: none;
+    padding: 8px 20px;
+    cursor: pointer;
+  }
+  
+  .react-tabs__tab--selected {
+    background: #fff;
+    border-color: #d6d6d6;
+    color: black;
+    border-radius: 5px 5px 0 0;
+    font-weight: 700;
+  }
+  
+  .react-tabs__tab--disabled {
+    color: GrayText;
+    cursor: default;
+  }
+  
+  .react-tabs__tab:focus {
+    outline: none;
+  }
+  
+  .react-tabs__tab:focus:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    left: -4px;
+    right: -4px;
+    bottom: -5px;
+    background: #fff;
+  }
+  
+  .react-tabs__tab-panel {
+    display: none;
+  }
+  
+  .react-tabs__tab-panel--selected {
+    display: block;
+  }
+
+  /* CUSTOM */
+  
+.noborder {
+  border:none;
+  padding-inline-start: 0;
+}
+
+.noborder li {
+    border:none;
+    padding-inline-start: 0;
+}
+
+.lightWeight {
+    font-weight: 300;
+}
+
+
+  
+
+
+
+  @media screen and (max-width: 768px) {
+    .react-tabs__tab {
+        padding: 8px 14px;
+      }
+
+      p.Ptab {
+        font-weight: 300;
+        font-size: var(--text-medium-mobile);
+        text-align: left;
+    }
+  }

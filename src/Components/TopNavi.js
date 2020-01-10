@@ -93,14 +93,6 @@ const TopNavi = props => {
           whitepaper
         </A>
         <MobileNone>
-          <StyledLink
-            to="/charts"
-            onClick={() =>
-              link({ position: "navbar", type: "text", to: "charts" })
-            }
-          >
-            charts
-          </StyledLink>
         </MobileNone>
         <MobileNone>
           <StyledLink
@@ -113,15 +105,7 @@ const TopNavi = props => {
           </StyledLink>
         </MobileNone>
         <MobileNone>
-          <StyledLink
-            onClick={() =>
-              link({ position: "navbar", to: "discord", type: "text" })
-            }
-            className="navbar-item"
-            to="/discord"
-          >
-            discord
-          </StyledLink>
+          <StyledLink to="/discord">discord</StyledLink>
         </MobileNone>
         <MobileNone>
           {" "}
