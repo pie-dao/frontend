@@ -2,7 +2,6 @@ import React from "react";
 import AWPDetail from "../Components/AWPDetail";
 import ComparisonItemSpecial from "../Components/ComparisonItemSpecial";
 import YourInvestmentLabel from "../Components/YourInvestmentLabel";
-import Exchange from "../Components/Exchange";
 
 function InvestmentDetail() {
   return (
@@ -17,7 +16,6 @@ function InvestmentDetail() {
           OneYearGains="+ $ 2,770"
           APY="27.70%"
         />
-        <Exchange />
       </section>
     </div>
   );

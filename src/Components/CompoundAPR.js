@@ -18,6 +18,8 @@ class CompoundAPR extends Component {
     this.getData();
   }
 
+
+
   
   async getData() {
     const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/comparison/2019-12`);
@@ -30,8 +32,10 @@ class CompoundAPR extends Component {
     })
   }
 
+
   renderComparisonChart() {
     const {comparisonData} = this.state;
+
 
     return (
       <div>

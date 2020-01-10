@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Input from "./Input";
 import { link, cta } from "../mixpanel";
-import ConnectWalletButton from "./ConnectWalletButton";
-import IF from "./IF";
 import { useWeb3React } from "../hooks";
 import { useAddressBalance } from "../contexts/Balances";
 import { isAddress, amountFormatter } from "../utils";
@@ -19,27 +17,14 @@ const Container = styled.div`
   }
 `;
 
-const Title = styled.div`
-  text-align: center;
-  font-family: var(--primary-font);
-  color: var(--almost-black);
-  font-size: var(--text-big);
-  font-weight: 700;
-  margin-bottom: 2%;
-
-  @media (max-width: 768px) {
-    font-size: var(--text-ratherbig-mobile);
-  }
-`;
-
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 590px;
   padding: 15px;
   border: 1px solid #cccccc;
   border-radius: 4px;
+  width: 100%;
   @media (max-width: 768px) {
     width: 90%;
     margin: 0 5%;
@@ -51,11 +36,11 @@ const ExchangeRateLabel = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 590px;
   padding: 5px 15px;
   border-radius: 4px;
   background-color: var(--almost-black);
   color: var(--white);
+  width: 100%;
   @media (max-width: 768px) {
     width: 90%;
     margin: 0 5%;
@@ -286,9 +271,6 @@ const Exchange = props => {
           <Right>1 AWP ++ = 1 DAI</Right>
         </Top>
       </ExchangeRateLabel>
-      <IF what={account === undefined} else={<BuyButtons />}>
-        <ConnectWalletButton />
-      </IF>
     </Container>
   );
 };
