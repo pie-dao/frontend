@@ -16,7 +16,7 @@ import Exchange from "./Exchange";
 const Contenitore = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   margin: 20px 0;
   padding: 0 5%;
   @media (max-width: 1000px) {
