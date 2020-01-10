@@ -36,7 +36,7 @@ const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 580px;
+  width: 590px;
   padding: 15px;
   border: 1px solid #cccccc;
   border-radius: 4px;
@@ -48,7 +48,7 @@ const ExchangeRateLabel = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 580px;
+  width: 590px;
   padding: 5px 15px;
   border-radius: 4px;
   background-color: var(--almost-black);
@@ -173,7 +173,7 @@ const Exchange = props => {
 
   return (
     <Container>
-      <Title>Buy AWP++ Token now</Title>
+      {/* <Title>Buy AWP++ Token now</Title> */}
       <InputContainer>
         <Top>
           <Left>Input</Left>

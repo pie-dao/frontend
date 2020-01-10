@@ -14,7 +14,7 @@ import { DAI_ADDRESS, AWP_ADDRESS } from "../constants";
 
 const Contenitore = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
   margin: 20px 0;
@@ -32,7 +32,8 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 2% 0 0;
+  margin: 0;
+
 
   @media (max-width: 1000px) {
     padding: 0;
@@ -45,17 +46,18 @@ const Right = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5% 0 5% 2%;
+  margin: 0;
+
 
   @media (max-width: 1000px) {
     padding: 0;
-    margin: 10px 0 0 0;
+    margin: 0;
     text-align: center;
   }
 `;
 
 const Title = styled.div`
-  text-align: left;
+  text-align: center;
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-big);
@@ -67,14 +69,14 @@ const Title = styled.div`
 `;
 
 const Text = styled.div`
-  text-align: left;
+  text-align: center;
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-normal);
   font-weight: 300;
-  padding: 0;
+  padding: 0 20%;
   line-height: 1.5rem;
-  margin-bottom: 3%;
+  margin: 1% 0 3% 0;
 
   @media (max-width: 768px) {
     font-size: var(--text-medium-mobile);
