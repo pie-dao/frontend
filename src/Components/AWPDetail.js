@@ -144,11 +144,6 @@ const AWPDetail = props => {
               <button
                 className="buttonModal"
                 ButtonLabel="Buy Now"
-                onClick={openModal}
-              >
-                Buy Now
-              </button>{" "}
-              <button
                 onClick={() => {
                   cta({
                     position: "navbar",
@@ -158,8 +153,8 @@ const AWPDetail = props => {
                   });
                 }}
               >
-                BUY
-              </button>
+                Buy Now
+              </button>             
               <Modal
                 className="mainModal"
                 isActive={isActive} // required
