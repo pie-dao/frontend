@@ -17,7 +17,7 @@ function Home() {
       <ComparisonTable />
       <GradienBgSection />
       <FAQ />
-      <GradientText GradientTextContent="3% better performing than the top portfolios in the World*. How about that?" />
+      <GradientText GradientTextContent="In the last 15 years, nearly 92% of actively managed funds underperformed the S&P 500." />
       <Features />
       <AllocationTab />
       <BlackBGgradientText BlackBGgradientContent="If you had invested $100 per month over the past 10 years, you would have $111,324.92 today. The next best time to invest is now."/>

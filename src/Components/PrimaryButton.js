@@ -50,9 +50,10 @@ const PrimaryButton = props => {
           type: "button",
           label: "Get early access"
         });
+        props.onClick();
       }}
     >
-      {props.ButtonLabel}
+      {props.children}
     </Button>
   );
 };
