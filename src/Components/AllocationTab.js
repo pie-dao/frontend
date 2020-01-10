@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import "../react-tabs.css";
-
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import Settlement from "./Charts/Settlement";
 import CryptoBasket from "./Charts/CryptoBasket";
-import Privacy from "./Charts/Privacy";
-import Gaming from "./Charts/Gaming";
 import DeFi from "./Charts/DeFi";
 import TLT from "./Charts/TLT";
 import GSG from "./Charts/GSG";
