@@ -1,12 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import PrimaryButton from "./PrimaryButton";
 import CompoundAPR from "./CompoundAPR";
-import { ModalContainer, Modal } from "minimal-react-modal";
-import Input from "./Input";
 import { link, cta } from "../mixpanel";
-import ConnectWalletButton from "./ConnectWalletButton";
-import IF from "./IF";
 import { useWeb3React } from "../hooks";
 import { useAddressBalance } from "../contexts/Balances";
 import { isAddress, amountFormatter } from "../utils";
@@ -19,7 +14,6 @@ const Contenitore = styled.div`
   align-items: center;
   margin: 20px 0;
   padding: 0 5%;
-
   @media (max-width: 1000px) {
     flex-direction: column;
     margin: 1% 5%;
@@ -34,8 +28,6 @@ const Left = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0;
-
-
   @media (max-width: 1000px) {
     width: 100%;
   }
@@ -47,8 +39,6 @@ const Right = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0;
-
-
   @media (max-width: 1000px) {
     padding: 0;
     margin: 0;
@@ -63,7 +53,6 @@ const Title = styled.div`
   color: var(--almost-black);
   font-size: var(--text-big);
   font-weight: 700;
-
   @media (max-width: 768px) {
     font-size: var(--text-ratherbig-mobile);
   }
@@ -78,47 +67,12 @@ const Text = styled.div`
   padding: 0 20%;
   line-height: 1.5rem;
   margin: 1% 0 3% 0;
-
   @media (max-width: 768px) {
     font-size: var(--text-medium-mobile);
     padding: 0 0;
   }
 `;
 
-const InputContainer = styled.div`
-  display: flex;
-  align-items: center;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  @media (max-width: 768px) {
-  }
-`;
-
-const TokenLabel = styled.div`
-  display: flex;
-  align-items: center;
-  min-width: 120px;
-  @media (max-width: 768px) {
-  }
-`;
-
-const TokenImage = styled.img`
-  height: 30px;
-  margin: 0 10px;
-
-  @media (max-width: 768px) {
-    height: 30px;
-  }
-`;
-
-const BuyButtons = props => {
-  return (
-    <>
-      <PrimaryButton>Unlock DAI</PrimaryButton>
-    </>
-  );
-};
 
 const AWPDetail = props => {
   const { account } = useWeb3React();
@@ -150,68 +104,6 @@ const AWPDetail = props => {
           Landing in the last 12 months. Don't take our word for it. Have a look
           at the chart on the left.
         </Text>
-        {/* <ModalContainer>
-          {(openModal, closeModal, isActive) => (
-            <div>
-              <button
-                className="buttonModal"
-                ButtonLabel="Buy Now"
-                onClick={() => {
-                  cta({
-                    position: "navbar",
-                    to: "/",
-                    type: "button",
-                    label: "Buy Now"
-                  });
-                }}
-              >
-                Buy Now
-              </button>             
-              <Modal
-                className="mainModal"
-                isActive={isActive} // required
-                closeModal={closeModal} // required
-                showAnimation={true}
-                modalBoxStyle={{
-                  width: "90%",
-                  maxWidth: 600,
-                  padding: "5%"
-                }}
-              >
-                <Title>Buy PIE Tokens now</Title>
-                <Text>
-                  The crypto basket, allocated for a maximum of 10%, aims to
-                  give exposure to different assets in the blockchain industry
-                  between:
-                </Text>
-                <InputContainer>
-                  <Input
-                    inpPlaceholder="i.e. 1000"
-                    inpType="number"
-                    inpID="invest"
-                  />
-                  <TokenLabel>
-                    <TokenImage src="../img/dai.png" alt="token icon" />
-                    DAI
-                  </TokenLabel>
-                </InputContainer>
-                <InputContainer>
-                  <Input inpPlaceholder="0" inpType="number" inpID="invest" />
-                  <TokenLabel>
-                    <TokenImage
-                      src="../img/portfolio_02.png"
-                      alt="token icon"
-                    />
-                    pAWP
-                  </TokenLabel>
-                </InputContainer>
-                  <IF what={account === undefined} else={<BuyButtons />}>
-                    <ConnectWalletButton />
-                  </IF>
-              </Modal>
-            </div>
-          )}
-        </ModalContainer> */}
       </Right>
     </Contenitore>
   );
