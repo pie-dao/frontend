@@ -24,6 +24,7 @@ const Contenitore = styled.div`
     flex-direction: column;
     margin: 1% 5%;
     padding: 0;
+    width: 90%;
   }
 `;
 
@@ -36,8 +37,7 @@ const Left = styled.div`
 
 
   @media (max-width: 1000px) {
-    padding: 0;
-    margin: 0;
+    width: 100%;
   }
 `;
 
@@ -53,6 +53,7 @@ const Right = styled.div`
     padding: 0;
     margin: 0;
     text-align: center;
+    width: 100%;
   }
 `;
 

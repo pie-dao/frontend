@@ -41,6 +41,9 @@ const InputContainer = styled.div`
   border: 1px solid #cccccc;
   border-radius: 4px;
   @media (max-width: 768px) {
+    width: 90%;
+    margin: 0 5%;
+
   }
 `;
 
@@ -54,6 +57,8 @@ const ExchangeRateLabel = styled.div`
   background-color: var(--almost-black);
   color: var(--white);
   @media (max-width: 768px) {
+    width: 90%;
+    margin: 0 5%;
   }
 `;
 

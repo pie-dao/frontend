@@ -32,6 +32,7 @@ const GenericImput = styled.input`
   }
   @media (max-width: 680px) {
     flex-grow: 1;
+    max-width: 18px;
   }
 `;
 
