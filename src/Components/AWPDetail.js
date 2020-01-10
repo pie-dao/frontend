@@ -9,15 +9,15 @@ import ConnectWalletButton from "./ConnectWalletButton";
 import IF from "./IF";
 import { useWeb3React } from "../hooks";
 import { useAddressBalance } from "../contexts/Balances";
-import { isAddress, amountFormatter } from '../utils';
-import { DAI_ADDRESS, AWP_ADDRESS} from "../constants";
+import { isAddress, amountFormatter } from "../utils";
+import { DAI_ADDRESS, AWP_ADDRESS } from "../constants";
 
 const Contenitore = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
+  margin: 20px 0;
   padding: 0 5%;
 
   @media (max-width: 1000px) {
@@ -32,7 +32,7 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 80px 2% 80px 0;
+  margin: 0 2% 0 0;
 
   @media (max-width: 1000px) {
     padding: 0;
@@ -45,7 +45,7 @@ const Right = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 80px 0 80px 2%;
+  margin: 5% 0 5% 2%;
 
   @media (max-width: 1000px) {
     padding: 0;
@@ -55,7 +55,7 @@ const Right = styled.div`
 `;
 
 const Title = styled.div`
-  text-align: center;
+  text-align: left;
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-big);
@@ -67,7 +67,7 @@ const Title = styled.div`
 `;
 
 const Text = styled.div`
-  text-align: center;
+  text-align: left;
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-normal);
@@ -110,20 +110,28 @@ const TokenImage = styled.img`
 `;
 
 const BuyButtons = props => {
-  return(
+  return (
     <>
       <PrimaryButton>Unlock DAI</PrimaryButton>
     </>
-  )
-}
+  );
+};
 
 const AWPDetail = props => {
-  const {account} = useWeb3React();
+  const { account } = useWeb3React();
 
-  const daiBalance = amountFormatter(useAddressBalance(account, isAddress(DAI_ADDRESS)));
-  const awpBalance = amountFormatter(useAddressBalance(account, isAddress(AWP_ADDRESS)));
-  const daiAllowance = amountFormatter(useAddressBalance(account, isAddress(DAI_ADDRESS)));
-  const awpAllowance = amountFormatter(useAddressBalance(account, isAddress(AWP_ADDRESS)));
+  const daiBalance = amountFormatter(
+    useAddressBalance(account, isAddress(DAI_ADDRESS))
+  );
+  const awpBalance = amountFormatter(
+    useAddressBalance(account, isAddress(AWP_ADDRESS))
+  );
+  const daiAllowance = amountFormatter(
+    useAddressBalance(account, isAddress(DAI_ADDRESS))
+  );
+  const awpAllowance = amountFormatter(
+    useAddressBalance(account, isAddress(AWP_ADDRESS))
+  );
   const ethBalance = amountFormatter(useAddressBalance(account), "ETH");
 
   return (
@@ -133,12 +141,13 @@ const AWPDetail = props => {
       </Left>
 
       <Right>
-        <Title>DeFi Lending is doomed</Title>
+        <Title>You can do better than DeFi Lending</Title>
         <Text>
-          The crypto basket, allocated for a maximum of 10%, aims to give
-          exposure to different assets in the blockchain industry between:
+          We backtested the All Weather Portfolio and the AWP++ against DeFi
+          Landing in the last 12 months. Don't take our word for it. Have a look
+          at the chart on the left.
         </Text>
-        <ModalContainer>
+        {/* <ModalContainer>
           {(openModal, closeModal, isActive) => (
             <div>
               <button
@@ -199,7 +208,7 @@ const AWPDetail = props => {
               </Modal>
             </div>
           )}
-        </ModalContainer>
+        </ModalContainer> */}
       </Right>
     </Contenitore>
   );
