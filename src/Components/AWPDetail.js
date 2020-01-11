@@ -104,6 +104,19 @@ const ModalText = styled.div`
   }
 `;
 
+const UniswapCredit = styled.a`
+  width: center;
+  text-align: center;
+  font-family: var(--primary-font);
+  color: var(--almost-black);
+  font-size: var(--text-prettysmall);
+  font-weight: 300;
+
+  @media (max-width: 768px) {
+
+  }
+`;
+
 const BuyButtons = props => {
   return (
     <>
@@ -174,6 +187,7 @@ const AWPDetail = props => {
                 <IF what={account === undefined} else={<BuyButtons />}>
                   <ConnectWalletButton />
                 </IF>
+                <UniswapCredit href="https://uniswap.exchange/" target="_blank">Powered by <span role="img">🦄</span>Uniswap</UniswapCredit>
               </Modal>
             </div>
           )}

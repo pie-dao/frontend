@@ -47,6 +47,20 @@ const ExchangeRateLabel = styled.div`
   }
 `;
 
+const SlippageLabel = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 15px 0 15px;
+  background-color: var(--white);
+  color: var(--almost-black);
+  width: 100%;
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: 0 5%;
+  }
+`;
+
 const Arrow = styled.div`
   display: flex;
   flex-direction: column;
@@ -131,7 +145,7 @@ const SVG = styled.svg`
 const IMG = styled.img`
   width: 1rem;
   height: 1rem;
-  margin: 0 5px;
+  margin: 0 5px 0 0;
   @media (max-width: 768px) {
   }
 `;
@@ -177,42 +191,13 @@ const Exchange = props => {
           <Right>
             <SelectButton>
               <InsideButton>
-                <SVG
-                  width="256px"
-                  height="417px"
-                  viewBox="0 0 256 417"
-                  preserveAspectRatio="xMidYMid"
-                  class="sc-kPVwWT fKFejX"
-                >
-                  <g>
-                    <polygon
-                      fill="#343434"
-                      points="127.9611 0 125.1661 9.5 125.1661 285.168 127.9611 287.958 255.9231 212.32"
-                    ></polygon>
-                    <polygon
-                      fill="#8C8C8C"
-                      points="127.962 0 0 212.32 127.962 287.959 127.962 154.158"
-                    ></polygon>
-                    <polygon
-                      fill="#3C3C3B"
-                      points="127.9611 312.1866 126.3861 314.1066 126.3861 412.3056 127.9611 416.9066 255.9991 236.5866"
-                    ></polygon>
-                    <polygon
-                      fill="#8C8C8C"
-                      points="127.962 416.9052 127.962 312.1852 0 236.5852"
-                    ></polygon>
-                    <polygon
-                      fill="#141414"
-                      points="127.9611 287.9577 255.9211 212.3207 127.9611 154.1587"
-                    ></polygon>
-                    <polygon
-                      fill="#393939"
-                      points="0.0009 212.3208 127.9609 287.9578 127.9609 154.1588"
-                    ></polygon>
-                  </g>
-                </SVG>
-                <span>ETH</span>
-                <SVG
+              <IMG
+                  src="../img/dai.png"
+                  className="DAI-logo"
+                  alt="logo"
+                />
+                <span>DAI</span>
+                {/* <SVG
                   width="12"
                   height="7"
                   viewBox="0 0 12 7"
@@ -223,7 +208,7 @@ const Exchange = props => {
                     d="M0.97168 1L6.20532 6L11.439 1"
                     stroke="#AEAEAE"
                   ></path>
-                </SVG>
+                </SVG> */}
               </InsideButton>
             </SelectButton>
           </Right>
@@ -271,6 +256,12 @@ const Exchange = props => {
           <Right>1 AWP ++ = 1 DAI</Right>
         </Top>
       </ExchangeRateLabel>
+      <SlippageLabel>
+        <Top>
+          <Left>Potential Slippage</Left>
+          <Right>0.29%</Right>
+        </Top>
+      </SlippageLabel>
     </Container>
   );
 };

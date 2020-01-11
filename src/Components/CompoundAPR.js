@@ -40,7 +40,7 @@ class CompoundAPR extends Component {
     return (
       <div>
         {!(comparisonData) ? <Placeholder/> :
-          <LineChart width={500} height={380} data={comparisonData} margin={{top: 0, right: 30, left: 20, bottom: 5}}>
+          <LineChart width={600} height={380} data={comparisonData} margin={{top: 0, right: 30, left: 20, bottom: 5}}>
             <XAxis dataKey="month"/>
             <YAxis domain={[0, 40]}/>
             <CartesianGrid strokeDasharray="3 3"/>
