@@ -29,4 +29,6 @@ export const SUPPORTED_WALLETS = {
 
 export const NetworkContextName = 'NETWORK';
 export const DAI_ADDRESS = "0x1d7e3a1a65a367db1d1d3f51a54ac01a2c4c92ff";
-export const AWP_ADDRESS = "0x54c4b5cb58c880dd1734123c8b588e49edf442fb";
+export const AWP_ADDRESS = "0xb77208fbb2d3fd907a81b47a243271c0b547fd18";
+export const DAI_EXCHANGE = "0x1a3e8f0A53E0524fC2DF6841408abe778C8Ecd9d";
+export const AWP_EXCHANGE = "0x2419822a3632417942C3eF9b2942Baf50D6Ea2C4";

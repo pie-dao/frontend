@@ -44,6 +44,8 @@ const Input = props => {
       placeholder={props.inpPlaceholder}
       name="EMAIL"
       className="required email newsletterInput"
+      onChange={props.onChange}
+      value={props.value}
     />
   );
 };

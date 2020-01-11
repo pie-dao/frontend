@@ -117,14 +117,6 @@ const UniswapCredit = styled.a`
   }
 `;
 
-const BuyButtons = props => {
-  return (
-    <>
-      <PrimaryButton>Unlock DAI</PrimaryButton>
-    </>
-  );
-};
-
 const AWPDetail = props => {
   const { account } = useWeb3React();
 
@@ -184,9 +176,7 @@ const AWPDetail = props => {
                   between:
                 </ModalText>
                 <Exchange />
-                <IF what={account === undefined} else={<BuyButtons />}>
-                  <ConnectWalletButton />
-                </IF>
+                
                 <UniswapCredit href="https://uniswap.exchange/" target="_blank">Powered by <span role="img">🦄</span>Uniswap</UniswapCredit>
               </Modal>
             </div>
