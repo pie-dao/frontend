@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import styled from "styled-components";
 
 
@@ -18,6 +18,8 @@ class CompoundAPR extends Component {
     this.getData();
   }
 
+
+
   
   async getData() {
     const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/comparison/2019-12`);
@@ -30,13 +32,15 @@ class CompoundAPR extends Component {
     })
   }
 
+
   renderComparisonChart() {
     const {comparisonData} = this.state;
+
 
     return (
       <div>
         {!(comparisonData) ? <Placeholder/> :
-          <LineChart width={600} height={300} data={comparisonData} margin={{top: 0, right: 30, left: 20, bottom: 5}}>
+          <LineChart width={600} height={380} data={comparisonData} margin={{top: 0, right: 30, left: 20, bottom: 5}}>
             <XAxis dataKey="month"/>
             <YAxis domain={[0, 40]}/>
             <CartesianGrid strokeDasharray="3 3"/>
