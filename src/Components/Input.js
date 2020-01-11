@@ -8,16 +8,16 @@ const GenericImput = styled.input`
   /* border: 1px solid #cccccc; */
   border: none;
   /* border-radius: 4px; */
-  padding: 20px;
+  padding: 10px 10px 10px 0;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  margin: 10px 0;
-  font-size: var(--text-prettysmall);
+  margin: 0;
+  font-size: var(--text-medium);
 
   ::placeholder {
     color: var(--medium-grey);
-    font-size: var(--text-prettysmall);
+    font-size: var(--text-medium);
     text-align: left;
   }
 
@@ -25,14 +25,14 @@ const GenericImput = styled.input`
     outline: none !important;
     /* border: 1px solid var(--almost-black); */
     box-shadow: 0 0 10px var(--white);
-    font-size: var(--text-prettysmall);
+    font-size: var(--text-medium);
   }
   :focus::placeholder {
     color: transparent;
   }
   @media (max-width: 680px) {
     flex-grow: 1;
-    margin-right: 0;
+    max-width: 18px;
   }
 `;
 
