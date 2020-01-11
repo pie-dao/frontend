@@ -7,7 +7,7 @@ var solution = "0xfe9341a416aec42a2819008f03768af71d3a13521a29b654903cc31a8064bb
 
 var enviroment = process.env.NODE_ENV 
 // enviroment = "production";
-var skipCheck = localStorage.skipCheck;
+var skipCheck = localStorage.skipCheck || false;
 var passwordCorrect;
 
 if(!skipCheck) {
@@ -21,8 +21,8 @@ if(passwordCorrect) {
     localStorage.skipCheck = true;
 }
 
-const PasswordGate = props =>{
-    if(hashedPassword === solution || enviroment === "development" || skipCheck) {
+const PasswordGate = props => {  
+    if(hashedPassword === solution || enviroment === "development" || skipCheck === true) {
         return (
             <>
                 {props.children}
