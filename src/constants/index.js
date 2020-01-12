@@ -7,6 +7,17 @@ export const FACTORY_ADDRESSES = {
   42: '0xD3E51Ef092B2845f10401a0159B2B96e8B6c3D30'
 }
 
+export const NETWORKS = {
+  1: {
+    name: "Mainnet",
+    symbol: "ETH"
+  },
+  42: {
+    name: "Kovan",
+    symbol: "KETH"
+  }
+}
+
 export const SUPPORTED_WALLETS = {
     INJECTED: {
       connector: injected,
