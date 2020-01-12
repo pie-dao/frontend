@@ -351,7 +351,8 @@ const Exchange = props => {
   }
 
   function buy() {
-    exchangeContract.tokenToTokenSwapInput(ethers.utils.parseEther(inputValue), 1, 1, Math.floor(Date.now() / 1000) + 3600, AWP_ADDRESS, {gasLimit: 200000}).then((receipt) => {
+    const minAmount = ethers.utils.parseEther(outputValue).mul(995).div(1000);
+    exchangeContract.tokenToTokenSwapInput(ethers.utils.parseEther(inputValue), minAmount, 1, Math.floor(Date.now() / 1000) + 3600, AWP_ADDRESS, {gasLimit: 200000}).then((receipt) => {
       track(receipt.hash);
     })
   }
