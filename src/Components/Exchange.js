@@ -452,7 +452,7 @@ const Exchange = props => {
       <ExchangeRateLabel>
         <Top>
           <Left>Exchange Rate</Left>
-          <Right>1 AWP ++ = {amountFormatter(exchangeRate) || "-"} DAI</Right>  
+          <Right>1 AWP ++ = {amountFormatter(exchangeRate) || amountFormatter(marketRate) || "-"} DAI</Right>  
         </Top>
         <Top>
           <Left>Minimum Output amount</Left>
