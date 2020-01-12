@@ -13,6 +13,7 @@ import IF from "./IF";
 import {ethers} from "ethers";
 import { isSecretStorageWallet } from "ethers/utils/json-wallet";
 import { BigNumber } from "ethers/utils";
+import { track } from "../txTracker";
 
 const ETH_TO_TOKEN = 0
 const TOKEN_TO_ETH = 1
@@ -344,12 +345,15 @@ const Exchange = props => {
   }
 
   function approve() {
-    tokenContract.approve(DAI_EXCHANGE, ethers.constants.MaxUint256, {gasLimit: 200000});
+    tokenContract.approve(DAI_EXCHANGE, ethers.constants.MaxUint256, {gasLimit: 200000}).then((receipt) => {
+      track(receipt.hash);
+    }) ;
   }
 
   function buy() {
-    exchangeContract.tokenToTokenSwapInput(ethers.utils.parseEther(inputValue), 1, 1, Math.floor(Date.now() / 1000) + 3600, AWP_ADDRESS, {gasLimit: 200000});
-    // TODO implement tokenToTokenSwapOutput
+    exchangeContract.tokenToTokenSwapInput(ethers.utils.parseEther(inputValue), 1, 1, Math.floor(Date.now() / 1000) + 3600, AWP_ADDRESS, {gasLimit: 200000}).then((receipt) => {
+      track(receipt.hash);
+    })
   }
 
   function sufficientAllowance() {
