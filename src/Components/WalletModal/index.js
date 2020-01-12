@@ -100,7 +100,7 @@ const WalletModal = props => {
             className="mainModal"
             isActive={walletModalOpen} // required
             closeModal={toggleWalletModal} // required
-            showAnimation={true}
+            showAnimation={false}
             modalBoxStyle={{
                 width: "90%",
                 maxWidth: 600,
@@ -122,7 +122,7 @@ const WalletModal = props => {
                         
                         <PrimaryButton onClick={() => {setWalletView(WALLET_VIEWS.OPTIONS)}}>GO BACK</PrimaryButton>
                     </> :
-                    <Container>Please Log-in to your wallet and Connect it to PIE</Container>
+                    <Container>Please log-in to your wallet and connect it to PIE</Container>
                 }
             </IF>
             <IF what={walletView === WALLET_VIEWS.ACCOUNT}>
