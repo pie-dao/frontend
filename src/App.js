@@ -5,6 +5,7 @@ import { Router } from "react-router-dom";
 import './App.css';
 import TopNavi from './Components/TopNavi';
 import PasswordGate from "./Components/PasswordGate";
+import Web3ReactManager from "./Components/Web3ReactManager";
 import Routes from "./routes";
 import { createBrowserHistory } from 'history';
 import { NetworkContextName } from './constants';
@@ -30,24 +31,26 @@ function getLibrary(provider) {
 }
 
 function App() {
-  return (
+  return (  
     <Web3ReactProvider getLibrary={getLibrary}>
       <Web3ProviderNetwork getLibrary={getLibrary}>
-        <ApplicationContext>
-          <AllowanceContext>
-            <BalancesContext>
-              <Router history={instance}>
-              <PasswordGate>
-                <div className="App">
-                  <TopNavi/>
-                  <Routes />
-                  <WalletModal />
-                </div>
-              </PasswordGate>
-              </Router>
-            </BalancesContext>
-          </AllowanceContext>
-        </ApplicationContext>
+        <Web3ReactManager>
+          <ApplicationContext>
+            <AllowanceContext>
+              <BalancesContext>
+                <Router history={instance}>
+                <PasswordGate>
+                  <div className="App">
+                    <TopNavi/>
+                    <Routes />
+                    <WalletModal />
+                  </div>
+                </PasswordGate>
+                </Router>
+              </BalancesContext>
+            </AllowanceContext>
+          </ApplicationContext>
+        </Web3ReactManager>
       </Web3ProviderNetwork>
     </Web3ReactProvider>
   );

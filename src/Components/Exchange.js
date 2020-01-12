@@ -12,6 +12,7 @@ import ConnectWalletButton from "./ConnectWalletButton";
 import IF from "./IF";
 import {ethers} from "ethers";
 import { isSecretStorageWallet } from "ethers/utils/json-wallet";
+import { BigNumber } from "ethers/utils";
 
 const ETH_TO_TOKEN = 0
 const TOKEN_TO_ETH = 1
@@ -19,6 +20,8 @@ const TOKEN_TO_TOKEN = 2
 
 const INPUT = 0;
 const OUTPUT = 1;
+
+const maxSlippage = 0.995;
 
 const Container = styled.div`
   display: flex;
@@ -180,6 +183,7 @@ const BuyButtons = props => {
   
 };
 
+
 function getExchangeRate(inputValue, inputDecimals, outputValue, outputDecimals, invert = false) {
   try {
     if (
@@ -247,15 +251,29 @@ function calculateEtherTokenInputFromOutput(outputAmount, inputReserve, outputRe
   return numerator.div(denominator).add(ethers.constants.One)
 }
 
-function calcDependentValue(inputReserveEth, inputReserveToken, outputReserveEth, outputReserveToken, amount) {
-  const intermediateValue = calculateEtherTokenOutputFromInput(amount, inputReserveToken, inputReserveEth);
+function calcDependentValue(inputReserveEth, inputReserveToken, outputReserveEth, outputReserveToken, amount, inverse = false) {
+  
+  if(inverse) {
+    const intermediateValue = calculateEtherTokenInputFromOutput(amount, outputReserveEth, outputReserveToken );
+    const calculatedDependentValue = calculateEtherTokenInputFromOutput(
+      intermediateValue,
+      inputReserveToken,
+      inputReserveEth,
 
-  const calculatedDependentValue = calculateEtherTokenOutputFromInput(
-    intermediateValue,
-    outputReserveEth,
-    outputReserveToken
-  )
-  return calculatedDependentValue;
+    );
+    return calculatedDependentValue;
+
+  } else {
+    const intermediateValue = calculateEtherTokenOutputFromInput(amount, inputReserveToken, inputReserveEth);
+    const calculatedDependentValue = calculateEtherTokenOutputFromInput(
+      intermediateValue,
+      outputReserveEth,
+      outputReserveToken
+    );
+    // ethers.utils.parseEther("1").mul(10**18).div(calculatedDependentValue);
+    return calculatedDependentValue;
+  }  
+  
 }
 
 const Exchange = props => {
@@ -312,7 +330,7 @@ const Exchange = props => {
     setOutputValue(e.target.value);
     e.target.value = filterInput(e.target.value);
     let etherAmount = ethers.utils.parseEther(e.target.value);
-    let outputValue = calcDependentValue(outputReserveETH, outputReserveToken, inputReserveETH, inputReserveToken, etherAmount);
+    let outputValue = calcDependentValue(inputReserveETH, inputReserveToken, outputReserveETH, outputReserveToken, etherAmount, true);
     setInputValue(amountFormatter(outputValue));
     setExchangeRate(getExchangeRate(outputValue, 18, etherAmount, 18));
     setLeadingInput(OUTPUT);
@@ -340,6 +358,15 @@ const Exchange = props => {
     }
     return daiAllowance.gt(ethers.utils.parseEther(inputValue));
   }
+
+  function slippage() {
+    if(!exchangeRate) {
+      return "-";
+    }
+    return ((1 - amountFormatter(exchangeRate) / amountFormatter(marketRate)) * 100).toFixed(2);
+  }
+
+  const minAmount = outputValue ? outputValue * (maxSlippage) : null;
 
   // const exchangeRate = getExchangeRate(ethers.utils.parseEther(filterInput(inputValue)), 18, ethers.utils.parseEther(filterInput(outputValue)), 18);
 
@@ -421,17 +448,22 @@ const Exchange = props => {
       <ExchangeRateLabel>
         <Top>
           <Left>Exchange Rate</Left>
-          <Right>1 AWP ++ = {amountFormatter(exchangeRate) || "-"} DAI</Right>
+          <Right>1 AWP ++ = {amountFormatter(exchangeRate) || "-"} DAI</Right>  
+        </Top>
+        <Top>
+          <Left>Minimum Output amount</Left>
+          <Right>{minAmount ? minAmount.toFixed(4) : "-"} AWP++</Right>
+          ;
         </Top>
       </ExchangeRateLabel>
       <SlippageLabel>
         <Top>
           <Left>Potential Slippage</Left>
-          <Right>0.29%</Right>
+              <Right>{slippage()}%</Right>
         </Top>
       </SlippageLabel>
 
-      <IF what={account === undefined} else={<BuyButtons approve={approve} buy={buy} sufficientAllowance={sufficientAllowance()} />}>
+      <IF what={!account} else={<BuyButtons approve={approve} buy={buy} sufficientAllowance={sufficientAllowance()} />}>
         <ConnectWalletButton />
       </IF>
     </Container>
