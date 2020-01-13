@@ -120,7 +120,6 @@ const ColorLabel = styled.span`
   }
 `;
 
-
 const TransactionItem = props => {
   return (
     <Container
