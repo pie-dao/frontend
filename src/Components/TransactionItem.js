@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import TransactIcon from "./TransactIcon";
+import { link, cta } from "../mixpanel";
 
 const Container = styled.a`
   width: 90%;
@@ -119,9 +120,16 @@ const ColorLabel = styled.span`
   }
 `;
 
-const ComparisonItem = props => {
+const TransactionItem = props => {
   return (
-    <Container href={props.link}>
+    <Container
+    href={props.link}
+    target="_blank"
+    onClick={() =>
+      link({ position: "transaction list", to: "etherscan", type: "list item" })
+    }
+    className="Transaction Item"
+    >
       <Top>{props.TransactionDate}</Top>
       <Bottom>
         <Left>
@@ -154,4 +162,4 @@ const ComparisonItem = props => {
   );
 };
 
-export default ComparisonItem;
+export default TransactionItem;
