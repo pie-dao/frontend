@@ -46,6 +46,7 @@ const Input = props => {
       className="required email newsletterInput"
       onChange={props.onChange}
       value={props.value}
+      {...props}
     />
   );
 };

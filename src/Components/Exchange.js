@@ -38,7 +38,7 @@ const InputContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 15px;
-  border: 1px solid #cccccc;
+  border: 1px solid ${props => props.error ? "red" : "#cccccc" };
   border-radius: 4px;
   width: 100%;
   @media (max-width: 768px) {
@@ -177,7 +177,7 @@ const BuyButtons = props => {
   } else {
     return (
       <>
-        <PrimaryButton onClick={props.buy}>Buy</PrimaryButton>
+        <PrimaryButton disabled={props.inputError} onClick={props.buy}>Buy</PrimaryButton>
       </>
     )
   }
@@ -381,6 +381,7 @@ const Exchange = props => {
     if(!daiAllowance || filterInput(inputValue) === 0) { 
       return false;
     }
+    console.log(daiAllowance.toString());
     return daiAllowance.gt(ethers.utils.parseEther(inputValue));
   }
 
@@ -398,11 +399,11 @@ const Exchange = props => {
   return (
     <Container>
       {/* <Title>Buy AWP++ Token now</Title> */}
-      <InputContainer>
+      <InputContainer error={inputError}>
         <Top>
           <Left>Input</Left>
           <Right>Balance: { daiBalance } DAI</Right>
-          { inputError }
+          {/* { inputError } */}
         </Top>
         <Bottom>
           <Left>
@@ -489,7 +490,7 @@ const Exchange = props => {
         </Top>
       </SlippageLabel>
 
-      <IF what={!account} else={<BuyButtons approve={approve} buy={buy} sufficientAllowance={sufficientAllowance()} />}>
+      <IF what={!account} else={<BuyButtons inputError={inputError} approve={approve} buy={buy} sufficientAllowance={sufficientAllowance()} />}>
         <ConnectWalletButton />
       </IF>
     </Container>
