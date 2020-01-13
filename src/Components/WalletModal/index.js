@@ -8,6 +8,7 @@ import {useWeb3React, usePrevious} from "../../hooks";
 import PrimaryButton from '../PrimaryButton';
 import styled from "styled-components";
 import { UnsupportedChainIdError } from '@web3-react/core';
+import { getEtherscanLink } from '../../utils';
 
 
 const Container = styled.div`
@@ -68,7 +69,7 @@ function getErrorMessage(error) {
 
 const WalletModal = props => {
 
-    const { active, account, activate, error, connector } = useWeb3React();
+    const { active, account, activate, error, connector, chainId } = useWeb3React();
     const walletModalOpen = useWalletModalOpen();
     const toggleWalletModal = useWalletModalToggle();
     const [pendingWallet, setPendingWallet] = useState();
@@ -126,7 +127,7 @@ const WalletModal = props => {
                 }
             </IF>
             <IF what={walletView === WALLET_VIEWS.ACCOUNT}>
-                ACCOUNT VIEW
+              <a href={getEtherscanLink(chainId, account, "account")} target="_blank">{account}</a>
             </IF>
         </Modal>
     );
