@@ -41,6 +41,7 @@ const Left = styled.div`
   margin: 0;
   @media (max-width: 1000px) {
     width: 100%;
+    margin-top: 5%;
   }
 `;
 

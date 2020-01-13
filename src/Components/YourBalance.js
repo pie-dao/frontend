@@ -26,6 +26,7 @@ const Row = styled.div`
 
   @media (max-width: 768px) {
     padding: 10px;
+    margin: 0;
   }
 `;
 

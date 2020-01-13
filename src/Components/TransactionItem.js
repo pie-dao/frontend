@@ -17,6 +17,7 @@ const Container = styled.a`
   color: var(--almost-black);
 
   @media (max-width: 768px) {
+    padding: 5% 5%;
 
   }
 `;
