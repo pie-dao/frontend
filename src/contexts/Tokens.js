@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useMemo, useCallback, useEffect } from 'react'
-
+import { AWP_ADDRESS, AWP_EXCHANGE, DAI_ADDRESS, DAI_EXCHANGE } from "../constants";
 import { useWeb3React } from '../hooks'
 import {
   isAddress,
@@ -534,6 +534,20 @@ const INITIAL_TOKENS_CONTEXT = {
       [DECIMALS]: 18,
       [EXCHANGE_ADDRESS]: '0xaF51BaAA766b65E8B3Ee0C2c33186325ED01eBD5'
     }
+  },
+  42: {
+    [DAI_ADDRESS]: {
+      [NAME]: 'Dai',
+      [SYMBOL]: 'DAI',
+      [DECIMALS]: 18,
+      [EXCHANGE_ADDRESS]: DAI_EXCHANGE
+    },
+    [AWP_ADDRESS]: {
+      [NAME]: 'AWP + Crypto',
+      [SYMBOL]: 'AWP++',
+      [DECIMALS]: 18,
+      [EXCHANGE_ADDRESS]: AWP_EXCHANGE
+    }
   }
 }
 
@@ -584,6 +598,7 @@ export function useTokenDetails(tokenAddress) {
   const { library, chainId } = useWeb3React()
 
   const [state, { update }] = useTokensContext()
+
   const allTokensInNetwork = { ...ETH, ...(safeAccess(state, [chainId]) || {}) }
   const { [NAME]: name, [SYMBOL]: symbol, [DECIMALS]: decimals, [EXCHANGE_ADDRESS]: exchangeAddress } =
     safeAccess(allTokensInNetwork, [tokenAddress]) || {}
@@ -622,8 +637,8 @@ export function useTokenDetails(tokenAddress) {
 
 export function useAllTokenDetails() {
   const { chainId } = useWeb3React()
-
+  
   const [state] = useTokensContext()
-
+  
   return useMemo(() => ({ ...ETH, ...(safeAccess(state, [chainId]) || {}) }), [state, chainId])
 }

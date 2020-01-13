@@ -10,10 +10,13 @@ import Routes from "./routes";
 import { createBrowserHistory } from 'history';
 import { NetworkContextName } from './constants';
 import WalletModal from './Components/WalletModal';
-import ApplicationContext from "./contexts/Application";
+
 import ReactGA from "react-ga";
 import AllowanceContext from "./contexts/Allowances";
-import BalancesContext from "./contexts/Balances";
+import ApplicationContext, { Updater as ApplicationContextUpdater } from './contexts/Application'
+import TransactionsContext,  { Updater as TransactionContextUpdater } from './contexts/Transactions'
+import BalancesContext, { Updater as BalancesContextUpdater } from './contexts/Balances'
+import TokensContext from './contexts/Tokens';
 import { ethers } from 'ethers';
 
 const instance = createBrowserHistory();
@@ -30,25 +33,40 @@ function getLibrary(provider) {
   return library
 }
 
+function Updaters() {
+  return (
+    <>
+      <ApplicationContextUpdater />
+      <TransactionContextUpdater />
+      <BalancesContextUpdater />
+    </>
+  )
+}
+
 function App() {
   return (  
     <Web3ReactProvider getLibrary={getLibrary}>
       <Web3ProviderNetwork getLibrary={getLibrary}>
         <Web3ReactManager>
           <ApplicationContext>
-            <AllowanceContext>
-              <BalancesContext>
-                <Router history={instance}>
-                <PasswordGate>
-                  <div className="App">
-                    <TopNavi/>
-                    <Routes />
-                    <WalletModal />
-                  </div>
-                </PasswordGate>
-                </Router>
-              </BalancesContext>
-            </AllowanceContext>
+            <TransactionsContext>
+              <TokensContext>
+                <BalancesContext>
+                  <AllowanceContext>
+                    <Updaters />
+                    <Router history={instance}>
+                    <PasswordGate>
+                      <div className="App">
+                        <TopNavi/>
+                        <Routes />
+                        <WalletModal />
+                      </div>
+                    </PasswordGate>
+                    </Router>
+                  </AllowanceContext>
+                </BalancesContext>
+              </TokensContext>
+            </TransactionsContext>
           </ApplicationContext>
         </Web3ReactManager>
       </Web3ProviderNetwork>
