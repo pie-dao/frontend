@@ -13,7 +13,7 @@ const Container = styled.div`
   font-weight: 300;
 
   @media (max-width: 768px) {
-    font-size: var(--text-medium-mobile);
+    font-size: var(--text-table-mobile);
   }
 `;
 
