@@ -10,11 +10,11 @@ export const FACTORY_ADDRESSES = {
 export const NETWORKS = {
   1: {
     name: "Mainnet",
-    symbol: "ETH"
+    symbol: "ETH",
   },
   42: {
     name: "Kovan",
-    symbol: "KETH"
+    symbol: "KETH",
   }
 }
 

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Input from "./Input";
 import { link, cta } from "../mixpanel";
 import { useWeb3React, useTokenContract, useExchangeContract } from "../hooks";
+import { useTransactionAdder } from "../contexts/Transactions";
 import { useAddressBalance, useExchangeReserves } from "../contexts/Balances";
 import { useAddressAllowance } from "../contexts/Allowances";
 import { isAddress, amountFormatter } from "../utils";
@@ -293,6 +294,8 @@ const Exchange = props => {
   );
   const ethBalance = amountFormatter(useAddressBalance(account), "ETH");
 
+  const addTransaction = useTransactionAdder()
+
   const inputReserveETH = useAddressBalance(DAI_EXCHANGE, "ETH");
   const inputReserveToken = useAddressBalance(DAI_EXCHANGE, isAddress(DAI_ADDRESS));
   const outputReserveETH = useAddressBalance(AWP_EXCHANGE, "ETH");
@@ -346,14 +349,20 @@ const Exchange = props => {
 
   function approve() {
     tokenContract.approve(DAI_EXCHANGE, ethers.constants.MaxUint256, {gasLimit: 200000}).then((receipt) => {
+      // notify.js
       track(receipt.hash);
+      // context
+      addTransaction(receipt);
     }) ;
   }
 
   function buy() {
     const minAmount = ethers.utils.parseEther(outputValue).mul(995).div(1000);
     exchangeContract.tokenToTokenSwapInput(ethers.utils.parseEther(inputValue), minAmount, 1, Math.floor(Date.now() / 1000) + 3600, AWP_ADDRESS, {gasLimit: 200000}).then((receipt) => {
+      // notify.js
       track(receipt.hash);
+      // context
+      addTransaction(receipt);
     })
   }
 
