@@ -5,6 +5,7 @@ import YourBalance from "./YourBalance";
 import YourInvestment from "./Charts/YourInvestment";
 import { Modal } from "minimal-react-modal";
 import Exchange from "./Exchange";
+import TransactionsTable from "./TransactionsTable";
 
 const Contenitore = styled.div`
   @media (max-width: 1000px) {
@@ -211,6 +212,7 @@ const AWPDetail = props => {
           Powered by <span role="img">🦄</span>Uniswap
         </UniswapCredit>
       </Modal>
+      <TransactionsTable />
     </Contenitore>
   );
 };
