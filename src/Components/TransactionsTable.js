@@ -19,11 +19,7 @@ const Title = styled.div`
   color: var(--almost-black);
   font-size: var(--text-big);
   font-weight: 700;
-<<<<<<< HEAD
   margin: 5% 0;
-=======
-  margin-bottom: 5%;
->>>>>>> 6ba4d95... props
 
   @media (max-width: 768px) {
     font-size: var(--text-ratherbig-mobile);

@@ -20,9 +20,6 @@ const PreInvestment = styled.div`
   padding: 0 5%;
   @media (max-width: 1000px) {
     flex-direction: column-reverse;
-    margin: 1% 5%;
-    padding: 0;
-    width: 90%;
   }
 `;
 

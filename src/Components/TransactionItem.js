@@ -4,15 +4,9 @@ import TransactIcon from "./TransactIcon";
 import { link, cta } from "../mixpanel";
 
 const Container = styled.a`
-<<<<<<< HEAD
   width: 90%;
   margin: 10px 0 0 0;
   padding: 2% 5%;
-=======
-  width: 94%;
-  margin: 10px 0 0 0;
-  padding: 20px 3%;
->>>>>>> 6ba4d95... props
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -126,7 +120,7 @@ const ColorLabel = styled.span`
   }
 `;
 
-<<<<<<< HEAD
+
 const TransactionItem = props => {
   return (
     <Container
@@ -137,11 +131,6 @@ const TransactionItem = props => {
     }
     className="Transaction Item"
     >
-=======
-const ComparisonItem = props => {
-  return (
-    <Container href={props.link}>
->>>>>>> 6ba4d95... props
       <Top>{props.TransactionDate}</Top>
       <Bottom>
         <Left>
@@ -174,9 +163,4 @@ const ComparisonItem = props => {
   );
 };
 
-<<<<<<< HEAD
 export default TransactionItem;
-=======
-export default ComparisonItem;
-
->>>>>>> 6ba4d95... props
