@@ -3,9 +3,9 @@ import styled from "styled-components";
 import TransactIcon from "./TransactIcon";
 
 const Container = styled.a`
-  width: 94%;
+  width: 90%;
   margin: 10px 0 0 0;
-  padding: 20px 3%;
+  padding: 2% 5%;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,7 @@ const Container = styled.a`
   color: var(--almost-black);
 
   @media (max-width: 768px) {
+
   }
 `;
 
@@ -153,4 +154,3 @@ const ComparisonItem = props => {
 };
 
 export default ComparisonItem;
-

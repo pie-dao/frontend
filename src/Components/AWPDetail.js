@@ -20,9 +20,6 @@ const PreInvestment = styled.div`
   padding: 0 5%;
   @media (max-width: 1000px) {
     flex-direction: column-reverse;
-    margin: 1% 5%;
-    padding: 0;
-    width: 90%;
   }
 `;
 
@@ -34,15 +31,13 @@ const PostInvestment = styled.div`
   padding: 0 5%;
   @media (max-width: 1000px) {
     flex-direction: column-reverse;
-    margin: 1% 5%;
-    padding: 0;
-    width: 90%;
   }
 `;
 
 const Left = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0;
   @media (max-width: 1000px) {
     width: 100%;
