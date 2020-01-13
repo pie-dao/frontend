@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import PrimaryButton from "./PrimaryButton";
 import CompoundAPR from "./CompoundAPR";
@@ -117,30 +117,18 @@ const UniswapCredit = styled.a`
   }
 `;
 
-const BuyButtons = props => {
-  return (
-    <>
-      <PrimaryButton>Unlock DAI</PrimaryButton>
-    </>
-  );
-};
-
 const AWPDetail = props => {
-  const { account } = useWeb3React();
+  const [modalOpen, setModalOpen] = useState(false);
+  
+  function openModal() {
+    setModalOpen(true);
+  }
 
-  const daiBalance = amountFormatter(
-    useAddressBalance(account, isAddress(DAI_ADDRESS))
-  );
-  const awpBalance = amountFormatter(
-    useAddressBalance(account, isAddress(AWP_ADDRESS))
-  );
-  const daiAllowance = amountFormatter(
-    useAddressBalance(account, isAddress(DAI_ADDRESS))
-  );
-  const awpAllowance = amountFormatter(
-    useAddressBalance(account, isAddress(AWP_ADDRESS))
-  );
-  const ethBalance = amountFormatter(useAddressBalance(account), "ETH");
+  function closeModal() {
+    setModalOpen(false);
+  }
+
+  console.log("render");
 
   return (
     <Contenitore>
@@ -155,8 +143,7 @@ const AWPDetail = props => {
           Landing in the last 12 months. Don't take our word for it. Have a look
           at the chart on the left.
         </Text>
-        <ModalContainer>
-          {(openModal, closeModal, isActive) => (
+        
             <div>
               <button
                 className="buttonModal"
@@ -167,7 +154,7 @@ const AWPDetail = props => {
               </button>
               <Modal
                 className="mainModal"
-                isActive={isActive} // required
+                isActive={modalOpen} // required
                 closeModal={closeModal} // required
                 showAnimation={true}
                 modalBoxStyle={{
@@ -184,14 +171,10 @@ const AWPDetail = props => {
                   between:
                 </ModalText>
                 <Exchange />
-                <IF what={account === undefined} else={<BuyButtons />}>
-                  <ConnectWalletButton />
-                </IF>
+                
                 <UniswapCredit href="https://uniswap.exchange/" target="_blank">Powered by <span role="img">🦄</span>Uniswap</UniswapCredit>
               </Modal>
             </div>
-          )}
-        </ModalContainer>
       </Right>
     </Contenitore>
   );

@@ -6,6 +6,7 @@ const BLOCK_NUMBER = 'BLOCK_NUMBER'
 
 const TOGGLE_WALLET_CONNECTION_MODAL = "TOGGLE_WALLET_CONNECTION_MODAL";
 const WALLET_MODAL_OPEN = "WALLET_CONNECTION_MODAL_OPEN";
+const UPDATE_BLOCK_NUMBER = 'UPDATE_BLOCK_NUMBER'
 
 const ApplicationContext = createContext();
 
@@ -15,6 +16,16 @@ function useApplicationContext() {
 
 function reducer(state, { type, payload }) {
     switch (type) {
+      case UPDATE_BLOCK_NUMBER: {
+        const { networkId, blockNumber } = payload
+        return {
+          ...state,
+          [BLOCK_NUMBER]: {
+            ...(safeAccess(state, [BLOCK_NUMBER]) || {}),
+            [networkId]: blockNumber
+          }
+        }
+      }
       case TOGGLE_WALLET_CONNECTION_MODAL: {
         return { ...state, [WALLET_MODAL_OPEN]: !state[WALLET_MODAL_OPEN] }
       }
@@ -33,6 +44,44 @@ function safeAccess(object, path) {
     : null
 }
 
+export function Updater() {
+  const { library, chainId } = useWeb3React()
+
+  const [, { updateBlockNumber }] = useApplicationContext()
+
+  // update block number
+  useEffect(() => {
+    if (library) {
+      let stale = false
+
+      function update() {
+        library
+          .getBlockNumber()
+          .then(blockNumber => {
+            if (!stale) {
+              updateBlockNumber(chainId, blockNumber)
+            }
+          })
+          .catch(() => {
+            if (!stale) {
+              updateBlockNumber(chainId, null)
+            }
+          })
+      }
+
+      update()
+      library.on('block', update)
+
+      return () => {
+        stale = true
+        library.removeListener('block', update)
+      }
+    }
+  }, [chainId, library, updateBlockNumber])
+
+  return null
+}
+
 export default function Provider({ children }) {
     const [state, dispatch] = useReducer(reducer, {
       [WALLET_MODAL_OPEN]: false
@@ -41,11 +90,16 @@ export default function Provider({ children }) {
     const toggleWalletConnectionModal = useCallback(() => {
       dispatch({ type: TOGGLE_WALLET_CONNECTION_MODAL })
     }, [])
+
+    const updateBlockNumber = useCallback((networkId, blockNumber) => {
+      dispatch({ type: UPDATE_BLOCK_NUMBER, payload: { networkId, blockNumber } })
+    }, [])
   
     return (
       <ApplicationContext.Provider
-        value={useMemo(() => [state, { toggleWalletConnectionModal }], [
+        value={useMemo(() => [state, { updateBlockNumber, toggleWalletConnectionModal }], [
           state,
+          updateBlockNumber,
           toggleWalletConnectionModal
         ])}
       >

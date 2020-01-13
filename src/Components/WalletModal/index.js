@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Modal } from 'minimal-react-modal';
 import { useWalletModalOpen, useWalletModalToggle } from '../../contexts/Application';
-import { SUPPORTED_WALLETS } from "../../constants";
+import { SUPPORTED_WALLETS, NETWORKS } from "../../constants";
 import WalletOption from './WalletOption';
 import IF from "../IF";
 import {useWeb3React, usePrevious} from "../../hooks";
 import PrimaryButton from '../PrimaryButton';
 import styled from "styled-components";
+import { UnsupportedChainIdError } from '@web3-react/core';
+import { getEtherscanLink } from '../../utils';
 
 
 const Container = styled.div`
@@ -56,9 +58,18 @@ const WALLET_VIEWS = {
     PENDING: 'pending'
 }
 
+function getErrorMessage(error) {
+  console.log(typeof (error));
+  if(error instanceof UnsupportedChainIdError) {
+    return `This chain is not supported, please connect your wallet to ${NETWORKS[process.env.REACT_APP_NETWORK_ID].name}`
+  }
+
+  return "Error connecting";
+}
+
 const WalletModal = props => {
 
-    const { active, account, activate, error, connector } = useWeb3React();
+    const { active, account, activate, error, connector, chainId } = useWeb3React();
     const walletModalOpen = useWalletModalOpen();
     const toggleWalletModal = useWalletModalToggle();
     const [pendingWallet, setPendingWallet] = useState();
@@ -71,7 +82,7 @@ const WalletModal = props => {
         setWalletView(WALLET_VIEWS.PENDING)
         activate(connector, undefined, true).catch(e => {
             setPendingError(true);
-            setErrorMessage(e.message);
+            setErrorMessage(getErrorMessage(e));
         })
     }
 
@@ -90,7 +101,7 @@ const WalletModal = props => {
             className="mainModal"
             isActive={walletModalOpen} // required
             closeModal={toggleWalletModal} // required
-            showAnimation={true}
+            showAnimation={false}
             modalBoxStyle={{
                 width: "90%",
                 maxWidth: 600,
@@ -101,8 +112,6 @@ const WalletModal = props => {
                 <WalletOption onClick={() => { tryActivation(SUPPORTED_WALLETS.METAMASK.connector) }} wallet={SUPPORTED_WALLETS.METAMASK} />
             </IF>
             <IF what={walletView === WALLET_VIEWS.PENDING}>
-                PENDING VIEW
-
                 {pendingError ? 
                     <>
                         <Container>
@@ -114,11 +123,11 @@ const WalletModal = props => {
                         
                         <PrimaryButton onClick={() => {setWalletView(WALLET_VIEWS.OPTIONS)}}>GO BACK</PrimaryButton>
                     </> :
-                    <Container>Please Log-in to your wallet and Connect it to PIE</Container>
+                    <Container>Please log-in to your wallet and connect it to PIE</Container>
                 }
             </IF>
             <IF what={walletView === WALLET_VIEWS.ACCOUNT}>
-                ACCOUNT VIEW
+              <a href={getEtherscanLink(chainId, account, "account")} target="_blank">{account}</a>
             </IF>
         </Modal>
     );

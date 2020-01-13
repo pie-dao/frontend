@@ -86,7 +86,7 @@ const ConnectWeb3Button = props => {
 
   return (
     <Container onClick={toggleWalletModal}>
-      {account !== undefined ? (
+      {account ? (
         <>
           <P>{shortenAddress(account, 4)}</P>
           <IconContainer>

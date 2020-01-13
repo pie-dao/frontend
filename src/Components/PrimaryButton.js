@@ -30,6 +30,7 @@ const Button = styled.button`
 
   :disabled {
     pointer-events: none;
+    background: grey;
   }
 
   @media (max-width: 800px) {
@@ -52,6 +53,7 @@ const PrimaryButton = props => {
         });
         props.onClick();
       }}
+      {...props}
     >
       {props.children}
     </Button>
