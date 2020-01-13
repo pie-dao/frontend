@@ -31,6 +31,8 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 0 100px 0;
+  border-bottom: 1px solid #cccccc;
   font-family: var(--secondary-font);
 
   @media (max-width: 768px) {
