@@ -8,3 +8,13 @@ var notify = Notify({
 export const track = txHash => {
     notify.hash(txHash)
 }
+
+export const trackError = error => {
+
+    const notificationObject = {
+        eventCode: "providerError",
+        type: "error",
+        message: error.message
+      }
+    notify.notification(notificationObject);
+}

@@ -12,7 +12,7 @@ import PrimaryButton from "./PrimaryButton";
 import ConnectWalletButton from "./ConnectWalletButton";
 import IF from "./IF";
 import {ethers} from "ethers";
-import { track } from "../txTracker";
+import { track, trackError } from "../txTracker";
 
 
 const ETH_TO_TOKEN = 0
@@ -359,21 +359,28 @@ const Exchange = props => {
   }
 
   function approve() {
-    tokenContract.approve(DAI_EXCHANGE, ethers.constants.MaxUint256, {gasLimit: 200000}).then((receipt) => {
+    tokenContract.approve(DAI_EXCHANGE, ethers.constants.MaxUint256, {gasLimit: 200000})
+    .then((receipt) => {
       // notify.js
       track(receipt.hash);
       // context
       addTransaction(receipt);
-    }) ;
+    }).catch(error => {
+      trackError(error);
+    })
   }
 
   function buy() {
     const minAmount = ethers.utils.parseEther(outputValue).mul(995).div(1000);
-    exchangeContract.tokenToTokenSwapInput(ethers.utils.parseEther(inputValue), minAmount, 1, Math.floor(Date.now() / 1000) + 3600, AWP_ADDRESS, {gasLimit: 200000}).then((receipt) => {
+    exchangeContract.tokenToTokenSwapInput(ethers.utils.parseEther(inputValue), minAmount, 1, Math.floor(Date.now() / 1000) + 3600, AWP_ADDRESS, {gasLimit: 200000})
+    .then(receipt => {
       // notify.js
       track(receipt.hash);
       // context
       addTransaction(receipt);
+    })
+    .catch(error => {
+      trackError(error);
     })
   }
 
