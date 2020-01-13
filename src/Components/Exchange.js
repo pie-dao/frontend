@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Input from "./Input";
 import { link, cta } from "../mixpanel";
@@ -12,9 +12,8 @@ import PrimaryButton from "./PrimaryButton";
 import ConnectWalletButton from "./ConnectWalletButton";
 import IF from "./IF";
 import {ethers} from "ethers";
-import { isSecretStorageWallet } from "ethers/utils/json-wallet";
-import { BigNumber } from "ethers/utils";
 import { track } from "../txTracker";
+
 
 const ETH_TO_TOKEN = 0
 const TOKEN_TO_ETH = 1
@@ -328,6 +327,7 @@ const Exchange = props => {
     setOutputValue(amountFormatter(outputValue));
     setExchangeRate(getExchangeRate(etherAmount, 18, outputValue, 18));
     setLeadingInput(INPUT);
+    handleInputError(e.target.value);
   }
 
   function outputChange(e) {
@@ -338,6 +338,17 @@ const Exchange = props => {
     setInputValue(amountFormatter(outputValue));
     setExchangeRate(getExchangeRate(outputValue, 18, etherAmount, 18));
     setLeadingInput(OUTPUT);
+    handleInputError(amountFormatter(outputValue));
+  }
+
+  function handleInputError(amount) {
+
+    console.log(amount, daiBalance);
+    if(amount && daiBalance && parseFloat(amount) > parseFloat(daiBalance)) {
+      setInputError("Insufficient Balance");
+    } else {
+      setInputError(null);
+    }
   }
 
   function filterInput(input) {
@@ -390,7 +401,8 @@ const Exchange = props => {
       <InputContainer>
         <Top>
           <Left>Input</Left>
-          <Right>Balance: { daiBalance} DAI</Right>
+          <Right>Balance: { daiBalance } DAI</Right>
+          { inputError }
         </Top>
         <Bottom>
           <Left>
