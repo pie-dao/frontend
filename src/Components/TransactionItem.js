@@ -2,34 +2,36 @@ import React from "react";
 import styled from "styled-components";
 import TransactIcon from "./TransactIcon";
 
-const Container = styled.div`
-  width: 90%;
-  margin: 20px 0;
-  padding: 20px 5%;
+const Container = styled.a`
+  width: 94%;
+  margin: 10px 0 0 0;
+  padding: 20px 3%;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  border-bottom: 1px solid #cccccc;
   font-family: var(--primary-font);
   font-size: var(--text-prettysmall);
   font-weight: 300;
+  text-decoration: none;
+  color: var(--almost-black);
 
   @media (max-width: 768px) {
   }
 `;
 
 const Top = styled.div`
-width: 100%;
+  width: 100%;
   @media (max-width: 768px) {
   }
 `;
 
 const Bottom = styled.div`
-width: 100%;
-display: flex;
-flex-direction: row;
-align-items: center;
-margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
   @media (max-width: 768px) {
   }
 `;
@@ -40,9 +42,9 @@ const Left = styled.div`
 `;
 
 const Right = styled.div`
-display: flex;
-flex-direction: column;
-flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   @media (max-width: 768px) {
   }
 `;
@@ -71,17 +73,17 @@ const TransactionIcon = styled.div`
 `;
 
 const Row = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   @media (max-width: 768px) {
   }
 `;
 
 const TransactionName = styled.div`
   font-size: var(--text-medium);
-    font-weight: 500;
+  font-weight: 500;
   @media (max-width: 768px) {
   }
 `;
@@ -97,48 +99,27 @@ const TransactionETHValue = styled.div`
 `;
 
 const TransactionState = styled.div`
-color: var(--almost-black);
-margin-top: 10px;
+  color: var(--almost-black);
+  margin-top: 10px;
   @media (max-width: 768px) {
     padding: 2px 3px;
   }
-
 `;
 
-const Yellow = styled.span`
-background-color: #F8E71C;
-padding: 3px 6px;
-border-radius: 4px;
-@media (max-width: 768px) {
+const ColorLabel = styled.span`
+  background-color: ${props => props.bg};
+  color: ${props => props.color};
+  font-weight: 500;
+  padding: 3px 6px;
+  border-radius: 4px;
+  @media (max-width: 768px) {
     padding: 2px 3px;
   }
 `;
-
-const Green = styled.span`
-background-color: #2db400;
-padding: 3px 6px;
-border-radius: 4px;
-@media (max-width: 768px) {
-    padding: 2px 3px;
-  }
-`;
-
-const Red = styled.span`
-background-color: #fc0253;
-padding: 3px 6px;
-border-radius: 4px;
-@media (max-width: 768px) {
-    padding: 2px 3px;
-  }
-`;
-
-
-
-
 
 const ComparisonItem = props => {
   return (
-    <Container>
+    <Container href={props.link}>
       <Top>{props.TransactionDate}</Top>
       <Bottom>
         <Left>
@@ -151,11 +132,19 @@ const ComparisonItem = props => {
         <Right>
           <Row>
             <TransactionName>{props.TransactionName}</TransactionName>
-            <TransactionUSDValue>{props.TransactionUSDValue} USD</TransactionUSDValue>
+            <TransactionUSDValue>
+              {props.TransactionUSDValue} USD
+            </TransactionUSDValue>
           </Row>
           <Row>
-            <TransactionState><Yellow>{props.TransactionState}</Yellow></TransactionState>
-            <TransactionETHValue>{props.TransactionETHValue} ETH</TransactionETHValue>
+            <TransactionState>
+              <ColorLabel bg={props.bg} color={props.color}>
+                {props.TransactionState}
+              </ColorLabel>
+            </TransactionState>
+            <TransactionETHValue>
+              {props.TransactionETHValue} ETH
+            </TransactionETHValue>
           </Row>
         </Right>
       </Bottom>
@@ -165,7 +154,3 @@ const ComparisonItem = props => {
 
 export default ComparisonItem;
 
-// <PortfolioName><LogoContainer src={props.PortfolioLogo} alt="portfolio logo" />{props.PortfolioName}</PortfolioName>
-// <InitialAmount><LabelBlack>$</LabelBlack></InitialAmount>
-// <OneYearGains><LabelYellow>{props.OneYearGains}</LabelYellow></OneYearGains>
-// <APY><LabelGreen>{props.APY}</LabelGreen></APY>
