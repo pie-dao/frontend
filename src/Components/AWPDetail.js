@@ -205,7 +205,7 @@ const AWPDetail = props => {
         <Exchange />
         
         <UniswapCredit href="https://uniswap.exchange/" target="_blank">
-          Powered by <span role="img">🦄</span>Uniswap
+          Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap
         </UniswapCredit>
       </Modal>
       <TransactionsTable />
