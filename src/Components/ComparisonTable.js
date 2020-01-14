@@ -40,21 +40,21 @@ const ComparisonTable = props => {
         APY="18.22%"
       />
       <ComparisonItem
-        PortfolioLogo="../img/portfolio_02.jpg"
+        PortfolioLogo="../img/gold.png"
         PortfolioName="GOLD"
         InitialAmount="10,000.00"
         OneYearGains="+ $ 1,820"
         APY="17.59%"
       />
       <ComparisonItem
-        PortfolioLogo="../img/portfolio_03.png"
+        PortfolioLogo="../img/compound.png"
         PortfolioName="Compound Finance, DAI"
         InitialAmount="10,000.00"
         OneYearGains="+ $ 660"
         APY="6.60%"
       />
       <ComparisonNegative
-        PortfolioLogo="../img/portfolio_04.png"
+        PortfolioLogo="../img/ethereum.png"
         PortfolioName="ETH"
         InitialAmount="10,000.00"
         OneYearGains="- $ 498"
