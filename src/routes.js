@@ -8,7 +8,7 @@ import {
  * Import all page components here
  */
 import Home from './Pages/Home';
-import InvestmentDetail from './Pages/InvestmentDetail';
+import Investment from './Pages/Investment';
 import Charts from './Pages/Charts';
 import Discord from './Pages/Discord';
 
@@ -22,7 +22,7 @@ export default function Routes() {
   return (
     <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/investment" component={InvestmentDetail} />
+        <Route path="/investment" component={Investment} />
         <Route path="/charts" component={Charts} />
         <Route path="/discord" component={Discord} />
     </Switch>

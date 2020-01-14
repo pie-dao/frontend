@@ -1,26 +1,21 @@
-import React from 'react';
-import Hero from '../Hero';
-import ComparisonTable from '../ComparisonTable';
-import GradienBgSection from '../GradienBgSection';
-import GradientText from '../GradientText';
-import Features from '../Features';
-import BlackBGgradientText from '../BlackBGgradientText';
-import BigBlackTitle from '../BigBlackTitle';
-import Newsletter from '../Newsletter';
+import React from "react";
+import AWPDetail from "../Components/AWPDetail";
+import Seo from "../Components/Seo";
+import config from "../utils/config";
 
-function Investment() {
+function InvestmentDetail() {
   return (
-    <div>
-      <Hero/>
-      <GradienBgSection/>
-      <GradientText/>
-      <Newsletter/>
-      <Features/>
-      <BlackBGgradientText/>
-      <BigBlackTitle/>
-      <Newsletter/>
+    <div className="App">
+      <Seo
+        title={config.siteName}
+        description={config.description}
+        url={`${config.siteUrl}`}
+        image={config.image}
+        keywords={config.keywords}
+      />
+      <AWPDetail />
     </div>
   );
 }
 
-export default Investment;
+export default InvestmentDetail;
