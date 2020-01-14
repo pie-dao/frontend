@@ -20,7 +20,7 @@ function Home() {
       <GradientText GradientTextContent="In the last 15 years, nearly 92% of actively managed funds underperformed the S&P 500." />
       <Features />
       <AllocationTab />
-      <BlackBGgradientText BlackBGgradientContent="If you had invested $100 per month over the past 10 years, you would have $111,324.92 today. The next best time to invest is now."/>
+      <BlackBGgradientText BlackBGgradientContent="In 2019 our AWP ++portfolio returned 27.7% APY, exceeding by almost 10% the best medium risk portfolio out there. The next best time to invest is now."/>
       <BigBlackTitle />
       <Newsletter />
     </div>
