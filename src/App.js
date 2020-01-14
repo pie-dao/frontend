@@ -14,6 +14,7 @@ import AllowanceContext from "./contexts/Allowances";
 import ApplicationContext, { Updater as ApplicationContextUpdater } from './contexts/Application'
 import TransactionsContext,  { Updater as TransactionContextUpdater } from './contexts/Transactions'
 import BalancesContext, { Updater as BalancesContextUpdater } from './contexts/Balances'
+import PortfolioActionsContext from './contexts/UniswapActions';
 import TokensContext from './contexts/Tokens';
 import { ethers } from 'ethers';
 
@@ -48,16 +49,18 @@ function App() {
               <TokensContext>
                 <BalancesContext>
                   <AllowanceContext>
-                    <Updaters />
-                    <Router history={instance}>
-                    <PasswordGate>
-                      <div className="App">
-                        <TopNavi/>
-                        <Routes />
-                        <WalletModal />
-                      </div>
-                    </PasswordGate>
-                    </Router>
+                    <PortfolioActionsContext>
+                      <Updaters />
+                      <Router history={instance}>
+                      <PasswordGate>
+                        <div className="App">
+                          <TopNavi/>
+                          <Routes />
+                          <WalletModal />
+                        </div>
+                      </PasswordGate>
+                      </Router>
+                    </PortfolioActionsContext>
                   </AllowanceContext>
                 </BalancesContext>
               </TokensContext>

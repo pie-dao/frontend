@@ -6,7 +6,7 @@ var hashedPassword;
 var solution = "0xfe9341a416aec42a2819008f03768af71d3a13521a29b654903cc31a8064bb67";
 
 var enviroment = process.env.NODE_ENV 
-enviroment = "production";
+// enviroment = "production";
 var skipCheck = localStorage.skipCheck ? true : false;
 var passwordCorrect;
 

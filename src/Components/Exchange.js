@@ -13,6 +13,7 @@ import ConnectWalletButton from "./ConnectWalletButton";
 import IF from "./IF";
 import {ethers} from "ethers";
 import { track, trackError } from "../txTracker";
+import { useUniswapTokensSold, useUniswapTokensBought } from "../contexts/UniswapActions";
 
 
 const ETH_TO_TOKEN = 0
@@ -342,8 +343,6 @@ const Exchange = props => {
   }
 
   function handleInputError(amount) {
-
-    console.log(amount, daiBalance);
     if(amount && daiBalance && parseFloat(amount) > parseFloat(daiBalance)) {
       setInputError("Insufficient Balance");
     } else {
@@ -388,7 +387,6 @@ const Exchange = props => {
     if(!daiAllowance || filterInput(inputValue) === 0) { 
       return false;
     }
-    console.log(daiAllowance.toString());
     return daiAllowance.gt(ethers.utils.parseEther(inputValue));
   }
 
@@ -400,6 +398,9 @@ const Exchange = props => {
   }
 
   const minAmount = outputValue ? outputValue * (maxSlippage) : null;
+
+  const tokensBought = useUniswapTokensBought(account, AWP_ADDRESS, AWP_EXCHANGE);
+  console.log(tokensBought);
 
   // const exchangeRate = getExchangeRate(ethers.utils.parseEther(filterInput(inputValue)), 18, ethers.utils.parseEther(filterInput(outputValue)), 18);
 

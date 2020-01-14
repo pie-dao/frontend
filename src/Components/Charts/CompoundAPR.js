@@ -1,6 +1,9 @@
 import React,{ useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import styled from "styled-components";
+import { useWeb3React } from '../hooks';
+import { useUniswapTokensSold } from '../contexts/UniswapActions';
+import { AWP_ADDRESS } from '../constants';
 
 const Placeholder = styled.div`
   margin: 5px 30px 20px 5px;
@@ -12,6 +15,7 @@ const Placeholder = styled.div`
 const CompoundAPR = props => {
   const [comparisonData, setComparisonData] = useState(null);
   const [error, setError] = useState(null);
+  const { account } = useWeb3React();
 
   async function getData() {
     const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/comparison/2019-12`);
@@ -24,7 +28,11 @@ const CompoundAPR = props => {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
+
+  // const tokensSold = useUniswapTokensSold(account, AWP_ADDRESS);
+
+  // console.log(tokensSold);
 
   return (
     <div>
