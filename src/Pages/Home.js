@@ -9,10 +9,19 @@ import BigBlackTitle from "../Components/BigBlackTitle";
 import FAQ from "../Components/FAQ";
 import Newsletter from "../Components/Newsletter";
 import AllocationTab from "../Components/AllocationTab";
+import Seo from "../Components/Seo";
+import config from "../utils/config";
 
 function Home() {
   return (
     <div>
+      <Seo
+        title={config.siteName}
+        description={config.description}
+        url={`${config.siteUrl}`}
+        image={config.image}
+        keywords={config.keywords}
+      />
       <Hero />
       <ComparisonTable />
       <GradienBgSection />
