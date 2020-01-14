@@ -10,8 +10,6 @@ import Routes from "./routes";
 import { createBrowserHistory } from 'history';
 import { NetworkContextName } from './constants';
 import WalletModal from './Components/WalletModal';
-
-import ReactGA from "react-ga";
 import AllowanceContext from "./contexts/Allowances";
 import ApplicationContext, { Updater as ApplicationContextUpdater } from './contexts/Application'
 import TransactionsContext,  { Updater as TransactionContextUpdater } from './contexts/Transactions'
@@ -21,9 +19,6 @@ import { ethers } from 'ethers';
 
 const instance = createBrowserHistory();
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
-
-const trackingId = "UA-155747885-1"; // Replace with your Google Analytics tracking ID
-ReactGA.initialize(trackingId);
 
 export const navigateTo = path => instance.push(path);
 
