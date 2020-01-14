@@ -5,7 +5,7 @@ import TransactionItem from "./TransactionItem";
 const GreyBox = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 5% 0 10% 0;
+  padding: 0;
   font-family: var(--secondary-font);
   background-color: #f6f6f6;
 
