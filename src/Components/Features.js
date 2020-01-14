@@ -159,17 +159,10 @@ const Features = props => {
         </Box>
         <Box>
           <Content>
-            <Title>Crypto Exposure</Title>
+            <Title>AWP++ Crypto Exposure</Title>
             <Text>
-              The crypto basket, allocated for a maximum of 10%, aims to give
-              exposure to different assets in the blockchain industry between:
+            Inspired by the world renowned All Weather Portfolio by Ray Dalio, our analysts put together the AWP++ allowing a balanced exposure to Stocks, Bonds, Commodities and Cryptos, for everyone to enjoy the peace of mind of a mid-risk investment Portfolio with no minumum.
               <p></p>
-              <ul>
-                <li> Settlement Layer</li>
-                <li> Privacy coins</li>
-                <li> Gaming</li>
-                <li> Decentralized Finance Protocols Coins</li>
-              </ul>
               <SmallText SmallContent="*Portfolio Returns, up to December 2007, are simulated. They have been calculated using the historical series of equivalent ETFs / Assets, instead of the actual ETFs of the portfolio." />
             </Text>
           </Content>
