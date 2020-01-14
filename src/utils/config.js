@@ -1,7 +1,7 @@
 module.exports = {
     DEBUG: process.env.NODE_ENV === 'development',
     titleBuy: 'Buy Pie Token',
-    titleDiscord: 'Pie Network Discord Channel',
+    titleDiscord: 'Dexwallet Discord Channel',
   
     siteName: 'Pie - Top investment for everyone',
     author: 'Pie Network',
