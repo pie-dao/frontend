@@ -29,7 +29,7 @@ const PreTitle = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-quiteverybig);

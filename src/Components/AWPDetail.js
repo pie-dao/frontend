@@ -61,7 +61,7 @@ const Right = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   text-align: left;
   font-family: var(--primary-font);
   color: var(--almost-black);
