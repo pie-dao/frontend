@@ -1,19 +1,29 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import PrimaryButton from "./PrimaryButton";
-import CompoundAPR from "./CompoundAPR";
-import { ModalContainer, Modal } from "minimal-react-modal";
-import Input from "./Input";
-import { link, cta } from "../mixpanel";
-import ConnectWalletButton from "./ConnectWalletButton";
-import IF from "./IF";
-import { useWeb3React } from "../hooks";
-import { useAddressBalance } from "../contexts/Balances";
-import { isAddress, amountFormatter } from "../utils";
-import { DAI_ADDRESS, AWP_ADDRESS } from "../constants";
+import CompoundAPR from "./Charts/CompoundAPR";
+import YourBalance from "./YourBalance";
+import YourInvestment from "./Charts/YourInvestment";
+import { Modal } from "minimal-react-modal";
 import Exchange from "./Exchange";
+import TransactionsTable from "./TransactionsTable";
 
 const Contenitore = styled.div`
+  @media (max-width: 1000px) {
+  }
+`;
+
+const PreInvestment = styled.div`
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0 5%;
+  @media (max-width: 1000px) {
+    flex-direction: column-reverse;
+  }
+`;
+
+const PostInvestment = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,18 +31,17 @@ const Contenitore = styled.div`
   padding: 0 5%;
   @media (max-width: 1000px) {
     flex-direction: column-reverse;
-    margin: 1% 5%;
-    padding: 0;
-    width: 90%;
   }
 `;
 
 const Left = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0;
   @media (max-width: 1000px) {
     width: 100%;
+    margin-top: 5%;
   }
 `;
 
@@ -113,13 +122,12 @@ const UniswapCredit = styled.a`
   font-weight: 300;
 
   @media (max-width: 768px) {
-
   }
 `;
 
 const AWPDetail = props => {
   const [modalOpen, setModalOpen] = useState(false);
-  
+
   function openModal() {
     setModalOpen(true);
   }
@@ -132,50 +140,75 @@ const AWPDetail = props => {
 
   return (
     <Contenitore>
-      <Left>
-        <CompoundAPR />
-      </Left>
+      <PreInvestment>
+        <Left>
+          <CompoundAPR />
+        </Left>
 
-      <Right>
-        <Title>You can do better than DeFi Lending</Title>
-        <Text>
-          We backtested the All Weather Portfolio and the AWP++ against DeFi
-          Landing in the last 12 months. Don't take our word for it. Have a look
-          at the chart on the left.
-        </Text>
+        <Right>
+          <Title>You can do better than DeFi Lending</Title>
+          <Text>
+            We backtested the All Weather Portfolio and the AWP++ against DeFi
+            Landing in the last 12 months. Don't take our word for it. Have a
+            look at the chart on the left.
+          </Text>
+          <button
+            className="buttonModal"
+            ButtonLabel="Buy Now"
+            onClick={openModal}
+          >
+            Buy More
+          </button>
+        </Right>
+      </PreInvestment>
+
+      <PostInvestment>
+        <Left>
+          <YourInvestment />
+        </Left>
+
+        <Right>
+          <Title>Your Investment</Title>
+          <YourBalance
+            APY="27.31%"
+            CurrentGains="371.20"
+            PortfolioLogo="../img/portfolio_02.png"
+            PortfolioName="AWP++"
+            PortfolioBalance="1,234.00"
+          />
+          <button
+            className="buttonModal"
+            ButtonLabel="Buy Now"
+            onClick={openModal}
+          >
+            Buy More
+          </button>
+        </Right>
+      </PostInvestment>
+      <Modal
+        className="mainModal"
+        isActive={modalOpen} // required
+        closeModal={closeModal} // required
+        showAnimation={true}
+        modalBoxStyle={{
+          width: "90%",
+          maxWidth: 600,
+          padding: "5%",
+          textAlign: "center"
+        }}
+      >
+        <ModalTitle>Buy PIE Tokens now</ModalTitle>
+        <ModalText>
+          The crypto basket, allocated for a maximum of 10%, aims to give
+          exposure to different assets in the blockchain industry between:
+        </ModalText>
+        <Exchange />
         
-            <div>
-              <button
-                className="buttonModal"
-                ButtonLabel="Buy Now"
-                onClick={openModal}
-              >
-                Buy Now
-              </button>
-              <Modal
-                className="mainModal"
-                isActive={modalOpen} // required
-                closeModal={closeModal} // required
-                showAnimation={true}
-                modalBoxStyle={{
-                  width: "90%",
-                  maxWidth: 600,
-                  padding: "5%",
-                  textAlign: "center"
-                }}
-              >
-                <ModalTitle>Buy PIE Tokens now</ModalTitle>
-                <ModalText>
-                  The crypto basket, allocated for a maximum of 10%, aims to
-                  give exposure to different assets in the blockchain industry
-                  between:
-                </ModalText>
-                <Exchange />
-                
-                <UniswapCredit href="https://uniswap.exchange/" target="_blank">Powered by <span role="img">🦄</span>Uniswap</UniswapCredit>
-              </Modal>
-            </div>
-      </Right>
+        <UniswapCredit href="https://uniswap.exchange/" target="_blank">
+          Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap
+        </UniswapCredit>
+      </Modal>
+      <TransactionsTable />
     </Contenitore>
   );
 };
