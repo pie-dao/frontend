@@ -13,7 +13,7 @@ module.exports = {
       'The richest people in the World have gained 10% every year for the past 10 years. We think it is fair for you to make some real money too.',
     DiscordDescription: 'Redirecting to Pie Network Discord Channel',
     siteUrl: 'https://www.pie.dexwallet.io/',
-    image: 'https://www.pie.dexwallet.io/images/preview.png',
+    image: 'https://www.pie.dexwallet.io/img/preview.jpg',
   
     twitter: '@Dexwallet',
     fbUserId: '@NAME-HERE',
