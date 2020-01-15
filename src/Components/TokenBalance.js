@@ -6,7 +6,7 @@ export default function TokenBalance({tokenAddress, account}) {
     const tokenBalance = useAddressBalance(account, tokenAddress);
     return(
         <>
-            { amountFormatter(tokenBalance) }
+            { amountFormatter(tokenBalance) || "-" }
         </>
     )
 }
