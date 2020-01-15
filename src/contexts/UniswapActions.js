@@ -3,6 +3,7 @@ import { useWeb3React, useTokenContract, useExchangeContract } from '../hooks';
 import { isAddress, getContract, safeAccess } from '../utils';
 import { ethers } from "ethers";
 import { useBlockNumber } from "./Application";
+import { useTransactionAdderByHash } from "./Transactions";
 
 const UPDATE = 'UPDATE'
 const PortfolioActionsContext = createContext()
@@ -62,6 +63,7 @@ export function useUniswapTokensBought(address, tokenAddress, exchangeAddress) {
   
   const { transactions, blockNumber } = safeAccess(state, [chainId, address, tokenAddress, TOKEN_BOUGHT]) || {}
 
+  const txAdder = useTransactionAdderByHash();
 
   useEffect(() => {
     if(
@@ -80,6 +82,12 @@ export function useUniswapTokensBought(address, tokenAddress, exchangeAddress) {
       .then(result => {
         if(!stale) {
           update(chainId, address, tokenAddress, TOKEN_BOUGHT, parseEvents(result, globalBlockNumber));
+
+          for(let tx of result ) {
+            // console.log(tx);
+            txAdder(tx.transactionHash);
+          }
+
         }
       })
       .catch(error => { console.log(error) });
@@ -101,10 +109,11 @@ function parseEvents(events, blockNumber) {
   }
   
   for (const event of events) {
-    const { blockNumber, blockHash, data } = event;
+    const { blockNumber, blockHash, data, transactionHash } = event;
     result.transactions.push({
       blockNumber,
       blockHash,
+      transactionHash,
       amount: ethers.utils.bigNumberify(data)
     });
   }
