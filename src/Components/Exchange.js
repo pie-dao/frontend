@@ -377,6 +377,7 @@ const Exchange = props => {
       track(receipt.hash);
       // context
       addTransaction(receipt);
+      props.afterTrade();
     })
     .catch(error => {
       trackError(error);

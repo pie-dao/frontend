@@ -204,7 +204,7 @@ const AWPDetail = props => {
         <ModalText>
           Diversified exposure across equity, commodities, t-bills (20y/3y), crypto & DeFi, plus, automatic rebalancing.
         </ModalText>
-        <Exchange />
+        <Exchange afterTrade={closeModal} />
         
         <UniswapCredit href="https://uniswap.exchange/" target="_blank">
           Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap
