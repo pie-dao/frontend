@@ -42,14 +42,12 @@ const Title = styled.h1`
   background-size: 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 7rem;
-  animation: flow 7s ease-in-out infinite;
+  /* line-height: 7; */
+  animation: flow 3s ease-in-out infinite;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   word-wrap: break-word;
   margin: 5% 0;
-  /* display: flex;
-  flex-direction: column; */
 
   @keyframes flow {
     0% {
@@ -60,18 +58,17 @@ const Title = styled.h1`
     }
   }
   @media (max-width: 768px) {
-    /* font-size: var(--text-quiteverybig-mobile);
-    line-height: 7.5rem; */
     margin: 5% 0;
     font-size: 4rem;
     line-height: 4rem;
   }
-`;
 
-const Name = styled.div`
-height: 110px;
-  @media (max-width: 768px) {
-    height: 70px;
+  @media (min-width: 1280px) {
+    line-height: 8rem;
+  }
+
+  @media (min-width: 1600px) {
+    line-height: 11rem;
   }
 `;
 
