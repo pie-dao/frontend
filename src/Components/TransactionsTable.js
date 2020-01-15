@@ -3,6 +3,7 @@ import styled from "styled-components";
 import TransactionItem from "./TransactionItem";
 
 const GreyBox = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -41,9 +42,9 @@ const Container = styled.div`
 const TransactionsTable = props => {
   return (
     <GreyBox>
-      <Title>Transaction List</Title>
-      <Container>
-        <section className="content">
+      <section className="content">
+        <Title>Transaction List</Title>
+        <Container>
           <TransactionItem
             link="#"
             bg="#F8E71C"
@@ -109,8 +110,8 @@ const TransactionsTable = props => {
             TransactionState="Failed"
             TransactionETHValue="0.00002"
           />
-        </section>
-      </Container>
+        </Container>
+      </section>
     </GreyBox>
   );
 };

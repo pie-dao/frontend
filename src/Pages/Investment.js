@@ -1,5 +1,6 @@
 import React from "react";
 import AWPDetail from "../Components/AWPDetail";
+import TransactionsTable from "../Components/TransactionsTable";
 import Seo from "../Components/Seo";
 import config from "../utils/config";
 
@@ -14,6 +15,7 @@ function InvestmentDetail() {
         keywords={config.keywords}
       />
       <AWPDetail />
+      <TransactionsTable />
     </div>
   );
 }
