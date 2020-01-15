@@ -92,8 +92,7 @@ const TopNavi = props => {
         >
           whitepaper
         </A>
-        <MobileNone>
-        </MobileNone>
+        <MobileNone></MobileNone>
         <MobileNone>
           <StyledLink
             to="/portfolio"
@@ -105,18 +104,15 @@ const TopNavi = props => {
           </StyledLink>
         </MobileNone>
         <MobileNone>
-          <StyledLink to="/discord">discord</StyledLink>
-        </MobileNone>
-        <MobileNone>
-          {" "}
           <StyledLink
             onClick={() =>
               link({ position: "navbar", to: "contact", type: "text" })
             }
             className="navbar-item"
+            target="_blank"
             to="/discord"
           >
-            contact
+            discord
           </StyledLink>
         </MobileNone>
         <ConnectWeb3Button />
