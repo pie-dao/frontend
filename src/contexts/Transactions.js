@@ -165,12 +165,46 @@ export function useTransactionAdder() {
   )
 }
 
+export function useTransactionAdderByHash() {
+  const { chainId, library } = useWeb3React();
+
+  const [state, { add }] = useTransactionsContext();
+
+  return useCallback(
+    (hash, customData = {}) => {
+      console.log();
+
+      const tx = safeAccess(state, [chainId, hash]) || {}
+
+      if(
+        library &&
+        !tx.response
+        // (safeAccess(state, [chainId, hash]) || {}) === {}
+      ) {
+        library.getTransactionReceipt(hash).then((response) => {
+          add(chainId, hash, { ...response, [CUSTOM_DATA]: customData})
+        }).catch(error => {
+          console.log(error);
+        })
+      }
+    },
+    [chainId, add, library, state]
+  )
+}
+
 export function useAllTransactions() {
   const { chainId } = useWeb3React()
-
   const [state] = useTransactionsContext()
 
   return safeAccess(state, [chainId]) || {}
+}
+
+export function useTransaction(hash) {
+  const { chainId } = useWeb3React();
+  const [state] = useTransactionsContext();
+
+  // console.log(state);
+  return safeAccess(state, [chainId, hash]) || {};
 }
 
 export function usePendingApproval(tokenAddress) {
