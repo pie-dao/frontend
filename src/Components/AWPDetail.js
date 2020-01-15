@@ -5,7 +5,10 @@ import YourBalance from "./YourBalance";
 import YourInvestment from "./Charts/YourInvestment";
 import { Modal } from "minimal-react-modal";
 import Exchange from "./Exchange";
-
+import TransactionsTable from "./TransactionsTable";
+import TokenBalance from "./TokenBalance";
+import { AWP_ADDRESS } from "../constants";
+import { useWeb3React } from "../hooks";
 const Contenitore = styled.div`
   @media (max-width: 1000px) {
   }
@@ -135,7 +138,7 @@ const AWPDetail = props => {
     setModalOpen(false);
   }
 
-  console.log("render");
+  const { account } = useWeb3React();
 
   return (
     <section className="content">
@@ -174,7 +177,7 @@ const AWPDetail = props => {
             CurrentGains="371.20"
             PortfolioLogo="../img/portfolio_02.png"
             PortfolioName="AWP++"
-            PortfolioBalance="1,234.00"
+            PortfolioBalance={<TokenBalance account={account} tokenAddress={AWP_ADDRESS} />}
           />
           <button
             className="buttonModal"
