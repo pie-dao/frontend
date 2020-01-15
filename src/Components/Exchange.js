@@ -399,9 +399,7 @@ const Exchange = props => {
 
   const minAmount = outputValue ? outputValue * (maxSlippage) : null;
 
-  const tokensBought = useUniswapTokensBought(account, AWP_ADDRESS, AWP_EXCHANGE);
-  console.log(tokensBought);
-
+  
   // const exchangeRate = getExchangeRate(ethers.utils.parseEther(filterInput(inputValue)), 18, ethers.utils.parseEther(filterInput(outputValue)), 18);
 
   return (
