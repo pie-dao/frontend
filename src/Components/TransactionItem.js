@@ -57,20 +57,19 @@ const IconContainer = styled.div`
   width: 70px;
   margin-right: 10px;
   background-color: rgb(115, 115, 115);
-  border-radius: 36px;
+  border-radius: 50%;
   @media (max-width: 768px) {
   }
 `;
 
 const TransactionIcon = styled.div`
-  border-radius: 37px;
+  border-radius: 50%;
   overflow: hidden;
   padding: 0px;
   margin: 0px;
   width: 70px;
   height: 70px;
   display: inline-block;
-  border: 0.5px solid white;
   @media (max-width: 768px) {
   }
 `;

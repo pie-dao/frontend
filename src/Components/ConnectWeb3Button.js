@@ -43,13 +43,13 @@ const IconContainer = styled.div`
   height: 1rem;
   width: 1rem;
   background-color: rgb(115, 115, 115);
-  border-radius: 1.125rem;
+  border-radius: 50%;
   @media (max-width: 768px) {
   }
 `;
 
 const ImageContainer = styled.div`
-  border-radius: 50px;
+  border-radius: 50%;
   overflow: hidden;
   padding: 0px;
   margin: 0px;
