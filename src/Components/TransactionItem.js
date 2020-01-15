@@ -2,7 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import TransactIcon from "./TransactIcon";
 import { link, cta } from "../mixpanel";
-
+import { amountFormatter } from "../utils";
+import { useTransaction } from "../contexts/Transactions";
+import { useBlock } from "../contexts/Blocks";
+import { useWeb3React } from "../hooks";
+import { safeAccess } from "../utils";
 const Container = styled.a`
   width: 90%;
   margin: 10px 0 0 0;
@@ -119,7 +123,17 @@ const ColorLabel = styled.span`
   }
 `;
 
+function formatTimestamp(timestamp)  {
+  var newDate = new Date();
+  newDate.setTime(timestamp*1000);
+  return newDate.toUTCString();
+}
+
 const TransactionItem = props => {
+  const transaction = useTransaction(props.TransactionHash);
+  const blockHash = safeAccess(transaction, ["receipt", "blockHash"]) || null;
+  const { timestamp } = useBlock(blockHash) || {};
+
   return (
     <Container
     href={props.link}
@@ -129,7 +143,7 @@ const TransactionItem = props => {
     }
     className="Transaction Item"
     >
-      <Top>{props.TransactionDate}</Top>
+      <Top>{timestamp ? formatTimestamp(timestamp) : "-"}</Top>
       <Bottom>
         <Left>
           <IconContainer>
@@ -142,7 +156,7 @@ const TransactionItem = props => {
           <Row>
             <TransactionName>{props.TransactionName}</TransactionName>
             <TransactionUSDValue>
-              {props.TransactionUSDValue} USD
+              {amountFormatter(props.TokenAmount)} AWP ++
             </TransactionUSDValue>
           </Row>
           <Row>
@@ -152,7 +166,7 @@ const TransactionItem = props => {
               </ColorLabel>
             </TransactionState>
             <TransactionETHValue>
-              {props.TransactionETHValue} ETH
+              {/* {props.TransactionETHValue} ETH */}
             </TransactionETHValue>
           </Row>
         </Right>

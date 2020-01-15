@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import TransactionItem from "./TransactionItem";
+import { useWeb3React } from "../hooks";
+import { useUniswapTokensBought } from "../contexts/UniswapActions";
+import { AWP_ADDRESS, AWP_EXCHANGE } from "../constants";
+import ConnectWalletButton from "./ConnectWalletButton";
 
 const GreyBox = styled.div`
   width: 100%;
@@ -40,23 +44,40 @@ const Container = styled.div`
 `;
 
 const TransactionsTable = props => {
+
+  const { account } = useWeb3React();
+
+  const tokensBought = useUniswapTokensBought(account, AWP_ADDRESS, AWP_EXCHANGE);
+
   return (
     <GreyBox>
       <section className="content">
-        <Title>Transaction List</Title>
-        <Container>
-          <TransactionItem
+      <Title>Transaction List</Title>
+      <Container>
+        
+          {tokensBought ? tokensBought.reverse().map((transaction, key) => 
+            <TransactionItem
+            key={key}
             link="#"
-            bg="#F8E71C"
-            color="var(--almost-black)"
+            bg="#2db400"
+            color="var(--white)"
+            TransactionHash={transaction.transactionHash}
             TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Approve Token"
+            TransactionName="Bought AWP Token"
+            TokenAmount={transaction.amount}
             TransactionUSDValue="0.034"
-            TransactionState="Pending..."
+            TransactionState="Confirmed"
             TransactionETHValue="0.00002"
           />
+          ) : 
+            <>
+              To view transactions please connect your wallet.
+              <ConnectWalletButton></ConnectWalletButton>
+            </>
+          }
+          
 
-          <TransactionItem
+          {/* <TransactionItem
             link="#"
             bg="#2db400"
             color="var(--white)"
@@ -109,7 +130,7 @@ const TransactionsTable = props => {
             TransactionUSDValue="0.034"
             TransactionState="Failed"
             TransactionETHValue="0.00002"
-          />
+          /> */}
         </Container>
       </section>
     </GreyBox>
