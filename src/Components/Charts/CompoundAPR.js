@@ -1,9 +1,8 @@
 import React,{ useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import styled from "styled-components";
-import { useWeb3React } from '../hooks';
-import { useUniswapTokensSold } from '../contexts/UniswapActions';
-import { AWP_ADDRESS } from '../constants';
+import { useWeb3React } from '../../hooks';
+
 
 const Placeholder = styled.div`
   margin: 5px 30px 20px 5px;
