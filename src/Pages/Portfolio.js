@@ -4,7 +4,7 @@ import TransactionsTable from "../Components/TransactionsTable";
 import Seo from "../Components/Seo";
 import config from "../utils/config";
 
-function InvestmentDetail() {
+function Portfolio() {
   return (
     <div className="App">
       <Seo
@@ -20,4 +20,4 @@ function InvestmentDetail() {
   );
 }
 
-export default InvestmentDetail;
+export default Portfolio;

@@ -96,12 +96,12 @@ const TopNavi = props => {
         </MobileNone>
         <MobileNone>
           <StyledLink
-            to="/investment"
+            to="/portfolio"
             onClick={() =>
-              link({ position: "navbar", to: "investment", type: "text" })
+              link({ position: "navbar", to: "portfolio", type: "text" })
             }
           >
-            investment
+            portfolio
           </StyledLink>
         </MobileNone>
         <MobileNone>
