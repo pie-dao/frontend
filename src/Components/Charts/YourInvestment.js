@@ -41,9 +41,9 @@ export default function YourInvestment() {
       {!(localHistoricData && localHistoricData.length !== 0) ? <Placeholder/> :
         <>
         <ComposedChart width={600} height={380} data={localHistoricData} margin={{top: 0, right: 30, left: 20, bottom: 5}}>
-          <XAxis tickFormatter={formatTimestamp} dataKey="timestamp" scale="time"/>
+          <XAxis tickFormatter={formatTimestamp} format="time" dataKey="timestamp"/>
 
-          <YAxis hide yAxisId="totalPositionValue" dataKey="totalPositionValue" type="number" domain={[0, parseInt(localHistoricData[localHistoricData.length - 1].totalPositionValue) + 100]} />
+          <YAxis yAxisId="totalPositionValue" dataKey="totalPositionValue" type="number" domain={[0, parseInt(localHistoricData[localHistoricData.length - 1].totalPositionValue) + 100]} />
           <YAxis hide yAxisId="price" dataKey="price" domain={[0, 100]}/>
           {/* <YAxis hide yAxisId="totalAmount" dataKey="totalAmount" domain={[0, 100]}/> */}
           <CartesianGrid strokeDasharray="3 3"/>
