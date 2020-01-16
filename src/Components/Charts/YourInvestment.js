@@ -23,13 +23,14 @@ function formatTimestamp(timestamp)  {
 export default function YourInvestment() {
   const { account } = useWeb3React();
 
-  const localHistoricData = JSON.parse(localStorage.historicData || "[]");
+  const localHistoricData = JSON.parse(localStorage[account] || "[]");
   let historicPosition = Object.values(useUniswapHistoricPosition(account, AWP_ADDRESS, AWP_EXCHANGE)) || localHistoricData;
   console.log(localHistoricData);
   
+  console.log('historicPosition', historicPosition)
   if(historicPosition && historicPosition.length) {
     console.log("setting storage")
-    localStorage.historicData = JSON.stringify(historicPosition);
+    localStorage[account] = JSON.stringify(historicPosition)
   }
     
 

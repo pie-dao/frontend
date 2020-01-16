@@ -7,7 +7,7 @@ import { Modal } from "minimal-react-modal";
 import Exchange from "./Exchange";
 import TransactionsTable from "./TransactionsTable";
 import TokenBalance from "./TokenBalance";
-import { AWP_ADDRESS } from "../constants";
+import { AWP_ADDRESS, AWP_EXCHANGE } from "../constants";
 import { useWeb3React } from "../hooks";
 import { useUniswapHistoricPosition } from "../contexts/UniswapActions";
 const Contenitore = styled.div`
@@ -140,19 +140,35 @@ const AWPDetail = props => {
   }
 
   const { account } = useWeb3React();
-  // const historicPosition = useUniswapHistoricPosition(account, AWP_ADDRESS);
 
-  // console.log(historicPosition);
+  const localHistoricData = JSON.parse(localStorage[account] || "[]");
 
-  const localHistoricData = JSON.parse(localStorage.historicData || "[]");
   const totalValue = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalPositionValue) : "-"
   const totalDeposited = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalDeposited) : "-"; 
   const totalEarned = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalEarned) : "-";
   const localBalance = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalAmount) : "-";
+
+  console.table({
+    totalDeposited,
+    totalValue,
+    totalEarned,
+    localBalance
+  })
+
+  let historicPosition = Object.values(useUniswapHistoricPosition(account, AWP_ADDRESS, AWP_EXCHANGE));
+  console.log('PORCO DIO ', historicPosition)
+  if(totalDeposited === '-') {
+    console.log('historicPosition', historicPosition)
+    if(historicPosition && historicPosition.length) {
+      console.log("setting storage")
+      localStorage[account] = JSON.stringify(historicPosition)
+    }
+  }
+  
   return (
     <section className="content">
     <Contenitore>
-      {!account ? 
+      { (!account || totalDeposited === '-') ? 
       <PreInvestment>
         <Left>
           <CompoundAPR />
