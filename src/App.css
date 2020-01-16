@@ -49,7 +49,19 @@ body {
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
+  .textloop {
+    height: 210px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .textloop {
+    height: 260px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
   .textloop {
     height: 300px;
   }
