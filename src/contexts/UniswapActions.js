@@ -149,14 +149,16 @@ export function useUniswapHistoricPosition(address, tokenAddress, exchangeAddres
         }
 
         const price = action.inputAmount.mul(ethers.utils.parseUnits("1")).div(action.amount);
+        const positionValue = price.mul(totalDeposited).div(ethers.utils.parseUnits("1"));
 
         value[timestamp] = {
           price: amountFormatter(price),
           totalAmount: amountFormatter(totalPosition),
           totalDeposited: amountFormatter(totalDeposited),
-          totalPositionValue: amountFormatter(price.mul(totalDeposited).div(ethers.utils.parseUnits("1")) ),
+          totalPositionValue: amountFormatter(positionValue),
           timestamp,
-          readableTime: formatTimestamp(timestamp)
+          readableTime: formatTimestamp(timestamp),
+          totalEarned: amountFormatter(positionValue.sub(totalDeposited))
         }
         
         

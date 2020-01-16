@@ -144,6 +144,9 @@ const AWPDetail = props => {
 
   // console.log(historicPosition);
 
+  const localHistoricData = JSON.parse(localStorage.historicData || "[]");
+  const totalEarned = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalEarned) : "-";
+  const localBalance = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalAmount) : "-";
   return (
     <section className="content">
     <Contenitore>
@@ -178,10 +181,10 @@ const AWPDetail = props => {
           <Title>Your Investment</Title>
           <YourBalance
             APY="27.31%"
-            CurrentGains="371.20"
+            CurrentGains={totalEarned}
             PortfolioLogo="../img/portfolio_02.png"
             PortfolioName="AWP++"
-            PortfolioBalance={<TokenBalance account={account} tokenAddress={AWP_ADDRESS} />}
+            PortfolioBalance={account ? <TokenBalance account={account} tokenAddress={AWP_ADDRESS}/> : localBalance}
           />
           <button
             className="buttonModal"
