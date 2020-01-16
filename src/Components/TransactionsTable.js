@@ -57,7 +57,7 @@ const TransactionsTable = props => {
       <Title>Transaction List</Title>
       <Container>
         
-          {tokensBought ? Object.keys(tokensBought).map((index, key) => {
+          {tokensBought ? Object.keys(tokensBought).reverse().map((index, key) => {
             const transaction = tokensBought[index];
             
             return(
