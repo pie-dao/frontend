@@ -156,4 +156,13 @@ button.buttonModal:hover {
   }
 }
 
+@media screen and (min-width: 1600px) {
+  section.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 1280px;
+  }
+}
+
 

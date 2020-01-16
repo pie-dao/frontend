@@ -5,7 +5,6 @@ import YourBalance from "./YourBalance";
 import YourInvestment from "./Charts/YourInvestment";
 import { Modal } from "minimal-react-modal";
 import Exchange from "./Exchange";
-import TransactionsTable from "./TransactionsTable";
 
 const Contenitore = styled.div`
   @media (max-width: 1000px) {
@@ -139,6 +138,7 @@ const AWPDetail = props => {
   console.log("render");
 
   return (
+    <section className="content">
     <Contenitore>
       <PreInvestment>
         <Left>
@@ -208,8 +208,8 @@ const AWPDetail = props => {
           Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap
         </UniswapCredit>
       </Modal>
-      <TransactionsTable />
     </Contenitore>
+    </section>
   );
 };
 

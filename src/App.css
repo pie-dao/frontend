@@ -48,3 +48,15 @@ body {
     height: 150px;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .textloop {
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .textloop {
+    height: 400px;
+  }
+}

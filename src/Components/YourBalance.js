@@ -111,14 +111,14 @@ const YourBalance = props => {
             </Balance>
         </Row>
         <Row>
-          <span>Earned so far</span>{" "}
+          <span>Value</span>{" "}
           <Earned>
             <LabelBlack>$</LabelBlack>
             {props.CurrentGains}
           </Earned>
         </Row>
         <Row>
-          <span>APY</span>
+          <span>Gains</span>
           <APY>
             <LabelGreen>{props.APY}</LabelGreen>
           </APY>
