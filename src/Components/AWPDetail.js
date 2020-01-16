@@ -16,7 +16,7 @@ const Contenitore = styled.div`
 `;
 
 const PreInvestment = styled.div`
-  display: none;
+  display: flex;
   flex-direction: row;
   align-items: center;
   margin: 20px 0;
@@ -152,6 +152,7 @@ const AWPDetail = props => {
   return (
     <section className="content">
     <Contenitore>
+      {!account ? 
       <PreInvestment>
         <Left>
           <CompoundAPR />
@@ -173,7 +174,7 @@ const AWPDetail = props => {
           </button>
         </Right>
       </PreInvestment>
-
+      :
       <PostInvestment>
         <Left>
           <YourInvestment />
@@ -197,6 +198,7 @@ const AWPDetail = props => {
           </button>
         </Right>
       </PostInvestment>
+      }
       <Modal
         className="mainModal"
         isActive={modalOpen} // required
