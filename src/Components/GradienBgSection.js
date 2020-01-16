@@ -15,7 +15,7 @@ const Text = styled.div`
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-big);
-  font-weight: 300;
+  font-weight: 500;
   text-align: left;
 
   strong {
@@ -46,19 +46,8 @@ const GradienBgSection = props => {
     <Container>
       <section className="content center">
         <Text>
-          <strong>
-            Top investment deals are impossible to get for the most of us.
-          </strong>
-          <br></br>
-          <br></br>
-          For example, Ray Dalio used to accept money from investors who had a
-          net worth of at least <strong>$5 billion</strong> and with a minimum
-          investment requirement of <strong>$100 million</strong>.<br></br>
-          Nowadays he won’t accept any new investors.
-          <br></br>
-          <br></br>
-          We are making diversified asset allocation strategies accessible to
-          everyone on the Ethereum network with no minimum.
+          Pie DAO makes diversified asset allocation and rebalancing a piece of cake 🍰<br></br>
+          Universal access to anyone on the Ethereum network, with no minimum.
           <br></br>
           <br></br>
           <a href="" target="blank">

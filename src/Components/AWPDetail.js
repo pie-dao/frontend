@@ -197,10 +197,9 @@ const AWPDetail = props => {
           textAlign: "center"
         }}
       >
-        <ModalTitle>Buy PIE Tokens now</ModalTitle>
+        <ModalTitle>Buy AWP++</ModalTitle>
         <ModalText>
-          The crypto basket, allocated for a maximum of 10%, aims to give
-          exposure to different assets in the blockchain industry between:
+          Diversified exposure across equity, commodities, t-bills (20y/3y), crypto & DeFi, plus, automatic rebalancing.
         </ModalText>
         <Exchange />
         

@@ -36,13 +36,13 @@ const AllocationTab = props => {
     <section className="content center verticalMargins">
       <Tabs defaultIndex={0}>
         <TabList>
-          <Tab>AWP</Tab>
-          <Tab>Crypto</Tab>
+          <Tab>AWP++</Tab>
+          <Tab>Crypto Pie</Tab>
+          <Tab>VTI</Tab>
           <Tab>TLT</Tab>
           <Tab>GSG</Tab>
           <Tab>GLD</Tab>
           <Tab>IEI</Tab>
-          <Tab>VTI</Tab>
         </TabList>
         <TabPanel>
           <Container>
@@ -115,6 +115,37 @@ const AllocationTab = props => {
               {" "}
               <p className="Ptab">
                 {" "}
+                This ETF offers broad exposure to the U.S. equity market,
+                investing in thousands of different securities across all
+                sectors. That makes VTI an appealing option for investors
+                looking to simplify their portfolios and minimize rebalancing
+                obligations, as this fund can serve as a core holding of a
+                long-term portfolio.
+                <br></br>
+                VTI can potentially be useful as a tool for establishing quick
+                exposure to risky assets, though most shorter-term traders with
+                that objective will gravitate towards products such as SPY
+                instead.
+                <br></br>
+                One of the most attractive aspects of VTI, in addition to the
+                extremely broad base of holdings and balance of exposure, is the
+                price.
+                <p>
+                  <a href="https://etfdb.com/etf/VTI/">Learn More</a>
+                </p>
+              </p>
+            </Content>
+            <Content>
+              <VTI />
+            </Content>
+          </Container>
+        </TabPanel>
+        <TabPanel>
+          <Container>
+            <Content>
+              {" "}
+              <p className="Ptab">
+                {" "}
                 This ETF is one of the most popular options for investors
                 seeking to establish exposure to long-dated Treasuries, an asset
                 class that is light on credit risk but may offer attractive
@@ -125,10 +156,6 @@ const AllocationTab = props => {
                 hundreds of individual securities, and delivers impressive
                 liquidity to those looking to execute a trade quickly.
                 <br></br>
-                Investors may also wish to consider similar products such VGLT
-                and TLO; the yield and duration of these products may differ
-                slightly, making one potentially more appealing depending on
-                exact investment objectives.
                 <p>
                   <a href="https://etfdb.com/etf/TLT/">Learn More</a>
                 </p>
@@ -153,11 +180,7 @@ const AllocationTab = props => {
                 are under-represented in this products.
                 <br></br>
                 GSG is essentially a cross between a pure energy ETF such as DBE
-                and a more broad-based commodity fund such as DBC or USCI. We
-                don't see GSG as a tremendously useful product; those seeking
-                energy exposure would be better off in an oil ETF, while those
-                seeking balanced commodity exposure should gravitate towards DBS
-                or USCI.
+                and a more broad-based commodity fund such as DBC or USCI.
                 <p>
                   <a href="https://etfdb.com/etf/GSG/">Learn More</a>
                 </p>
@@ -217,37 +240,7 @@ const AllocationTab = props => {
             </Content>
           </Container>
         </TabPanel>
-        <TabPanel>
-          <Container>
-            <Content>
-              {" "}
-              <p className="Ptab">
-                {" "}
-                This ETF offers broad exposure to the U.S. equity market,
-                investing in thousands of different securities across all
-                sectors. That makes VTI an appealing option for investors
-                looking to simplify their portfolios and minimize rebalancing
-                obligations, as this fund can serve as a core holding of a
-                long-term portfolio.
-                <br></br>
-                VTI can potentially be useful as a tool for establishing quick
-                exposure to risky assets, though most shorter-term traders with
-                that objective will gravitate towards products such as SPY
-                instead.
-                <br></br>
-                One of the most attractive aspects of VTI, in addition to the
-                extremely broad base of holdings and balance of exposure, is the
-                price.
-                <p>
-                  <a href="https://etfdb.com/etf/VTI/">Learn More</a>
-                </p>
-              </p>
-            </Content>
-            <Content>
-              <VTI />
-            </Content>
-          </Container>
-        </TabPanel>
+       
       </Tabs>
     </section>
   );

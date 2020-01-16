@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { cta } from "../mixpanel";
+import { Link } from "react-router-dom";
 
 const Button = styled.button`
   min-width: 150px;
@@ -43,20 +44,21 @@ const Button = styled.button`
 
 const PrimaryButton = props => {
   return (
+    <Link to="/portfolio">    
     <Button
       onClick={() => {
         cta({
           position: "hero",
-          to: "/investment",
+          to: "/portfolio",
           type: "button",
           label: "Get early access"
         });
-        props.onClick();
       }}
       {...props}
     >
       {props.children}
     </Button>
+    </Link>
   );
 };
 

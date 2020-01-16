@@ -33,6 +33,21 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 }
 `;
 
+const Author = styled.div`
+font-family: var(--primary-font);
+color: var(--almost-black);
+font-size: var(--text-big);
+font-weight: 500;
+text-align: center;
+font-style: italic;
+margin-top: 2%;
+
+@media (max-width: 768px) {
+  font-size: var(--text-ratherbig-mobile);
+}
+`;
+
+
 
 
 
@@ -44,7 +59,8 @@ const GradientText = props => {
   return (
     <Container>
       <section className="content center">
-        <Title>{props.GradientTextContent}</Title>
+        <Title>"{props.Title}"</Title>
+        <Author>{props.Author}</Author>
       </section>
     </Container>
     );

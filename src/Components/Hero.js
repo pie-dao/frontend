@@ -21,7 +21,7 @@ const PreTitle = styled.div`
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-big);
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
 
   @media (max-width: 768px) {
@@ -92,7 +92,7 @@ const Hero = props => {
       <Container>
         <section className="content center">
           <PreTitle>What if you could invest like</PreTitle>
-          <TextLoop interval={1400} adjustingSpeed={0} defaultStyle={0} mask={true} fade={false} className="textloop">
+          <TextLoop interval={3500} adjustingSpeed={0} defaultStyle={0} mask={true} fade={false} className="textloop">
             <Title>Ray<br></br>Dalio</Title>
             <Title>Abigail<br></br>Johnson</Title>
             <Title>Warren<br></br>Buffet</Title>
@@ -101,9 +101,10 @@ const Hero = props => {
             <Title>Peter<br></br>Lynch</Title>
             <Title>Muriel<br></br>Siebert</Title>
           </TextLoop>
-          <SubTitle>The richest people in the World have gained 10% every year for the past 10 years. We think it's fair for you to make some <strong>real money</strong> too.</SubTitle>
+          <SubTitle>Every Hall-of-Fame investor is obsessed with the question of how best to diversify in order to maximize returns and minimize risks. </SubTitle>
+          {/* <SubTitle>«<strong>Diversification is the only free lunch in finance.</strong>» <br/>- Harry Markowitz Economist & Nobel Prize.</SubTitle> */}
           <PrimaryButton>Get early access</PrimaryButton>
-          <SmallText SmallContent="Reserved to the first 500 users only"/>
+          <SmallText SmallContent="Invitation only. 500 users cap."/>
         </section>
       </Container>
     );
