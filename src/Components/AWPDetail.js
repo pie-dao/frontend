@@ -145,6 +145,8 @@ const AWPDetail = props => {
   // console.log(historicPosition);
 
   const localHistoricData = JSON.parse(localStorage.historicData || "[]");
+  const totalValue = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalPositionValue) : "-"
+  const totalDeposited = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalDeposited) : "-"; 
   const totalEarned = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalEarned) : "-";
   const localBalance = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalAmount) : "-";
   return (
@@ -180,8 +182,8 @@ const AWPDetail = props => {
         <Right>
           <Title>Your Investment</Title>
           <YourBalance
-            APY="27.31%"
-            CurrentGains={totalEarned}
+            APY={`${(totalDeposited / totalValue * 100).toFixed(2)}%`}
+            CurrentGains={totalValue}
             PortfolioLogo="../img/portfolio_02.png"
             PortfolioName="AWP++"
             PortfolioBalance={account ? <TokenBalance account={account} tokenAddress={AWP_ADDRESS}/> : localBalance}
