@@ -91,6 +91,13 @@ export default function Provider({ children }) {
     )
 }
 
+function formatTimestamp(timestamp)  {
+  var newDate = new Date();
+  newDate.setTime(timestamp*1000);
+  return newDate.toUTCString();
+}
+
+
 export function useUniswapHistoricPosition(address, tokenAddress, exchangeAddress) {
   const { library, chainId } = useWeb3React();
   const [state, {  }] = useUniswapActionsContext()
@@ -148,7 +155,8 @@ export function useUniswapHistoricPosition(address, tokenAddress, exchangeAddres
           totalAmount: amountFormatter(totalPosition),
           totalDeposited: amountFormatter(totalDeposited),
           totalPositionValue: amountFormatter(price.mul(totalDeposited).div(ethers.utils.parseUnits("1")) ),
-          timestamp
+          timestamp,
+          readableTime: formatTimestamp(timestamp)
         }
         
         
