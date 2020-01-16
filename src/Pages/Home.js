@@ -26,9 +26,10 @@ function Home() {
       
       <ComparisonTable />
       <GradienBgSection />      
-      <GradientText>
-        Diversification is the only free lunch in finance. <br></br><small>- Harry Markowitz Economist & Nobel Prize.</small>
-      </GradientText>
+      <GradientText 
+      Title="Diversification is the only free lunch in finance"
+      Author="Harry Markowitz Economist & Nobel Prize"
+      />
       <Features />
       <AllocationTab />
       {/* <BlackBGgradientText BlackBGgradientContent="In 2019, the AWP++ portfolio returned 30.49%"/> */}

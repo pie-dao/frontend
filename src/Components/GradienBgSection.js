@@ -15,7 +15,7 @@ const Text = styled.div`
   font-family: var(--primary-font);
   color: var(--almost-black);
   font-size: var(--text-big);
-  font-weight: 300;
+  font-weight: 500;
   text-align: left;
 
   strong {
