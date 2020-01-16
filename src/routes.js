@@ -11,6 +11,7 @@ import Home from './Pages/Home';
 import Portfolio from './Pages/Portfolio';
 import Charts from './Pages/Charts';
 import Discord from './Pages/Discord';
+import AddRemove from './Pages/AddRemove';
 
 
 /**
@@ -25,6 +26,7 @@ export default function Routes() {
         <Route path="/portfolio" component={Portfolio} />
         <Route path="/charts" component={Charts} />
         <Route path="/discord" component={Discord} />
+        <Route path="/add-remove" component={AddRemove} />
     </Switch>
   )
 }

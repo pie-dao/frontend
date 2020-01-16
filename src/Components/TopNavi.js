@@ -100,9 +100,31 @@ const TopNavi = props => {
         >
           whitepaper
         </A>
-        <MobileNone></MobileNone>
-        
-        {/* <MobileNone>
+        <MobileNone>
+        </MobileNone>
+        <MobileNone>
+          <StyledLink
+            to="/investment"
+            onClick={() =>
+              link({ position: "navbar", to: "investment", type: "text" })
+            }
+          >
+            investment
+          </StyledLink>
+          <StyledLink
+            to="/add-remove"
+            onClick={() =>
+              link({ position: "navbar", to: "add-remove", type: "text" })
+            }
+          >
+            add/remove
+          </StyledLink>
+        </MobileNone>
+        <MobileNone>
+          <StyledLink to="/discord">discord</StyledLink>
+        </MobileNone>
+        <MobileNone>
+          {" "}
           <StyledLink
             onClick={() =>
               link({ position: "navbar", to: "contact", type: "text" })
