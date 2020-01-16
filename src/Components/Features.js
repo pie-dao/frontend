@@ -159,11 +159,9 @@ const Features = props => {
         </Box>
         <Box>
           <Content>
-            <Title>AWP++ Crypto Exposure</Title>
+            <Title>AWP++</Title>
             <Text>
-            Inspired by the world renowned All Weather Portfolio by Ray Dalio, our analysts put together the AWP++ allowing a balanced exposure to Stocks, Bonds, Commodities and Cryptos, for everyone to enjoy the peace of mind of a mid-risk investment Portfolio with no minumum.
-              <p></p>
-              <SmallText SmallContent="*Portfolio Returns, up to December 2007, are simulated. They have been calculated using the historical series of equivalent ETFs / Assets, instead of the actual ETFs of the portfolio." />
+              Inspired by the world renowned All Weather Portfolio by Ray Dalio, our analysts put together the AWP++ allowing a balanced exposure to Stocks, Bonds, Commodities and Cryptos, for everyone to enjoy the peace of mind of a mid-risk investment Portfolio with no minumum.
             </Text>
           </Content>
         </Box>

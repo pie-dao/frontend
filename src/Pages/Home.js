@@ -23,13 +23,17 @@ function Home() {
         keywords={config.keywords}
       />
       <Hero />
+      
       <ComparisonTable />
-      <GradienBgSection />
-      <FAQ />
-      <GradientText GradientTextContent="In the last 15 years, nearly 92% of actively managed funds underperformed the S&P 500." />
+      <GradienBgSection />      
+      <GradientText>
+        Diversification is the only free lunch in finance. <br></br><small>- Harry Markowitz Economist & Nobel Prize.</small>
+      </GradientText>
       <Features />
       <AllocationTab />
-      <BlackBGgradientText BlackBGgradientContent="In 2019 our AWP ++portfolio returned 27.7% APY, exceeding by almost 10% the best medium risk portfolio out there. The next best time to invest is now."/>
+      {/* <BlackBGgradientText BlackBGgradientContent="In 2019, the AWP++ portfolio returned 30.49%"/> */}
+      
+      <FAQ />
       <BigBlackTitle />
       <Newsletter />
     </div>

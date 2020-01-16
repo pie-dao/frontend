@@ -75,7 +75,7 @@ const BigBlackTitle = props => {
   return (
     <Container>
       <section className="content center">
-        <Title>We promise it's good stuff. Read the Whitepaper</Title>
+        <Title>Fancy a piece of pie 🍰? Request the Whitepaper</Title>
         <A
           onClick={() =>
             link({ position: "navbar", to: "whitepaper", type: "text" })

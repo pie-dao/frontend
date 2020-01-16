@@ -60,29 +60,7 @@ const FAQ = props => {
     <Container>
       <section className="content">
         <Title>FAQ</Title>
-        <Gradient>
-          <SingleItem
-            onClick={() => {
-              click({
-                position: "FAQ",
-                type: "expandible",
-                label: "What is the Pie Network?"
-              });
-            }}
-          >
-            <Collapsible
-              trigger="What is the Pie Network?"
-              easing="ease-in"
-              transitionTime={100}
-              triggerTagName="div"
-            >
-              <p>
-                Pie is a decentralized network of individuals backtesting and reaching consensous on asset allocations and DeFi opportunities.
-                Pie is governed by the Pie DAO.
-              </p>
-            </Collapsible>
-          </SingleItem>
-        </Gradient>
+        
 
         <Gradient>
           <SingleItem>
@@ -120,14 +98,23 @@ const FAQ = props => {
         
 
         <Gradient>
-          <SingleItem>
+          <SingleItem
+            onClick={() => {
+              click({
+                position: "FAQ",
+                type: "expandible",
+                label: "What is the Pie Network?"
+              });
+            }}
+          >
             <Collapsible
-              trigger="What is the Pie DAO?"
+              trigger="What is the Pie Dao?"
               easing="ease-in"
               transitionTime={100}
               triggerTagName="div"
             >
               <p>
+                Pie Dao is a decentralized network of individuals backtesting and reaching consensous on asset allocations that we call: Pie.
                 The Pie DAO is a decentralized organization dedicated to bringing accessibility and economic empowerment to anyone with an internet connection. 
                 The PIE token holders are the decision makers in the DAO, anybody in the public community is invited to support these efforts.
                 Pie Network aims to leverage the power of decentralized finance to create an inclusive platform for economic empowerment for everyone by democratizing the access to best in class asset allocations strategies, removing minimum capital requirement and massively reduce fees; 
@@ -140,15 +127,15 @@ const FAQ = props => {
         <Gradient>
           <SingleItem>
             <Collapsible
-              trigger="How do PIE holders manage the Pie Network?"
+              trigger="How do PIE holders govern the Pie DAO?"
               easing="ease-in"
               transitionTime={100}
               triggerTagName="div"
             >
               <p>
-                For the Pie Network to be successful, the stakeholders in the system need to collaborate and vote on a variety of parameters. 
+                For the Pie DAO to be successful, the stakeholders in the system need to collaborate and vote on a variety of parameters. 
                 Some examples include: which assets will be included in which index (Ex: AWP++), how much weight a specific asset will have, and the management fees a AWP++ holder is charged. The process is done through an on-chain voting mechanism in the Pie DAO. Stakeholders still have the option of voting directly by interacting with the smart contacts via a friendly user interface.
-                <br/> <a href="" target="blank">Request access to Whitepaper</a>
+                <br/> <a href="https://pie283460.typeform.com/to/uy9NZt" target="blank">Request access to Whitepaper</a>
               </p>
             </Collapsible>
           </SingleItem>

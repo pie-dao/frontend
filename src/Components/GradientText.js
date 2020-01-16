@@ -44,7 +44,7 @@ const GradientText = props => {
   return (
     <Container>
       <section className="content center">
-        <Title>{props.GradientTextContent}</Title>
+        <Title>{props.children}</Title>
       </section>
     </Container>
     );

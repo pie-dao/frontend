@@ -82,6 +82,14 @@ const TopNavi = props => {
         </Link>
       </Left>
       <Right>
+          <StyledLink
+            to="/portfolio"
+            onClick={() =>
+              link({ position: "navbar", to: "portfolio", type: "text" })
+            }
+          >
+            portfolio
+          </StyledLink>
         <A
           onClick={() =>
             link({ position: "navbar", to: "whitepaper", type: "text" })
@@ -93,17 +101,8 @@ const TopNavi = props => {
           whitepaper
         </A>
         <MobileNone></MobileNone>
-        <MobileNone>
-          <StyledLink
-            to="/portfolio"
-            onClick={() =>
-              link({ position: "navbar", to: "portfolio", type: "text" })
-            }
-          >
-            portfolio
-          </StyledLink>
-        </MobileNone>
-        <MobileNone>
+        
+        {/* <MobileNone>
           <StyledLink
             onClick={() =>
               link({ position: "navbar", to: "contact", type: "text" })
@@ -114,7 +113,7 @@ const TopNavi = props => {
           >
             discord
           </StyledLink>
-        </MobileNone>
+        </MobileNone> */}
         <ConnectWeb3Button />
       </Right>
     </Container>
