@@ -174,8 +174,6 @@ export function useTransactionAdderByHash() {
 
   return useCallback(
     (hash, customData = {}) => {
-      console.log();
-
       const tx = safeAccess(state, [chainId, hash]) || {}
 
       if(

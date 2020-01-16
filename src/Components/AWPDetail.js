@@ -306,6 +306,7 @@ const AWPDetail = props => {
             </UniswapCredit> */}
           </div>
         </Contenitore>
+        <YourInvestment hacky={true}/>
       </section>
       </>
   );
