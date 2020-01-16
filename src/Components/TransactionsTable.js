@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import TransactionItem from "./TransactionItem";
+import { useWeb3React } from "../hooks";
+import { useUniswapTokensBought } from "../contexts/UniswapActions";
+import { AWP_ADDRESS, AWP_EXCHANGE } from "../constants";
+import ConnectWalletButton from "./ConnectWalletButton";
 
 const GreyBox = styled.div`
   width: 100%;
@@ -40,79 +44,53 @@ const Container = styled.div`
 `;
 
 const TransactionsTable = props => {
+
+  const { account } = useWeb3React();
+
+  const tokensBought = useUniswapTokensBought(account, AWP_ADDRESS, AWP_EXCHANGE);
+
+  // console.log(tokensBought);
+
   return (
+    <>
+    {tokensBought ? (
     <GreyBox>
       <section className="content">
-        <Title>Transaction List</Title>
-        <Container>
-          <TransactionItem
-            link="#"
-            bg="#F8E71C"
-            color="var(--almost-black)"
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Approve Token"
-            TransactionUSDValue="0.034"
-            TransactionState="Pending..."
-            TransactionETHValue="0.00002"
-          />
-
-          <TransactionItem
-            link="#"
-            bg="#2db400"
-            color="var(--white)"
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Approve Token"
-            TransactionUSDValue="0.034"
-            TransactionState="Approved"
-            TransactionETHValue="0.00002"
-          />
-
-          <TransactionItem
-            link="#"
-            bg="#fc0253"
-            color="var(--white)"
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Send Token"
-            TransactionUSDValue="0.034"
-            TransactionState="Failed"
-            TransactionETHValue="0.00002"
-          />
-
-          <TransactionItem
-            link="#"
-            bg="#F8E71C"
-            color="var(--almost-black)"
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Approve Token"
-            TransactionUSDValue="0.034"
-            TransactionState="Pending..."
-            TransactionETHValue="0.00002"
-          />
-
-          <TransactionItem
-            link="#"
-            bg="#2db400"
-            color="var(--white)"
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Approve Token"
-            TransactionUSDValue="0.034"
-            TransactionState="Approved"
-            TransactionETHValue="0.00002"
-          />
-
-          <TransactionItem
-            link="#"
-            bg="#fc0253"
-            color="var(--white)"
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Send Token"
-            TransactionUSDValue="0.034"
-            TransactionState="Failed"
-            TransactionETHValue="0.00002"
-          />
+      <Title>Transaction List</Title>
+      <Container>
+        
+          {tokensBought ? Object.keys(tokensBought).reverse().map((index, key) => {
+            const transaction = tokensBought[index];
+            
+            return(
+              <TransactionItem
+                key={key}
+                link="#"
+                bg="#2db400"
+                color="var(--white)"
+                TransactionHash={transaction.transactionHash}
+                TransactionDate="1/13/2020 at 13.45"
+                TransactionName="Bought AWP Token"
+                TokenAmount={transaction.amount}
+                DAIAmount={transaction.inputAmount}
+                TransactionState="Confirmed"
+                TransactionETHValue="0.00002"
+              />
+            )
+          }
+            
+          ) : 
+            <>
+              To view transactions please connect your wallet.
+              <ConnectWalletButton></ConnectWalletButton>
+            </>
+          }
+          
         </Container>
       </section>
-    </GreyBox>
+    </GreyBox>)
+    : null}
+    </>
   );
 };
 

@@ -25,7 +25,8 @@ function reducer(state, { type, payload }) {
       const { networkId, hash, response } = payload
 
       if (safeAccess(state, [networkId, hash]) !== null) {
-        throw Error('Attempted to add existing transaction.')
+        // throw Error('Attempted to add existing transaction.')
+        return state;
       }
 
       return {
@@ -159,18 +160,57 @@ export function useTransactionAdder() {
       if (!hash) {
         throw Error('No transaction hash found.')
       }
+
       add(chainId, hash, { ...response, [CUSTOM_DATA]: customData })
     },
     [chainId, add]
   )
 }
 
+export function useTransactionAdderByHash() {
+  const { chainId, library } = useWeb3React();
+
+  const [state, { add }] = useTransactionsContext();
+
+  return useCallback(
+    (hash, customData = {}) => {
+      const tx = safeAccess(state, [chainId, hash]) || {}
+
+      if(
+        library &&
+        !tx.response
+        // (safeAccess(state, [chainId, hash]) || {}) === {}
+      ) {
+        library.getTransactionReceipt(hash).then((response) => {
+          console.log("adding tx");
+        add(chainId, hash, { ...response, [CUSTOM_DATA]: customData})
+        }).catch(error => {
+          console.log(error);
+        })
+      }
+    },
+    [chainId]
+  )
+}
+
 export function useAllTransactions() {
   const { chainId } = useWeb3React()
-
   const [state] = useTransactionsContext()
 
   return safeAccess(state, [chainId]) || {}
+}
+
+// export function getTransaction(chainId, hash) {
+//   const [state] = useContext(TransactionsContext);
+//   return safeAccess(state, [chainId, hash]);
+// }
+
+export function useTransaction(hash) {
+  const { chainId } = useWeb3React();
+  const [state] = useTransactionsContext();
+
+  // console.log(state);
+  return safeAccess(state, [chainId, hash]) || {};
 }
 
 export function usePendingApproval(tokenAddress) {

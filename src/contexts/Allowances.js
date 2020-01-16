@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useReducer, useMemo, useCallback, useEffect } from 'react'
-import {} from '@web3-react/core'
 
 import { useWeb3React } from '../hooks'
 import { safeAccess, isAddress, getTokenAllowance } from '../utils'

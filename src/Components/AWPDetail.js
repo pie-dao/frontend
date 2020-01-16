@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import CompoundAPR from "./Charts/CompoundAPR";
 import YourBalance from "./YourBalance";
 import YourInvestment from "./Charts/YourInvestment";
 import { Modal } from "minimal-react-modal";
 import Exchange from "./Exchange";
-
+import TransactionsTable from "./TransactionsTable";
+import TokenBalance from "./TokenBalance";
+import { AWP_ADDRESS, AWP_EXCHANGE } from "../constants";
+import { useWeb3React } from "../hooks";
+import { useUniswapHistoricPosition } from "../contexts/UniswapActions";
 const Contenitore = styled.div`
   @media (max-width: 1000px) {
   }
 `;
 
 const PreInvestment = styled.div`
-  display: none;
+  display: flex;
   flex-direction: row;
   align-items: center;
   margin: 20px 0;
@@ -124,8 +128,38 @@ const UniswapCredit = styled.a`
   }
 `;
 
+const GreyBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  text-align: center;
+  align-items: center;
+  font-family: var(--secondary-font);
+  background-color: #f6f6f6;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+  }
+`;
+
+const TitleUni = styled.div`
+  text-align: center;
+  font-family: var(--primary-font);
+  color: var(--almost-black);
+  font-size: var(--text-big);
+  font-weight: 700;
+  margin: 5% 0;
+
+  @media (max-width: 768px) {
+    font-size: var(--text-ratherbig-mobile);
+  }
+`;
+
 const AWPDetail = props => {
   const [modalOpen, setModalOpen] = useState(false);
+
+  console.log('modalOpen', modalOpen)
 
   function openModal() {
     setModalOpen(true);
@@ -135,11 +169,39 @@ const AWPDetail = props => {
     setModalOpen(false);
   }
 
-  console.log("render");
+  const { account } = useWeb3React();
 
+  const localHistoricData = JSON.parse(localStorage[account] || "[]");
+
+  const totalValue = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalPositionValue) : "-"
+  const totalDeposited = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalDeposited) : "-"; 
+  const totalEarned = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalEarned) : "-";
+  const localBalance = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalAmount) : "-";
+
+  console.table({
+    totalDeposited,
+    totalValue,
+    totalEarned,
+    localBalance
+  })
+
+  let shouldRefresh = localHistoricData.length === 0 ? true : false;
+  //let freshData =  Object.values(useUniswapHistoricPosition(account, AWP_ADDRESS, AWP_EXCHANGE));
+  let historicPosition = localHistoricData;
+
+  if(totalDeposited === '-') {
+    //console.log('historicPosition', historicPosition)
+    if(historicPosition && historicPosition.length) {
+      console.log("setting storage")
+      localStorage[account] = JSON.stringify(historicPosition)
+    }
+  }
+  
   return (
+    <>
     <section className="content">
     <Contenitore>
+      { (!account || totalDeposited === '-') ? 
       <PreInvestment>
         <Left>
           <CompoundAPR />
@@ -151,17 +213,23 @@ const AWPDetail = props => {
             We backtested the All Weather Portfolio and the AWP++ against DeFi
             Landing in the last 12 months. Don't take our word for it. Have a
             look at the chart on the left.
+            <br></br>
+            👇👇👇
           </Text>
-          <button
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          {/* <button
             className="buttonModal"
             ButtonLabel="Buy Now"
             onClick={openModal}
           >
             Buy More
-          </button>
+          </button> */}
         </Right>
       </PreInvestment>
-
+      :
       <PostInvestment>
         <Left>
           <YourInvestment />
@@ -170,26 +238,27 @@ const AWPDetail = props => {
         <Right>
           <Title>Your Investment</Title>
           <YourBalance
-            APY="27.31%"
-            CurrentGains="371.20"
+            APY={`${(totalDeposited / totalValue * 100).toFixed(2)}%`}
+            CurrentGains={totalValue}
             PortfolioLogo="../img/portfolio_02.png"
             PortfolioName="AWP++"
-            PortfolioBalance="1,234.00"
+            PortfolioBalance={account ? <TokenBalance account={account} tokenAddress={AWP_ADDRESS}/> : localBalance}
           />
-          <button
+          {/* <button
             className="buttonModal"
             ButtonLabel="Buy Now"
             onClick={openModal}
           >
             Buy More
-          </button>
+          </button> */}
         </Right>
       </PostInvestment>
+      }
       <Modal
         className="mainModal"
         isActive={modalOpen} // required
         closeModal={closeModal} // required
-        showAnimation={true}
+        showAnimation={false}
         modalBoxStyle={{
           width: "90%",
           maxWidth: 600,
@@ -201,14 +270,45 @@ const AWPDetail = props => {
         <ModalText>
           Diversified exposure across equity, commodities, t-bills (20y/3y), crypto & DeFi, plus, automatic rebalancing.
         </ModalText>
-        <Exchange />
+        <Exchange afterTrade={() => {
+          console.log('closing...')
+          setModalOpen(false) 
+        }} />
         
         <UniswapCredit href="https://uniswap.exchange/" target="_blank">
           Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap
         </UniswapCredit>
       </Modal>
+
+      
+      
     </Contenitore>
+   
     </section>
+    <GreyBox>
+        <Title>Exchange Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap</Title>
+    </GreyBox>
+
+    <section className="content">
+      <Contenitore>
+        <div style={{margin:'0 200px'}}>
+          {/* <ModalTitle>AWP++</ModalTitle> */}
+            <ModalText>
+              <strong>AWP++</strong>  Diversified exposure across equity, commodities, t-bills (20y/3y), crypto & DeFi, plus, automatic rebalancing.
+            </ModalText>
+            <Exchange afterTrade={() => {
+              console.log('closing...')
+              setModalOpen(false) 
+            }} />
+            
+            {/* <UniswapCredit href="https://uniswap.exchange/" target="_blank">
+              Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap
+            </UniswapCredit> */}
+          </div>
+        </Contenitore>
+        <YourInvestment hacky={true}/>
+      </section>
+      </>
   );
 };
 
