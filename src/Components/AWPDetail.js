@@ -152,7 +152,7 @@ const AWPDetail = props => {
   return (
     <section className="content">
     <Contenitore>
-      {!account ? 
+      {!account || totalValue == "-" ? 
       <PreInvestment>
         <Left>
           <CompoundAPR />
