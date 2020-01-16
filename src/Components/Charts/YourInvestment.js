@@ -46,8 +46,8 @@ export default function YourInvestment(props) {
           <ComposedChart width={600} height={380} data={localHistoricData} margin={{top: 0, right: 30, left: 20, bottom: 5}}>
             <XAxis tickFormatter={formatTimestamp} format="time" dataKey="timestamp"/>
 
-            <YAxis yAxisId="totalPositionValue" dataKey="totalPositionValue" type="number" domain={[0, 20000]} />
-            <YAxis hide yAxisId="price" dataKey="price" domain={[0, 100]}/>
+            <YAxis yAxisId="totalPositionValue" dataKey="totalPositionValue" domain={[0, 30]} />
+            <YAxis hide yAxisId="price" dataKey="price" domain={[0, 2]}/>
             {/* <YAxis hide yAxisId="totalAmount" dataKey="totalAmount" domain={[0, 100]}/> */}
             <CartesianGrid strokeDasharray="3 3"/>
             <Tooltip labelFormatter={formatTimestamp}/>
