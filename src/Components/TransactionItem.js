@@ -131,6 +131,8 @@ function formatTimestamp(timestamp)  {
 
 const TransactionItem = props => {
   const transaction = useTransaction(props.TransactionHash);
+
+  // console.log(transaction);
   const blockHash = safeAccess(transaction, ["receipt", "blockHash"]) || null;
   const { timestamp } = useBlock(blockHash) || {};
 
@@ -156,7 +158,7 @@ const TransactionItem = props => {
           <Row>
             <TransactionName>{props.TransactionName}</TransactionName>
             <TransactionUSDValue>
-              {amountFormatter(props.TokenAmount)} AWP ++
+              + {amountFormatter(props.TokenAmount)} AWP ++
             </TransactionUSDValue>
           </Row>
           <Row>
@@ -166,7 +168,7 @@ const TransactionItem = props => {
               </ColorLabel>
             </TransactionState>
             <TransactionETHValue>
-              {/* {props.TransactionETHValue} ETH */}
+              - {amountFormatter(props.DAIAmount)} DAI
             </TransactionETHValue>
           </Row>
         </Right>

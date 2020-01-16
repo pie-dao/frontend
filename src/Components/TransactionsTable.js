@@ -49,26 +49,34 @@ const TransactionsTable = props => {
 
   const tokensBought = useUniswapTokensBought(account, AWP_ADDRESS, AWP_EXCHANGE);
 
+  console.log(tokensBought);
+
   return (
     <GreyBox>
       <section className="content">
       <Title>Transaction List</Title>
       <Container>
         
-          {tokensBought ? tokensBought.reverse().map((transaction, key) => 
-            <TransactionItem
-            key={key}
-            link="#"
-            bg="#2db400"
-            color="var(--white)"
-            TransactionHash={transaction.transactionHash}
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Bought AWP Token"
-            TokenAmount={transaction.amount}
-            TransactionUSDValue="0.034"
-            TransactionState="Confirmed"
-            TransactionETHValue="0.00002"
-          />
+          {tokensBought ? Object.keys(tokensBought).map((index, key) => {
+            const transaction = tokensBought[index];
+            
+            return(
+              <TransactionItem
+                key={key}
+                link="#"
+                bg="#2db400"
+                color="var(--white)"
+                TransactionHash={transaction.transactionHash}
+                TransactionDate="1/13/2020 at 13.45"
+                TransactionName="Bought AWP Token"
+                TokenAmount={transaction.amount}
+                DAIAmount={transaction.inputAmount}
+                TransactionState="Confirmed"
+                TransactionETHValue="0.00002"
+              />
+            )
+          }
+            
           ) : 
             <>
               To view transactions please connect your wallet.

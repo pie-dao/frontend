@@ -9,6 +9,7 @@ import TransactionsTable from "./TransactionsTable";
 import TokenBalance from "./TokenBalance";
 import { AWP_ADDRESS } from "../constants";
 import { useWeb3React } from "../hooks";
+import { useUniswapHistoricPosition } from "../contexts/UniswapActions";
 const Contenitore = styled.div`
   @media (max-width: 1000px) {
   }
@@ -139,6 +140,9 @@ const AWPDetail = props => {
   }
 
   const { account } = useWeb3React();
+  // const historicPosition = useUniswapHistoricPosition(account, AWP_ADDRESS);
+
+  // console.log(historicPosition);
 
   return (
     <section className="content">

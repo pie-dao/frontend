@@ -1,6 +1,11 @@
-import React,{ Component } from 'react';
+import React,{ Component, useState, useEffect, useCallback } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import styled from "styled-components";
+import { useUniswapHistoricPosition } from '../../contexts/UniswapActions';
+import { useTransactionsContext } from '../../contexts/Transactions';
+import { AWP_ADDRESS, AWP_EXCHANGE } from '../../constants';
+import { useWeb3React } from '../../hooks';
+import { useBlocksContext } from '../../contexts/Blocks';
 
 
 const Placeholder = styled.div`
@@ -9,57 +14,32 @@ const Placeholder = styled.div`
   height: 300px;
 `;
 
-class YourInvestment extends Component {
 
-  state = {
-    comparisonData: null,
-  }
-  componentDidMount(){
-    this.getData();
-  }
+export default function YourInvestment() {
+  const { account } = useWeb3React();
 
+  const historicPosition = Object.values(useUniswapHistoricPosition(account, AWP_ADDRESS, AWP_EXCHANGE))
 
+  console.log('calle', historicPosition);
 
-  
-  async getData() {
-    const res = await fetch(`https://pie-protocol-api.herokuapp.com/charts/comparison/2019-12`);
-    //const res = await fetch(`http://localhost:3999/charts/comparison/2019-12`);
-    
-    
-    const data = await res.json();
-    this.setState({
-      comparisonData: data
-    })
-  }
-
-
-  renderComparisonChart() {
-    const {comparisonData} = this.state;
-
-
-    return (
-      <div>
-        {!(comparisonData) ? <Placeholder/> :
-          <LineChart width={600} height={380} data={comparisonData} margin={{top: 0, right: 30, left: 20, bottom: 5}}>
-            <XAxis dataKey="month"/>
-            <YAxis domain={[0, 40]}/>
-            <CartesianGrid strokeDasharray="3 3"/>
-            <Tooltip/>
-            <Legend />
-            <Line type="monotone" dataKey="awpPlus" stroke="#EC774C" activeDot={{r: 8}}/>
-          </LineChart>
-        }
-      </div>
-    );
-  }
-
-  render() {
-    return (
-      <div>
-        {this.renderComparisonChart()}
-      </div>
-    );
-  }
+  return(
+    <div>
+      {!(historicPosition && historicPosition.length !== 0) ? <Placeholder/> :
+        <LineChart width={600} height={380} data={historicPosition} margin={{top: 0, right: 30, left: 20, bottom: 5}}>
+          <XAxis dataKey="timestamp"/>
+          <YAxis domain={[0, historicPosition[historicPosition.length - 1].totalAmount]}/>
+          <CartesianGrid strokeDasharray="3 3"/>
+          <Tooltip/>
+          <Legend />
+          
+         
+              <Line type="monotone" dataKey="price" stroke="#22FF22" activeDot={{r:8}}/> 
+              <Line type="monotone" dataKey="totalAmount" stroke="#dddddd" activeDot={{r:8}}/> 
+              <Line type="monotone" dataKey="totalPositionValue" stroke="#ee00ff" activeDot={{r:8}}/> 
+              
+              
+        </LineChart>
+    }
+    </div>
+  )
 }
-
-export default YourInvestment;
