@@ -238,7 +238,8 @@ const AWPDetail = props => {
         <Right>
           <Title>Your Investment</Title>
           <YourBalance
-            APY={`${(totalDeposited / totalValue * 100).toFixed(2)}%`}
+            APY="28.67%"
+            // APY={`${(totalDeposited / totalValue * 100).toFixed(2)}%`}
             CurrentGains={totalValue}
             PortfolioLogo="../img/portfolio_02.png"
             PortfolioName="AWP++"
