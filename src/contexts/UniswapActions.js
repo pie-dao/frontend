@@ -77,12 +77,10 @@ export default function Provider({ children }) {
     console.log(state);
   
     const update = useCallback((chainId, address, tokenAddress, type, data) => {
-      // console.log(state);
       dispatch({ type: UPDATE, payload: { chainId, address, tokenAddress,  data, type } })
     }, [])
 
     const addInput = useCallback((chainId, address, tokenAddress, type, txHash, inputToken, inputAmount) => {
-      console.log("adding");
       dispatch({ type: ADD_INPUT, payload: {chainId, address, tokenAddress, type, txHash, inputToken, inputAmount}})
     }, [])
   
@@ -99,7 +97,6 @@ export function useUniswapHistoricPosition(address, tokenAddress, exchangeAddres
   const [oldValue, setValue] = useState({});
   const [blockState] = useBlocksContext();
   const actions = safeAccess(state, [chainId, address, tokenAddress, TOKEN_BOUGHT, "transactions"]) || [];
-  console.log('action', actions);
   const globalBlockNumber = useBlockNumber();
 
   let totalPosition = ethers.utils.bigNumberify(0);
@@ -144,8 +141,6 @@ export function useUniswapHistoricPosition(address, tokenAddress, exchangeAddres
           continue;
         }
 
-        // const price = amountFormatter(action.amount) / amountFormatter(action.inputAmount);
-        // const price = 100;
         const price = action.inputAmount.mul(ethers.utils.parseUnits("1")).div(action.amount);
 
         value[timestamp] = {
@@ -169,9 +164,6 @@ export function useUniswapHistoricPosition(address, tokenAddress, exchangeAddres
 
   // console.log(value);
   // const value = [];
-  console.log(value);
-
-  
 
   return value;
 }

@@ -49,7 +49,7 @@ const TransactionsTable = props => {
 
   const tokensBought = useUniswapTokensBought(account, AWP_ADDRESS, AWP_EXCHANGE);
 
-  console.log(tokensBought);
+  // console.log(tokensBought);
 
   return (
     <GreyBox>
