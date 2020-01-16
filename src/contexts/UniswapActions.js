@@ -38,7 +38,7 @@ function reducer(state, { type, payload }) {
       }
     }
     case ADD_INPUT: {
-      console.log("ADD_INPUT");
+      //console.log("ADD_INPUT");
       const { chainId, address, tokenAddress, txHash, inputToken, inputAmount } = payload;
       return {
         ...state,
@@ -74,7 +74,7 @@ function reducer(state, { type, payload }) {
 export default function Provider({ children }) {
     const [state, dispatch] = useReducer(reducer, {})
 
-    console.log(state);
+    //console.log(state);
   
     const update = useCallback((chainId, address, tokenAddress, type, data) => {
       dispatch({ type: UPDATE, payload: { chainId, address, tokenAddress,  data, type } })
@@ -186,8 +186,8 @@ export function useUniswapTokensBought(address, tokenAddress, exchangeAddress) {
   const globalBlockNumber = useBlockNumber();
   
   const { transactions, blockNumber } = safeAccess(state, [chainId, address, tokenAddress, TOKEN_BOUGHT]) || {}
-  console.log('blockNumber', blockNumber)
-  console.log('globalBlockNumber', globalBlockNumber)
+  // console.log('blockNumber', blockNumber)
+  // console.log('globalBlockNumber', globalBlockNumber)
 
   const txAdder = useTransactionAdderByHash();
   const [txState] = useTransactionsContext();

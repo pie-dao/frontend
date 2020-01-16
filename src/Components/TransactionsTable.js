@@ -52,6 +52,8 @@ const TransactionsTable = props => {
   // console.log(tokensBought);
 
   return (
+    <>
+    {tokensBought ? (
     <GreyBox>
       <section className="content">
       <Title>Transaction List</Title>
@@ -84,64 +86,11 @@ const TransactionsTable = props => {
             </>
           }
           
-
-          {/* <TransactionItem
-            link="#"
-            bg="#2db400"
-            color="var(--white)"
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Approve Token"
-            TransactionUSDValue="0.034"
-            TransactionState="Approved"
-            TransactionETHValue="0.00002"
-          />
-
-          <TransactionItem
-            link="#"
-            bg="#fc0253"
-            color="var(--white)"
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Send Token"
-            TransactionUSDValue="0.034"
-            TransactionState="Failed"
-            TransactionETHValue="0.00002"
-          />
-
-          <TransactionItem
-            link="#"
-            bg="#F8E71C"
-            color="var(--almost-black)"
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Approve Token"
-            TransactionUSDValue="0.034"
-            TransactionState="Pending..."
-            TransactionETHValue="0.00002"
-          />
-
-          <TransactionItem
-            link="#"
-            bg="#2db400"
-            color="var(--white)"
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Approve Token"
-            TransactionUSDValue="0.034"
-            TransactionState="Approved"
-            TransactionETHValue="0.00002"
-          />
-
-          <TransactionItem
-            link="#"
-            bg="#fc0253"
-            color="var(--white)"
-            TransactionDate="1/13/2020 at 13.45"
-            TransactionName="Send Token"
-            TransactionUSDValue="0.034"
-            TransactionState="Failed"
-            TransactionETHValue="0.00002"
-          /> */}
         </Container>
       </section>
-    </GreyBox>
+    </GreyBox>)
+    : null}
+    </>
   );
 };
 

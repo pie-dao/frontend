@@ -25,16 +25,16 @@ export default function YourInvestment() {
 
   const localHistoricData = JSON.parse(localStorage[account] || "[]");
   let historicPosition = Object.values(useUniswapHistoricPosition(account, AWP_ADDRESS, AWP_EXCHANGE)) || localHistoricData;
-  console.log(localHistoricData);
+  //console.log(localHistoricData);
   
-  console.log('historicPosition', historicPosition)
+  //console.log('historicPosition', historicPosition)
   if(historicPosition && historicPosition.length) {
     console.log("setting storage")
     localStorage[account] = JSON.stringify(historicPosition)
   }
     
 
-  console.log('calle', historicPosition);
+  //console.log('calle', historicPosition);
 
   return(
     <div>

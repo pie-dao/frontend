@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import CompoundAPR from "./Charts/CompoundAPR";
 import YourBalance from "./YourBalance";
@@ -128,8 +128,38 @@ const UniswapCredit = styled.a`
   }
 `;
 
+const GreyBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  text-align: center;
+  align-items: center;
+  font-family: var(--secondary-font);
+  background-color: #f6f6f6;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+  }
+`;
+
+const TitleUni = styled.div`
+  text-align: center;
+  font-family: var(--primary-font);
+  color: var(--almost-black);
+  font-size: var(--text-big);
+  font-weight: 700;
+  margin: 5% 0;
+
+  @media (max-width: 768px) {
+    font-size: var(--text-ratherbig-mobile);
+  }
+`;
+
 const AWPDetail = props => {
   const [modalOpen, setModalOpen] = useState(false);
+
+  console.log('modalOpen', modalOpen)
 
   function openModal() {
     setModalOpen(true);
@@ -155,10 +185,12 @@ const AWPDetail = props => {
     localBalance
   })
 
-  let historicPosition = Object.values(useUniswapHistoricPosition(account, AWP_ADDRESS, AWP_EXCHANGE));
-  console.log('PORCO DIO ', historicPosition)
+  let shouldRefresh = localHistoricData.length === 0 ? true : false;
+  //let freshData =  Object.values(useUniswapHistoricPosition(account, AWP_ADDRESS, AWP_EXCHANGE));
+  let historicPosition = localHistoricData;
+
   if(totalDeposited === '-') {
-    console.log('historicPosition', historicPosition)
+    //console.log('historicPosition', historicPosition)
     if(historicPosition && historicPosition.length) {
       console.log("setting storage")
       localStorage[account] = JSON.stringify(historicPosition)
@@ -166,6 +198,7 @@ const AWPDetail = props => {
   }
   
   return (
+    <>
     <section className="content">
     <Contenitore>
       { (!account || totalDeposited === '-') ? 
@@ -180,14 +213,20 @@ const AWPDetail = props => {
             We backtested the All Weather Portfolio and the AWP++ against DeFi
             Landing in the last 12 months. Don't take our word for it. Have a
             look at the chart on the left.
+            <br></br>
+            👇👇👇
           </Text>
-          <button
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          {/* <button
             className="buttonModal"
             ButtonLabel="Buy Now"
             onClick={openModal}
           >
             Buy More
-          </button>
+          </button> */}
         </Right>
       </PreInvestment>
       :
@@ -205,13 +244,13 @@ const AWPDetail = props => {
             PortfolioName="AWP++"
             PortfolioBalance={account ? <TokenBalance account={account} tokenAddress={AWP_ADDRESS}/> : localBalance}
           />
-          <button
+          {/* <button
             className="buttonModal"
             ButtonLabel="Buy Now"
             onClick={openModal}
           >
             Buy More
-          </button>
+          </button> */}
         </Right>
       </PostInvestment>
       }
@@ -219,7 +258,7 @@ const AWPDetail = props => {
         className="mainModal"
         isActive={modalOpen} // required
         closeModal={closeModal} // required
-        showAnimation={true}
+        showAnimation={false}
         modalBoxStyle={{
           width: "90%",
           maxWidth: 600,
@@ -231,14 +270,44 @@ const AWPDetail = props => {
         <ModalText>
           Diversified exposure across equity, commodities, t-bills (20y/3y), crypto & DeFi, plus, automatic rebalancing.
         </ModalText>
-        <Exchange afterTrade={closeModal} />
+        <Exchange afterTrade={() => {
+          console.log('closing...')
+          setModalOpen(false) 
+        }} />
         
         <UniswapCredit href="https://uniswap.exchange/" target="_blank">
           Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap
         </UniswapCredit>
       </Modal>
+
+      
+      
     </Contenitore>
+   
     </section>
+    <GreyBox>
+        <Title>Exchange Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap</Title>
+    </GreyBox>
+
+    <section className="content">
+      <Contenitore>
+        <div style={{margin:'0 200px'}}>
+          {/* <ModalTitle>AWP++</ModalTitle> */}
+            <ModalText>
+              <strong>AWP++</strong>  Diversified exposure across equity, commodities, t-bills (20y/3y), crypto & DeFi, plus, automatic rebalancing.
+            </ModalText>
+            <Exchange afterTrade={() => {
+              console.log('closing...')
+              setModalOpen(false) 
+            }} />
+            
+            {/* <UniswapCredit href="https://uniswap.exchange/" target="_blank">
+              Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap
+            </UniswapCredit> */}
+          </div>
+        </Contenitore>
+      </section>
+      </>
   );
 };
 

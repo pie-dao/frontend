@@ -168,7 +168,6 @@ const IMG = styled.img`
 `;
 
 const BuyButtons = props => {
-  
   if(!props.sufficientAllowance) {
     return (
       <>
@@ -315,12 +314,16 @@ const Exchange = props => {
   );
   
   const [inputError, setInputError] = useState(null);
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState('1');
   const [outputValue, setOutputValue] = useState();
   const [exchangeRate, setExchangeRate] = useState();
   const [leadingInput, setLeadingInput] = useState(0);
 
   function inputChange(e) {
+    if(!account) {
+      alert("Please connect Metamask first");
+      return
+    };
     setInputValue(e.target.value);
     e.target.value = filterInput(e.target.value);
     let etherAmount = ethers.utils.parseEther(e.target.value);
@@ -332,6 +335,7 @@ const Exchange = props => {
   }
 
   function outputChange(e) {
+    if(!account) return;
     setOutputValue(e.target.value);
     e.target.value = filterInput(e.target.value);
     let etherAmount = ethers.utils.parseEther(e.target.value);
@@ -370,6 +374,7 @@ const Exchange = props => {
   }
 
   function buy() {
+    props.afterTrade();
     const minAmount = ethers.utils.parseEther(outputValue).mul(995).div(1000);
     exchangeContract.tokenToTokenSwapInput(ethers.utils.parseEther(inputValue), minAmount, 1, Math.floor(Date.now() / 1000) + 3600, AWP_ADDRESS, {gasLimit: 200000})
     .then(receipt => {
@@ -377,10 +382,11 @@ const Exchange = props => {
       track(receipt.hash);
       // context
       addTransaction(receipt);
-      props.afterTrade();
+      
     })
     .catch(error => {
       trackError(error);
+      props.afterTrade();
     })
   }
 
