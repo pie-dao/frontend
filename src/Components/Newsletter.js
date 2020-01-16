@@ -74,7 +74,7 @@ const PreTitle = styled.div`
 `;
 
 const Button = styled.button`
-  min-width: 300px;
+  min-width: 340px;
   width: 60%;
   margin: 10px 0 0 0;
   padding: 20px;
