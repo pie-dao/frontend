@@ -63,7 +63,7 @@ const Title = styled.h1`
     line-height: 4rem;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1200px) {
     line-height: 8rem;
   }
 
