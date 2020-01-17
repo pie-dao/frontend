@@ -1,3 +1,9 @@
+## How to run
+
+- Rename `.local.env.example` to `.local.env` and fill in the RPC url and network ID
+- run `yarn`
+- run `yarn start`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
