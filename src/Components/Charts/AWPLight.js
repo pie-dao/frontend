@@ -4,15 +4,10 @@ import styled from "styled-components";
 import COLORS from "../../Theme/Colors"
 
 const Contenitore = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
+
 
   @media (max-width: 768px) {
-    width: 80%;
-    padding: 10%;
+
   }
 `;
 
@@ -28,7 +23,7 @@ export default class AWPLight extends PureComponent {
   render() {
     return (
       <Contenitore>
-        <PieChart width={400} height={400}>
+        <PieChart width={250} height={200}>
           <Pie
             dataKey="value"
             isAnimationActive={true}
@@ -46,7 +41,7 @@ export default class AWPLight extends PureComponent {
             ))}
           </Pie>
 
-          <Tooltip />
+          {/* <Tooltip /> */}
         </PieChart>
       </Contenitore>
     );
