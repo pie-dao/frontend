@@ -6,7 +6,10 @@ const BLOCK_NUMBER = 'BLOCK_NUMBER'
 
 const TOGGLE_WALLET_CONNECTION_MODAL = "TOGGLE_WALLET_CONNECTION_MODAL";
 const WALLET_MODAL_OPEN = "WALLET_CONNECTION_MODAL_OPEN";
-const UPDATE_BLOCK_NUMBER = 'UPDATE_BLOCK_NUMBER'
+const UPDATE_BLOCK_NUMBER = 'UPDATE_BLOCK_NUMBER';
+const TOGGLE_EXHANGE_MODAL = "TOGGLE_EXHANGE_MODAL";
+const CLOSE_EXHANGE_MODAL = "CLOSE_EXHANGE_MODAL";
+const EXCHANGE_MODAL_OPEN = "EXCHANGE_MODAL_OPEN";
 
 const ApplicationContext = createContext();
 
@@ -28,6 +31,12 @@ function reducer(state, { type, payload }) {
       }
       case TOGGLE_WALLET_CONNECTION_MODAL: {
         return { ...state, [WALLET_MODAL_OPEN]: !state[WALLET_MODAL_OPEN] }
+      }
+      case TOGGLE_EXHANGE_MODAL: {
+        return { ...state, [EXCHANGE_MODAL_OPEN]: !state[EXCHANGE_MODAL_OPEN]}
+      }
+      case CLOSE_EXHANGE_MODAL: {
+        return { ...state, [EXCHANGE_MODAL_OPEN]: false}
       }
       default: {
         throw Error(`Unexpected action type in ApplicationContext reducer: '${type}'.`)
@@ -94,13 +103,23 @@ export default function Provider({ children }) {
     const updateBlockNumber = useCallback((networkId, blockNumber) => {
       dispatch({ type: UPDATE_BLOCK_NUMBER, payload: { networkId, blockNumber } })
     }, [])
+
+    const toggleExchangeModal = useCallback(() => {
+      dispatch({ type: TOGGLE_EXHANGE_MODAL});
+    })
+
+    const closeExchangeModal = useCallback(() => {
+      dispatch({ type: CLOSE_EXHANGE_MODAL });
+    })
   
     return (
       <ApplicationContext.Provider
-        value={useMemo(() => [state, { updateBlockNumber, toggleWalletConnectionModal }], [
+        value={useMemo(() => [state, { updateBlockNumber, toggleWalletConnectionModal, toggleExchangeModal, closeExchangeModal }], [
           state,
           updateBlockNumber,
-          toggleWalletConnectionModal
+          toggleWalletConnectionModal,
+          toggleExchangeModal,
+          closeExchangeModal
         ])}
       >
         {children}
@@ -110,7 +129,6 @@ export default function Provider({ children }) {
 
 export function useBlockNumber() {
   const { chainId } = useWeb3React()
-
   const [state] = useApplicationContext()
 
   return safeAccess(state, [BLOCK_NUMBER, chainId])
@@ -124,4 +142,19 @@ export function useWalletModalOpen() {
 export function useWalletModalToggle() {
     const [, { toggleWalletConnectionModal }] = useApplicationContext()  
     return toggleWalletConnectionModal
+}
+
+export function useExchangeModalOpen() {
+  const [state] = useApplicationContext();
+  return state[EXCHANGE_MODAL_OPEN];
+}
+
+export function useExchangeModalToggle() {
+  const [, { toggleExchangeModal }] = useApplicationContext();
+  return toggleExchangeModal;
+}
+
+export function useExchangeModalClose() {
+  const [, { closeExchangeModal }] = useApplicationContext();
+  return closeExchangeModal;
 }

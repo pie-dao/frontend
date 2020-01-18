@@ -18,6 +18,7 @@ import BlocksContext from './contexts/Blocks';
 import PortfolioActionsContext from './contexts/UniswapActions';
 import TokensContext from './contexts/Tokens';
 import { ethers } from 'ethers';
+import ExchangeModal from './Components/ExchangeModal';
 
 const instance = createBrowserHistory();
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
@@ -75,6 +76,7 @@ function App() {
                 <TopNavi/>
                 <Routes />
                 <WalletModal />
+                <ExchangeModal />
               </div>
             </PasswordGate>
             </Router>
