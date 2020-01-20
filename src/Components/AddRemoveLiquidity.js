@@ -69,7 +69,7 @@ const Left = styled.div`
   border-radius: 6px;
   background-color: #f3f3f3;
   @media (max-width: 1000px) {
-    width: 100%;
+    width: 90%;
     margin-top: 5%;
   }
 `;
@@ -84,7 +84,7 @@ const Right = styled.div`
   border-radius: 6px;
   background-color: #f3f3f3;
   @media (max-width: 1000px) {
-    padding: 0;
+    flex-direction: column;
     margin: 0;
     text-align: center;
     width: 100%;
@@ -102,10 +102,11 @@ const Column = styled.div`
   border-radius: 6px;
   background-color: #f3f3f3;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 780px) {
     margin: 0;
     text-align: center;
-    width: 100%;
+    align-items: center;
+    width: 90%;
   }
 `;
 
@@ -119,6 +120,7 @@ const Title = styled.h1`
   font-weight: 700;
   @media (max-width: 768px) {
     font-size: var(--text-ratherbig-mobile);
+    text-align: center;
   }
 `;
 
@@ -133,6 +135,8 @@ const Amount = styled.div`
   word-wrap: break-word;
   margin: 5% 0;
   @media (max-width: 768px) {
+    font-size: 20vw;
+    margin: 5% 0 0 0;
   }
 `;
 
@@ -183,6 +187,8 @@ const Text = styled.div`
   @media (max-width: 768px) {
     font-size: var(--text-medium-mobile);
     padding: 0 0;
+    text-align: justify;
+    margin-bottom: 10px;
   }
 `;
 
@@ -196,6 +202,9 @@ const UnderlyingAsset = styled.div`
   border: 0.5px solid #e6e6e6;
   margin-bottom: 5px;
   @media (max-width: 768px) {
+    width: 100%;
+    min-width: 90%;
+    max-width: 360px;
   }
 `;
 

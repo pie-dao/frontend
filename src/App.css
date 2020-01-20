@@ -114,8 +114,64 @@ body {
   .textloop {
     height: 150px;
   }
-}
 
+  .rc-slider {
+    position: relative;
+    height: 20px;
+    padding: 5px 0;
+    width: 100%;
+    border-radius: 6px;
+    touch-action: none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: #c7c7c7;
+  }
+
+  
+  .rc-slider-rail {
+    height: 8px;
+    border-radius: 6px;
+    background-color: #c7c7c7;
+  }
+  
+  .rc-slider-track {
+    position: relative;
+    left: 0;
+    height: 8px;
+    border-radius: 6px;
+    margin-top: -8px;
+    background-color: #ff00a8;
+  }
+  
+  .rc-slider-handle {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    cursor: -webkit-grab;
+    margin-top: -16px;
+    cursor: grab;
+    border-radius: 50%;
+    border: solid 2px #ff00a8;
+    background-color: #fff;
+    touch-action: pan-x;
+  }
+  
+  .rc-slider-handle:hover {
+    border-color: #ff00a8;
+  }
+  
+  .rc-slider-handle:active {
+    border-color: #ff00a8;
+    box-shadow: 0 0 2px #ff00a8;
+    cursor: grabbing;
+  }
+  
+  .rc-slider-handle:focus {
+    border-color: #ff00a8;
+    box-shadow: 0 0 0 1px #ff00a8;
+    outline: none;
+  }
+}
 @media screen and (min-width: 768px) {
   .textloop {
     height: 210px;
