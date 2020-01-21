@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import AWPLight from "./Charts/AWPLight";
 import PrimaryButton from "./PrimaryButton";
-import ReactDOM from "react-dom";
-import Slider, { Range } from "rc-slider";
+import Slider from "rc-slider";
 
 const Container = styled.div`
   display: flex;
@@ -272,18 +271,6 @@ const Label = styled.div`
 
 
 const AddRemoveLiquidity = props => {
-  const [modalOpen, setModalOpen] = useState(false);
-
-  function openModal() {
-    setModalOpen(true);
-  }
-
-  function closeModal() {
-    setModalOpen(false);
-  }
-
-  console.log("render");
-
   return (
     <Container>
       <Left>
@@ -371,7 +358,7 @@ const AddRemoveLiquidity = props => {
         </Column>
       </Right>
     </Container>
-  );
-};
-
-export default AddRemoveLiquidity;
+    );
+  };
+  
+  export default AddRemoveLiquidity;

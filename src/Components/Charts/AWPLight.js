@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import { PieChart, Pie, Legend, Tooltip, Cell } from "recharts";
+import React, { Component } from "react";
+import { PieChart, Pie, Cell } from "recharts";
 import styled from "styled-components";
 import COLORS from "../../Theme/Colors"
 
@@ -19,7 +19,7 @@ const data01 = [
   { name: "Commodity, Gold", value: 6.75 },
   { name: "Commodity, Broad Diversified", value: 6.75 },
 ];
-export default class AWPLight extends PureComponent {
+export default class AWPLight extends Component {
   render() {
     return (
       <Contenitore>
