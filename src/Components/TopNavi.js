@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import { link, cta } from "../mixpanel";
 import ConnectWeb3Button from "./ConnectWeb3Button";
+import "../menu.css";
 
 const Container = styled.div`
   display: flex;
@@ -70,39 +71,68 @@ const MobileNone = styled.div`
   }
 `;
 
-const TopNavi = props => {
-  return (
-    <Container>
-      <Left>
-        <Link
-          onClick={() => link({ position: "navbar", to: "/", type: "logo" })}
-          to="/"
-        >
-          <Logo />
-        </Link>
-      </Left>
-      <Right>
-          <StyledLink
-            to="/portfolio"
-            onClick={() =>
-              link({ position: "navbar", to: "portfolio", type: "text" })
-            }
+const Hamburger = styled.button`
+  border: none;
+  background: transparent;
+  text-decoration: none;
+  padding: 0;
+  margin: 0 0 0 20px;
+  :hover {
+    outline: none;
+  }
+  :focus {
+    outline: none;
+  }
+  @media (max-width: 768px) {
+  }
+`;
+
+class TopNavi extends React.Component {
+  state = {
+    mobileMenuVisible: false
+  };
+
+  componentDidMount() {}
+
+  render() {
+    const { mobileMenuVisible } = this.state;
+    const { mixpanel } = this.props;
+    return (
+      <Container>
+        <Left>
+          <Link
+            onClick={() => link({ position: "navbar", to: "/", type: "logo" })}
+            to="/"
           >
-            portfolio
-          </StyledLink>
-        <A
-          onClick={() =>
-            link({ position: "navbar", to: "whitepaper", type: "text" })
-          }
-          className="navbar-item"
-          href="https://pie283460.typeform.com/to/uy9NZt"
-          target="_blank"
-        >
-          whitepaper
-        </A>
-        <MobileNone></MobileNone>
-        
-        {/* <MobileNone>
+            <Logo />
+          </Link>
+        </Left>
+        <Right>
+          <MobileNone>
+            <StyledLink
+              to="/portfolio"
+              onClick={() =>
+                link({ position: "navbar", to: "portfolio", type: "text" })
+              }
+            >
+              portfolio
+            </StyledLink>
+          </MobileNone>
+          <MobileNone>
+            <A
+              onClick={() =>
+                link({ position: "navbar", to: "whitepaper", type: "text" })
+              }
+              className="navbar-item"
+              href="https://pie283460.typeform.com/to/uy9NZt"
+              target="_blank"
+            >
+              whitepaper
+            </A>
+          </MobileNone>
+          <MobileNone></MobileNone>
+
+          {/* <MobileNone>
           <StyledLink
             onClick={() =>
               link({ position: "navbar", to: "contact", type: "text" })
@@ -114,10 +144,82 @@ const TopNavi = props => {
             discord
           </StyledLink>
         </MobileNone> */}
-        <ConnectWeb3Button />
-      </Right>
-    </Container>
-  );
-};
+          <ConnectWeb3Button />
+          <Hamburger
+            className="ou mobile"
+            id="trigger-overlay"
+            type="button"
+            onClick={() =>
+              this.setState({ mobileMenuVisible: !mobileMenuVisible })
+            }
+          >
+            <img
+              src="/img/hamburgerIcon.svg"
+              height="19"
+              alt="hamburger icon"
+            />
+          </Hamburger>
+          {mobileMenuVisible && (
+            <div className="overlay overlay-hugeinc open">
+              <button
+                type="button"
+                className="overlay-close"
+                onClick={() =>
+                  this.setState({ mobileMenuVisible: !mobileMenuVisible })
+                }
+              >
+                Close
+              </button>
+              <nav>
+                <ul>
+                  <li>
+                    <StyledLink
+                      onClick={() =>
+                        link({ position: "navbar", to: "/", type: "logo" })
+                      }
+                      to="/"
+                    >
+                      home
+                    </StyledLink>
+                  </li>
+                  <li>
+                    <StyledLink
+                      to="/portfolio"
+                      onClick={() =>
+                        link({
+                          position: "navbar",
+                          to: "portfolio",
+                          type: "text"
+                        })
+                      }
+                    >
+                      portfolio
+                    </StyledLink>
+                  </li>
+                  <li>
+                    <A
+                      onClick={() =>
+                        link({
+                          position: "navbar",
+                          to: "whitepaper",
+                          type: "text"
+                        })
+                      }
+                      className="navbar-item"
+                      href="https://pie283460.typeform.com/to/uy9NZt"
+                      target="_blank"
+                    >
+                      whitepaper
+                    </A>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          )}
+        </Right>
+      </Container>
+    );
+  }
+}
 
 export default TopNavi;

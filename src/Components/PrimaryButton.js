@@ -18,6 +18,7 @@ const Button = styled.button`
   transition-duration: 0.3s;
   background: linear-gradient(-60deg, #cb1a8f, #fc02a7);
   background-size: 100%;
+  text-decoration: none;
 
   :hover {
     opacity: 0.8;
