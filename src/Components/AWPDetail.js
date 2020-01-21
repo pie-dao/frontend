@@ -3,13 +3,11 @@ import styled from "styled-components";
 import CompoundAPR from "./Charts/CompoundAPR";
 import YourBalance from "./YourBalance";
 import YourInvestment from "./Charts/YourInvestment";
-import { Modal } from "minimal-react-modal";
-import Exchange from "./Exchange";
-import TransactionsTable from "./TransactionsTable";
 import TokenBalance from "./TokenBalance";
 import { AWP_ADDRESS, AWP_EXCHANGE } from "../constants";
 import { useWeb3React } from "../hooks";
-import { useUniswapHistoricPosition } from "../contexts/UniswapActions";
+import { useExchangeModalOpen, useExchangeModalToggle } from "../contexts/Application";
+
 const Contenitore = styled.div`
   @media (max-width: 1000px) {
   }
@@ -89,44 +87,6 @@ const Text = styled.div`
   }
 `;
 
-const ModalTitle = styled.div`
-  width: 100%;
-  text-align: center;
-  font-family: var(--primary-font);
-  color: var(--almost-black);
-  font-size: var(--text-big);
-  font-weight: 700;
-  @media (max-width: 768px) {
-    font-size: var(--text-ratherbig-mobile);
-  }
-`;
-
-const ModalText = styled.div`
-  width: center;
-  text-align: left;
-  font-family: var(--primary-font);
-  color: var(--almost-black);
-  font-size: var(--text-normal);
-  font-weight: 300;
-  padding: 0%;
-  line-height: 1.5rem;
-  @media (max-width: 768px) {
-    font-size: var(--text-medium-mobile);
-    padding: 0 0;
-  }
-`;
-
-const UniswapCredit = styled.a`
-  width: center;
-  text-align: center;
-  font-family: var(--primary-font);
-  color: var(--almost-black);
-  font-size: var(--text-prettysmall);
-  font-weight: 300;
-
-  @media (max-width: 768px) {
-  }
-`;
 
 const GreyBox = styled.div`
   width: 100%;
@@ -157,17 +117,9 @@ const TitleUni = styled.div`
 `;
 
 const AWPDetail = props => {
-  const [modalOpen, setModalOpen] = useState(false);
+  
 
-  console.log('modalOpen', modalOpen)
-
-  function openModal() {
-    setModalOpen(true);
-  }
-
-  function closeModal() {
-    setModalOpen(false);
-  }
+  const openModal = useExchangeModalToggle();
 
   const { account } = useWeb3React();
 
@@ -245,71 +197,22 @@ const AWPDetail = props => {
             PortfolioName="AWP++"
             PortfolioBalance={account ? <TokenBalance account={account} tokenAddress={AWP_ADDRESS}/> : localBalance}
           />
-          {/* <button
+          <button
             className="buttonModal"
             ButtonLabel="Buy Now"
             onClick={openModal}
           >
             Buy More
-          </button> */}
+          </button>
         </Right>
       </PostInvestment>
       }
-      <Modal
-        className="mainModal"
-        isActive={modalOpen} // required
-        closeModal={closeModal} // required
-        showAnimation={false}
-        modalBoxStyle={{
-          width: "90%",
-          maxWidth: 600,
-          padding: "5%",
-          textAlign: "center"
-        }}
-      >
-        <ModalTitle>Buy AWP++</ModalTitle>
-        <ModalText>
-          Diversified exposure across equity, commodities, t-bills (20y/3y), crypto & DeFi, plus, automatic rebalancing.
-        </ModalText>
-        <Exchange afterTrade={() => {
-          console.log('closing...')
-          setModalOpen(false) 
-        }} />
-        
-        <UniswapCredit href="https://uniswap.exchange/" target="_blank">
-          Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap
-        </UniswapCredit>
-      </Modal>
-
       
+
       
     </Contenitore>
-   
-    </section>
-    <GreyBox>
-        <Title>Exchange Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap</Title>
-    </GreyBox>
-
-    <section className="content">
-      <Contenitore>
-        <div style={{margin:'0 200px'}}>
-          {/* <ModalTitle>AWP++</ModalTitle> */}
-            <ModalText>
-              <strong>AWP++</strong>  Diversified exposure across equity, commodities, t-bills (20y/3y), crypto & DeFi, plus, automatic rebalancing.
-            </ModalText>
-            <Exchange afterTrade={() => {
-              console.log('closing...')
-              setModalOpen(false) 
-            }} />
-            
-            {/* <UniswapCredit href="https://uniswap.exchange/" target="_blank">
-              Powered by <span role="img" aria-label="Unicorn">🦄</span>Uniswap
-            </UniswapCredit> */}
-          </div>
-        </Contenitore>
-        <YourInvestment hacky={true}/>
-      </section>
-      </>
+  </section>  
+  </>
   );
 };
 
