@@ -9,16 +9,15 @@ import { useWeb3React } from "../hooks";
 import { useExchangeModalOpen, useExchangeModalToggle } from "../contexts/Application";
 
 const Contenitore = styled.div`
+  width: 100%;
   @media (max-width: 1000px) {
   }
 `;
 
 const PreInvestment = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
   margin: 20px 0;
-  padding: 0 5%;
   @media (max-width: 1000px) {
     flex-direction: column-reverse;
   }
@@ -36,24 +35,19 @@ const PostInvestment = styled.div`
 `;
 
 const Left = styled.div`
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  margin: 0;
+  margin: 20px 20px 0 0;
+  width: 60%;
   @media (max-width: 1000px) {
     width: 100%;
-    margin-top: 5%;
+    margin: 5% 0 0 0;
   }
 `;
 
 const Right = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin: 0;
-  flex-grow: 1;
-
+  width: 40%;
   @media (max-width: 1000px) {
     padding: 0;
     margin: 0;
@@ -117,7 +111,7 @@ const TitleUni = styled.div`
 `;
 
 const AWPDetail = props => {
-  
+
 
   const openModal = useExchangeModalToggle();
 
@@ -126,7 +120,7 @@ const AWPDetail = props => {
   const localHistoricData = JSON.parse(localStorage[account] || "[]");
 
   const totalValue = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalPositionValue) : "-"
-  const totalDeposited = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalDeposited) : "-"; 
+  const totalDeposited = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalDeposited) : "-";
   const totalEarned = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalEarned) : "-";
   const localBalance = localHistoricData.length ? (localHistoricData[localHistoricData.length - 1].totalAmount) : "-";
 
@@ -148,12 +142,12 @@ const AWPDetail = props => {
       localStorage[account] = JSON.stringify(historicPosition)
     }
   }
-  
+
   return (
     <>
     <section className="content">
     <Contenitore>
-      { (!account || totalDeposited === '-') ? 
+      { (!account || totalDeposited === '-') ?
       <PreInvestment>
         <Left>
           <CompoundAPR />
@@ -207,11 +201,11 @@ const AWPDetail = props => {
         </Right>
       </PostInvestment>
       }
-      
 
-      
+
+
     </Contenitore>
-  </section>  
+  </section>
   </>
   );
 };
