@@ -141,7 +141,6 @@ class TopNavi extends React.Component {
             </A>
           </MobileNone>
           <MobileNone></MobileNone>
-
           {/* <MobileNone>
           <StyledLink
             onClick={() =>
