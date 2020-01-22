@@ -75,8 +75,8 @@ function App() {
               <div className="App">
                 <TopNavi/>
                 <Routes />
-                <WalletModal />
                 <ExchangeModal />
+                <WalletModal />
               </div>
             </PasswordGate>
             </Router>

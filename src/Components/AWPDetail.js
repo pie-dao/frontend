@@ -165,20 +165,14 @@ const AWPDetail = props => {
             We backtested the All Weather Portfolio and the AWP++ against DeFi
             Landing in the last 12 months. Don't take our word for it. Have a
             look at the chart on the left.
-            <br></br>
-            👇👇👇
-          </Text>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          {/* <button
+          </Text>    
+          <button
             className="buttonModal"
             ButtonLabel="Buy Now"
             onClick={openModal}
           >
             Buy More
-          </button> */}
+          </button>
         </Right>
       </PreInvestment>
       :
