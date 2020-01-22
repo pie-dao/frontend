@@ -12,5 +12,3 @@ export const network = new NetworkConnector({
     urls: { 1: process.env.REACT_APP_NETWORK_URL },
     pollingInterval: POLLING_INTERVAL
 })
-  
-
