@@ -119,6 +119,16 @@ class TopNavi extends React.Component {
             </StyledLink>
           </MobileNone>
           <MobileNone>
+            <StyledLink
+              to="/add-remove"
+              onClick={() =>
+                link({ position: "navbar", to: "add-remove", type: "text" })
+              }
+            >
+              add/remove
+            </StyledLink>
+          </MobileNone>
+          <MobileNone>
             <A
               onClick={() =>
                 link({ position: "navbar", to: "whitepaper", type: "text" })
@@ -194,6 +204,20 @@ class TopNavi extends React.Component {
                       }
                     >
                       portfolio
+                    </StyledLink>
+                  </li>
+                  <li>
+                    <StyledLink
+                      to="/add-remove"
+                      onClick={() =>
+                        link({
+                          position: "navbar",
+                          to: "add-remove",
+                          type: "text"
+                        })
+                      }
+                    >
+                      add/remove
                     </StyledLink>
                   </li>
                   <li>
