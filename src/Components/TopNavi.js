@@ -184,9 +184,12 @@ class TopNavi extends React.Component {
                 <ul>
                   <li>
                     <StyledLink
-                      onClick={() =>
-                        link({ position: "navbar", to: "/", type: "logo" })
-                      }
+                      onClick={() => {
+                        link({ position: "navbar", to: "/", type: "logo" });
+                        this.setState({
+                          mobileMenuVisible: !mobileMenuVisible
+                        });
+                      }}
                       to="/"
                     >
                       home
@@ -195,13 +198,16 @@ class TopNavi extends React.Component {
                   <li>
                     <StyledLink
                       to="/portfolio"
-                      onClick={() =>
+                      onClick={() => {
                         link({
                           position: "navbar",
                           to: "portfolio",
                           type: "text"
-                        })
-                      }
+                        });
+                        this.setState({
+                          mobileMenuVisible: !mobileMenuVisible
+                        });
+                      }}
                     >
                       portfolio
                     </StyledLink>
@@ -209,26 +215,32 @@ class TopNavi extends React.Component {
                   <li>
                     <StyledLink
                       to="/add-remove"
-                      onClick={() =>
+                      onClick={() => {
                         link({
                           position: "navbar",
                           to: "add-remove",
                           type: "text"
-                        })
-                      }
+                        });
+                        this.setState({
+                          mobileMenuVisible: !mobileMenuVisible
+                        });
+                      }}
                     >
                       add/remove
                     </StyledLink>
                   </li>
                   <li>
                     <A
-                      onClick={() =>
+                      onClick={() => {
                         link({
                           position: "navbar",
                           to: "whitepaper",
                           type: "text"
-                        })
-                      }
+                        });
+                        this.setState({
+                          mobileMenuVisible: !mobileMenuVisible
+                        });
+                      }}
                       className="navbar-item"
                       href="https://pie283460.typeform.com/to/uy9NZt"
                       target="_blank"
