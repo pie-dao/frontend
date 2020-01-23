@@ -3,16 +3,18 @@ import React, { useEffect, useRef } from 'react';
 import Jazzicon from 'jazzicon';
 
 import { view } from 'react-easy-state';
+import { useWeb3React } from '@web3-react/core';
 
-const Identicon = ({ wallet }) => {
+const Identicon = () => {
+  const { account } = useWeb3React();
   const ref = useRef();
 
   useEffect(() => {
-    if (wallet && ref.current) {
+    if (account && ref.current) {
       ref.current.innerHTML = '';
-      ref.current.appendChild(Jazzicon(16, parseInt(wallet.address.slice(2, 10), 16)));
+      ref.current.appendChild(Jazzicon(16, parseInt(account.slice(2, 10), 16)));
     }
-  }, [wallet.address]);
+  }, [account]);
 
   return <div className="identicon" ref={ref} />;
 };

@@ -1,9 +1,8 @@
 import Gun from 'gun/gun';
 import mixpanel from 'mixpanel-browser';
-import Onboard from 'bnc-onboard';
 import React from 'react';
 
-import { ethers } from 'ethers';
+import './styles.css';
 
 import { render } from 'react-dom';
 
@@ -41,6 +40,7 @@ const links = {
 };
 
 const network = 'kovan';
+const networkId = 42;
 
 const props = {
   content,
@@ -48,6 +48,7 @@ const props = {
   images,
   links,
   network,
+  networkId,
 
   mixpanel: {
     link,
@@ -57,20 +58,5 @@ const props = {
     cta: (obj) => track('Click CTA', obj),
   },
 };
-
-props.onboard = Onboard({
-  dappId: '523b279d-0fe0-42e8-8977-e688c3686e57',
-  networkId: 42,
-  subscriptions: {
-    wallet: (wallet) => {
-      props.wallet = wallet;
-      props.provider = new ethers.providers.Web3Provider(wallet.provider);
-    },
-  },
-  walletCheck: [
-    { checkName: 'connect' },
-    { checkName: 'network' },
-  ],
-});
 
 render(<App {...props} />, document.getElementById('App'));

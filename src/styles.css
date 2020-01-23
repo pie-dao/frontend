@@ -13,10 +13,31 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+html, body {
   @apply m-0 bg-white font-primary;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
+}
+
+button.btn {
+  @apply min-w-150px mt-10px mb-20px p-20px text-white text-center font-bold rounded-5px;
+  @apply border-none;
+  transition-property: background-color, color;
+  transition-duration: 0.3s;
+  background: linear-gradient(-60deg, #cb1a8f, #fc02a7);
+  background-size: 100%;
+}
+
+button.btn:hover {
+  @apply opacity-80 text-white cursor-pointer;
+}
+
+button.btn:focus {
+  outline: none;
+}
+
+button.btn:disabled {
+  @apply bg-grey pointer-events-none;
 }
 
 .identicon {
@@ -25,29 +46,29 @@ body {
 
 /* TopNavigation */
 
-.nav.container {
-  @apply font-secondary flex px-20px my-5pc;
+.nav-container {
+  @apply font-secondary flex py-20px mx-5pc;
 }
 
-.nav.container .left {
+.nav-container .left {
   @apply flex flex-grow items-center;
 }
 
-.nav.container .right {
+.nav-container .right {
   @apply flex flex-grow items-center justify-end;
 }
 
-.nav.container .right .link {
+.nav-container .right .link {
   @apply text-almost-black no-underline ml-8 text-prettysmall;
 }
 
-.nav.container .right .link:hover {
+.nav-container .right .link:hover {
   @apply opacity-60;
 }
 
 /* Web3 Connect Button */
 
-.web3button.container {
+.web3button-container {
   @apply flex text-prettysmall items-center cursor-pointer select-none text-white;
   @apply font-medium p-2 rounded border-none ml-8;
   -webkit-box-align: center;
@@ -55,19 +76,54 @@ body {
   flex-flow: row nowrap;
 }
 
-.web3button.container:hover {
+.web3button-container:hover {
   @apply opacity-80;
 }
 
-.web3button.container p {
+.web3button-container p {
   @apply truncate text-almostverysmall flex-auto mr-2 ml-1;
 }
 
-.web3button.container .icon-container {
+.web3button-container .icon-container {
   @apply h-4 w-4 bg-web3-button rounded-50pc;
 }
 
-.web3button.container .icon-container .image-container {
+.web3button-container .icon-container .image-container {
   @apply rounded-50pc overflow-hidden p-0 m-0 w-16px h-16px inline-block;
   @apply border-white border-solid border-1/2;
+}
+
+/* Wallet Option */
+
+.wallet-option-container {
+  @apply flex flex-col justify-center font-secondary items-center bg-white px-10pc;
+}
+
+.wallet-option-container .provider {
+  @apply font-primary text-almost-black text-normal font-bold text-center flex flex-row;
+  @apply justify-center items-center my-20px border-solid border-grey border p-20px rounded-4px;
+  @apply cursor-pointer;
+}
+
+.wallet-option-container .provider img {
+  @apply h-30px mr-10px;
+}
+
+.wallet-option-container .title {
+  @apply font-primary text-almost-black font-medium font-bold text-center;
+}
+
+/* Wallet Modal */
+
+.wallet-modal .error, .wallet-modal .pending {
+  @apply flex flex-col justify-center items-center font-secondary bg-white px-2pc;
+}
+
+.wallet-modal .error div {
+  @apply font-primary text-almost-black text-normal font-bold text-center flex flex-row;
+  @apply justify-center items-center my-10px;
+}
+
+.wallet-modal .error img {
+  @apply h-200px mr-10px;
 }

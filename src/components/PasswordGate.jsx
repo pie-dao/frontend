@@ -1,4 +1,5 @@
 /* eslint react/prop-types: 0 */
+/* eslint no-alert: 0 */
 import React from 'react';
 
 import { view } from 'react-easy-state';

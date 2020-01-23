@@ -11,7 +11,7 @@ const TopNavigation = ({ links, images }) => {
   const { logo } = images;
 
   return (
-    <div className="nav container">
+    <div className="nav-container">
       <div className="left">
         <Link onClick={navbar} to="/">
           <img src={logo} className="h-30px lg:h-50px" alt="Logo" />

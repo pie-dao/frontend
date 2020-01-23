@@ -3,22 +3,20 @@
 import React from 'react';
 
 import { view } from 'react-easy-state';
+import { useWeb3React } from '@web3-react/core';
 
 import { shortenAddress } from '../utils/address';
+import walletModal from '../stores/walletModal';
 
 import Identicon from './Identicon';
 
-const ConnectWeb3Button = ({ onboard, wallet }) => {
-  const connect = async () => {
-    await onboard.walletSelect();
-    await onboard.walletCheck();
-  };
-
-  const shortAddress = wallet ? shortenAddress(wallet.address) : '';
+const ConnectWeb3Button = () => {
+  const { account } = useWeb3React();
+  const shortAddress = account ? shortenAddress(account) : '';
 
   return (
-    <div className="web3button container" onClick={connect}>
-      {wallet ? (
+    <div className="web3button-container" onClick={walletModal.open}>
+      {account ? (
         <>
           <p>{shortAddress}</p>
           <div className="icon-container">

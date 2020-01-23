@@ -42,12 +42,14 @@
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
+    "@web3-react/core": "^6.0.2",
+    "@web3-react/injected-connector": "^6.0.3",
     "bignumber.js": "^9.0.0",
-    "bnc-onboard": "^1.2.0",
     "ethers": "^4.0.38",
     "gun": "^0.2019.930",
     "history": "^4.10.1",
     "jazzicon": "^1.5.0",
+    "minimal-react-modal": "^1.0.2",
     "mixpanel-browser": "^2.33.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
@@ -56,6 +58,7 @@
     "react-helmet": "^5.2.1",
     "react-notifications-component": "^2.1.0",
     "react-router-dom": "^5.1.2",
+    "styled-components": "^5.0.0",
     "uuid": "^3.3.3"
   },
   "browserslist": {
