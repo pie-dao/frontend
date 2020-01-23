@@ -36,6 +36,7 @@ const link = (obj) => track('Click Link', obj);
 const links = {
   navbar: () => link({ position: 'navbar', to: '/', type: 'logo' }),
   portfolio: () => link({ position: 'navbar', to: 'portfolio', type: 'text' }),
+  mintredeem: () => link({ position: 'navbar', to: 'mint-redeem', type: 'text' }),
   whitepaper: () => link({ position: 'navbar', to: 'whitepaper', type: 'text' }),
 };
 
