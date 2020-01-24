@@ -68,6 +68,7 @@ module.exports = {
       'table-mobile': '0.6rem',
       'label-mobile': '0.5rem',
       'liquidity-amount': '7vw',
+      'liquidity-amount-mobile': '20vw',
     },
     fontWeight: {
       'light': '300!important',
@@ -87,6 +88,7 @@ module.exports = {
       'relaxed': 1.625,
       'loose': 2,
       '8': '2rem',
+      '16': '4rem',
     },
     minWidth: theme => ({
       ...theme('spacing'),
@@ -154,6 +156,7 @@ module.exports = {
       '260px': '260px',
       '300px': '300px',
       '320px': '320px',
+      '360px': '360px',
       '400px': '400px',
       '2pc': '2%',
       '3pc': '3%',
@@ -161,6 +164,8 @@ module.exports = {
       '10pc': '10%',
       '25pc': '25%',
       '64pc': '64%',
+      '90pc': '90%',
+      '99pc': '99%',
       '100pc': '100%',
     },
   },

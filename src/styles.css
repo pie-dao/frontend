@@ -45,11 +45,11 @@ button.btn:disabled {
 }
 
 .title {
-  @apply m-0 p-0 text-left font-primary text-black text-big font-bolder leading-tight;
+  @apply w-100pc m-0 p-0 text-center font-primary text-black text-ratherbig-mobile font-bolder leading-tight;
 }
 
 .normal-text {
-  @apply text-left font-primary text-black text-prettysmall font-light p-0 leading-normal;
+  @apply text-center font-primary text-black text-prettysmall font-light p-0 leading-normal mb-5pc;
 }
 
 .slider-wrapper {
@@ -141,12 +141,12 @@ button.btn:disabled {
 }
 
 /* Minting Redeeming */
-/* Left Side of the Page */
 .liquidity-container {
-  @apply flex flex-row justify-between content-start my-20px mx-0 py-0 px-5pc;
+  @apply flex flex-col-reverse justify-between content-start my-20px mx-0 py-0 px-5pc;
 }
+/* Left Side of the Page */
 .liquidity-left {
-  @apply flex flex-col items-center m-0 py-2pc px-5pc rounded-6px bg-anothergrey ;
+  @apply w-100pc flex flex-col items-center mt-5pc py-2pc px-5pc rounded-6px bg-anothergrey ;
 }
 .tab-navi {
   @apply flex w-100pc mt-3pc mr-0 mb-5pc ml-0;
@@ -158,21 +158,21 @@ button.btn:disabled {
   @apply border-b-2 border-black font-bolder;
 }
 .liquidity-amount {
-  @apply font-primary text-black text-liquidity-amount ;
+  @apply font-primary text-black text-liquidity-amount-mobile ;
 }
 .awp-label {
-  @apply font-primary text-awp-label text-big font-bolder text-center;
+  @apply font-primary text-awp-label text-ratherbig font-bolder text-center leading-16 my-5pc mx-0;
 }
 /* Right Side of the Page */
 .liquidity-right {
-  @apply w-64pc flex flex-row justify-between m-0 py-2pc px-0 rounded-6px bg-anothergrey ;
+  @apply w-100pc flex flex-col justify-between m-0 py-2pc px-0 rounded-6px bg-anothergrey text-center;
 }
 .liquidity-column {
-  @apply py-0 px-5pc flex flex-col justify-start items-start m-0 rounded-6px;
+  @apply w-100pc py-0 px-5pc flex flex-col justify-start items-center m-0 rounded-6px text-center;
 }
 /* Single Asset Item */
 .single-asset {
-  @apply flex flex-row items-center justify-between bg-white min-w-320px rounded-6px border-half border-lightgrey mb-5px;  
+  @apply flex flex-row items-center justify-between bg-white w-100pc min-w-360px rounded-6px border-half border-lightgrey mb-5px;  
 }
 .asset-left {
   @apply flex flex-row items-center; 
