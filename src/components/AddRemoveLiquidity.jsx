@@ -21,7 +21,7 @@ const AddRemoveLiquidity = () => (
       </button>
     </div>
     <div className="liquidity-right lg:w-64pc lg:tex-left lg:flex-row">
-      <div className="liquidity-column lg:w-auto lg:items-start lg:text-left ">
+      <div className="liquidity-column lg:items-start lg:text-left ">
         <h1 className="title lg:text-left lg:text-big">Liquidity Breakdown</h1>
         <AwpLight />
         <div className="normal-text lg:m-0 lg:text-left">
@@ -30,8 +30,8 @@ const AddRemoveLiquidity = () => (
           look at the chart on the left.
         </div>
       </div>
-      <div className="liquidity-column">
-        <div className="single-asset lg:min-w-320px">
+      <div className="liquidity-column lg:flex-grow">
+        <div className="single-asset">
           <div className="asset-left">
             <div className="availability bg-avail">
               <img
@@ -45,7 +45,7 @@ const AddRemoveLiquidity = () => (
           </div>
           <div className="asset-weight bg-TLT">36%</div>
         </div>
-        <div className="single-asset lg:min-w-320px">
+        <div className="single-asset">
           <div className="asset-left">
             <div className="availability bg-insuf">
               <img
@@ -59,7 +59,7 @@ const AddRemoveLiquidity = () => (
           </div>
           <div className="asset-weight bg-VTI">36%</div>
         </div>
-        <div className="single-asset lg:min-w-320px">
+        <div className="single-asset">
           <div className="asset-left">
             <div className="availability bg-avail">
               <img
@@ -73,7 +73,7 @@ const AddRemoveLiquidity = () => (
           </div>
           <div className="asset-weight bg-IEI">36%</div>
         </div>
-        <div className="single-asset lg:min-w-320px">
+        <div className="single-asset">
           <div className="asset-left">
             <div className="availability bg-insuf">
               <img
@@ -87,7 +87,7 @@ const AddRemoveLiquidity = () => (
           </div>
           <div className="asset-weight bg-CRY">36%</div>
         </div>
-        <div className="single-asset lg:min-w-320px">
+        <div className="single-asset">
           <div className="asset-left">
             <div className="availability bg-avail">
               <img
@@ -101,7 +101,7 @@ const AddRemoveLiquidity = () => (
           </div>
           <div className="asset-weight bg-VTI">36%</div>
         </div>
-        <div className="single-asset lg:min-w-320px">
+        <div className="single-asset">
           <div className="asset-left">
             <div className="availability bg-avail">
               <img
@@ -115,7 +115,7 @@ const AddRemoveLiquidity = () => (
           </div>
           <div className="asset-weight bg-GLD">36%</div>
         </div>
-        <div className="single-asset lg:min-w-320px">
+        <div className="single-asset">
           <div className="asset-left">
             <div className="availability bg-avail">
               <img

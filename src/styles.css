@@ -152,9 +152,9 @@ button.btn:disabled {
   @apply flex w-100pc mt-3pc mr-0 mb-5pc ml-0;
 }
 .tab-item {
-  @apply py-5pc px-0 mr-15px text-black text-left text-normal font-regular border-0;
+  @apply py-5px px-5px mr-15px text-black text-left text-normal font-regular border-0;
 }
-.tab-item .active {
+.tab-item.active {
   @apply border-b-2 border-black font-bolder;
 }
 .liquidity-amount {
@@ -168,11 +168,11 @@ button.btn:disabled {
   @apply w-100pc flex flex-col justify-between m-0 py-2pc px-0 rounded-6px bg-anothergrey text-center;
 }
 .liquidity-column {
-  @apply w-100pc py-0 px-5pc flex flex-col justify-start items-center m-0 rounded-6px text-center;
+  @apply py-0 px-5pc flex flex-col justify-start items-center m-0 rounded-6px text-center;
 }
 /* Single Asset Item */
 .single-asset {
-  @apply flex flex-row items-center justify-between bg-white w-100pc min-w-360px rounded-6px border-half border-lightgrey mb-5px;  
+  @apply flex flex-row items-center justify-between bg-white w-100pc rounded-6px border-half border-lightgrey mb-5px;  
 }
 .asset-left {
   @apply flex flex-row items-center; 
@@ -187,7 +187,7 @@ button.btn:disabled {
   @apply font-primary text-white text-prettysmall ml-5px;
 }
 .asset-amount {
-  @apply text-left font-primary text-black text-normal font-bold px-10px py-5px m-5px;
+  @apply text-left font-primary text-black text-normal font-bold px-10px py-5px m-5px whitespace-no-wrap;
 }
 .asset-weight {
   @apply text-left font-primary text-white font-bold px-10px py-5px m-10px rounded-4px;
