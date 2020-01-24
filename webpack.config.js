@@ -8,6 +8,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 5000,
+    historyApiFallback: true,
   },
   entry: './src/index.jsx',
   module: {

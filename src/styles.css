@@ -41,7 +41,7 @@ button.btn:disabled {
 }
 
 .identicon {
-  @apply h-4 w-4 border-1/2 bg-blue;
+  @apply h-4 w-4 border-half bg-blue;
 }
 
 /* TopNavigation */
@@ -70,7 +70,7 @@ button.btn:disabled {
 
 .web3button-container {
   @apply flex text-prettysmall items-center cursor-pointer select-none text-white;
-  @apply font-medium p-2 rounded border-none ml-8;
+  @apply text-almostverysmall p-2 rounded border-none ml-8;
   -webkit-box-align: center;
   background: linear-gradient(-60deg, #cb1a8f, #fc02a7);
   flex-flow: row nowrap;
@@ -89,8 +89,8 @@ button.btn:disabled {
 }
 
 .web3button-container .icon-container .image-container {
-  @apply rounded-50pc overflow-hidden p-0 m-0 w-16px h-16px inline-block;
-  @apply border-white border-solid border-1/2;
+  @apply rounded-50pc overflow-hidden p-0 m-0 w-15px h-15px inline-block;
+  @apply border-white border-solid border-half;
 }
 
 /* Wallet Option */
@@ -110,7 +110,7 @@ button.btn:disabled {
 }
 
 .wallet-option-container .title {
-  @apply font-primary text-almost-black font-medium font-bold text-center;
+  @apply font-primary text-almost-black text-medium font-bold text-center;
 }
 
 /* Wallet Modal */
@@ -126,4 +126,37 @@ button.btn:disabled {
 
 .wallet-modal .error img {
   @apply h-200px mr-10px;
+}
+
+/* Minting Redeeming */
+/* Single Asset Item */
+.liquidity-container {
+  @apply flex flex-row justify-start content-between my-20px mx-0 py-0 px-5pc;
+}
+.liquidity-left {
+  @apply w-25pc flex flex-col items-center m-0 py-2pc px-5pc rounded-6px bg-anothergrey ;
+}
+.tab-navi {
+  @apply flex w-100pc mt-3pc mr-0 mb-5pc ml-0;
+}
+.single-asset {
+  @apply flex flex-row items-center justify-between bg-white min-w-320px rounded-6px border-half border-lightgrey mb-5px;  
+}
+.asset-left {
+  @apply flex flex-row items-center; 
+}
+.availability {
+  @apply w-20 flex flex-row items-center p-5px rounded-4px ml-10px;
+}
+.availability .icon {
+  @apply h-15px ml-5px;
+}
+.liquidity-label {
+  @apply font-primary text-white text-prettysmall ml-5px;
+}
+.asset-amount {
+  @apply text-left font-primary text-black text-normal font-bold px-10px py-5px m-5px;
+}
+.asset-weight {
+  @apply text-left font-primary text-white font-bold px-10px py-5px m-10px rounded-4px;
 }
