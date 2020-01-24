@@ -7,6 +7,7 @@ import './styles.css';
 import { render } from 'react-dom';
 
 import App from './App';
+import compoundAPR from './stores/compoundAPR';
 
 const images = {
   logo: '/assets/logo.png',
@@ -15,18 +16,24 @@ const images = {
 const content = {
   name: 'Pie - Top investment for everyone',
   seo: {
+    description: 'The richest people in the World have gained 10% every year for the past 10 '
+      + 'years. We think it is fair for you to make some real money too.',
     discord: {
       description: 'Redirecting to Pie Network Discord Channel',
-      image: '/assets/img/preview.jpg',
       keywords: 'Community, Discord, ETF, Investment, Rebalancing, Robo advisor, ethereum,'
         + 'ethereum wallet, wallet, crypto wallet, decentralized app, dapps',
       title: 'Dexwallet Discord Channel',
     },
+    image: '/assets/img/preview.jpg',
+    keywords: 'ETF, Investment, Rebalancing, Robo advisor, ethereum, ethereum wallet, wallet, '
+      + 'crypto wallet, decentralized app, dapps',
   },
   url: 'https://pie.network/',
 };
 
 const gun = Gun();
+
+compoundAPR.init(gun, 'https://pie-protocol-api.herokuapp.com/charts/comparison/2019-12');
 
 mixpanel.init('5a14e8a5c178e521e0d0d0a4e644f022', { debug: false });
 

@@ -3,6 +3,12 @@ module.exports = {
     backgroundColor: theme => ({
       ...theme('colors'),
     }),
+    backgroundSize: {
+      'auto': 'auto',
+      'cover': 'cover',
+      'contain': 'contain',
+      '100pc': '100%',
+    },
     borderRadius: {
       'none': '0',
       'sm': '1rem',
@@ -100,6 +106,9 @@ module.exports = {
       '24': '6rem',
       '32': '8rem',
     },
+    maxWidth: theme => ({
+      ...theme('spacing'),
+    }),
     minWidth: theme => ({
       ...theme('spacing'),
     }),
@@ -127,6 +136,7 @@ module.exports = {
       'xxl': '1600px',
     },
     spacing: {
+      'auto': 'auto',
       '0': '0',
       '1': '0.25rem',
       '2': '0.5rem',
@@ -179,7 +189,9 @@ module.exports = {
       '360px': '360px',
       '400px': '400px',
       '500px': '500px',
+      '600px': '600px',
       '800px': '800px',
+      '1280px': '1280px',
       '2pc': '2%',
       '3pc': '3%',
       '5pc': '5%',
