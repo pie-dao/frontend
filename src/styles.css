@@ -261,3 +261,12 @@ button.btn:disabled {
   box-shadow: 0 0 0 1px #ff00a8;
   outline: none;
 }
+/* HeroSection */ 
+
+.hero-section .subtitle {
+  @apply text-big text-center;
+}
+
+.hero-section .title {
+  /* @apply text-lg */
+}
