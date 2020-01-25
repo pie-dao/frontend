@@ -7,7 +7,12 @@ import { view } from 'react-easy-state';
 import ConnectWeb3Button from './ConnectWeb3Button';
 
 const TopNavigation = ({ links, images }) => {
-  const { navbar, portfolio, whitepaper } = links;
+  const {
+    navbar,
+    portfolio,
+    whitepaper,
+    mintredeem,
+  } = links;
   const { logo } = images;
 
   return (
@@ -20,6 +25,9 @@ const TopNavigation = ({ links, images }) => {
       <div className="right">
         <Link to="/portfolio" className="link" onClick={portfolio}>
           portfolio
+        </Link>
+        <Link to="/mint-redeem" className="link" onClick={mintredeem}>
+          mint/redeem
         </Link>
         <a
           onClick={whitepaper}
@@ -40,6 +48,7 @@ const TopNavigation = ({ links, images }) => {
 
 TopNavigation.propTypes = {
   links: PropTypes.shape({
+    mintredeem: PropTypes.func.isRequired,
     navbar: PropTypes.func.isRequired,
     portfolio: PropTypes.func.isRequired,
     whitepaper: PropTypes.func.isRequired,

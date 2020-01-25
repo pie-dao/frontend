@@ -5,6 +5,7 @@ import { view } from 'react-easy-state';
 
 import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
+import MintRedeem from './pages/MintRedeem';
 import Charts from './pages/Charts';
 import Discord from './pages/Discord';
 
@@ -16,6 +17,10 @@ const Routes = (props) => (
 
     <Route path="/portfolio">
       <Portfolio {...props} />
+    </Route>
+
+    <Route path="/mint-redeem">
+      <MintRedeem {...props} />
     </Route>
 
     <Route path="/charts">
