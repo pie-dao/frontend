@@ -13,15 +13,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   @apply m-0 bg-white font-primary;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 }
 
 button.btn {
-  @apply min-w-150px mt-10px mb-20px p-20px text-white text-center font-bold rounded-5px;
-  @apply border-none;
+  @apply min-w-150px mt-10px mb-20px p-20px text-white text-center font-primary font-bold rounded-5px border-none;
   transition-property: background-color, color;
   transition-duration: 0.3s;
   background: linear-gradient(-60deg, #cb1a8f, #fc02a7);
@@ -40,10 +40,17 @@ button.btn:disabled {
   @apply bg-grey pointer-events-none;
 }
 
+.content {
+  width: 100%;
+}
+
 .identicon {
   @apply h-4 w-4 border-half bg-blue;
 }
 
+.smalltext {
+  @apply font-primary text-center text-almostverysmall font-regular;
+}
 .title {
   @apply w-100pc m-0 p-0 text-center font-primary text-black text-ratherbig-mobile font-bolder leading-tight;
 }
@@ -127,7 +134,8 @@ button.btn:disabled {
 
 /* Wallet Modal */
 
-.wallet-modal .error, .wallet-modal .pending {
+.wallet-modal .error,
+.wallet-modal .pending {
   @apply flex flex-col justify-center items-center font-secondary bg-white px-2pc;
 }
 
@@ -146,7 +154,7 @@ button.btn:disabled {
 }
 /* Left Side of the Page */
 .liquidity-left {
-  @apply w-100pc flex flex-col items-center mt-5pc py-2pc px-5pc rounded-6px bg-anothergrey ;
+  @apply w-100pc flex flex-col items-center mt-5pc py-2pc px-5pc rounded-6px bg-anothergrey;
 }
 .tab-navi {
   @apply flex w-100pc mt-3pc mr-0 mb-5pc ml-0;
@@ -158,7 +166,7 @@ button.btn:disabled {
   @apply border-b-2 border-black font-bolder;
 }
 .liquidity-amount {
-  @apply font-primary text-black text-liquidity-amount-mobile ;
+  @apply font-primary text-black text-liquidity-amount-mobile;
 }
 .awp-label {
   @apply font-primary text-awp-label text-ratherbig font-bolder text-center leading-16 my-5pc mx-0;
@@ -172,10 +180,10 @@ button.btn:disabled {
 }
 /* Single Asset Item */
 .single-asset {
-  @apply flex flex-row items-center justify-between bg-white w-100pc rounded-6px border-half border-lightgrey mb-5px;  
+  @apply flex flex-row items-center justify-between bg-white w-100pc rounded-6px border-half border-lightgrey mb-5px;
 }
 .asset-left {
-  @apply flex flex-row items-center; 
+  @apply flex flex-row items-center;
 }
 .availability {
   @apply w-20 flex flex-row items-center p-5px rounded-4px ml-10px;
@@ -192,6 +200,60 @@ button.btn:disabled {
 .asset-weight {
   @apply text-left font-primary text-white font-bold px-10px py-5px m-10px rounded-4px;
 }
+
+/* HERO */
+
+.hero-section {
+  @apply flex flex-col justify-center items-center content-center text-center pt-0 pr-0 pb-10px pl-0 font-secondary break-words;
+}
+
+.hero-title {
+  @apply font-primary text-black text-hero-mobile font-bolder text-center my-2pc mx-0 break-words leading-24;
+  background: linear-gradient(-60deg, #f10096, #21d7ff);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 3s ease-in-out infinite;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  white-space: initial!important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+  
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  @keyframes flow {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+.pretitle {
+  @apply p-0 text-center font-primary text-black text-medium-mobile font-bold leading-loose break-words;
+}
+
+.subtitle {
+  @apply p-0 text-center font-primary text-black text-medium-mobile font-regular leading-none break-words;
+}
+
+.textloop {
+  @apply text-center w-100pc h-200px break-words;
+}
+
+
+
 
 
 /* RC-Slider */
@@ -263,10 +325,18 @@ button.btn:disabled {
 }
 /* HeroSection */ 
 
-.hero-section .subtitle {
-  @apply text-big text-center;
+.rc-slider-handle:hover {
+  border-color: #ff00a8;
 }
 
-.hero-section .title {
-  /* @apply text-lg */
+.rc-slider-handle:active {
+  border-color: #ff00a8;
+  box-shadow: 0 0 2px #ff00a8;
+  cursor: grabbing;
+}
+
+.rc-slider-handle:focus {
+  border-color: #ff00a8;
+  box-shadow: 0 0 0 1px #ff00a8;
+  outline: none;
 }
