@@ -22,10 +22,9 @@ const Portfolio = (props) => {
   } = props;
 
   return (
-
-
     <div className="app">
       <Seo
+        name="Portfolio"
         title={name}
         description={description}
         url={url}

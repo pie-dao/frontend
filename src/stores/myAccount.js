@@ -1,34 +1,32 @@
 /* eslint no-use-before-define: 0 */
 import BigNumber from 'bignumber.js';
 
+import { ethers } from 'ethers';
 import { store } from 'react-easy-state';
 
 import erc20 from '../abi/erc20';
-import uniswap from '../api/uniswap';
-
-const erc20Contracts = {};
-const exchangeContracts = {};
 
 let db;
 
-const buildFreshData = () => {
+const buildFreshData = () => ({
   awpBalance: undefined,
   awpGain: undefined,
+  awpPrice: undefined,
   awpTransactions: [],
   awpXETHBalance: undefined,
   awpXTokenBalance: undefined,
   daiBalance: undefined,
+  daiSpent: undefined,
   daiXETHBalance: undefined,
   daiXTokenBalance: undefined,
   ethBalance: undefined,
-};
+});
 
 const erc20Contract = (address) => new ethers.Contract(address, erc20, myAccount.provider);
 const sanitizeNumberish = (numberish) => BigNumber(numberish.toString).toFixed();
-const uniswapContract = (address) => new ethers.Contract(address, uniswap, myAccount.provider);
 
-const fetchData = await () => {
-  const data = buildFreshData();
+const fetchData = async () => {
+  const newData = buildFreshData();
 
   const {
     account,
@@ -38,15 +36,13 @@ const fetchData = await () => {
       awpX,
       dai,
       daiX,
-    }
+    },
   } = myAccount;
 
   const awpContract = erc20Contract(awp);
-  const awpXContract = uniswapContract(awpX);
   const awpXFilterIn = awpContract.filters.Transfer(awpX, account);
   const awpXFilterOut = awpContract.filters.Transfer(account, awpX);
   const daiContract = erc20Contract(dai);
-  const daiXContract = uniswapContract(awpX);
   const daiXFilterIn = daiContract.filters.Transfer(daiX, account);
   const daiXFilterOut = daiContract.filters.Transfer(account, daiX);
 
@@ -56,7 +52,7 @@ const fetchData = await () => {
     awpXETHBalance,
     awpXTokenBalance,
     awpXTransactionsIn,
-    awpXtransactionsOut,
+    awpXTransactionsOut,
     daiBalance,
     daiXETHBalance,
     daiXTokenBalance,
@@ -77,13 +73,13 @@ const fetchData = await () => {
     provider.getBalance(account),
   ]);
 
-  data.awpBalance = sanitizeNumberish(awpBalance);
-  data.awpXETHBalance = sanitizeNumberish(awpXETHBalance);
-  data.awpXTokenBalance = sanitizeNumberish(awpXTokenBalance);
-  data.daiBalance = sanitizeNumberish(daiBalance);
-  data.daiXETHBalance = sanitizeNumberish(daiXETHBalance);
-  data.daiXTokenBalance = sanitizeNumberish(daiXTokenBalance);
-  data.ethBalance = sanitizeNumberish(ethBalance);
+  newData.awpBalance = sanitizeNumberish(awpBalance);
+  newData.awpXETHBalance = sanitizeNumberish(awpXETHBalance);
+  newData.awpXTokenBalance = sanitizeNumberish(awpXTokenBalance);
+  newData.daiBalance = sanitizeNumberish(daiBalance);
+  newData.daiXETHBalance = sanitizeNumberish(daiXETHBalance);
+  newData.daiXTokenBalance = sanitizeNumberish(daiXTokenBalance);
+  newData.ethBalance = sanitizeNumberish(ethBalance);
 
   // get all awp exchange transactions
   // [ {
@@ -104,56 +100,68 @@ const fetchData = await () => {
 
   const transactions = {};
 
-  awpXtransactionsIn.forEach(({ blockNumber, blockHash, data, transactionHash }) => {
+  const awpXTransactionProcessor = ({
+    blockNumber,
+    blockHash,
+    data,
+    transactionHash,
+  }, direction) => {
     if (!transactions[transactionHash]) {
       transactions[transactionHash] = {
-        blockNumber: blockNumber,
-        blockHash: blockHash,
-        transactionHash: transactionHash,
+        blockNumber,
+        blockHash,
+        transactionHash,
       };
     }
 
     transactions[transactionHash].awpAmount = ethers.utils.bigNumberify(data);
-    transactions[transactionHash].direction = 'buy';
-  });
+    transactions[transactionHash].direction = direction;
+  };
 
-  awpXtransactionsOut.forEach(({ blockNumber, blockHash, data, transactionHash }) => {
-    if (!transactions[transactionHash]) {
-      transactions[transactionHash] = {
-        blockNumber: blockNumber,
-        blockHash: blockHash,
-        transactionHash: transactionHash,
-      };
-    }
-
-    transactions[transactionHash].awpAmount = ethers.utils.bigNumberify(data);
-    transactions[transactionHash].direction = 'sell';
-  });
-
-  daiXtransactionsIn.forEach(({ blockNumber, blockHash, data, transactionHash }) => {
+  const daiXTransactionProcessor = ({ data, transactionHash }) => {
     if (!transactions[transactionHash]) {
       return;
     }
 
     transactions[transactionHash].daiAmount = ethers.utils.bigNumberify(data);
+  };
+
+  awpXTransactionsIn.forEach((tx) => awpXTransactionProcessor(tx, 'buy'));
+  awpXTransactionsOut.forEach((tx) => awpXTransactionProcessor(tx, 'sell'));
+  daiXTransactionsIn.forEach((tx) => daiXTransactionProcessor(tx));
+  daiXTransactionsOut.forEach((tx) => daiXTransactionProcessor(tx));
+
+  const blockPromises = Object.values(transactions).map(async (tx) => {
+    const updatedTx = { ...tx };
+    const { timestamp } = await provider.getBlock(tx.blockHash);
+    updatedTx.timestamp = timestamp;
+    return updatedTx;
   });
 
-  awpXtransactionsOut.forEach(({ blockNumber, blockHash, data, transactionHash }) => {
-    if (!transactions[transactionHash]) {
-      return;
+  newData.awpTransactions = await Promise.all(blockPromises);
+
+  const reducer = (acc, { daiAmount, direction }) => {
+    if (direction === 'buy') {
+      acc.plus(daiAmount);
+    } else {
+      acc.minus(daiAmount);
     }
+  };
 
-    transactions[transactionHash].daiAmount = ethers.utils.bigNumberify(data);
-  });
+  const daiSpent = newData.awpTransactions.reduce(reducer, BigNumber(0));
+  const ethPrice = BigNumber(newData.daiXTokenBalance).dividedBy(newData.daiXETHBalance);
+  const awpXDaiBalance = BigNumber(newData.awpXETHBalance).multipliedBy(ethPrice);
+  const awpPrice = BigNumber(newData.awpXTokenBalance).dividedBy(awpXDaiBalance);
 
+  newData.awpPrice = awpPrice.toFixed();
+  newData.awpGain = BigNumber(newData.awpBalance).multipliedBy(awpPrice).toFixed();
+  newData.daiSpent = daiSpent.toFixed();
 
-
-  // get dai value at time of exchange
-  // calculate gains
-  // store
+  return newData;
 };
 
 const receiveDBData = (data) => {
+  console.log('receiveDBData myAccount', data);
   if (data) {
     myAccount.store(data, false);
   }
@@ -171,7 +179,11 @@ const myAccount = store({
   // addTransaction: (hash) => {
   // use notify to moitor and then add to transaction array
   // },
-  db: () => db.get('myAccount').get(myAccount.account),
+  db: () => {
+    console.log('myAccount, account', myAccount.account);
+
+    db.get('myAccount').get(myAccount.account);
+  },
   fetch: async () => {
     try {
       await myAccount.store(await fetchData());
@@ -179,9 +191,10 @@ const myAccount = store({
       myAccount.error = e;
     }
   },
-  init: async (gun, provider, tokens) => {
+  init: async (gun, account, tokens) => {
     db = gun;
-    myAccount.provider = provider;
+    console.log('init account', account);
+    myAccount.account = account;
     myAccount.tokens = tokens;
     myAccount.db().once(receiveDBData);
     myAccount.initialized = true;

@@ -29,11 +29,7 @@ const AWPDetail = (props) => {
                 Lending in the last 12 months. Don&apos;t take our word for it. Have a look
                 at the chart on the left.
               </div>
-              <button
-                className="btn modal"
-                type="button"
-                ButtonLabel="Buy Now"
-              >
+              <button className="btn modal" type="button">
                 Buy More
               </button>
             </div>

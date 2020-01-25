@@ -23,7 +23,7 @@ const erc20 = [
     name: 'totalSupply',
     outputs: [{ name: '', type: 'uint256' }],
     payable: false,
-cwneric    stateMutability: 'view',
+    stateMutability: 'view',
     type: 'function',
   },
   {

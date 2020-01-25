@@ -6,12 +6,16 @@ import { ethers } from 'ethers';
 import { view } from 'react-easy-state';
 import { Web3ReactProvider } from '@web3-react/core';
 
+import myAccount from './stores/myAccount';
 import PasswordGate from './components/PasswordGate';
 import Routes from './Routes';
 import TopNavigation from './components/TopNavigation';
 import WalletModal from './components/WalletModal';
 
-const getLibrary = (provider) => new ethers.providers.Web3Provider(provider);
+const getLibrary = (provider) => {
+  myAccount.provider = new ethers.providers.Web3Provider(provider);
+  return myAccount.provider;
+};
 
 const instance = createBrowserHistory();
 
