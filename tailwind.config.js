@@ -102,6 +102,9 @@ module.exports = {
     minWidth: theme => ({
       ...theme('spacing'),
     }),
+    maxHeight: theme => ({
+      ...theme('spacing'),
+    }),
     opacity: {
       '0': '0',
       '10': '.1',
@@ -188,6 +191,7 @@ module.exports = {
       '40pc': '40%',
       '64pc': '64%',
       '90pc': '90%',
+      '80pc': '80%',
       '99pc': '99%',
       '100pc': '100%',
     },
