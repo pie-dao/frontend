@@ -342,6 +342,23 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
   @apply font-primary text-black text-ratherbig-mobile font-bold text-left; 
 }
 
+/* GRADIENT  QUOTE  */
+.gradient-quote-container {
+  @apply flex flex-col p-10pc justify-center mb-5pc;
+}
+
+.quote {
+@apply font-primary text-black text-center text-ratherbig-mobile font-bolder;
+background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.author {
+  @apply font-primary text-ratherbig-mobile text-black font-bold text-center italic mt-2pc;
+}
+
+
 /* RC-Slider */
 .rc-slider {
   position: relative;
