@@ -41,7 +41,7 @@ button.btn:disabled {
 }
 
 .content {
-  width: 100%;
+  @apply flex flex-col items-center w-100pc;
 }
 
 .identicon {
@@ -253,6 +253,11 @@ button.btn:disabled {
 }
 
 /* COMPARISON TABLE */
+
+.table-container {
+  @apply flex flex-col justify-center mb-5pc w-90pc mx-5pc;
+}
+
 .labels-container {
   @apply p-px mt-minus-1px mr-0 mb-0 ml-0 text-label-mobile font-secondary;
 }
@@ -325,6 +330,16 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 
 .apy {
   @apply flex items-center font-bold w-10pc;
+}
+
+/* GRADIENT BG SECTION */
+.gradient-bg-section {
+  @apply flex py-10pc px-0 justify-center;
+  background: linear-gradient(to right, #ffe2fa 0%, #cceff3 100%);
+}
+
+.gradiebg-bg-text {
+  @apply font-primary text-black text-ratherbig-mobile font-bold text-left leading-loose; 
 }
 
 /* RC-Slider */

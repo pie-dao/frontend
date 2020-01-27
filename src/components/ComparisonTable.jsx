@@ -5,13 +5,15 @@ import { view } from 'react-easy-state';
 
 const ComparisonTable = () => {
   return (
-    <>
+    <div className="table-container lg:w-90pc lg:mx-5pc">
       <div className="labels-container lg:text-prettysmall">
         <div className="item-container lg:pt-15px lg:mb-0 lg:bl-15px">
           <div className="labels-portfolio-name font-regular lg:w-36pc">
             Strategy Name
           </div>
-          <div className="labels-initial-amount font-regular">Initial Amount</div>
+          <div className="labels-initial-amount font-regular">
+            Initial Amount
+          </div>
           <div className="labels-one-year-gains font-regular">2019 Returns</div>
           <div className="labels-apy lg:w-12pc">APY</div>
         </div>
@@ -131,7 +133,7 @@ const ComparisonTable = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
