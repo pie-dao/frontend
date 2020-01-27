@@ -35,6 +35,7 @@ module.exports = {
         'blue': '#7D78D1',
         'black': '#000000',
         'grey': '#b7b7b7',
+        'faq': '#f6f6f6',
         'insuf': '#f40a50',
         'label-yellow': '#F8E71C',
         'label-green': '#2DB400',

@@ -475,6 +475,23 @@ button.btn:disabled {
   }
 }
 
+/* FAQ SECTION */
+
+.faq {
+  @apply flex flex-col font-secondary pt-5pc pr-0 pb-10pc pl-0 w-80pc mx-10pc;
+}
+
+.faq-gradient {
+  @apply flex-col w-100pc text-medium-mobile;
+  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+  margin: -1px 0 0 0;
+}
+.faq-item {
+  @apply flex bg-white p-10px font-primary font-regular font-bold m-px;
+  :hover {
+    cursor: pointer;
+  }
+}
 
 
 /* RC-Slider */
