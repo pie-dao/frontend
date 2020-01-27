@@ -10,6 +10,15 @@ const eth = store({
   provider: undefined,
   network: 'kovan',
   networkId: 42,
+  startingBlock: 16268627,
+
+  getLibrary: (provider) => {
+    eth.provider = new ethers.providers.Web3Provider(provider);
+    window.ethers = ethers;
+    window.provider = eth.provider;
+    eth.account = provider.selectedAddress;
+    return eth.provider;
+  },
 });
 
 export default eth;

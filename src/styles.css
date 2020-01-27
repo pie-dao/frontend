@@ -709,8 +709,16 @@ p.Ptab {
 
 /* AWPDetail */
 
-.awp-detail-container .pre-investment {
+.awp-detail-container .pre-investment, .awp-detail-container .post-investment {
   @apply flex flex-row items-center my-20px px-5pc;
+}
+
+.awp-detail-container .row {
+  @apply flex flex-row justify-between items-center;
+}
+
+.awp-detail-container .row span {
+  @apply pr-5px;
 }
 
 .awp-detail-container .left {
@@ -727,10 +735,149 @@ p.Ptab {
 
 .awp-detail-container .title {
   @apply text-left font-primary text-almost-black font-bold text-big;
-}
+} 
 
 /* CompoundAPR */
 
 .compound-apr-container .placeholder {
   @apply mt-5px mr-30px mb-20px ml-5px w-600px h-300px;
+}
+
+/* TransactionsTable */
+
+.transactions-table-container {
+  @apply w-100pc flex flex-col p-0 font-secondary bg-grey-light;
+}
+
+.transactions-table-container .title {
+  @apply text-center font-primary text-almost-black text-big font-bold my-5pc;
+}
+
+.transactions-table-container .transactions {
+  @apply flex flex-col justify-center items-center font-secondary;
+}
+
+.transactions-table-container .transaction {
+  @apply w-90pc mt-10px py-2pc px-5pc rounded-4px flex flex-col bg-white font-primary;
+  @apply text-prettysmall font-light no-underline text-almost-black;
+}
+
+.transactions-table-container .transaction .top {
+  @apply w-100pc;
+}
+
+.transactions-table-container .transaction .bottom {
+  @apply w-100pc flex flex-row items-center mt-10px;
+}
+
+.transactions-table-container .transaction .icon-container {
+  @apply w-70px h-70px mr-10px text-web3-button rounded-50pc;
+}
+
+.transactions-table-container .transaction .image-container {
+  @apply rounded-50pc overflow-hidden p-0 m-0 w-70px h-70px inline-block;
+}
+
+.transactions-table-container .transaction .identicon {
+  @apply rounded-30px w-70px h-70px;
+}
+
+.transactions-table-container .transaction .right {
+  @apply flex flex-col flex-grow;
+}
+
+.transactions-table-container .transaction .row {
+  @apply flex flex-row justify-between items-center;
+}
+
+.transactions-table-container .transaction .name {
+  @apply text-medium font-normal;
+}
+
+.transactions-table-container .transaction .awp-value {
+  @apply text-medium;
+}
+
+.transactions-table-container .transaction .state {
+  @apply text-almost-black mt-10px;
+}
+
+.transactions-table-container .transaction .color-label {
+  @apply bg-green text-white font-normal py-3px px-6px rounded-4px;
+}
+
+/* ExchangeModal */
+
+.exchange-modal .title {
+  @apply w-100pc text-center font-primary text-almost-black text-big font-bold;
+}
+
+.exchange-modal .text {
+  @apply w-100pc text-left font-primary text-almost-black text-normal font-light p-0;
+  @apply leading-normal;
+}
+
+.exchange-modal .uniswap-credit {
+  @apply text-center w-100pc font-primary text-almost-black text-prettysmall font-light;
+}
+
+.exchange-modal .container {
+  @apply flex flex-col items-center my-20px;
+}
+
+.exchange-modal .container .input-container {
+  @apply flex flex-col items-center p-15px border border-solid border-grey-dark rounded-4px;
+  @apply w-100pc;
+}
+
+.exchange-modal .container .input-container.error {
+  @apply border-red;
+}
+
+.exchange-modal .container .top {
+  @apply flex justify-between items-center w-100pc text-prettysmall font-light;
+}
+
+.exchange-modal .container .bottom {
+  @apply flex justify-between items-center w-100pc;
+}
+
+.exchange-modal .container .left {
+  @apply flex flex-grow;
+}
+
+.exchange-modal .container .right {
+  @apply flex;
+}
+
+.exchange-modal .container .arrow {
+  @apply flex flex-col items-center my-20px;
+}
+
+.exchange-modal .container .btn-uniswap {
+  @apply items-center text-onerem text-almost-black h-8 bg-white cursor-pointer select-none;
+  @apply border border-solid border-grey-darkish rounded-md px-10px font-primary;
+  border-image: initial;
+  outline: currentcolor none medium;
+}
+
+.exchange-modal .container .btn-uniswap .content {
+  @apply flex items-center justify-between;
+}
+
+.exchange-modal .container .btn-uniswap .content img {
+  @apply w-4 h-4 mr-5px;
+}
+
+.exchange-modal .input-container .left input {
+  @apply flex flex-grow min-w-300px p-10px shadow-none m-0 text-medium;
+  border: medium none;
+}
+
+.exchange-modal .exchange-rate-label {
+  @apply flex flex-col items-center py-5px px-15px rounded-4px bg-almost-black text-white w-100pc;
+}
+
+.exchange-modal .slippage-label {
+  @apply flex flex-col items-center pt-10px px-15px bg-white text-almost-black w-100pc;
 }

@@ -1,11 +1,12 @@
 /* eslint no-use-before-define: 0 */
 import { store } from 'react-easy-state';
 
-let db;
+import gun from './gun';
 
 const receiveDBData = (data) => {
+  console.log('receiveDBData', data);
   if (data) {
-    compoundAPR.store(data, false);
+    compoundAPR.store(JSON.parse(data), false);
   }
   compoundAPR.fetch();
 };
@@ -16,7 +17,7 @@ const compoundAPR = store({
   endpoint: undefined,
   initialized: false,
 
-  db: () => db.get('compoundAPR'),
+  db: () => gun.get('compoundAPR'),
   fetch: async () => {
     try {
       const response = await fetch(compoundAPR.endpoint);
@@ -25,21 +26,20 @@ const compoundAPR = store({
       compoundAPR.error = e;
     }
   },
-  init: async (gun, endpoint) => {
+  init: async (endpoint) => {
     if (compoundAPR.initialized) {
       console.warn('compoundAPR store already initialized');
       return;
     }
 
-    db = gun;
     compoundAPR.endpoint = endpoint;
-    compoundAPR.db().once(receiveDBData);
+    compoundAPR.db().get('data').once(receiveDBData);
     compoundAPR.initialized = true;
   },
   store: async (data, storeLocally = true) => {
     compoundAPR.data = data;
     if (storeLocally) {
-      compoundAPR.db().put(data);
+      compoundAPR.db().put({ data: JSON.stringify(data) });
     }
   },
 });

@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { Modal } from 'minimal-react-modal';
 import { useWeb3React } from '@web3-react/core';
 import { view } from 'react-easy-state';
 
+import eth from '../stores/eth';
 import If from './If';
 import walletModal from '../stores/walletModal';
 import WalletOption from './WalletOption';
@@ -13,9 +13,9 @@ import Unless from './Unless';
 
 import { buildLink } from '../utils/etherscan';
 
-const WalletModal = ({ networkId }) => {
+const WalletModal = () => {
   const injected = new InjectedConnector({
-    supportedChainIds: [networkId],
+    supportedChainIds: [eth.networkId],
   });
 
   const { account, activate, chainId } = useWeb3React();
@@ -79,10 +79,6 @@ const WalletModal = ({ networkId }) => {
       </If>
     </Modal>
   );
-};
-
-WalletModal.propTypes = {
-  networkId: PropTypes.number.isRequired,
 };
 
 export default view(WalletModal);

@@ -5,7 +5,7 @@ import { view } from 'react-easy-state';
 
 import AWPDetail from '../components/AWPDetail';
 import Seo from '../components/Seo';
-// import TransactionsTable from '../components/TransactionsTable';
+import TransactionsTable from '../components/TransactionsTable';
 
 const Portfolio = (props) => {
   const {
@@ -32,6 +32,7 @@ const Portfolio = (props) => {
         keywords={keywords}
       />
       <AWPDetail {...props} />
+      <TransactionsTable {...props} />
     </div>
   );
 };
