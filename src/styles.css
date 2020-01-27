@@ -334,12 +334,12 @@ background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
 
 /* GRADIENT BG SECTION */
 .gradient-bg-section {
-  @apply flex py-10pc px-0 justify-center;
+  @apply flex p-10pc justify-center mb-5pc;
   background: linear-gradient(to right, #ffe2fa 0%, #cceff3 100%);
 }
 
 .gradiebg-bg-text {
-  @apply font-primary text-black text-ratherbig-mobile font-bold text-left leading-loose; 
+  @apply font-primary text-black text-ratherbig-mobile font-bold text-left; 
 }
 
 /* RC-Slider */
