@@ -55,6 +55,10 @@ button.btn:disabled {
   @apply w-100pc m-0 p-0 text-center font-primary text-black text-ratherbig-mobile font-bolder leading-tight;
 }
 
+.none {
+  display: none;
+}
+
 .normal-text {
   @apply text-center font-primary text-black text-prettysmall font-light p-0 leading-normal mb-5pc;
 }
@@ -389,6 +393,89 @@ button.btn:disabled {
 .awp-content{
   @apply flex flex-col items-center content-center justify-center w-80pc py-10pc px-0 max-h-400px mb-10pc overflow-hidden;
 }
+
+/* WHITEPAPER SECTION */
+
+.whitepaper-container {
+  @apply flex flex-col content-center justify-center items-center font-primary bg-white w-100pc py-5px px-10pc text-ratherbig text-center m-0 flex-wrap;
+}
+
+.whitepaper-link {
+  color: #f10096;
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+  @keyframes wave-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(-10deg);
+    }
+    20% {
+      transform: rotate(12deg);
+    }
+    30% {
+      transform: rotate(-10deg);
+    }
+    40% {
+      transform: rotate(9deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+.whitepaper-icon {
+  @apply text-ratherbig font-bolder text-center mt-10px;
+}
+
+.urgency {
+  @apply flex items-center;
+}
+
+
+/* NEWSLETTER SECTION */
+
+.newsletter{
+  @apply flex flex-col content-center justify-center items-center font-primary bg-white w-100pc py-5px px-10pc text-normal text-center m-0 flex-wrap;
+  background: linear-gradient(to right, #ffe2fa 0%, #cceff3 100%);
+
+} 
+
+.newsletter-form{
+  @apply flex flex-col items-center justify-center text-center;
+} 
+
+.newsletter-input {
+  @apply min-w-300px border-none rounded-4px p-20px mt-30px text-prettysmall flex-grow;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  ::placeholder {
+    color: var(--medium-grey);
+    font-size: var(--text-prettysmall);
+    text-align: center;
+  }
+  :focus {
+    outline: none !important;
+    border: 1px solid var(--almost-black);
+    box-shadow: 0 0 10px var(--white);
+    font-size: var(--text-prettysmall);
+  }
+  :focus::placeholder {
+    color: transparent;
+  }
+}
+
+
 
 /* RC-Slider */
 .rc-slider {
