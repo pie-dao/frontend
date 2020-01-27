@@ -252,9 +252,80 @@ button.btn:disabled {
   @apply text-center w-100pc h-200px break-words;
 }
 
+/* COMPARISON TABLE */
+.labels-container {
+  @apply p-px mt-minus-1px mr-0 mb-0 ml-0 text-label-mobile font-secondary;
+}
 
+.labels-portfolio-name {
+  @apply flex items-center w-38pc min-w-38pc;
+}
 
+.labels-initial-amount {
+  @apply flex w-27pc items-center font-regular;
+}
 
+.labels-one-year-gains {
+  @apply flex w-27pc items-center font-regular;
+}
+
+.labels-apy {
+  @apply flex items-center font-regular w-10pc;
+}
+
+.gradient-container {
+  @apply p-px mt-minus-1px mr-0 mb-0 ml-0 text-table-mobile;
+background: linear-gradient(to right, #F10096 0%, #21D7FF 100%);
+}
+
+.item-container {
+  @apply flex bg-white font-primary p-10px font-regular m-0;
+}
+
+.portfolio-name {
+  @apply flex items-center w-38pc min-w-38pc;
+}
+
+.awp-bold {
+  @apply font-bold;
+}
+
+.icon-container {
+  @apply h-34px mr-10px;
+}
+
+.initial-amount {
+  @apply flex w-27pc items-center font-bold;
+}
+
+.label-black {
+  @apply bg-black text-white rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-green {
+  @apply bg-label-green text-white rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-yellow {
+  @apply bg-label-yellow text-black rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-red {
+  @apply bg-label-red text-white rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-gradient {
+  @apply text-white rounded-3px ml-5px py-2px px-3px font-bold;
+  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+}
+
+.one-year-gains {
+  @apply flex w-27pc items-center font-bold;
+}
+
+.apy {
+  @apply flex items-center font-bold w-10pc;
+}
 
 /* RC-Slider */
 .rc-slider {
