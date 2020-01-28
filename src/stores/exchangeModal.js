@@ -249,13 +249,55 @@ const exchangeModal = store({
       const input = window.document.getElementById('invest-buy-input');
       console.log('INPUT', input);
       input.focus();
-    });
+    }, 0);
   },
   open: () => {
     exchangeModal.isActive = true;
   },
-  outputChange: (value) => {
-    exchangeModal.outputValue = BigNumber(value).toFixed();
+  outputChange: (evt) => {
+    evt.preventDefault();
+
+    if (!eth.account) {
+      alert('Please connect Metamask first');
+      return;
+    }
+
+    const value = BigNumber(evt.target.value);
+    exchangeModal.outputValue = value.toFixed();
+
+    const etherAmount = ethers.utils.parseEther(evt.target.value);
+    const inputValue = calcDependentValue(
+      ethers.utils.bigNumberify(myAccount.data.daiXETHBalance),
+      ethers.utils.bigNumberify(myAccount.data.daiXTokenBalance),
+      ethers.utils.bigNumberify(myAccount.data.awpXETHBalance),
+      ethers.utils.bigNumberify(myAccount.data.awpXTokenBalance),
+      etherAmount,
+      true,
+    );
+
+    const marketRate = getMarketRate(
+      TOKEN_TO_TOKEN,
+      ethers.utils.bigNumberify(myAccount.data.daiXETHBalance),
+      ethers.utils.bigNumberify(myAccount.data.daiXTokenBalance),
+      18,
+      ethers.utils.bigNumberify(myAccount.data.awpXETHBalance),
+      ethers.utils.bigNumberify(myAccount.data.awpXTokenBalance),
+      18,
+    );
+
+    exchangeModal.inputValue = BigNumber(inputValue.toString()).dividedBy(10 ** 18).toFixed();
+    exchangeModal.exchangeRate = getExchangeRate(inputValue, 18, etherAmount, 18, true);
+    exchangeModal.marketRate = BigNumber(marketRate.toString()).dividedBy(10 ** 18).toFixed();
+
+    const outputValueD = BigNumber(exchangeModal.outputValue);
+    exchangeModal.minAmount = outputValueD.isGreaterThan(0)
+      ? outputValueD.multipliedBy(maxSlippage)
+      : undefined;
+
+    setTimeout(() => {
+      const input = window.document.getElementById('invest-buy-output');
+      input.focus();
+    }, 0);
   },
   reset: () => {
     exchangeModal.error = undefined;

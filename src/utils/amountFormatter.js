@@ -12,7 +12,6 @@ const amountFormatter = (raw, baseDecimals = 18, displayDecimals = 3, useLessTha
   }
 
   const amount = ethers.utils.bigNumberify(raw.toString());
-  console.warn('AMOUNT', raw.toString(), amount.toString());
 
   if (baseDecimals > 18 || displayDecimals > 18 || displayDecimals > baseDecimals) {
     throw Error(
