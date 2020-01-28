@@ -21,37 +21,33 @@ const AWPDetail = (props) => {
     yourInvestment.init();
   }
 
-  // TODO: Buy modal
   return (
     <section className="content">
       <div className="awp-detail-container">
-        <Unless condition={account}>
-          <div className="pre-investment">
-            <div className="left">
-              <CompoundAPR {...props} />
-            </div>
+        <div className="pre-investment">
+          <div className="left">
+            <If condition={myAccount.awpTransactions && myAccount.awpTransactions.length > 1}>
+              <YourInvestment {...props} />
+            </If>
 
-            <div className="right">
+            <Unless
+              condition={myAccount.awpTransactions && myAccount.awpTransactions.length > 1}
+            >
+              <CompoundAPR {...props} />
+            </Unless>
+          </div>
+
+          <div className="right">
+            <Unless condition={account}>
               <h1 className="title">You can do better than DeFi Lending</h1>
               <div className="text">
                 We backtesting the All Weather Portfolio and the AWP++ against DeFi
                 Lending in the last 12 months. Don&apos;t take our word for it. Have a look
                 at the chart on the left.
               </div>
-              <button className="btn modal" type="button" onClick={exchangeModal.open}>
-                Buy More
-              </button>
-            </div>
-          </div>
-        </Unless>
+            </Unless>
 
-        <If condition={account}>
-          <div className="post-investment">
-            <div className="left">
-              <YourInvestment />
-            </div>
-
-            <div className="right">
+            <If condition={account}>
               <h1 className="title">Your Investment</h1>
               <div className="your-balance">
                 <div className="row">
@@ -68,12 +64,13 @@ const AWPDetail = (props) => {
                   </div>
                 </div>
               </div>
-              <button className="btn modal" type="button" onClick={exchangeModal.open}>
-                Buy More
-              </button>
-            </div>
+            </If>
+
+            <button className="btn modal" type="button" onClick={exchangeModal.open}>
+              Buy More
+            </button>
           </div>
-        </If>
+        </div>
       </div>
     </section>
   );

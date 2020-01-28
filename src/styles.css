@@ -708,7 +708,7 @@ p.Ptab {
 
 /* AWPDetail */
 
-.awp-detail-container .pre-investment, .awp-detail-container .post-investment {
+.awp-detail-container .pre-investment {
   @apply flex flex-row items-center my-20px px-5pc;
 }
 
