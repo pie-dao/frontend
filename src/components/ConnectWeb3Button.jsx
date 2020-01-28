@@ -21,7 +21,7 @@ const ConnectWeb3Button = () => {
           <p>{shortAddress}</p>
           <div className="icon-container">
             <div className="image-container">
-              <Identicon diameter={100} />
+              <Identicon />
             </div>
           </div>
         </>

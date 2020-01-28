@@ -20,10 +20,10 @@ class Discord extends React.Component {
           seo: {
             discord: {
               description,
-              image,
               keywords,
               title,
             },
+            image,
           },
         },
       },
@@ -51,9 +51,10 @@ Discord.propTypes = {
     url: PropTypes.string.isRequired,
 
     seo: PropTypes.shape({
+      image: PropTypes.string.isRequired,
+
       discord: PropTypes.shape({
         description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
         keywords: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
       }).isRequired,

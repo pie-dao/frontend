@@ -1,0 +1,76 @@
+import React from 'react';
+
+import { view } from 'react-easy-state';
+
+import amountFormatter from '../utils/amountFormatter';
+import ConnectWeb3Button from './ConnectWeb3Button';
+import Identicon from './Identicon';
+import If from './If';
+import myAccount from '../stores/myAccount';
+
+const formatTimestamp = (timestamp) => (new Date(timestamp * 1000)).toUTCString();
+const transactionName = ({ direction }) => (
+  direction === 'buy' ? 'Bought AWP Token' : 'Sold AWP Token'
+);
+const transactionAWPValue = ({ direction, awpAmount }) => (
+  `${direction === 'buy' ? '+' : '-'} ${amountFormatter(awpAmount)} AWP ++`
+);
+const transactionUSDValue = ({ direction, daiAmount }) => (
+  `${direction === 'buy' ? '-' : '+'} ${amountFormatter(daiAmount)} DAI`
+);
+
+const TransactionsTable = () => {
+  const transactions = (myAccount.awpTransactions || []).sort((a, b) => b.timestamp - a.timestamp);
+  const count = transactions.length;
+
+  if (count === 0) {
+    return '';
+  }
+
+  return (
+    <div className="transactions-table-container">
+      <If condition={count > 0}>
+        <div className="title">Transaction List</div>
+        <div className="transactions">
+          {transactions.map((transaction) => (
+            <div className="transaction">
+              <div className="top">{formatTimestamp(transaction.timestamp)}</div>
+              <div className="bottom">
+                <div className="left">
+                  <div className="icon-container">
+                    <div className="image-container">
+                      <Identicon diameter={70} />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="right">
+                  <div className="row">
+                    <div className="name">{transactionName(transaction)}</div>
+                    <div className="awp-value">{transactionAWPValue(transaction)}</div>
+                  </div>
+
+                  <div className="row">
+                    <div className="state">
+                      <span className="color-label">
+                        { transaction.blockNumber === 'pending' ? 'Pending' : 'Confirmed' }
+                      </span>
+                    </div>
+                    <div className="usd-value">{transactionUSDValue(transaction)}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </If>
+
+      <If condition={count === 0}>
+        To view transactions please connect your wallet.
+        <ConnectWeb3Button />
+      </If>
+    </div>
+  );
+};
+
+export default view(TransactionsTable);
