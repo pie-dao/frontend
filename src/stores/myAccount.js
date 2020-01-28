@@ -265,14 +265,15 @@ const myAccount = store({
       awpX,
       dai,
       maxUint,
-      provider,
+      notify,
+      signer,
     } = eth;
 
-    const daiContract = erc20Contract(dai, provider);
+    const daiContract = erc20Contract(dai, signer);
     const gasLimit = 160000;
-    const gasPrice = ethers.utils.parseEther('0.000000040');
+    const gasPrice = ethers.utils.parseEther('0.000000005');
 
-    await daiContract.approve(awpX, maxUint, { gasLimit, gasPrice });
+    notify(await daiContract.approve(awpX, maxUint, { gasLimit, gasPrice }));
     myAccount.data.awpXDaiAllowance = maxUint;
   },
   db: () => {
