@@ -13,15 +13,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   @apply m-0 bg-white font-primary;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 }
 
 button.btn {
-  @apply min-w-150px mt-10px mb-20px p-20px text-white text-center font-bold rounded-5px;
-  @apply border-none;
+  @apply min-w-150px mt-10px mb-20px p-20px text-white text-center font-primary font-bold rounded-5px border-none;
   transition-property: background-color, color;
   transition-duration: 0.3s;
   background: linear-gradient(-60deg, #cb1a8f, #fc02a7);
@@ -40,12 +40,23 @@ button.btn:disabled {
   @apply bg-grey pointer-events-none;
 }
 
+.content {
+  @apply flex flex-col items-center w-100pc;
+}
+
 .identicon {
   @apply h-4 w-4 border-half bg-blue;
 }
 
+.smalltext {
+  @apply font-primary text-center text-almostverysmall font-regular;
+}
 .title {
   @apply w-100pc m-0 p-0 text-center font-primary text-black text-ratherbig-mobile font-bolder leading-tight;
+}
+
+.none {
+  display: none;
 }
 
 .normal-text {
@@ -127,7 +138,8 @@ button.btn:disabled {
 
 /* Wallet Modal */
 
-.wallet-modal .error, .wallet-modal .pending {
+.wallet-modal .error,
+.wallet-modal .pending {
   @apply flex flex-col justify-center items-center font-secondary bg-white px-2pc;
 }
 
@@ -146,7 +158,7 @@ button.btn:disabled {
 }
 /* Left Side of the Page */
 .liquidity-left {
-  @apply w-100pc flex flex-col items-center mt-5pc py-2pc px-5pc rounded-6px bg-anothergrey ;
+  @apply w-100pc flex flex-col items-center mt-5pc py-2pc px-5pc rounded-6px bg-anothergrey;
 }
 .tab-navi {
   @apply flex w-100pc mt-3pc mr-0 mb-5pc ml-0;
@@ -158,7 +170,7 @@ button.btn:disabled {
   @apply border-b-2 border-black font-bolder;
 }
 .liquidity-amount {
-  @apply font-primary text-black text-liquidity-amount-mobile ;
+  @apply font-primary text-black text-liquidity-amount-mobile;
 }
 .awp-label {
   @apply font-primary text-awp-label text-ratherbig font-bolder text-center leading-16 my-5pc mx-0;
@@ -172,10 +184,10 @@ button.btn:disabled {
 }
 /* Single Asset Item */
 .single-asset {
-  @apply flex flex-row items-center justify-between bg-white w-100pc rounded-6px border-half border-lightgrey mb-5px;  
+  @apply flex flex-row items-center justify-between bg-white w-100pc rounded-6px border-half border-lightgrey mb-5px;
 }
 .asset-left {
-  @apply flex flex-row items-center; 
+  @apply flex flex-row items-center;
 }
 .availability {
   @apply w-20 flex flex-row items-center p-5px rounded-4px ml-10px;
@@ -192,6 +204,399 @@ button.btn:disabled {
 .asset-weight {
   @apply text-left font-primary text-white font-bold px-10px py-5px m-10px rounded-4px;
 }
+
+/* HERO */
+
+.hero-section {
+  @apply flex flex-col justify-center items-center content-center text-center pt-0 pr-0 pb-10px pl-0 font-secondary break-words;
+}
+
+.hero-title {
+  @apply font-primary text-black text-hero-mobile font-bolder text-center my-2pc mx-0 break-words leading-24;
+  background: linear-gradient(-60deg, #f10096, #21d7ff);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 3s ease-in-out infinite;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  white-space: initial !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  @keyframes flow {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+.pretitle {
+  @apply p-0 text-center font-primary text-black text-medium-mobile font-bold leading-loose break-words;
+}
+
+.subtitle {
+  @apply p-0 text-center font-primary text-black text-medium-mobile font-regular leading-none break-words;
+}
+
+.textloop {
+  @apply text-center w-100pc h-200px break-words;
+}
+
+/* COMPARISON TABLE */
+
+.table-container {
+  @apply flex flex-col justify-center mb-5pc w-90pc mx-5pc;
+}
+
+.labels-container {
+  @apply p-px mt-minus-1px mr-0 mb-0 ml-0 text-label-mobile font-secondary;
+}
+
+.labels-portfolio-name {
+  @apply flex items-center w-38pc min-w-38pc;
+}
+
+.labels-initial-amount {
+  @apply flex w-27pc items-center font-regular;
+}
+
+.labels-one-year-gains {
+  @apply flex w-27pc items-center font-regular;
+}
+
+.labels-apy {
+  @apply flex items-center font-regular w-10pc;
+}
+
+.gradient-container {
+  @apply p-px mt-minus-1px mr-0 mb-0 ml-0 text-table-mobile;
+  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+}
+
+.item-container {
+  @apply flex bg-white font-primary p-10px font-regular m-0;
+}
+
+.portfolio-name {
+  @apply flex items-center w-38pc min-w-38pc;
+}
+
+.awp-bold {
+  @apply font-bold;
+}
+
+.icon-container {
+  @apply h-34px mr-10px;
+}
+
+.initial-amount {
+  @apply flex w-27pc items-center font-bold;
+}
+
+.label-black {
+  @apply bg-black text-white rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-green {
+  @apply bg-label-green text-white rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-yellow {
+  @apply bg-label-yellow text-black rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-red {
+  @apply bg-label-red text-white rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-gradient {
+  @apply text-white rounded-3px ml-5px py-2px px-3px font-bold;
+  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+}
+
+.one-year-gains {
+  @apply flex w-27pc items-center font-bold;
+}
+
+.apy {
+  @apply flex items-center font-bold w-10pc;
+}
+
+/* GRADIENT BG SECTION */
+.gradient-bg-section {
+  @apply flex p-10pc justify-center mb-5pc;
+  background: linear-gradient(to right, #ffe2fa 0%, #cceff3 100%);
+}
+
+.gradiebg-bg-text {
+  @apply font-primary text-black text-ratherbig-mobile font-bold text-left;
+}
+
+/* GRADIENT  QUOTE  */
+.gradient-quote-container {
+  @apply flex flex-col p-10pc justify-center mb-5pc;
+}
+
+.quote {
+  @apply font-primary text-black text-center text-ratherbig-mobile font-bolder;
+  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.author {
+  @apply font-primary text-ratherbig-mobile text-black font-bold text-center italic mt-2pc;
+}
+
+/* AWW EXPLAINER */
+
+.awp-explainer {
+  @apply flex flex-col content-center items-center my-5pc mx-0 p-0;
+}
+
+.awp-box {
+  @apply w-100pc flex flex-col items-center content-center justify-center p-0 m-0;
+}
+
+/* .awp-crypto {
+  @apply w-100pc h-400px p-0 m-0;
+  background-image: url('../src/assets/img/awpcrypto-mobile.png');
+  background-position: center;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.awp-crypto.awpc-desktop {
+  background-image: url('../src/assets/img/awpcrypto.png');
+} */
+
+.awp-crypto {
+  @apply w-100pc p-0 m-0;
+}
+
+.awp-content{
+  @apply flex flex-col items-center content-center justify-center w-80pc py-10pc px-0 max-h-400px mb-10pc overflow-hidden;
+}
+
+/* WHITEPAPER SECTION */
+
+.whitepaper-container {
+  @apply flex flex-col content-center justify-center items-center font-primary bg-white w-100pc py-5px px-10pc text-ratherbig text-center m-0 flex-wrap;
+}
+
+.whitepaper-link {
+  color: #f10096;
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+  @keyframes wave-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(-10deg);
+    }
+    20% {
+      transform: rotate(12deg);
+    }
+    30% {
+      transform: rotate(-10deg);
+    }
+    40% {
+      transform: rotate(9deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+.whitepaper-icon {
+  @apply text-ratherbig font-bolder text-center mt-10px;
+}
+
+.urgency {
+  @apply flex items-center;
+}
+
+
+/* NEWSLETTER SECTION */
+
+.newsletter{
+  @apply flex flex-col content-center justify-center items-center font-primary bg-white w-100pc py-5px px-10pc text-normal text-center m-0 flex-wrap;
+  background: linear-gradient(to right, #ffe2fa 0%, #cceff3 100%);
+
+} 
+
+.newsletter-form{
+  @apply flex flex-col items-center justify-center text-center;
+} 
+
+.newsletter-input {
+  @apply min-w-300px border-none rounded-4px p-20px mt-30px text-prettysmall flex-grow;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  ::placeholder {
+    color: var(--medium-grey);
+    font-size: var(--text-prettysmall);
+    text-align: center;
+  }
+  :focus {
+    outline: none !important;
+    border: 1px solid var(--almost-black);
+    box-shadow: 0 0 10px var(--white);
+    font-size: var(--text-prettysmall);
+  }
+  :focus::placeholder {
+    color: transparent;
+  }
+}
+
+/* FAQ SECTION */
+
+.faq {
+  @apply flex flex-col font-secondary pt-5pc pr-0 pb-10pc pl-0 w-80pc mx-10pc;
+}
+
+.faq-gradient {
+  @apply flex-col w-100pc text-medium-mobile;
+  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+  margin: -1px 0 0 0;
+}
+.faq-item {
+  @apply flex bg-white p-10px font-primary font-regular font-bold m-px;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+/* PORTFOLIO BREAKDOWN */
+.PortfolioBreakdown {
+  @apply w-80pc mx-10pc;
+}
+
+.portfolio-container {
+  @apply flex flex-col content-center items-center overflow-hidden;
+}
+
+.portfolio-content {
+  @apply flex w-auto;
+}
+
+/* TAB NAVIGATION */
+
+p.Ptab {
+  font-weight: 300;
+  font-size: var(--text-medium);
+  text-align: left;
+}
+
+.react-tabs {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .react-tabs__tab-list {
+    border-bottom: 1px solid #d6d6d6;
+    margin: 0 0 30px;
+    padding: 0;
+  }
+  
+  .react-tabs__tab {
+    display: inline-block;
+    border: 1px solid transparent;
+    border-bottom: none;
+    bottom: -1px;
+    position: relative;
+    list-style: none;
+    padding: 8px 20px;
+    cursor: pointer;
+  }
+  
+  .react-tabs__tab--selected {
+    background: #fff;
+    border-color: #d6d6d6;
+    color: black;
+    border-radius: 5px 5px 0 0;
+    font-weight: 700;
+  }
+  
+  .react-tabs__tab--disabled {
+    color: GrayText;
+    cursor: default;
+  }
+  
+  .react-tabs__tab:focus {
+    outline: none;
+  }
+  
+  .react-tabs__tab:focus:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    left: -4px;
+    right: -4px;
+    bottom: -5px;
+    background: #fff;
+  }
+  
+  .react-tabs__tab-panel {
+    display: none;
+  }
+  
+  .react-tabs__tab-panel--selected {
+    display: block;
+  }
+
+  /* CUSTOM */
+  
+.noborder {
+  border:none;
+  padding-inline-start: 0;
+}
+
+.noborder li {
+    border:none;
+    padding-inline-start: 0;
+}
+
+.lightWeight {
+    font-weight: 300;
+}
+
+  @media screen and (max-width: 768px) {
+    .react-tabs__tab {
+        padding: 8px 14px;
+      }
+
+      p.Ptab {
+        font-weight: 300;
+        font-size: var(--text-medium-mobile);
+        text-align: left;
+    }
+  }
 
 
 /* RC-Slider */
@@ -245,6 +650,23 @@ button.btn:disabled {
   background-color: #fff;
   touch-action: pan-x;
 }
+
+.rc-slider-handle:hover {
+  border-color: #ff00a8;
+}
+
+.rc-slider-handle:active {
+  border-color: #ff00a8;
+  box-shadow: 0 0 2px #ff00a8;
+  cursor: grabbing;
+}
+
+.rc-slider-handle:focus {
+  border-color: #ff00a8;
+  box-shadow: 0 0 0 1px #ff00a8;
+  outline: none;
+}
+/* HeroSection */ 
 
 .rc-slider-handle:hover {
   border-color: #ff00a8;
