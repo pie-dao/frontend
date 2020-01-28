@@ -860,11 +860,11 @@ p.Ptab {
   outline: currentcolor none medium;
 }
 
-.exchange-modal .container .btn-uniswap .content {
+.exchange-modal .container .btn-uniswap .btn-content {
   @apply flex items-center justify-between;
 }
 
-.exchange-modal .container .btn-uniswap .content img {
+.exchange-modal .container .btn-uniswap .btn-content img {
   @apply w-4 h-4 mr-5px;
 }
 

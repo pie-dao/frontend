@@ -2,48 +2,58 @@ import React from 'react';
 
 import {
   CartesianGrid,
+  ComposedChart,
   Legend,
   Line,
-  LineChart,
   Tooltip,
   XAxis,
   YAxis,
 } from 'recharts';
 import { view } from 'react-easy-state';
 
-import compoundAPR from '../stores/compoundAPR';
+import yourInvestment from '../stores/yourInvestment';
 import If from './If';
 import Unless from './Unless';
 
-const CompoundAPR = () => (
-  <div className="compound-apr-container">
-    <If condition={compoundAPR.data}>
-      <LineChart
+const formatTimestamp = (timestamp) => (new Date(timestamp * 1000)).toUTCString();
+
+const YourInvestment = () => (
+  <div className="your-investment-container">
+    <If condition={yourInvestment.data}>
+      <ComposedChart
         width={600}
         height={380}
-        data={compoundAPR.data}
+        data={yourInvestment.data}
         margin={{
-          top: 0,
-          right: 30,
-          left: 20,
           bottom: 5,
+          left: 20,
+          right: 30,
+          top: 0,
         }}
       >
-        <XAxis dataKey="month" />
-        <YAxis domain={[0, 40]} />
+        <XAxis tickFormatter={formatTimestamp} format="time" dataKey="timestamp" />
+        <YAxis
+          yAxisId="totalPositionValue"
+          dataKey="totalPositionValue"
+          domain={[0, yourInvestment.chartTop]}
+        />
         <CartesianGrid strokeDasharray="3 3" />
-        <Tooltip />
+        <Tooltip labelFormatter={formatTimestamp} />
         <Legend />
-        <Line type="monotone" dataKey="awp" stroke="#00C49F" activeDot={{ r: 8 }} />
-        <Line type="monotone" dataKey="awpPlus" stroke="#EC774C" activeDot={{ r: 8 }} />
-        <Line type="monotone" dataKey="compound" stroke="#0088FE" activeDot={{ r: 8 }} />
-      </LineChart>
+        <Line
+          type="monotone"
+          dataKey="totalPositionValue"
+          yAxisId="totalPositionValue"
+          stroke="#2db400"
+          fill="#82ca9d"
+        />
+      </ComposedChart>
     </If>
 
-    <Unless condition={compoundAPR.data}>
+    <Unless condition={yourInvestment.data}>
       <div className="placeholder" />
     </Unless>
   </div>
 );
 
-export default view(CompoundAPR);
+export default view(YourInvestment);

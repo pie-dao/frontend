@@ -9,12 +9,17 @@ import exchangeModal from '../stores/exchangeModal';
 import If from './If';
 import myAccount from '../stores/myAccount';
 import Unless from './Unless';
+import yourInvestment from '../stores/yourInvestment';
 import YourInvestment from './YourInvestment';
 
 const threeDecimals = (amount) => BigNumber(amount).decimalPlaces(3).toFixed();
 
 const AWPDetail = (props) => {
   const { account } = useWeb3React();
+
+  if (account && !yourInvestment.data) {
+    yourInvestment.init();
+  }
 
   // TODO: Buy modal
   return (

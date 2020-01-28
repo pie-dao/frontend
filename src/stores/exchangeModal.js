@@ -1,21 +1,23 @@
 /* eslint consistent-return: 0 */
 /* eslint no-use-before-define: 0 */
 /* eslint no-restricted-globals: 0 */
+/* eslint no-extra-boolean-cast: 0 */
 import BigNumber from 'bignumber.js';
 import { ethers } from 'ethers';
 import { store } from 'react-easy-state';
 
 import eth from './eth';
 import myAccount from './myAccount';
+import uniswap from '../abi/uniswap';
 
-// const ETH_TO_TOKEN = 0;
-// const TOKEN_TO_ETH = 1;
-// const TOKEN_TO_TOKEN = 2;
+const ETH_TO_TOKEN = 0;
+const TOKEN_TO_ETH = 1;
+const TOKEN_TO_TOKEN = 2;
 
 // const INPUT = 0;
 // const OUTPUT = 1;
 
-// const maxSlippage = 0.995;
+const maxSlippage = 0.995;
 
 const getExchangeRate = (
   inputValue,
@@ -53,7 +55,6 @@ const getExchangeRate = (
   }
 };
 
-/*
 const getMarketRate = (
   swapType,
   inputReserveETH,
@@ -62,7 +63,7 @@ const getMarketRate = (
   outputReserveETH,
   outputReserveToken,
   outputDecimals,
-  invert = false
+  invert = false,
 ) => {
   if (swapType === ETH_TO_TOKEN) {
     return getExchangeRate(outputReserveETH, 18, outputReserveToken, outputDecimals, invert);
@@ -78,10 +79,11 @@ const getMarketRate = (
     const secondRate = getExchangeRate(outputReserveETH, 18, outputReserveToken, outputDecimals);
     try {
       return !!(firstRate && secondRate) ? firstRate.mul(secondRate).div(factor) : undefined;
-    } catch {}
+    } catch (e) {
+      console.error(e);
+    }
   }
 };
-*/
 
 // this mocks the getInputPrice function, and calculates the required output
 const calculateEtherTokenOutputFromInput = (inputAmount, inputReserve, outputReserve) => {
@@ -155,6 +157,24 @@ const exchangeModal = store({
   approve: () => {
     myAccount.approveDai();
   },
+  buy: async () => {
+    const {
+      awp,
+      awpX,
+      signer,
+    } = eth;
+    const contract = new ethers.Contract(awpX, uniswap, signer);
+    const minAmount = ethers.utils.parseEther(exchangeModal.outputValue).mul(995).div(1000);
+
+    eth.notify(await contract.tokenToTokenSwapInput(
+      ethers.utils.parseEther(exchangeModal.inputValue),
+      minAmount,
+      1,
+      Math.floor(Date.now() / 1000) + 3600,
+      awp,
+      { gasLimit: 200000 },
+    ));
+  },
   close: () => {
     exchangeModal.isActive = false;
     exchangeModal.reset();
@@ -194,10 +214,30 @@ const exchangeModal = store({
       etherAmount,
     );
 
+    const marketRate = getMarketRate(
+      TOKEN_TO_TOKEN,
+      ethers.utils.bigNumberify(myAccount.data.daiXETHBalance),
+      ethers.utils.bigNumberify(myAccount.data.daiXTokenBalance),
+      18,
+      ethers.utils.bigNumberify(myAccount.data.awpXETHBalance),
+      ethers.utils.bigNumberify(myAccount.data.awpXTokenBalance),
+      18,
+    );
+
     exchangeModal.outputValue = BigNumber(outputValue.toString()).dividedBy(10 ** 18).toFixed();
     exchangeModal.exchangeRate = getExchangeRate(etherAmount, 18, outputValue, 18, true);
+    exchangeModal.marketRate = BigNumber(marketRate.toString()).dividedBy(10 ** 18).toFixed();
 
-    evt.target.focus();
+    const outputValueD = BigNumber(exchangeModal.outputValue);
+    exchangeModal.minAmount = outputValueD.isGreaterThan(0)
+      ? outputValueD.multipliedBy(maxSlippage)
+      : undefined;
+
+    setTimeout(() => {
+      const input = window.document.getElementById('invest-buy-input');
+      console.log('INPUT', input);
+      input.focus();
+    });
   },
   open: () => {
     exchangeModal.isActive = true;
@@ -209,7 +249,17 @@ const exchangeModal = store({
     exchangeModal.error = undefined;
     exchangeModal.isPending = false;
   },
-  slippage: () => '-',
+  slippage: () => {
+    const { exchangeRate, marketRate } = exchangeModal;
+
+    if (!exchangeRate) {
+      return '-';
+    }
+
+    const base = BigNumber(exchangeRate).dividedBy(marketRate).dividedBy(10 ** 18);
+
+    return BigNumber(1).minus(base).toFixed(2);
+  },
   sufficientAllowance: () => {
     const approved = BigNumber(myAccount.data.awpXDaiAllowance);
     const requiredAmount = BigNumber(exchangeModal.inputValue).multipliedBy(10 ** 18);

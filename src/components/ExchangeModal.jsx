@@ -50,14 +50,16 @@ const ExchangeModal = () => {
               <input
                 onChange={exchangeModal.inputChange}
                 value={exchangeModal.inputValue}
+                key="invest-buy-input"
                 placeholder="0.0"
                 type="number"
-                id="invest"
+                id="invest-buy-input"
+                name="investBuyInput"
               />
             </div>
             <div className="right">
               <button type="button" className="btn-uniswap">
-                <span className="content">
+                <span className="btn-content">
                   <img src="/assets/img/dai.png" className="DAI-logo" alt="logo" />
                   <span>DAI</span>
                 </span>
@@ -80,14 +82,16 @@ const ExchangeModal = () => {
               <input
                 onChange={exchangeModal.outputChange}
                 value={exchangeModal.outputValue}
+                key="invest-buy-output"
                 placeholder="0.0"
                 type="number"
-                id="invest"
+                id="invest-buy-output"
+                name="investBuyOutput"
               />
             </div>
             <div className="right">
               <button type="button" className="btn-uniswap">
-                <span className="content">
+                <span className="btn-content">
                   <img src="/assets/img/portfolio_02.png" className="AWP-logo" alt="logo" />
                   <span>AWP++</span>
                 </span>

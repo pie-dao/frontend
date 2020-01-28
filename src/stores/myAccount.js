@@ -54,7 +54,6 @@ const fetchData = async () => {
   daiXFilterIn.fromBlock = fromBlock;
   daiXFilterOut.fromBlock = fromBlock;
 
-
   // get balances and transactions
   const [
     awpBalance,
@@ -84,7 +83,6 @@ const fetchData = async () => {
     provider.getBalance(account),
   ]);
 
-  console.log('3');
   console.log(
     'raw',
     awpBalance,
@@ -106,7 +104,6 @@ const fetchData = async () => {
   newData.awpXETHBalance = sanitizeNumberish(awpXETHBalance);
   newData.awpXTokenBalance = sanitizeNumberish(awpXTokenBalance);
   newData.daiBalance = sanitizeNumberish(daiBalance);
-  console.log('DAI BALANCE', daiBalance.toString(), newData.daiBalance);
   newData.daiXETHBalance = sanitizeNumberish(daiXETHBalance);
   newData.daiXTokenBalance = sanitizeNumberish(daiXTokenBalance);
   newData.ethBalance = sanitizeNumberish(ethBalance);
