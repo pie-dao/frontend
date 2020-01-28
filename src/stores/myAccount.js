@@ -14,6 +14,7 @@ const buildFreshData = () => ({
   awpGain: undefined,
   awpPrice: undefined,
   awpTransactions: [],
+  awpXDaiAllowance: undefined,
   awpXETHBalance: undefined,
   awpXTokenBalance: undefined,
   daiBalance: undefined,
@@ -57,6 +58,7 @@ const fetchData = async () => {
   // get balances and transactions
   const [
     awpBalance,
+    awpXDaiAllowance,
     awpXETHBalance,
     awpXTokenBalance,
     awpXTransactionsIn,
@@ -69,6 +71,7 @@ const fetchData = async () => {
     ethBalance,
   ] = await Promise.all([
     awpContract.balanceOf(account),
+    daiContract.allowance(account, awpX),
     provider.getBalance(awpX),
     awpContract.balanceOf(awpX),
     provider.getLogs(awpXFilterIn),
@@ -85,6 +88,7 @@ const fetchData = async () => {
   console.log(
     'raw',
     awpBalance,
+    awpXDaiAllowance,
     awpXETHBalance,
     awpXTokenBalance,
     awpXTransactionsIn,
@@ -98,6 +102,7 @@ const fetchData = async () => {
   );
 
   newData.awpBalance = sanitizeNumberish(awpBalance);
+  newData.awpXDaiAllowance = sanitizeNumberish(awpXDaiAllowance);
   newData.awpXETHBalance = sanitizeNumberish(awpXETHBalance);
   newData.awpXTokenBalance = sanitizeNumberish(awpXTokenBalance);
   newData.daiBalance = sanitizeNumberish(daiBalance);
@@ -254,7 +259,22 @@ const myAccount = store({
 
   // addTransaction: (hash) => {
   // use notify to monitor and then add to transaction array
-  // },
+  // }
+  approveDai: async () => {
+    const {
+      awpX,
+      dai,
+      maxUint,
+      provider,
+    } = eth;
+
+    const daiContract = erc20Contract(dai, provider);
+    const gasLimit = 160000;
+    const gasPrice = ethers.utils.parseEther('0.000000040');
+
+    await daiContract.approve(awpX, maxUint, { gasLimit, gasPrice });
+    myAccount.data.awpXDaiAllowance = maxUint;
+  },
   db: () => {
     console.log('myAccount, account', eth.account);
 
@@ -274,7 +294,5 @@ const myAccount = store({
     myAccount.initialized = true;
   },
 });
-
-window.myAccount = myAccount;
 
 export default myAccount;

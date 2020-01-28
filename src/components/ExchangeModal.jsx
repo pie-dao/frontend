@@ -14,8 +14,7 @@ import Unless from './Unless';
 const ExchangeModal = () => {
   const { account } = useWeb3React();
 
-  const inputError = undefined;
-  const sufficientAllowance = exchangeModal.sufficientAllowance(account);
+  const sufficientAllowance = exchangeModal.sufficientAllowance();
 
   return (
     <Modal
@@ -37,7 +36,7 @@ const ExchangeModal = () => {
       </div>
 
       <div className="container">
-        <div className={inputError ? 'input-container error' : 'input-container'}>
+        <div className={exchangeModal.inputError ? 'input-container error' : 'input-container'}>
           <div className="top">
             <div className="left">Input</div>
             <div className="right">
@@ -142,7 +141,7 @@ const ExchangeModal = () => {
             <button
               type="button"
               className="btn btn-primary"
-              disabled={inputError}
+              disabled={exchangeModal.inputError}
               onClick={exchangeModal.buy}
             >
               Buy
