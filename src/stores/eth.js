@@ -29,7 +29,8 @@ const eth = store({
     return eth.provider;
   },
   notify: ({ hash }) => {
-    notify.hash(hash);
+    const { emitter } = notify.hash(hash);
+    return { emitter, hash };
   },
 });
 

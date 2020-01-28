@@ -70,7 +70,7 @@ const fetchData = async () => {
     ethBalance,
   ] = await Promise.all([
     awpContract.balanceOf(account),
-    daiContract.allowance(account, awpX),
+    daiContract.allowance(account, daiX),
     provider.getBalance(awpX),
     awpContract.balanceOf(awpX),
     provider.getLogs(awpXFilterIn),
@@ -168,7 +168,6 @@ const fetchData = async () => {
   });
 
   newData.awpTransactions = await Promise.all(blockPromises);
-  newData.awpTransactions.sort((a, b) => b.timestamp - a.timestamp);
 
   console.log('updated transactions', newData.awpTransactions);
 
@@ -217,7 +216,7 @@ const receiveDBData = (data) => {
 const storeData = async (data, storeLocally = true) => {
   console.log('storeData', data, 'storeLocally', storeLocally);
   batch(() => {
-    myAccount.awpTransactions = data.awpTransactions;
+    myAccount.awpTransactions = data.awpTransactions.sort((a, b) => b.timestamp - a.timestamp);
     myAccount.data = data;
 
     myAccount.awpBalance = decimalize(data.awpBalance);
@@ -254,12 +253,21 @@ const myAccount = store({
   ethBalance: undefined,
   initialized: false,
 
-  // addTransaction: (hash) => {
-  // use notify to monitor and then add to transaction array
-  // }
+  addTransaction: (transactionHash, daiAmount, awpAmount) => {
+    const blockNumber = 'pending';
+    const timestamp = BigNumber(Date.now()).dividedBy(1000).decimalPlaces(0).toNumber();
+
+    myAccount.awpTransactions.unshift({
+      awpAmount,
+      blockNumber,
+      daiAmount,
+      timestamp,
+      transactionHash,
+    });
+  },
   approveDai: async () => {
     const {
-      awpX,
+      daiX,
       dai,
       maxUint,
       notify,
@@ -270,7 +278,7 @@ const myAccount = store({
     const gasLimit = 160000;
     const gasPrice = ethers.utils.parseEther('0.000000005');
 
-    notify(await daiContract.approve(awpX, maxUint, { gasLimit, gasPrice }));
+    notify(await daiContract.approve(daiX, maxUint, { gasLimit, gasPrice }));
     myAccount.data.awpXDaiAllowance = maxUint;
   },
   db: () => {

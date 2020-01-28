@@ -9,6 +9,7 @@ import { store } from 'react-easy-state';
 import eth from './eth';
 import myAccount from './myAccount';
 import uniswap from '../abi/uniswap';
+import yourInvestment from './yourInvestment';
 
 const ETH_TO_TOKEN = 0;
 const TOKEN_TO_ETH = 1;
@@ -160,13 +161,13 @@ const exchangeModal = store({
   buy: async () => {
     const {
       awp,
-      awpX,
+      daiX,
       signer,
     } = eth;
-    const contract = new ethers.Contract(awpX, uniswap, signer);
+    const contract = new ethers.Contract(daiX, uniswap, signer);
     const minAmount = ethers.utils.parseEther(exchangeModal.outputValue).mul(995).div(1000);
 
-    eth.notify(await contract.tokenToTokenSwapInput(
+    const { emitter, hash } = eth.notify(await contract.tokenToTokenSwapInput(
       ethers.utils.parseEther(exchangeModal.inputValue),
       minAmount,
       1,
@@ -174,6 +175,17 @@ const exchangeModal = store({
       awp,
       { gasLimit: 200000 },
     ));
+
+    emitter.on('txPool', () => {
+      myAccount.addPendingTransaction(hash, exchangeModal.inputValue, minAmount);
+    });
+
+    emitter.on('txConfirmed', async () => {
+      await myAccount.fetch();
+      yourInvestment.init();
+    });
+
+    exchangeModal.close();
   },
   close: () => {
     exchangeModal.isActive = false;
@@ -247,7 +259,13 @@ const exchangeModal = store({
   },
   reset: () => {
     exchangeModal.error = undefined;
+    exchangeModal.exchangeRate = undefined;
+    exchangeModal.inputError = undefined;
+    exchangeModal.inputValue = 1;
     exchangeModal.isPending = false;
+    exchangeModal.marketRate = undefined;
+    exchangeModal.minAmount = undefined;
+    exchangeModal.outputValue = undefined;
   },
   slippage: () => {
     const { exchangeRate, marketRate } = exchangeModal;

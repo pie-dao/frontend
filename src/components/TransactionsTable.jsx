@@ -20,7 +20,7 @@ const transactionUSDValue = ({ direction, daiAmount }) => (
 );
 
 const TransactionsTable = () => {
-  const transactions = myAccount.awpTransactions || [];
+  const transactions = (myAccount.awpTransactions || []).sort((a, b) => b.timestamp - a.timestamp);
   const count = transactions.length;
 
   if (count === 0) {
@@ -52,7 +52,9 @@ const TransactionsTable = () => {
 
                   <div className="row">
                     <div className="state">
-                      <span className="color-label">Confirmed</span>
+                      <span className="color-label">
+                        { transaction.blockNumber === 'pending' ? 'Pending' : 'Confirmed' }
+                      </span>
                     </div>
                     <div className="usd-value">{transactionUSDValue(transaction)}</div>
                   </div>
