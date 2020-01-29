@@ -8,7 +8,15 @@ import AwpLight from './charts/AwpLight';
 import SingleAsset from './SingleAsset';
 
 const AddRemoveLiquidity = () => {
-  const { selectAdd, selectRemove, tab } = addRemoveLiquidity;
+  const {
+    selectAdd,
+    selectRemove,
+    slider,
+    sliderMax,
+    tab,
+  } = addRemoveLiquidity;
+
+  const max = sliderMax();
 
   return (
     <div className="liquidity-container lg:flex-row">
@@ -24,14 +32,24 @@ const AddRemoveLiquidity = () => {
             Remove Liquidity
           </div>
         </div>
-        <div className="liquidity-amount lg:text-liquidity-amount">21.50</div>
+        <div className="liquidity-amount lg:text-liquidity-amount">
+          {slider[tab]}
+        </div>
         <div className="awp-label lg:text-big lg:leading-none lg:m-0">AWP++</div>
         <div className="slider-wrapper">
-          <Slider vertical={false} />
+          <Slider
+            min={0}
+            max={max}
+            step={0.1}
+            onChange={addRemoveLiquidity.sliderChange}
+            value={slider[tab]}
+            vertical={false}
+          />
         </div>
 
         <button type="button" className="btn">
-          Add Liquidity
+          {tab === 'add' ? 'Add ' : 'Remove '}
+          Liquidity
         </button>
       </div>
       <div className="liquidity-right lg:w-64pc lg:tex-left lg:flex-row">
