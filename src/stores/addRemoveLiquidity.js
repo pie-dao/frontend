@@ -1,6 +1,9 @@
 import BigNumber from 'bignumber.js';
+import { ethers } from 'ethers';
 
 import { store } from 'react-easy-state';
+import eth from './eth';
+import setIssuanceModuleABI from '../abi/setIssuanceModule';
 
 import myAccount from './myAccount';
 
@@ -91,6 +94,10 @@ const addRemoveLiquidity = store({
 
     const weight = BigNumber(addRemoveLiquidity[token].weight).dividedBy(100);
     const amount = BigNumber(slider[tab]).multipliedBy(weight);
+
+    console.log(weight);
+    console.log(amount);
+
     const balance = BigNumber(myAccount[`${token}IndexBalance`]);
     return balance.isGreaterThan(amount);
   },
@@ -106,7 +113,7 @@ const addRemoveLiquidity = store({
   },
   sliderChange: (value) => {
     const { tab } = addRemoveLiquidity;
-    addRemoveLiquidity.slider[tab] = value;
+    addRemoveLiquidity.slider[tab] = value.toFixed();
   },
   sliderMax: () => {
     const { tab } = addRemoveLiquidity;
@@ -118,6 +125,52 @@ const addRemoveLiquidity = store({
     }
 
     return BigNumber(myAccount.awpBalance || 0).decimalPlaces(0).toNumber();
+  },
+  redeem: async () => {
+    const {
+      setIssuanceModule,
+      awp,
+      signer,
+    } = eth;
+    const contract = new ethers.Contract(setIssuanceModule, setIssuanceModuleABI, signer);
+    const redeemAmount = ethers.utils.parseEther(addRemoveLiquidity.slider.remove);
+
+    const { emitter, hash } = eth.notify(await contract.redeemRebalancingSet(
+      awp,
+      redeemAmount,
+      false,
+      { gasLimit: 2000000 },
+    ));
+
+    // TODO what should we do with these
+    console.log(emitter, hash);
+  },
+  mint: async () => {
+    const {
+      setIssuanceModule,
+      awp,
+      signer,
+    } = eth;
+    await addRemoveLiquidity.doAllowances();
+
+    const contract = new ethers.Contract(setIssuanceModule, setIssuanceModuleABI, signer);
+    const mintAmount = ethers.utils.parseEther(addRemoveLiquidity.slider.add);
+
+    const { emitter, hash } = eth.notify(await contract.issueRebalancingSet(
+      awp,
+      mintAmount,
+      false,
+      { gasLimit: 2000000 },
+    ));
+
+    console.log(emitter, hash);
+  },
+  doAllowances: async () => {
+    const {
+      setTransferProxy,
+    } = eth;
+
+    console.log(setTransferProxy);
   },
 });
 

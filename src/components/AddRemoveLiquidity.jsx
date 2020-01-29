@@ -7,6 +7,18 @@ import addRemoveLiquidity from '../stores/addRemoveLiquidity';
 import AwpLight from './charts/AwpLight';
 import SingleAsset from './SingleAsset';
 
+const buttonClick = () => {
+  const {
+    slider,
+    tab,
+  } = addRemoveLiquidity;
+  if (tab === 'remove') {
+    addRemoveLiquidity.redeem(slider[tab]);
+  } else {
+    addRemoveLiquidity.mint(slider[tab]);
+  }
+};
+
 const AddRemoveLiquidity = () => {
   const {
     selectAdd,
@@ -47,7 +59,7 @@ const AddRemoveLiquidity = () => {
           />
         </div>
 
-        <button type="button" className="btn">
+        <button onClick={buttonClick} type="button" className="btn">
           {tab === 'add' ? 'Add ' : 'Remove '}
           Liquidity
         </button>
