@@ -2,17 +2,17 @@ import React from 'react';
 
 import { Modal } from 'minimal-react-modal';
 import { view } from 'react-easy-state';
-import { useWeb3React } from '@web3-react/core';
 
 import amountFormatter from '../utils/amountFormatter';
 import ConnectWeb3Button from './ConnectWeb3Button';
+import eth from '../stores/eth';
 import exchangeModal from '../stores/exchangeModal';
 import If from './If';
 import myAccount from '../stores/myAccount';
 import Unless from './Unless';
 
 const ExchangeModal = () => {
-  const { account } = useWeb3React();
+  const { account } = eth;
 
   const sufficientAllowance = exchangeModal.sufficientAllowance();
 
