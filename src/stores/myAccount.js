@@ -158,7 +158,6 @@ const fetchData = async () => {
 };
 
 const receiveDBData = (data) => {
-  console.log('receiveDBData myAccount', data);
   if (data) {
     storeData(data, false);
   }
@@ -166,7 +165,6 @@ const receiveDBData = (data) => {
 };
 
 const storeData = async (data, storeLocally = true) => {
-  console.log('storeData', data, 'storeLocally', storeLocally);
   batch(() => {
     myAccount.initialized = true;
     myAccount.awpTransactions = data.awpTransactions.sort((a, b) => b.timestamp - a.timestamp);
@@ -234,11 +232,7 @@ const myAccount = store({
     notify(await daiContract.approve(daiX, maxUint, { gasLimit, gasPrice }));
     myAccount.data.awpXDaiAllowance = maxUint;
   },
-  db: () => {
-    console.log('myAccount, account', eth.account);
-
-    return gun.get('myAccount').get(eth.account);
-  },
+  db: () => gun.get('myAccount').get(eth.account),
   fetch: async () => {
     try {
       await storeData(await fetchData());
