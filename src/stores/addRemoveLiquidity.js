@@ -103,6 +103,7 @@ const addRemoveLiquidity = store({
     const { tab } = addRemoveLiquidity;
     return BigNumber(addRemoveLiquidity.slider[tab])
       .multipliedBy(addRemoveLiquidity[token].amountPerUnit)
+      .dividedBy(10)
       .decimalPlaces(8)
       .toNumber();
   },
@@ -112,14 +113,9 @@ const addRemoveLiquidity = store({
       return true;
     }
 
-    // const weight = BigNumber(addRemoveLiquidity[token].weight).dividedBy(100);
-    // const amount = BigNumber(slider[tab]).multipliedBy(weight);
-
-    // console.log(weight);
-    // console.log(amount);
     const balance = BigNumber(myAccount[`${token}IndexBalance`]);
-    console.log(balance.toString());
-    return balance.isGreaterThan(addRemoveLiquidity.amount(token) * 10 ** 18);
+
+    return balance.isGreaterThan(addRemoveLiquidity.amount(token));
   },
   reset: () => {
     addRemoveLiquidity.error = undefined;
@@ -136,12 +132,17 @@ const addRemoveLiquidity = store({
     addRemoveLiquidity.slider[tab] = value.toFixed();
   },
   sliderMax: () => {
-    const { tab } = addRemoveLiquidity;
-
-    console.log('MAX', tab, myAccount.awpBalance);
+    const { tltIndexBalance } = myAccount;
+    const { tab, tlt: { amountPerUnit } } = addRemoveLiquidity;
 
     if (tab === 'add') {
-      return 10; // TODO
+      const amount = BigNumber(tltIndexBalance)
+        .dividedBy(amountPerUnit)
+        .multipliedBy(10)
+        .decimalPlaces(0)
+        .toNumber();
+
+      return amount;
     }
 
     return BigNumber(myAccount.awpBalance || 0).decimalPlaces(0).toNumber();
@@ -155,15 +156,19 @@ const addRemoveLiquidity = store({
     const contract = new ethers.Contract(setIssuanceModule, setIssuanceModuleABI, signer);
     const redeemAmount = ethers.utils.parseEther(addRemoveLiquidity.slider.remove);
 
-    const { emitter, hash } = eth.notify(await contract.redeemRebalancingSet(
+    const { emitter } = eth.notify(await contract.redeemRebalancingSet(
       awp,
       redeemAmount,
       false,
       { gasLimit: 2000000 },
     ));
 
-    // TODO what should we do with these
-    console.log(emitter, hash);
+    emitter.on('txConfirmed', () => {
+      setTimeout(myAccount.fetch, 2000);
+      setTimeout(myAccount.fetch, 5000);
+      setTimeout(myAccount.fetch, 9000);
+      setTimeout(myAccount.fetch, 15000);
+    });
   },
   mint: async () => {
     const {
@@ -176,15 +181,19 @@ const addRemoveLiquidity = store({
     const contract = new ethers.Contract(setIssuanceModule, setIssuanceModuleABI, signer);
     const mintAmount = ethers.utils.parseEther(addRemoveLiquidity.slider.add);
 
-    const { emitter, hash } = eth.notify(await contract.issueRebalancingSet(
+    const { emitter } = eth.notify(await contract.issueRebalancingSet(
       awp,
       mintAmount,
       false,
       { gasLimit: 2000000 },
     ));
 
-    // // TODO what should we do with these
-    console.log(emitter, hash);
+    emitter.on('txConfirmed', () => {
+      setTimeout(myAccount.fetch, 2000);
+      setTimeout(myAccount.fetch, 5000);
+      setTimeout(myAccount.fetch, 9000);
+      setTimeout(myAccount.fetch, 15000);
+    });
   },
   doAllowances: async () => {
     const {
@@ -209,16 +218,20 @@ const addRemoveLiquidity = store({
       wrappedEtherAddress: '0x8a18c7034aCEfD1748199a58683Ee5F22e2d4e45',
     };
 
-    const provider = new Web3.providers.HttpProvider('https://kovan.infura.io/v3/076b582fd6164444af0b426614496e15');
+    const provider = new Web3
+      .providers
+      .HttpProvider('https://kovan.infura.io/v3/076b582fd6164444af0b426614496e15');
 
     const set = new SetProtocol(provider, config);
 
-    // eslint-disable-next-line max-len
-    const components = await set.setToken.calculateComponentAmountsForIssuanceAsync('0x1b862b62b150d73068c9190a36a25c736601fb92', new BigNumber(ethers.utils.parseEther(addRemoveLiquidity.slider.add).toString()));
+    const components = await set
+      .setToken
+      .calculateComponentAmountsForIssuanceAsync(
+        '0x1b862b62b150d73068c9190a36a25c736601fb92',
+        new BigNumber(ethers.utils.parseEther(addRemoveLiquidity.slider.add).toString()),
+      );
 
     console.log(components);
-
-    const promises = [];
 
     // eslint-disable-next-line no-restricted-syntax
     for (const component of components) {
@@ -231,11 +244,9 @@ const addRemoveLiquidity = store({
 
       if (component.unit.gt(allowance)) {
         // eslint-disable-next-line no-await-in-loop
-        promises.push(token.approve(setTransferProxy, maxUint));
+        eth.notify(token.approve(setTransferProxy, maxUint));
       }
     }
-
-    await Promise.all(promises);
   },
 });
 

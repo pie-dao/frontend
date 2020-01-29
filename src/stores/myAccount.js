@@ -272,11 +272,27 @@ const storeData = async (data, storeLocally = true) => {
     myAccount.awpPrice = decimalize(data.awpPrice);
     myAccount.awpXETHBalance = decimalize(data.awpXETHBalance);
     myAccount.awpXTokenBalance = decimalize(data.awpXTokenBalance);
+    myAccount.bntIndexBalance = decimalize(data.bntIndexBalance);
+    myAccount.btcIndexBalance = decimalize(data.btcIndexBalance);
     myAccount.daiBalance = decimalize(data.daiBalance);
     myAccount.daiSpent = decimalize(data.daiSpent);
     myAccount.daiXETHBalance = decimalize(data.daiXETHBalance);
     myAccount.daiXTokenBalance = decimalize(data.daiXTokenBalance);
     myAccount.ethBalance = decimalize(data.ethBalance);
+    myAccount.ethIndexBalance = decimalize(data.ethIndexBalance);
+    myAccount.gldIndexBalance = decimalize(data.gldIndexBalance);
+    myAccount.gsgIndexBalance = decimalize(data.gsgIndexBalance);
+    myAccount.ieiIndexBalance = decimalize(data.ieiIndexBalance);
+    myAccount.kncIndexBalance = decimalize(data.kncIndexBalance);
+    myAccount.linkIndexBalance = decimalize(data.linkIndexBalance);
+    myAccount.lrcIndexBalance = decimalize(data.lrcIndexBalance);
+    myAccount.mkrIndexBalance = decimalize(data.mkrIndexBalance);
+    myAccount.mlnIndexBalance = decimalize(data.mlnIndexBalance);
+    myAccount.renIndexBalance = decimalize(data.renIndexBalance);
+    myAccount.snxIndexBalance = decimalize(data.snxIndexBalance);
+    myAccount.tltIndexBalance = decimalize(data.tltIndexBalance);
+    myAccount.vtiIndexBalance = decimalize(data.vtiIndexBalance);
+    myAccount.zrkIndexBalance = decimalize(data.zrkIndexBalance);
   });
 
   if (storeLocally) {

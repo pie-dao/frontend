@@ -11,7 +11,7 @@ const SingleAsset = ({ token }) => {
   const { amount, isAvailable, tab } = addRemoveLiquidity;
   const { symbol, weight } = addRemoveLiquidity[token];
 
-  const amt = amount(token, tab);
+  const amt = BigNumber(amount(token, tab)).toFixed();
   const available = isAvailable(token, tab);
 
   return (
