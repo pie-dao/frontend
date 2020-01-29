@@ -5,7 +5,7 @@ import { view } from 'react-easy-state';
 
 const ComparisonTable = () => {
   return (
-    <div className="table-container lg:w-90pc lg:mx-5pc">
+    <div className="table-container lg:w-80pc lg:mx-10pc">
       <div className="labels-container lg:text-prettysmall">
         <div className="item-container lg:pt-15px lg:mb-0 lg:bl-15px">
           <div className="labels-portfolio-name font-regular lg:w-36pc">

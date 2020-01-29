@@ -22,8 +22,8 @@ const YourInvestment = () => (
   <div className="your-investment-container">
     <If condition={yourInvestment.data}>
       <ComposedChart
-        width={600}
-        height={380}
+        width={500}
+        height={360}
         data={yourInvestment.data}
         margin={{
           bottom: 5,

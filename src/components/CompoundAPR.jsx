@@ -19,8 +19,8 @@ const CompoundAPR = () => (
   <div className="compound-apr-container">
     <If condition={compoundAPR.data}>
       <LineChart
-        width={600}
-        height={380}
+        width={500}
+        height={360}
         data={compoundAPR.data}
         margin={{
           top: 0,

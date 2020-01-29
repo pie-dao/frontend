@@ -5,7 +5,7 @@ import { view } from 'react-easy-state';
 
 const AWPExplainer = () => {
   return (
-    <div className="awp-explainer lg:flex-row lg:m-0">
+    <div className="awp-explainer lg:flex-row lg:w-90pc lg:mx-5pc">
       <div className="awp-box">
         <img
           src="../assets/img/awpcrypto.jpg"
