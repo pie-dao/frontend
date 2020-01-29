@@ -14,7 +14,7 @@ LoopName.propTypes = { children: PropTypes.node.isRequired };
 const HeroSection = () => {
   return (
     <div className="hero-section lg:pb-30px">
-      <div className="content lg:w-800px">
+      <div className="content lg:w-90pc mx-5pc">
         <div className="pretitle lg:text-big">
           What is you could invest like
         </div>
@@ -25,7 +25,7 @@ const HeroSection = () => {
           defaultStyle={0}
           mask={true}
           fade={false}
-          className="textloop lg:h-260px lg:w-500px"
+          className="textloop lg:h-270px lg:w-500px"
         >
           <LoopName>Ray Dalio</LoopName>
           <LoopName>Abigail Johnson</LoopName>

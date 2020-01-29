@@ -63,7 +63,7 @@ button.buttonModal:disabled {
 }
 
 .content {
-  @apply flex flex-col items-center w-100pc mx-auto max-w-1280px;
+  @apply flex flex-col items-center w-90pc mx-5pc max-w-1280px;
 }
 
 .hamburger {
@@ -84,7 +84,7 @@ button.buttonModal:disabled {
   @apply font-primary text-center text-almostverysmall font-regular;
 }
 .title {
-  @apply w-100pc m-0 p-0 text-center font-primary text-black text-ratherbig-mobile font-bolder leading-tight;
+  @apply w-100pc my-2pc p-0 text-center font-primary text-black text-ratherbig-mobile font-bolder leading-tight;
 }
 
 .none {
@@ -244,7 +244,7 @@ button.buttonModal:disabled {
 }
 
 .hero-title {
-  @apply font-primary text-black text-hero-mobile font-bolder text-center my-2pc mx-0 break-words leading-24;
+  @apply font-primary text-black text-hero-mobile font-bolder text-center my-2pc mx-0 break-words leading-16;
   background: linear-gradient(-60deg, #f10096, #21d7ff);
   background-size: 300%;
   -webkit-background-clip: text;
@@ -285,7 +285,7 @@ button.buttonModal:disabled {
 }
 
 .textloop {
-  @apply text-center w-100pc h-200px break-words;
+  @apply text-center w-100pc h-150px break-words; 
 }
 
 /* COMPARISON TABLE */
@@ -365,7 +365,7 @@ button.buttonModal:disabled {
 }
 
 .apy {
-  @apply flex items-center font-bold w-10pc;
+  @apply flex items-center font-bold w-12pc;
 }
 
 /* GRADIENT BG SECTION */
@@ -380,7 +380,7 @@ button.buttonModal:disabled {
 
 /* GRADIENT  QUOTE  */
 .gradient-quote-container {
-  @apply flex flex-col p-10pc justify-center mb-5pc;
+  @apply flex flex-col p-5pc justify-center my-2pc;
 }
 
 .quote {
@@ -423,13 +423,13 @@ button.buttonModal:disabled {
 }
 
 .awp-content{
-  @apply flex flex-col items-center content-center justify-center w-80pc py-10pc px-0 max-h-400px mb-10pc overflow-hidden;
+  @apply flex flex-col items-center content-center justify-center w-90pc mx-5pc py-10pc px-0 max-h-400px mb-10pc overflow-hidden;
 }
 
 /* WHITEPAPER SECTION */
 
 .whitepaper-container {
-  @apply flex flex-col content-center justify-center items-center font-primary bg-white w-100pc py-5px px-10pc text-ratherbig text-center m-0 flex-wrap;
+  @apply flex flex-col content-center justify-center items-center font-primary bg-white w-90pc mx-5pc py-5pc text-ratherbig-mobile text-center my-0 flex-wrap;
 }
 
 .whitepaper-link {
@@ -477,7 +477,7 @@ button.buttonModal:disabled {
 /* NEWSLETTER SECTION */
 
 .newsletter{
-  @apply flex flex-col content-center justify-center items-center font-primary bg-white w-100pc py-5px px-10pc text-normal text-center m-0 flex-wrap;
+  @apply flex flex-col content-center justify-center items-center font-primary bg-white w-100pc py-5pc px-5pc text-normal text-center m-0 flex-wrap;
   background: linear-gradient(to right, #ffe2fa 0%, #cceff3 100%);
 
 } 
@@ -510,7 +510,7 @@ button.buttonModal:disabled {
 /* FAQ SECTION */
 
 .faq {
-  @apply flex flex-col font-secondary pt-5pc pr-0 pb-10pc pl-0 w-80pc mx-10pc;
+  @apply flex flex-col font-secondary pt-5pc pr-0 pb-10pc pl-0 w-90pc mx-5pc;
 }
 
 .faq-gradient {
@@ -525,9 +525,13 @@ button.buttonModal:disabled {
   }
 }
 
+.faq-item p{
+  @apply font-regular;
+}
+
 /* PORTFOLIO BREAKDOWN */
 .PortfolioBreakdown {
-  @apply w-80pc mx-10pc;
+  @apply w-90pc mx-5pc;
 }
 
 .portfolio-container {

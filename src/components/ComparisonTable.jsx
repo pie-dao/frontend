@@ -96,7 +96,7 @@ const ComparisonTable = () => {
               src="../assets/img/compound.png"
               alt="portfolio logo"
             />
-            Compund.finance DAI
+            Compund DAI
           </div>
           <div className="initial-amount">
             <div className="label-black lg:py-3px lg:px-6px">$</div>
@@ -126,10 +126,10 @@ const ComparisonTable = () => {
             10,000
           </div>
           <div className="one-year-gains">
-            <div className="label-yellow">+ 660</div>
+            <div className="label-red">- 498</div>
           </div>
           <div className="apy lg:w-12pc">
-            <div className="label-red">- 4.98%</div>
+            <div className="label-red">4.98%</div>
           </div>
         </div>
       </div>

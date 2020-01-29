@@ -5,7 +5,7 @@ import { view } from 'react-easy-state';
 
 const WhitepaperSection = () => {
   return (
-    <div className="whitepaper-container">
+    <div className="whitepaper-container lg:text-ratherbig">
       <div>
         Fancy a piece of pie
         <span role="img" aria-label="cake">

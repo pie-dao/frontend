@@ -60,7 +60,7 @@ const TopNavigation = ({ links, images }) => {
         <ConnectWeb3Button className="hidden lg:block" />
 
         <button
-          className="hamburger"
+          className="hamburger lg:hidden"
           id="trigger-overlay"
           type="button"
           onClick={topNavigationStore.toggle}
