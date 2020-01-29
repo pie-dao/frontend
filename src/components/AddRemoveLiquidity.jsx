@@ -48,10 +48,19 @@ const AddRemoveLiquidity = () => {
           <SingleAsset token="tlt" />
           <SingleAsset token="vti" />
           <SingleAsset token="iei" />
-          <SingleAsset token="cry" />
-          <SingleAsset token="vti" />
           <SingleAsset token="gld" />
           <SingleAsset token="gsg" />
+
+          <SingleAsset token="btc" />
+          <SingleAsset token="eth" />
+          <SingleAsset token="link" />
+          <SingleAsset token="zrk" />
+          <SingleAsset token="snx" />
+          <SingleAsset token="ren" />
+          <SingleAsset token="lrc" />
+          <SingleAsset token="knc" />
+          <SingleAsset token="bnt" />
+          <SingleAsset token="mln" />
         </div>
       </div>
     </div>

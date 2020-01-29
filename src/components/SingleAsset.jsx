@@ -1,8 +1,11 @@
+import BigNumber from 'bignumber.js';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { view } from 'react-easy-state';
 
 import addRemoveLiquidity from '../stores/addRemoveLiquidity';
+
+const round = (weight) => BigNumber(weight).decimalPlaces(2).toFixed();
 
 const SingleAsset = ({ token }) => {
   const { amount, isAvailable, tab } = addRemoveLiquidity;
@@ -27,7 +30,7 @@ const SingleAsset = ({ token }) => {
         </div>
       </div>
       <div className={`asset-weight bg-${symbol}`}>
-        {weight}
+        {round(weight)}
         %
       </div>
     </div>

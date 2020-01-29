@@ -36,34 +36,53 @@ module.exports = {
       '8': '8px',
     },
     extend: {
-      colors: {
-        'CRY': '#ffcd1c',
-        'GLD': '#305cee',
-        'GSG': '#9080dc',
-        'IEI': '#1ec0ff',
-        'TLT': '#2db400',
-        'VTI': '#79f2c3',
-        'almost-black': '#0a0a0a',
-        'anothergrey': '#f3f3f3',
-        'avail': '#2db400',
-        'awp-label': '#fc02a7',
-        'black': '#000000',
-        'blue': '#7D78D1',
-        'faq': '#f6f6f6',
-        'green': '#2db400',
-        'grey': '#b7b7b7',
-        'grey-dark': '#cccccc',
-        'grey-darkish': '#333333',
-        'grey-light': '#f6f6f6',
-        'insuf': '#f40a50',
-        'label-yellow': '#F8E71C',
-        'label-green': '#2DB400',
-        'label-red': '#ff0053',
-        'label-gradient': 'linear-gradient(to right, #f10096 0%, #21d7ff 100%)',
-        'lightgrey': '#e6e6e6',
-        'red': 'red',
-        'web3-button': '#737373',
-        'white': '#ffffff',
+      colors: theme => {
+        const colors = {
+          'almost-black': '#0a0a0a',
+          'anothergrey': '#f3f3f3',
+          'avail': '#2db400',
+          'awp-label': '#fc02a7',
+          'black': '#000000',
+          'blue': '#7D78D1',
+          'faq': '#f6f6f6',
+          'green': '#2db400',
+          'grey': '#b7b7b7',
+          'grey-dark': '#cccccc',
+          'grey-darkish': '#333333',
+          'grey-light': '#f6f6f6',
+          'insuf': '#f40a50',
+          'label-blue': '#305cee',
+          'label-cyan': '#1ec0ff',
+          'label-green': '#2DB400',
+          'label-purple': '#9080dc',
+          'label-red': '#ff0053',
+          'label-teal': '#79f2c3',
+          'label-yellow': '#F8E71C',
+          'label-yellow-alt': '#ffcd1d',
+          'label-gradient': 'linear-gradient(to right, #f10096 0%, #21d7ff 100%)',
+          'lightgrey': '#e6e6e6',
+          'red': 'red',
+          'web3-button': '#737373',
+          'white': '#ffffff',
+        };
+
+        colors.TLT = colors['label-green'];
+        colors.VTI = colors['label-teal'];
+        colors.IEI = colors['label-cyan'];
+        colors.GLD = colors['label-blue'];
+        colors.GSG = colors['label-purple'];
+        colors.BTC = colors['label-yellow-alt'];
+        colors.ETH = colors['label-yellow-alt'];
+        colors.LINK = colors['label-yellow-alt'];
+        colors.ZRK = colors['label-yellow-alt'];
+        colors.SNX = colors['label-yellow-alt'];
+        colors.REN = colors['label-yellow-alt'];
+        colors.LRC = colors['label-yellow-alt'];
+        colors.KNC = colors['label-yellow-alt'];
+        colors.BNT = colors['label-yellow-alt'];
+        colors.MLN = colors['label-yellow-alt'];
+
+        return colors;
       },
     },
     fontFamily: {
