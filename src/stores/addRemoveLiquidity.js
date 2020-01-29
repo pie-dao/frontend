@@ -15,95 +15,111 @@ const addRemoveLiquidity = store({
   bnt: {
     symbol: 'BNT',
     weight: 0.3333,
+    amountPerUnit: 0.0016255267910897049981,
   },
   btc: {
     symbol: 'BTC',
     weight: 3.5,
+    amountPerUnit: 0.00000434943743303794095,
   },
   eth: {
     symbol: 'ETH',
     weight: 3.5,
+    amountPerUnit: 0.00024841159980592041765,
   },
-  error: undefined,
   gld: {
     symbol: 'GLD',
     weight: 6.75,
+    amountPerUnit: 0.0004595901137059985019,
   },
   gsg: {
     symbol: 'GSG',
     weight: 6.75,
+    amountPerUnit: 0.004206760731914044971825,
   },
   iei: {
     symbol: 'IEI',
     weight: 13.5,
+    amountPerUnit: 0.0010696882056970801473,
   },
   knc: {
     symbol: 'KNC',
     weight: 0.3333,
+    amountPerUnit: 0.01685152748499351253607166,
   },
   link: {
     symbol: 'LINK',
     weight: 0.3333,
+    amountPerUnit: 0.00150049804650010761989229,
   },
   lrc: {
     symbol: 'LRC',
     weight: 0.3333,
+    amountPerUnit: 0.14729226230764863502153788,
   },
   mkr: {
     symbol: 'MKR',
     weight: 0.3333,
+    amountPerUnit: 0.00000706925099015030251026,
   },
   mln: {
     symbol: 'MLN',
     weight: 0.3333,
+    amountPerUnit: 0.00099849837188719572994488,
   },
   ren: {
     symbol: 'REN',
     weight: 0.3333,
-  },
-  slider: {
-    add: 0,
-    remove: 0,
+    amountPerUnit: 0.07559458548685109787280032,
   },
   snx: {
     symbol: 'SNX',
     weight: 0.3333,
+    amountPerUnit: 0.00316329498744693885856284,
   },
-  tab: 'remove',
   tlt: {
     symbol: 'TLT',
     weight: 36,
+    amountPerUnit: 0.0026057688827765915088,
   },
   vti: {
     symbol: 'VTI',
     weight: 27,
+    amountPerUnit: 0.0016255267910897049981,
   },
   zrk: {
     symbol: 'ZRK',
     weight: 0.3333,
+    amountPerUnit: 0.01611283374745072538806197,
+  },
+  tab: 'remove',
+  error: undefined,
+  slider: {
+    add: 0,
+    remove: 0,
   },
 
   amount: (token) => {
     const { tab } = addRemoveLiquidity;
     return BigNumber(addRemoveLiquidity.slider[tab])
-      .multipliedBy(addRemoveLiquidity[token].weight / 100)
-      .decimalPlaces(2)
+      .multipliedBy(addRemoveLiquidity[token].amountPerUnit)
+      .decimalPlaces(8)
       .toNumber();
   },
   isAvailable: (token) => {
-    const { slider, tab } = addRemoveLiquidity;
+    const { tab } = addRemoveLiquidity;
     if (tab === 'remove') {
       return true;
     }
 
-    const weight = BigNumber(addRemoveLiquidity[token].weight).dividedBy(100);
-    const amount = BigNumber(slider[tab]).multipliedBy(weight);
+    // const weight = BigNumber(addRemoveLiquidity[token].weight).dividedBy(100);
+    // const amount = BigNumber(slider[tab]).multipliedBy(weight);
 
-    console.log(weight);
-    console.log(amount);
-
+    // console.log(weight);
+    // console.log(amount);
     const balance = BigNumber(myAccount[`${token}IndexBalance`]);
-    return balance.isGreaterThan(amount);
+    console.log(balance.toString());
+    return balance.isGreaterThan(addRemoveLiquidity.amount(token) * 10 ** 18);
   },
   reset: () => {
     addRemoveLiquidity.error = undefined;
