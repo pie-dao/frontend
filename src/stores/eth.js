@@ -15,6 +15,7 @@ const eth = store({
   awpX: '0xF640d521793B5BF474fD4051543E9D238f108334',
   dai: '0x1d7e3a1a65a367db1d1d3f51a54ac01a2c4c92ff',
   daiX: '0x1a3e8f0A53E0524fC2DF6841408abe778C8Ecd9d',
+  error: undefined,
   maxUint: '115792089237316195423570985008687907853269984665640564039457584007913129639935',
   network: 'kovan',
   networkId: NETWORK_ID,
@@ -23,6 +24,12 @@ const eth = store({
   startingBlock: 16268627,
 
   getLibrary: (provider) => {
+    eth.error = undefined;
+    if (provider.networkVersion !== '42') {
+      eth.error = 'Incorrect network. Please connect to kovan.';
+      console.error(eth.error, provider.networkVersion);
+      return undefined;
+    }
     eth.provider = new ethers.providers.Web3Provider(provider);
     eth.signer = eth.provider.getSigner();
     eth.account = provider.selectedAddress;

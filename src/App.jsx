@@ -24,13 +24,14 @@ const getLibrary = (newProvider) => {
     setTimeout(() => yourInvestment.init(newProvider.selectedAddress), 2000);
   });
   const ethersProvider = eth.getLibrary(newProvider);
-  setTimeout(myAccount.init, 0);
+  if (ethersProvider) {
+    setTimeout(myAccount.init, 0);
+  }
   return ethersProvider;
 };
 
 setTimeout(() => {
   const existingProvider = provider(['frame', 'injected']);
-  console.log('Provider', existingProvider);
 
   if (existingProvider) {
     getLibrary(existingProvider);
