@@ -54,7 +54,6 @@ const fetchData = async () => {
   daiXFilterIn.fromBlock = fromBlock;
   daiXFilterOut.fromBlock = fromBlock;
 
-  // get balances and transactions
   const [
     awpBalance,
     awpXDaiAllowance,
@@ -83,22 +82,6 @@ const fetchData = async () => {
     provider.getBalance(account),
   ]);
 
-  console.log(
-    'raw',
-    awpBalance,
-    awpXDaiAllowance,
-    awpXETHBalance,
-    awpXTokenBalance,
-    awpXTransactionsIn,
-    awpXTransactionsOut,
-    daiBalance,
-    daiXETHBalance,
-    daiXTokenBalance,
-    daiXTransactionsIn,
-    daiXTransactionsOut,
-    ethBalance,
-  );
-
   newData.awpBalance = sanitizeNumberish(awpBalance);
   newData.awpXDaiAllowance = sanitizeNumberish(awpXDaiAllowance);
   newData.awpXETHBalance = sanitizeNumberish(awpXETHBalance);
@@ -107,23 +90,6 @@ const fetchData = async () => {
   newData.daiXETHBalance = sanitizeNumberish(daiXETHBalance);
   newData.daiXTokenBalance = sanitizeNumberish(daiXTokenBalance);
   newData.ethBalance = sanitizeNumberish(ethBalance);
-
-  // get all awp exchange transactions
-  // [ {
-  //    blockNumber: 3313426,
-  //    blockHash: "0xe01c1e437ed3af9061006492cb07454eca8561479454a709809b7897f225387d",
-  //    transactionIndex: 5,)
-  //    removed: false,
-  //    address: "0x6fC21092DA55B392b045eD78F4732bff3C580e2c",
-  //    data: "0x00000000000000000000000053095760c154a1531a69fc718119d14c4aa1506f" +
-  //            "000000000000000000000000000000000000000000000000016345785d8a0000",
-  //    topics: [
-  //      "0x179ef3319e6587f6efd3157b34c8b357141528074bcb03f9903589876168fa14",
-  //      "0xe625ed7b108857745d1d9889a7ae05861d8aee38e0e92fd3a31191de01c2515b"
-  //    ],
-  //    transactionHash: "0x61d641aaf3dcf4cf6bafc3e79d332d8773ea0688f87eb00f8b60c3f0050e55f0",
-  //    logIndex: 5
-  // } ]
 
   const transactions = {};
 
@@ -158,8 +124,6 @@ const fetchData = async () => {
   daiXTransactionsIn.forEach((tx) => daiXTransactionProcessor(tx));
   daiXTransactionsOut.forEach((tx) => daiXTransactionProcessor(tx));
 
-  console.log('transactions', transactions);
-
   const blockPromises = Object.values(transactions).map(async (tx) => {
     const updatedTx = { ...tx };
     const { timestamp } = await provider.getBlock(tx.blockHash);
@@ -169,10 +133,7 @@ const fetchData = async () => {
 
   newData.awpTransactions = await Promise.all(blockPromises);
 
-  console.log('updated transactions', newData.awpTransactions);
-
   const reducer = (acc, { daiAmount, direction }) => {
-    console.log('reducer', acc, daiAmount, direction);
     if (direction === 'buy') {
       return acc.plus(daiAmount);
     }
@@ -181,17 +142,9 @@ const fetchData = async () => {
   };
 
   const daiSpent = newData.awpTransactions.reduce(reducer, BigNumber(0));
-  console.log('dai spent', daiSpent);
-
   const ethPrice = BigNumber(newData.daiXTokenBalance).dividedBy(newData.daiXETHBalance);
-  console.log('eth price', ethPrice);
-
   const awpXDaiBalance = BigNumber(newData.awpXETHBalance).multipliedBy(ethPrice);
-  console.log('awp xdai balance', awpXDaiBalance);
-
   const awpPrice = BigNumber(newData.awpBalance).dividedBy(awpXDaiBalance);
-  console.log('awp price', awpPrice);
-
   const awpBalanceInDai = BigNumber(newData.awpBalance).multipliedBy(awpPrice);
 
   newData.awpBalanceInDai = awpBalanceInDai.toFixed();
@@ -199,7 +152,6 @@ const fetchData = async () => {
   newData.awpGain = BigNumber(newData.awpBalance).multipliedBy(awpPrice).minus(daiSpent).toFixed();
   newData.daiSpent = daiSpent.toFixed();
 
-  console.log('4');
   console.log('final', newData);
 
   return newData;
@@ -216,6 +168,7 @@ const receiveDBData = (data) => {
 const storeData = async (data, storeLocally = true) => {
   console.log('storeData', data, 'storeLocally', storeLocally);
   batch(() => {
+    myAccount.initialized = true;
     myAccount.awpTransactions = data.awpTransactions.sort((a, b) => b.timestamp - a.timestamp);
     myAccount.data = data;
 

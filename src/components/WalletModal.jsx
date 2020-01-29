@@ -14,11 +14,13 @@ import Unless from './Unless';
 import { buildLink } from '../utils/etherscan';
 
 const WalletModal = () => {
+  const { account, networkId } = eth;
+
   const injected = new InjectedConnector({
-    supportedChainIds: [eth.networkId],
+    supportedChainIds: [networkId],
   });
 
-  const { account, activate, chainId } = useWeb3React();
+  const { activate, chainId } = useWeb3React();
 
   const onClick = async () => {
     walletModal.isPending = true;
