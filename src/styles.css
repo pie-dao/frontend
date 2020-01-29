@@ -733,8 +733,12 @@ p.Ptab {
 }
 
 .awp-detail-container .title {
-  @apply text-left font-primary text-almost-black font-bold text-big;
+  @apply text-left font-primary text-almost-black font-bold text-big w-600px;
 } 
+
+.awp-detail-container .title.investment {
+  @apply text-center;
+}
 
 /* CompoundAPR */
 

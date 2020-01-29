@@ -202,17 +202,10 @@ const exchangeModal = store({
     const value = BigNumber(filterInput(evt.target.value));
     exchangeModal.inputValue = value.toFixed();
 
-    console.log('VALUE', evt.target.value);
     const normalizedValue = value.multipliedBy(10 ** 18);
 
     exchangeModal.inputError = undefined;
 
-    console.log(
-      'error check',
-      value.toFixed(),
-      normalizedValue.toFixed(),
-      myAccount.data.daiBalance,
-    );
     if (normalizedValue.isGreaterThan(myAccount.data.daiBalance)) {
       exchangeModal.inputError = 'Insufficient balance';
     }
@@ -246,9 +239,7 @@ const exchangeModal = store({
       : undefined;
 
     setTimeout(() => {
-      const input = window.document.getElementById('invest-buy-input');
-      console.log('INPUT', input);
-      input.focus();
+      window.document.getElementById('invest-buy-input').focus();
     }, 0);
   },
   open: () => {
@@ -295,8 +286,7 @@ const exchangeModal = store({
       : undefined;
 
     setTimeout(() => {
-      const input = window.document.getElementById('invest-buy-output');
-      input.focus();
+      window.document.getElementById('invest-buy-output').focus();
     }, 0);
   },
   reset: () => {

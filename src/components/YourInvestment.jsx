@@ -16,6 +16,7 @@ import If from './If';
 import Unless from './Unless';
 
 const formatTimestamp = (timestamp) => (new Date(timestamp * 1000)).toUTCString();
+const formatTimestampDay = (timestamp) => (new Date(timestamp * 1000)).toDateString();
 
 const YourInvestment = () => (
   <div className="your-investment-container">
@@ -31,7 +32,7 @@ const YourInvestment = () => (
           top: 0,
         }}
       >
-        <XAxis tickFormatter={formatTimestamp} format="time" dataKey="timestamp" />
+        <XAxis tickFormatter={formatTimestampDay} format="time" dataKey="timestamp" />
         <YAxis
           yAxisId="totalPositionValue"
           dataKey="totalPositionValue"

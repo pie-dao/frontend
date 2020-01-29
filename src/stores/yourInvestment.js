@@ -5,13 +5,16 @@ import { store } from 'react-easy-state';
 import myAccount from './myAccount';
 
 const yourInvestment = store({
+  account: undefined,
   chartTop: undefined,
   data: undefined,
   error: undefined,
   endpoint: undefined,
   initialized: false,
 
-  init: async () => {
+  init: async (account) => {
+    yourInvestment.account = account;
+
     if (myAccount.awpTransactions && myAccount.awpTransactions.length > 0) {
       let totalPosition = BigNumber(0);
 

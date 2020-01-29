@@ -2,9 +2,9 @@ import React from 'react';
 import BigNumber from 'bignumber.js';
 
 import { view } from 'react-easy-state';
-import { useWeb3React } from '@web3-react/core';
 
 import CompoundAPR from './CompoundAPR';
+import eth from '../stores/eth';
 import exchangeModal from '../stores/exchangeModal';
 import If from './If';
 import myAccount from '../stores/myAccount';
@@ -15,10 +15,15 @@ import YourInvestment from './YourInvestment';
 const threeDecimals = (amount) => BigNumber(amount).decimalPlaces(3).toFixed();
 
 const AWPDetail = (props) => {
-  const { account } = useWeb3React();
+  const { account } = eth;
 
-  if (account && !yourInvestment.data) {
-    yourInvestment.init();
+  if (account && (!yourInvestment.data || yourInvestment.account !== account)) {
+    yourInvestment.init(account);
+  }
+
+  let accountReady = false;
+  if (myAccount.awpTransactions && myAccount.awpTransactions.length > 1) {
+    accountReady = true;
   }
 
   return (
@@ -26,19 +31,17 @@ const AWPDetail = (props) => {
       <div className="awp-detail-container">
         <div className="pre-investment">
           <div className="left">
-            <If condition={myAccount.awpTransactions && myAccount.awpTransactions.length > 1}>
-              <YourInvestment {...props} />
+            <If condition={accountReady}>
+              <YourInvestment {...props} account={account} />
             </If>
 
-            <Unless
-              condition={myAccount.awpTransactions && myAccount.awpTransactions.length > 1}
-            >
+            <Unless condition={accountReady}>
               <CompoundAPR {...props} />
             </Unless>
           </div>
 
           <div className="right">
-            <Unless condition={account}>
+            <Unless condition={myAccount.awpTransactions && myAccount.awpTransactions.length > 0}>
               <h1 className="title">You can do better than DeFi Lending</h1>
               <div className="text">
                 We backtesting the All Weather Portfolio and the AWP++ against DeFi
@@ -47,21 +50,37 @@ const AWPDetail = (props) => {
               </div>
             </Unless>
 
-            <If condition={account}>
-              <h1 className="title">Your Investment</h1>
-              <div className="your-balance">
+            <If condition={myAccount.awpTransactions && myAccount.awpTransactions.length > 0}>
+              <h1 className="title investment">Your Investment</h1>
+              <div className="your-balance text">
                 <div className="row">
                   <span>Value</span>
                   <div className="earned">
-                    <span className="label label-black">$</span>
-                    {threeDecimals(myAccount.awpBalanceInDai)}
+                    <div>
+                      <span className="label label-black">$</span>
+                      {threeDecimals(myAccount.awpBalanceInDai)}
+                    </div>
                   </div>
                 </div>
                 <div className="row">
-                  <span>Gains</span>
-                  <div className="apy">
-                    <div className="label label-green">{threeDecimals(myAccount.awpGain)}</div>
-                  </div>
+                  <If condition={BigNumber(myAccount.awpGain).isGreaterThan(0)}>
+                    <span>Gains</span>
+                    <div className="apy">
+                      <div className="label label-green">{threeDecimals(myAccount.awpGain)}</div>
+                    </div>
+                  </If>
+                  <If condition={BigNumber(myAccount.awpGain).isZero()}>
+                    <span>Gains</span>
+                    <div className="apy">
+                      <div className="label label-yellow">{threeDecimals(myAccount.awpGain)}</div>
+                    </div>
+                  </If>
+                  <If condition={BigNumber(myAccount.awpGain).isLessThan(0)}>
+                    <span>Losses</span>
+                    <div className="apy">
+                      <div className="label label-red">{threeDecimals(myAccount.awpGain)}</div>
+                    </div>
+                  </If>
                 </div>
               </div>
             </If>
