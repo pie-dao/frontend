@@ -277,7 +277,7 @@ button.buttonModal:disabled {
 }
 
 .pretitle {
-  @apply p-0 text-center font-primary text-black text-medium-mobile font-bold leading-loose break-words;
+  @apply p-0 text-center font-primary text-black text-medium-mobile font-bolder leading-loose break-words;
 }
 
 .subtitle {
@@ -347,6 +347,18 @@ button.buttonModal:disabled {
   @apply bg-label-green text-white rounded-3px mr-5px py-2px px-3px;
 }
 
+.label-green-awpgains {
+  @apply bg-label-green text-white rounded-3px py-2px px-3px;
+}
+
+.label-yellow-awpgains {
+  @apply bg-label-yellow text-white rounded-3px py-2px px-3px;
+}
+
+.label-red-awpgains {
+  @apply bg-label-red text-white rounded-3px py-2px px-3px;
+}
+
 .label-yellow {
   @apply bg-label-yellow text-black rounded-3px mr-5px py-2px px-3px;
 }
@@ -368,6 +380,9 @@ button.buttonModal:disabled {
   @apply flex items-center font-bold w-12pc;
 }
 
+.apy-awp {
+  @apply flex items-center font-bold ;
+}
 /* GRADIENT BG SECTION */
 .gradient-bg-section {
   @apply flex p-10pc justify-center mb-5pc;
@@ -510,7 +525,7 @@ button.buttonModal:disabled {
 /* FAQ SECTION */
 
 .faq {
-  @apply flex flex-col font-secondary pt-5pc pr-0 pb-10pc pl-0 w-90pc mx-5pc;
+  @apply flex flex-col font-secondary pt-5pc pr-0 pb-5pc pl-0 w-90pc mx-5pc;
 }
 
 .faq-gradient {
@@ -722,12 +737,12 @@ p.Ptab {
 
 /* AWPDetail */
 
-.awp-detail-container .pre-investment {
-  @apply flex flex-row items-center my-20px px-5pc;
+.awp-detail-container {
+  @apply flex flex-row items-center my-20px justify-between w-90pc mx-5pc;
 }
 
 .awp-detail-container .row {
-  @apply flex flex-row justify-between items-center;
+  @apply flex flex-row justify-between items-center w-260px mt-10px;
 }
 
 .awp-detail-container .row span {
@@ -739,7 +754,7 @@ p.Ptab {
 }
 
 .awp-detail-container .right {
-  @apply flex flex-col items-center justify-center m-0 flex-grow;
+  @apply flex flex-col items-center justify-center m-0 flex-grow pb-30px;
 }
 
 .awp-detail-container .text {
@@ -747,11 +762,15 @@ p.Ptab {
 }
 
 .awp-detail-container .title {
-  @apply text-left font-primary text-almost-black font-bold text-big w-600px;
+  @apply text-left font-primary text-almost-black font-bold text-big;
 } 
 
 .awp-detail-container .title.investment {
   @apply text-center;
+}
+
+.earned {
+  @apply flex items-center;
 }
 
 /* CompoundAPR */
@@ -839,7 +858,7 @@ p.Ptab {
 }
 
 .exchange-modal .container {
-  @apply flex flex-col items-center my-20px;
+  @apply flex flex-col items-center mt-20px mb-5px;
 }
 
 .exchange-modal .container .input-container {

@@ -15,7 +15,7 @@ import AWP from './charts/AWP';
 
 const PortfolioBreakdown = () => {
   return (
-    <section className="PortfolioBreakdown">
+    <section className="PortfolioBreakdown lg:w-80pc lg:mx-10pc">
       <Tabs defaultIndex={0}>
         <TabList>
           <Tab>AWP++</Tab>

@@ -6,7 +6,7 @@ import Collapsible from 'react-collapsible';
 
 const FAQ = () => {
   return (
-    <div className="faq">
+    <div className="faq lg:w-80pc lg:mx-10pc">
       <div className="title">FAQ</div>
 
       <div className="faq-gradient">
