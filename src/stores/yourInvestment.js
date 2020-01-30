@@ -14,9 +14,9 @@ const yourInvestment = store({
 
   init: async (account) => {
     yourInvestment.account = account;
-
     if (myAccount.awpTransactions && myAccount.awpTransactions.length > 0) {
-      let totalPosition = BigNumber(0);
+      let totalPosition = new BigNumber(0);
+      let largest = new BigNumber(0);
 
       const sorted = myAccount.awpTransactions.sort((a, b) => a.blockNumber - b.blockNumber);
 
@@ -31,12 +31,17 @@ const yourInvestment = store({
 
         totalPosition = totalPosition.plus(awpAmount);
 
-        const totalPositionValue = totalPosition
+        let totalPositionValue = totalPosition
           .multipliedBy(daiPrice)
-          .dividedBy(10 ** 18)
-          .toFixed();
+          .dividedBy(10 ** 18);
 
-        console.log('TPV', totalPositionValue);
+        console.log('TPV', totalPositionValue.toString());
+
+        if (largest.isLessThan(totalPositionValue)) {
+          largest = totalPositionValue;
+        }
+
+        totalPositionValue = totalPositionValue.toFixed(3);
 
         return {
           timestamp,
@@ -45,10 +50,7 @@ const yourInvestment = store({
       });
 
       yourInvestment.data = newData;
-      yourInvestment.chartTop = BigNumber(newData[newData.length - 1].totalPositionValue)
-        .multipliedBy(1.05)
-        .decimalPlaces(0)
-        .toNumber();
+      yourInvestment.chartTop = largest.multipliedBy(1.05).toFixed();
 
       console.log('CHART TOP', yourInvestment.chartTop);
     }

@@ -36,7 +36,8 @@ const YourInvestment = () => (
         <YAxis
           yAxisId="totalPositionValue"
           dataKey="totalPositionValue"
-          domain={[0, yourInvestment.chartTop]}
+          // eslint-disable-next-line radix
+          domain={[0, parseInt(yourInvestment.chartTop)]}
         />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip labelFormatter={formatTimestamp} />
