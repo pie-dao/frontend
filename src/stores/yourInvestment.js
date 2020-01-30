@@ -38,8 +38,6 @@ const yourInvestment = store({
         console.log('TPV', totalPositionValue.toString());
 
         if (largest.isLessThan(totalPositionValue)) {
-          console.log('LARGER');
-          // TODO somehow this assignment is ignored.... know a fix?
           largest = totalPositionValue;
         }
 
