@@ -107,6 +107,7 @@ module.exports = {
       'table-mobile': '0.6rem',
       'label-mobile': '0.5rem',
       'hero-desktop': '9vw',
+      'hero-big-desktop': '8vw',
       'hero-mobile': '16vw',
       'liquidity-amount': '7vw',
       'liquidity-amount-mobile': '20vw',
