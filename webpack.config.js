@@ -43,6 +43,9 @@ module.exports = {
       },
     ],
   },
+  output: {
+    path: path.resolve(__dirname, 'build'),
+  },
   plugins: [
     new CopyWebpackPlugin([
       {
