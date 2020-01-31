@@ -288,6 +288,32 @@ button.buttonModal:disabled {
   @apply text-center w-100pc h-150px break-words; 
 }
 
+@media (min-width: 1200px) {
+  .hero-title {
+  font-size: 9vw;
+  line-height: 8rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-title {
+  font-size: 8vw;
+  line-height: 10rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .textloop {
+  height: 270px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .textloop {
+  height: 350px;
+  }
+}
+
 /* COMPARISON TABLE */
 
 .table-container {
