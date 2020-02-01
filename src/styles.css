@@ -1,0 +1,1110 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+/* Custom css */
+
+/* Global */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  @apply m-0 bg-white font-primary;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+button.btn {
+  @apply min-w-150px mt-10px mb-20px p-20px text-white text-center font-primary font-bold;
+  @apply rounded-5px border-none;
+  transition-property: background-color, color;
+  transition-duration: 0.3s;
+  background: linear-gradient(-60deg, #cb1a8f, #fc02a7);
+}
+
+button.btn:hover {
+  @apply opacity-80 text-white cursor-pointer;
+}
+
+button.btn:focus {
+  outline: none;
+}
+
+button.btn:disabled {
+  @apply bg-grey pointer-events-none;
+}
+
+button.btn.modal {
+  @apply min-w-150px mt-30px mb-20px p-20px text-white text-center font-bold;
+  @apply rounded-5px border-none bg-100pc;
+  transition-property: background-color, color;
+  transition-duration: 0.3s;
+  background: linear-gradient(-60deg, #CB1A8F, #FC02A7);
+}
+
+button.buttonModal:hover {
+  opacity: 0.8;
+  color: #fff;
+  cursor: pointer;
+}
+
+button.buttonModal:focus {
+  outline: none;
+}
+
+button.buttonModal:disabled {
+  pointer-events: none;
+}
+
+.content {
+  @apply flex flex-col items-center w-90pc mx-5pc max-w-1280px;
+}
+
+.hamburger {
+  @apply border-none no-underline p-0 ml-20px;
+  :hover {
+    outline: none;
+  }
+  :focus {
+    outline: none;
+  }
+}
+
+.identicon {
+  @apply h-4 w-4 border-half bg-blue;
+}
+
+.smalltext {
+  @apply font-primary text-center text-almostverysmall font-regular;
+}
+.title {
+  @apply w-100pc my-2pc p-0 text-center font-primary text-black text-ratherbig-mobile font-bolder leading-tight;
+}
+
+.none {
+  display: none;
+}
+
+.normal-text {
+  @apply text-center font-primary text-black text-prettysmall font-light p-0 leading-normal mb-5pc;
+}
+
+.slider-wrapper {
+  @apply w-100pc mt-3pc mr-0 mb-5pc ml-0;
+}
+
+/* TopNavigation */
+
+.nav-container {
+  @apply font-secondary flex py-20px overflow-hidden w-90pc mx-5pc;
+}
+
+.nav-container .left {
+  @apply flex flex-grow items-center;
+}
+
+.nav-container .right {
+  @apply flex flex-grow items-center justify-end;
+}
+
+.nav-container .right .link {
+  @apply text-almost-black no-underline ml-8 text-prettysmall;
+}
+
+.nav-container .right .link:hover {
+  @apply opacity-60;
+}
+
+/* Web3 Connect Button */
+
+.web3button-container {
+  @apply flex text-prettysmall items-center cursor-pointer select-none text-white;
+  @apply text-almostverysmall p-2 rounded border-none ml-8;
+  -webkit-box-align: center;
+  background: linear-gradient(-60deg, #cb1a8f, #fc02a7);
+  flex-flow: row nowrap;
+}
+
+.web3button-container:hover {
+  @apply opacity-80;
+}
+
+.web3button-container p {
+  @apply truncate text-almostverysmall flex-auto mr-2 ml-1;
+}
+
+.web3button-container .icon-container {
+  @apply h-4 w-4 bg-web3-button rounded-50pc;
+}
+
+.web3button-container .icon-container .image-container {
+  @apply rounded-50pc overflow-hidden p-0 m-0 w-15px h-15px inline-block;
+  @apply border-white border-solid border-half;
+}
+
+/* Wallet Option */
+
+.wallet-option-container {
+  @apply flex flex-col justify-center font-secondary items-center bg-white px-10pc;
+}
+
+.wallet-option-container .provider {
+  @apply font-primary text-almost-black text-normal font-bold text-center flex flex-row;
+  @apply justify-center items-center my-20px border-solid border-grey border p-20px rounded-4px;
+  @apply cursor-pointer;
+}
+
+.wallet-option-container .provider img {
+  @apply h-30px mr-10px;
+}
+
+.wallet-option-container .title {
+  @apply font-primary text-almost-black text-medium font-bold text-center;
+}
+
+/* Wallet Modal */
+
+.wallet-modal .error,
+.wallet-modal .pending {
+  @apply flex flex-col justify-center items-center font-secondary bg-white px-2pc;
+}
+
+.wallet-modal .error div {
+  @apply font-primary text-almost-black text-normal font-bold text-center flex flex-row;
+  @apply justify-center items-center my-10px;
+}
+
+.wallet-modal .error img {
+  @apply h-200px mr-10px;
+}
+
+/* Minting Redeeming */
+.liquidity-container {
+  @apply flex flex-col-reverse justify-between content-start my-20px mx-0 py-0 px-5pc;
+}
+/* Left Side of the Page */
+.liquidity-left {
+  @apply w-100pc flex flex-col items-center mt-5pc py-2pc px-5pc rounded-6px bg-anothergrey;
+}
+.tab-navi {
+  @apply flex w-100pc mt-3pc mr-0 mb-5pc ml-0;
+}
+.tab-item {
+  @apply py-5px px-5px mr-15px text-black text-left text-normal font-regular border-0;
+}
+.tab-item.active {
+  @apply border-b-2 border-black font-bolder;
+}
+.liquidity-amount {
+  @apply font-primary text-black text-liquidity-amount-mobile;
+}
+.awp-label {
+  @apply font-primary text-awp-label text-ratherbig font-bolder text-center leading-16 my-5pc mx-0;
+}
+/* Right Side of the Page */
+.liquidity-right {
+  @apply w-100pc flex flex-col justify-between m-0 py-2pc px-0 rounded-6px bg-anothergrey text-center;
+}
+.liquidity-column {
+  @apply py-0 px-5pc flex flex-col justify-start items-center m-0 rounded-6px text-center;
+}
+/* Single Asset Item */
+.single-asset {
+  @apply flex flex-row items-center justify-between bg-white w-100pc rounded-6px border-half border-lightgrey mb-5px;
+}
+.asset-left {
+  @apply flex flex-row items-center;
+}
+.availability {
+  @apply w-20 flex flex-row items-center p-5px rounded-4px ml-10px;
+}
+.availability .icon {
+  @apply h-15px ml-5px;
+}
+.liquidity-label {
+  @apply font-primary text-white text-prettysmall ml-5px;
+}
+.asset-amount {
+  @apply text-left font-primary text-black text-normal font-bold px-10px py-5px m-5px whitespace-no-wrap;
+}
+.asset-weight {
+  @apply text-left font-primary text-white font-bold px-10px py-5px m-10px rounded-4px;
+}
+
+/* HERO */
+
+.hero-section {
+  @apply flex flex-col justify-center items-center content-center text-center pt-0 pr-0 pb-10px pl-0 font-secondary break-words;
+}
+
+.hero-title {
+  @apply font-primary text-black text-hero-mobile font-bolder text-center my-2pc mx-0 break-words leading-16;
+  background: linear-gradient(-60deg, #f10096, #21d7ff);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 3s ease-in-out infinite;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  white-space: initial !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  @keyframes flow {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+.pretitle {
+  @apply p-0 text-center font-primary text-black text-medium-mobile font-bolder leading-loose break-words;
+}
+
+.subtitle {
+  @apply p-0 text-center font-primary text-black text-medium-mobile font-regular leading-none break-words;
+}
+
+.textloop {
+  @apply text-center w-100pc h-150px break-words; 
+}
+
+@media (min-width: 1200px) {
+  .hero-title {
+  font-size: 9vw;
+  line-height: 8rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-title {
+  font-size: 8vw;
+  line-height: 10rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .textloop {
+  height: 270px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .textloop {
+  height: 350px;
+  }
+}
+
+/* COMPARISON TABLE */
+
+.table-container {
+  @apply flex flex-col justify-center mb-5pc w-90pc mx-5pc;
+}
+
+.labels-container {
+  @apply p-px mt-minus-1px mr-0 mb-0 ml-0 text-label-mobile font-secondary;
+}
+
+.labels-portfolio-name {
+  @apply flex items-center w-38pc min-w-38pc;
+}
+
+.labels-initial-amount {
+  @apply flex w-27pc items-center font-regular;
+}
+
+.labels-one-year-gains {
+  @apply flex w-27pc items-center font-regular;
+}
+
+.labels-apy {
+  @apply flex items-center font-regular w-10pc;
+}
+
+.gradient-container {
+  @apply p-px mt-minus-1px mr-0 mb-0 ml-0 text-table-mobile;
+  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+}
+
+.item-container {
+  @apply flex bg-white font-primary p-10px font-regular m-0;
+}
+
+.portfolio-name {
+  @apply flex items-center w-38pc min-w-38pc;
+}
+
+.awp-bold {
+  @apply font-bold;
+}
+
+.icon-container {
+  @apply h-34px mr-10px;
+}
+
+.initial-amount {
+  @apply flex w-27pc items-center font-bold;
+}
+
+.label-black {
+  @apply bg-black text-white rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-green {
+  @apply bg-label-green text-white rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-green-awpgains {
+  @apply bg-label-green text-white rounded-3px py-2px px-3px;
+}
+
+.label-yellow-awpgains {
+  @apply bg-label-yellow text-white rounded-3px py-2px px-3px;
+}
+
+.label-red-awpgains {
+  @apply bg-label-red text-white rounded-3px py-2px px-3px;
+}
+
+.label-yellow {
+  @apply bg-label-yellow text-black rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-red {
+  @apply bg-label-red text-white rounded-3px mr-5px py-2px px-3px;
+}
+
+.label-gradient {
+  @apply text-white rounded-3px ml-5px py-2px px-3px font-bold;
+  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+}
+
+.one-year-gains {
+  @apply flex w-27pc items-center font-bold;
+}
+
+.apy {
+  @apply flex items-center font-bold w-12pc;
+}
+
+.apy-awp {
+  @apply flex items-center font-bold ;
+}
+/* GRADIENT BG SECTION */
+.gradient-bg-section {
+  @apply flex p-10pc justify-center mb-5pc;
+  background: linear-gradient(to right, #ffe2fa 0%, #cceff3 100%);
+}
+
+.gradiebg-bg-text {
+  @apply font-primary text-black text-ratherbig-mobile font-bold text-left;
+}
+
+/* GRADIENT  QUOTE  */
+.gradient-quote-container {
+  @apply flex flex-col p-5pc justify-center my-2pc;
+}
+
+.quote {
+  @apply font-primary text-black text-center text-ratherbig-mobile font-bolder;
+  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.author {
+  @apply font-primary text-ratherbig-mobile text-black font-bold text-center italic mt-2pc;
+}
+
+/* AWW EXPLAINER */
+
+.awp-explainer {
+  @apply flex flex-col content-center items-center my-5pc mx-0 p-0;
+}
+
+.awp-box {
+  @apply w-100pc flex flex-col items-center content-center justify-center p-0 m-0;
+}
+
+/* .awp-crypto {
+  @apply w-100pc h-400px p-0 m-0;
+  background-image: url('../src/assets/img/awpcrypto-mobile.png');
+  background-position: center;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.awp-crypto.awpc-desktop {
+  background-image: url('../src/assets/img/awpcrypto.png');
+} */
+
+.awp-crypto {
+  @apply w-100pc p-0 m-0;
+}
+
+.awp-content{
+  @apply flex flex-col items-center content-center justify-center w-90pc mx-5pc py-10pc px-0 max-h-400px mb-10pc overflow-hidden;
+}
+
+/* WHITEPAPER SECTION */
+
+.whitepaper-container {
+  @apply flex flex-col content-center justify-center items-center font-primary bg-white w-90pc mx-5pc py-5pc text-ratherbig-mobile text-center my-0 flex-wrap;
+}
+
+.whitepaper-link {
+  color: #f10096;
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-10deg);
+  }
+  20% {
+    transform: rotate(12deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(9deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.whitepaper-icon {
+  @apply text-ratherbig font-bolder text-center mt-10px;
+}
+
+.urgency {
+  @apply flex items-center;
+}
+
+
+/* NEWSLETTER SECTION */
+
+.newsletter{
+  @apply flex flex-col content-center justify-center items-center font-primary bg-white w-100pc py-5pc px-5pc text-normal text-center m-0 flex-wrap;
+  background: linear-gradient(to right, #ffe2fa 0%, #cceff3 100%);
+
+} 
+
+.newsletter-form{
+  @apply flex flex-col items-center justify-center text-center;
+} 
+
+.newsletter-input {
+  @apply min-w-300px border-none rounded-4px p-20px mt-30px text-prettysmall flex-grow;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  ::placeholder {
+    color: var(--medium-grey);
+    font-size: var(--text-prettysmall);
+    text-align: center;
+  }
+  :focus {
+    outline: none !important;
+    border: 1px solid var(--almost-black);
+    box-shadow: 0 0 10px var(--white);
+    font-size: var(--text-prettysmall);
+  }
+  :focus::placeholder {
+    color: transparent;
+  }
+}
+
+/* FAQ SECTION */
+
+.faq {
+  @apply flex flex-col font-secondary pt-5pc pr-0 pb-5pc pl-0 w-90pc mx-5pc;
+}
+
+.faq-gradient {
+  @apply flex-col w-100pc text-medium-mobile;
+  background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);
+  margin: -1px 0 0 0;
+}
+.faq-item {
+  @apply flex bg-white p-10px font-primary font-regular font-bold m-px;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.faq-item p{
+  @apply font-regular;
+}
+
+/* PORTFOLIO BREAKDOWN */
+.PortfolioBreakdown {
+  @apply w-90pc mx-5pc;
+}
+
+.portfolio-container {
+  @apply flex flex-col content-center items-center overflow-hidden;
+}
+
+.portfolio-content {
+  @apply flex w-auto;
+}
+
+/* TAB NAVIGATION */
+
+p.Ptab {
+  font-weight: 300;
+  font-size: var(--text-medium);
+  text-align: left;
+}
+
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.react-tabs__tab-list {
+  border-bottom: 1px solid #d6d6d6;
+  margin: 0 0 30px;
+  padding: 0;
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: -1px;
+  position: relative;
+  list-style: none;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.react-tabs__tab--selected {
+  background: #fff;
+  border-color: #d6d6d6;
+  color: black;
+  border-radius: 5px 5px 0 0;
+  font-weight: 700;
+}
+
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+
+.react-tabs__tab:focus {
+  outline: none;
+}
+
+.react-tabs__tab:focus:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  left: -4px;
+  right: -4px;
+  bottom: -5px;
+  background: #fff;
+}
+
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+}
+
+  /* CUSTOM */
+
+.noborder {
+  border:none;
+  padding-inline-start: 0;
+}
+
+.noborder li {
+  border:none;
+  padding-inline-start: 0;
+}
+
+.lightWeight {
+  font-weight: 300;
+}
+
+@media screen and (max-width: 768px) {
+  .react-tabs__tab {
+    padding: 8px 14px;
+  }
+
+  p.Ptab {
+    font-weight: 300;
+    font-size: var(--text-medium-mobile);
+    text-align: left;
+  }
+}
+
+/* RC-Slider */
+.rc-slider {
+  position: relative;
+  height: 20px;
+  padding: 5px 0;
+  width: 100%;
+  border-radius: 6px;
+  touch-action: none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: #c7c7c7;
+}
+
+.rc-slider {
+  position: relative;
+  height: 24px;
+  padding: 5px 0;
+  width: 100%;
+  border-radius: 6px;
+  touch-action: none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: #c7c7c7;
+}
+
+.rc-slider-rail {
+  height: 8px;
+  border-radius: 6px;
+  background-color: #c7c7c7;
+}
+
+.rc-slider-track {
+  position: absolute;
+  left: 0;
+  height: 8px;
+  border-radius: 6px;
+  margin-top: -8px;
+  background-color: #ff00a8;
+}
+
+.rc-slider-handle {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  cursor: -webkit-grab;
+  margin-top: -16px;
+  cursor: grab;
+  border-radius: 50%;
+  border: solid 2px #ff00a8;
+  background-color: #fff;
+  touch-action: pan-x;
+}
+
+.rc-slider-handle:hover {
+  border-color: #ff00a8;
+}
+
+.rc-slider-handle:active {
+  border-color: #ff00a8;
+  box-shadow: 0 0 2px #ff00a8;
+  cursor: grabbing;
+}
+
+.rc-slider-handle:focus {
+  border-color: #ff00a8;
+  box-shadow: 0 0 0 1px #ff00a8;
+  outline: none;
+}
+
+/* HeroSection */ 
+
+.rc-slider-handle:hover {
+  border-color: #ff00a8;
+}
+
+.rc-slider-handle:active {
+  border-color: #ff00a8;
+  box-shadow: 0 0 2px #ff00a8;
+  cursor: grabbing;
+}
+
+.rc-slider-handle:focus {
+  border-color: #ff00a8;
+  box-shadow: 0 0 0 1px #ff00a8;
+  outline: none;
+}
+
+/* AWPDetail */
+
+.awp-detail-container {
+  @apply flex flex-row items-center my-20px justify-between w-90pc mx-5pc;
+}
+
+.awp-detail-container .row {
+  @apply flex flex-row justify-between items-center w-260px mt-10px;
+}
+
+.awp-detail-container .row span {
+  @apply pr-5px;
+}
+
+.awp-detail-container .left {
+  @apply flex flex-col items-center m-0 flex-grow;
+}
+
+.awp-detail-container .right {
+  @apply flex flex-col items-center justify-center m-0 flex-grow pb-30px;
+}
+
+.awp-detail-container .text {
+  @apply text-left font-primary text-almost-black text-normal font-light p-0 leading-normal;
+}
+
+.awp-detail-container .title {
+  @apply text-left font-primary text-almost-black font-bold text-big;
+} 
+
+.awp-detail-container .title.investment {
+  @apply text-center;
+}
+
+.earned {
+  @apply flex items-center;
+}
+
+/* CompoundAPR */
+
+.compound-apr-container .placeholder {
+  @apply mt-5px mr-30px mb-20px ml-5px w-600px h-300px;
+}
+
+/* TransactionsTable */
+
+.transactions-table-container {
+  @apply w-100pc flex flex-col p-0 font-secondary bg-grey-light;
+}
+
+.transactions-table-container .title {
+  @apply text-center font-primary text-almost-black text-big font-bold my-5pc;
+}
+
+.transactions-table-container .transactions {
+  @apply flex flex-col justify-center items-center font-secondary;
+}
+
+.transactions-table-container .transaction {
+  @apply w-90pc mt-10px py-2pc px-5pc rounded-4px flex flex-col bg-white font-primary;
+  @apply text-prettysmall font-light no-underline text-almost-black;
+}
+
+.transactions-table-container .transaction .top {
+  @apply w-100pc;
+}
+
+.transactions-table-container .transaction .bottom {
+  @apply w-100pc flex flex-row items-center mt-10px;
+}
+
+.transactions-table-container .transaction .icon-container {
+  @apply w-70px h-70px mr-10px text-web3-button rounded-50pc;
+}
+
+.transactions-table-container .transaction .image-container {
+  @apply rounded-50pc overflow-hidden p-0 m-0 w-70px h-70px inline-block;
+}
+
+.transactions-table-container .transaction .identicon {
+  @apply rounded-30px w-70px h-70px;
+}
+
+.transactions-table-container .transaction .right {
+  @apply flex flex-col flex-grow;
+}
+
+.transactions-table-container .transaction .row {
+  @apply flex flex-row justify-between items-center;
+}
+
+.transactions-table-container .transaction .name {
+  @apply text-medium font-primary;
+}
+
+.transactions-table-container .transaction .awp-value {
+  @apply text-medium;
+}
+
+.transactions-table-container .transaction .state {
+  @apply text-almost-black mt-10px;
+}
+
+.transactions-table-container .transaction .color-label {
+  @apply bg-green text-white font-primary py-3px px-6px rounded-4px;
+}
+
+/* ExchangeModal */
+
+.exchange-modal .title {
+  @apply w-100pc text-center font-primary text-almost-black text-big font-bold;
+}
+
+.exchange-modal .text {
+  @apply w-100pc text-left font-primary text-almost-black text-normal font-light p-0;
+  @apply leading-normal;
+}
+
+.exchange-modal .uniswap-credit {
+  @apply text-center w-100pc font-primary text-almost-black text-prettysmall font-light;
+}
+
+.exchange-modal .container {
+  @apply flex flex-col items-center mt-20px mb-5px;
+}
+
+.exchange-modal .container .input-container {
+  @apply flex flex-col items-center p-15px border border-solid border-grey-dark rounded-4px;
+  @apply w-100pc;
+}
+
+.exchange-modal .container .input-container.error {
+  @apply border-red;
+}
+
+.exchange-modal .container .top {
+  @apply flex justify-between items-center w-100pc text-prettysmall font-light;
+}
+
+.exchange-modal .container .bottom {
+  @apply flex justify-between items-center w-100pc;
+}
+
+.exchange-modal .container .left {
+  @apply flex flex-grow;
+}
+
+.exchange-modal .container .right {
+  @apply flex;
+}
+
+.exchange-modal .container .arrow {
+  @apply flex flex-col items-center my-20px;
+}
+
+.exchange-modal .container .btn-uniswap {
+  @apply items-center text-onerem text-almost-black h-8 bg-white cursor-pointer select-none;
+  @apply border border-solid border-grey-darkish rounded-md px-10px font-primary;
+  border-image: initial;
+  outline: currentcolor none medium;
+}
+
+.exchange-modal .container .btn-uniswap .btn-content {
+  @apply flex items-center justify-between;
+}
+
+.exchange-modal .container .btn-uniswap .btn-content img {
+  @apply w-4 h-4 mr-5px;
+}
+
+.exchange-modal .input-container .left input {
+  @apply flex flex-grow min-w-300px p-10px shadow-none m-0 text-medium;
+  border: medium none;
+}
+
+.exchange-modal .exchange-rate-label {
+  @apply flex flex-col items-center py-5px px-15px rounded-4px bg-almost-black text-white w-100pc;
+}
+
+.exchange-modal .slippage-label {
+  @apply flex flex-col items-center pt-10px px-15px bg-white text-almost-black w-100pc;
+}
+
+
+/* MOBILE MENU */
+
+.mobile {
+  display: none !important;
+}
+
+/* Overlay style */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.9);
+  font-family: "Rubik", sans-serif;
+  text-decoration: none;
+  z-index: 99;
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  overflow: hidden;
+  border: none;
+  /* background-color: black; */
+  background: url(./assets/img/close.svg) no-repeat center center;
+  text-indent: 200%;
+  color: transparent;
+  outline: none;
+  z-index: 101;
+}
+
+/* Menu style */
+.overlay nav {
+  text-align: center;
+  position: relative;
+  top: 60%;
+  /* height: 60%; */
+  font-size: 1.2rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-decoration: none;
+}
+
+.overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  height: 100%;
+  position: relative;
+}
+
+.overlay ul li {
+  display: block;
+  height: 20%;
+  height: calc(100% / 5);
+  min-height: 54px;
+}
+
+.overlay ul li a {
+  font-weight: 300;
+  display: block;
+  color: #fff;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.overlay ul li a:hover,
+.overlay ul li a:focus {
+  color: #ffffff;
+}
+
+.buyCryptoButton {
+  font-weight: 700;
+  display: block;
+  color: #000;
+  text-decoration: none;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 2px;
+}
+
+.buyCryptoButton:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+
+/* Effects */
+.overlay-hugeinc {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+  transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+.overlay-hugeinc.open {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.overlay-hugeinc nav {
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+}
+
+.overlay-hugeinc nav ul {
+  opacity: 0.4;
+  -webkit-transform: translateY(-25%) rotateX(35deg);
+  transform: translateY(-25%) rotateX(35deg);
+  -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.overlay-hugeinc.open nav ul {
+  opacity: 1;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.overlay-hugeinc.close nav ul {
+  -webkit-transform: translateY(25%) rotateX(-35deg);
+  transform: translateY(25%) rotateX(-35deg);
+}
+
+@media screen and (max-height: 30.5em) {
+  .overlay nav {
+    height: 70%;
+    font-size: 20px;
+  }
+  .overlay ul li {
+    min-height: 20px;
+  }
+}
+
+@media only screen and (max-device-width: 480px) {
+  .overlay nav {
+    height: 100%;
+  }
+
+  .overlay ul li {
+    min-height: 3em;
+    height: 4em;
+  }
+
+  .overlay {
+    overflow: scroll;
+    padding-bottom: 6em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mobile {
+    display: block !important;
+  }
+}
