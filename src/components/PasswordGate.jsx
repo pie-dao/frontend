@@ -9,8 +9,6 @@ let hashedPassword;
 let password;
 let passwordCorrect;
 
-const enviroment = 'development';
-// enviroment = 'production';
 const solution = '0xfe9341a416aec42a2819008f03768af71d3a13521a29b654903cc31a8064bb67';
 
 if (!localStorage.skipCheck) {
@@ -24,7 +22,7 @@ if (passwordCorrect) {
 }
 
 const PasswordGate = ({ children }) => {
-  if (passwordCorrect || enviroment === 'development' || localStorage.skipCheck) {
+  if (passwordCorrect || localStorage.skipCheck) {
     return <>{children}</>;
   }
 
