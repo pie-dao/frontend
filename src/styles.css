@@ -244,7 +244,7 @@ button.buttonModal:disabled {
 }
 
 .hero-title {
-  @apply font-primary text-black text-hero-mobile font-bolder text-center my-2pc mx-0 break-words leading-16;
+  @apply font-primary text-black text-hero-mobile font-bolder text-center my-2pc mx-0 break-words leading-24;
   background: linear-gradient(-60deg, #f10096, #21d7ff);
   background-size: 300%;
   -webkit-background-clip: text;
@@ -276,16 +276,24 @@ button.buttonModal:disabled {
   }
 }
 
-.pretitle {
-  @apply p-0 text-center font-primary text-black text-medium-mobile font-bolder leading-loose break-words;
+@media (min-width: 600px) {
+  .hero-title {
+  font-size: 15vw;
+  line-height: 8rem;
+  }
 }
 
-.subtitle {
-  @apply p-0 text-center font-primary text-black text-medium-mobile font-regular leading-none break-words;
+@media (min-width: 820px) {
+  .hero-title {
+  line-height: 9rem;
+  }
 }
 
-.textloop {
-  @apply text-center w-100pc h-150px break-words; 
+@media (min-width: 1000px) {
+  .hero-title {
+  font-size: 14vw;
+  line-height: 10rem;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -302,9 +310,40 @@ button.buttonModal:disabled {
   }
 }
 
-@media (min-width: 1200px) {
+.pretitle {
+  @apply p-0 text-center font-primary text-black text-medium-mobile font-bolder leading-loose break-words;
+}
+
+.subtitle {
+  @apply p-0 text-center font-primary text-black text-medium-mobile font-regular leading-none break-words;
+}
+
+.textloop {
+  @apply text-center w-100pc h-210px break-words; 
+}
+
+@media (min-width: 600px) {
   .textloop {
-  height: 270px;
+  height: 280px;
+  }
+}
+
+@media (min-width: 820px) {
+  .textloop {
+  height: 320px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .textloop {
+  height: 320px;
+  }
+}
+
+
+@media (min-width: 1400px) {
+  .textloop {
+  height: 320px;
   }
 }
 
