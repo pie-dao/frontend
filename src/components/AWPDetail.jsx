@@ -42,7 +42,7 @@ const AWPDetail = (props) => {
         <div className="awp-detail-right">
           <Unless condition={myAccount.awpTransactions && myAccount.awpTransactions.length > 0}>
             <h1 className="title lg:text lg:text-left">DeFi is more than Lending</h1>
-            <div className="text lg:text-center">
+            <div className="text lg:text-left">
               AWP++ is a buy-and-hold tokenized portfolio with diversified exposure
               to equity, commodities,T-bills (20y/3y), Crypto & DeFi Tokens.
               The portfolio uses synthetic tokens based on
