@@ -958,7 +958,7 @@ p.Ptab {
 
 .exchange-modal .container .btn-uniswap {
   @apply items-center text-onerem text-almost-black h-8 bg-white cursor-pointer select-none;
-  @apply border border-solid border-grey-darkish rounded-md px-10px font-primary;
+  @apply border border-solid border-grey-darkish rounded-md pl-10px pr-28px font-primary;
   border-image: initial;
   outline: currentcolor none medium;
 }
@@ -972,7 +972,7 @@ p.Ptab {
 }
 
 .exchange-modal .input-container .left input {
-  @apply flex flex-grow min-w-300px p-10px shadow-none m-0 text-medium;
+  @apply flex flex-grow p-10px shadow-none m-0 text-medium w-100pc;
   border: medium none;
 }
 
