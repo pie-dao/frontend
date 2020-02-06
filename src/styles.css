@@ -107,7 +107,7 @@ button.buttonModal:disabled {
 /* TopNavigation */
 
 .nav-container {
-  @apply font-secondary flex py-20px overflow-hidden w-90pc mx-5pc;
+  @apply font-secondary flex py-20px overflow-hidden w-96pc m-auto max-w-1280px;
 }
 
 .nav-container .left {
@@ -861,7 +861,7 @@ p.Ptab {
 }
 
 .transactions-table-container .transactions {
-  @apply flex flex-col justify-center items-center font-secondary;
+  @apply flex flex-col justify-center items-center font-secondary w-100pc;
 }
 
 .transactions-table-container .transaction {
