@@ -240,7 +240,7 @@ const fetchData = async () => {
   const daiSpent = newData.awpTransactions.reduce(reducer, BigNumber(0));
   const ethPrice = BigNumber(newData.daiXTokenBalance).dividedBy(newData.daiXETHBalance);
   const awpXDaiBalance = BigNumber(newData.awpXETHBalance).multipliedBy(ethPrice);
-  const awpPrice = BigNumber(newData.awpXTokenBalance).dividedBy(awpXDaiBalance);
+  const awpPrice = BigNumber(awpXDaiBalance).dividedBy(newData.awpXTokenBalance);
   const awpBalanceInDai = BigNumber(newData.awpBalance).multipliedBy(awpPrice);
 
   newData.awpBalanceInDai = awpBalanceInDai.toFixed();
