@@ -1153,3 +1153,12 @@ p.Ptab {
     display: block !important;
   }
 }
+
+/* CHARTS */
+.recharts-text {
+  font-size: 0.7rem;
+}
+
+.recharts-legend-item {
+  font-size: 0.8rem;
+}
