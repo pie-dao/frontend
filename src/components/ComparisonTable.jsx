@@ -47,7 +47,7 @@ const ComparisonTable = () => {
           <div className="portfolio-name lg:w-36pc">
             <img
               className="icon-container"
-              src="../assets/img/portfolio_02.png"
+              src="../assets/img/awp-regular.png"
               alt="portfolio logo"
             />
             AWP
