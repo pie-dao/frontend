@@ -63,7 +63,7 @@ button.buttonModal:disabled {
 }
 
 .content {
-  @apply flex flex-col items-center w-90pc mx-5pc max-w-1280px;
+  @apply flex flex-col items-center w-96pc m-auto max-w-1280px;
 }
 
 .hamburger {
@@ -803,7 +803,7 @@ p.Ptab {
 /* AWPDetail */
 
 .awp-detail-container {
-  @apply flex flex-row items-center my-20px justify-between w-90pc mx-5pc;
+  @apply flex flex-col items-center my-20px justify-between w-90pc mx-5pc;
 }
 
 .awp-detail-container .row {
@@ -814,20 +814,20 @@ p.Ptab {
   @apply pr-5px;
 }
 
-.awp-detail-container .left {
+.awp-detail-left {
   @apply flex flex-col items-center m-0 flex-grow;
 }
 
-.awp-detail-container .right {
+.awp-detail-right {
   @apply flex flex-col items-center justify-center m-0 flex-grow pb-30px;
 }
 
 .awp-detail-container .text {
-  @apply text-left font-primary text-almost-black text-normal font-light p-0 leading-normal;
+  @apply text-center font-primary text-almost-black text-normal font-light p-0 leading-normal;
 }
 
 .awp-detail-container .title {
-  @apply text-left font-primary text-almost-black font-bold text-big;
+  @apply text-center font-primary text-almost-black font-bold text-big;
 } 
 
 .awp-detail-container .title.investment {

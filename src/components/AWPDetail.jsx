@@ -28,8 +28,8 @@ const AWPDetail = (props) => {
 
   return (
     <section className="content">
-      <div className="awp-detail-container">
-        <div className="left">
+      <div className="awp-detail-container lg:flex-row">
+        <div className="awp-detail-left">
           <If condition={accountReady}>
             <YourInvestment {...props} account={account} />
           </If>
@@ -39,10 +39,10 @@ const AWPDetail = (props) => {
           </Unless>
         </div>
 
-        <div className="right">
+        <div className="awp-detail-right">
           <Unless condition={myAccount.awpTransactions && myAccount.awpTransactions.length > 0}>
-            <h1 className="title">DeFi is more than Lending</h1>
-            <div className="text">
+            <h1 className="title lg:text lg:text-left">DeFi is more than Lending</h1>
+            <div className="text lg:text-center">
               AWP++ is a buy-and-hold tokenized portfolio with diversified exposure
               to equity, commodities,T-bills (20y/3y), Crypto & DeFi Tokens.
               The portfolio uses synthetic tokens based on
@@ -54,8 +54,8 @@ const AWPDetail = (props) => {
           </Unless>
 
           <If condition={myAccount.awpTransactions && myAccount.awpTransactions.length > 0}>
-            <h1 className="title investment">Your Investment</h1>
-            <div className="your-balance text">
+            <h1 className="title investment lg:text-left">Your Investment</h1>
+            <div className="your-balance text lg:text-center">
               <div className="row">
                 <div>Value</div>
                 <div className="earned">
