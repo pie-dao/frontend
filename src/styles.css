@@ -249,29 +249,21 @@ button.buttonModal:disabled {
   @apply flex flex-col justify-center items-center content-center text-center pt-0 pr-0 pb-10px pl-0 font-secondary break-words;
 }
 
+
 .hero-title {
-  @apply font-primary text-black text-hero-mobile font-bolder text-center my-2pc mx-0 break-words leading-24;
-  background: linear-gradient(-60deg, #f10096, #21d7ff);
+  @apply font-primary text-black text-center; 
+  font-size: 9vw;
+  font-weight: 700;
+  text-align: center;
+  background: #fc02a7;
+  background: linear-gradient(-60deg, #F10096, #21D7FF);
   background-size: 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: flow 3s ease-in-out infinite;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  white-space: initial !important;
-  overflow-wrap: break-word;
   word-wrap: break-word;
-  -ms-word-break: break-all;
-  /* This is the dangerous one in WebKit, as it breaks things wherever */
-  word-break: break-all;
-  /* Instead use this non-standard one: */
-  word-break: break-word;
-
-  /* Adds a hyphen where the word breaks, if supported (No Blink) */
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
   @keyframes flow {
     0% {
       background-position: 0 50%;
@@ -282,37 +274,71 @@ button.buttonModal:disabled {
   }
 }
 
-@media (min-width: 600px) {
+@media (max-width: 374px) {
   .hero-title {
-  font-size: 15vw;
-  line-height: 8rem;
+    font-size: 50px;
+    line-height: 56px;  }
+  
+  .textloop {
+      height: 120px;
+    }
+}
+
+@media (min-width: 375px) {
+  .hero-title {
+    font-size: 60px;
+    line-height: 62px;  }
+
+    .textloop {
+      height: 150px;
+    }
+}
+
+@media (min-width: 500px) {
+  .hero-title {
+    font-size: 80px;
+    line-height: 78px;
+  }
+
+  .textloop {
+    height: 180px;
   }
 }
 
-@media (min-width: 820px) {
+@media (min-width: 720px) {
   .hero-title {
-  line-height: 9rem;
+    font-size: 90px;
+    line-height: 90px;
+  }
+  .textloop {
+    height: 200px;
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 900px) {
   .hero-title {
-  font-size: 14vw;
-  line-height: 10rem;
+    font-size: 100px;
+    line-height: 100px;  }
+  .textloop {
+    height: 220px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1300px) {
   .hero-title {
-  font-size: 9vw;
-  line-height: 8rem;
+    font-size: 100px;
+    line-height: 100px;  }
+  .textloop {
+    height: 220px;
   }
 }
 
 @media (min-width: 1600px) {
   .hero-title {
-  font-size: 8vw;
-  line-height: 10rem;
+    font-size: 110px;
+    line-height: 110px;  }
+  .textloop {
+    height: 240px;
   }
 }
 
@@ -324,40 +350,12 @@ button.buttonModal:disabled {
   @apply p-0 text-center font-primary text-black text-medium-mobile font-regular leading-none break-words;
 }
 
+
 .textloop {
-  @apply text-center w-100pc h-210px break-words; 
-}
-
-@media (min-width: 600px) {
-  .textloop {
-  height: 280px;
-  }
-}
-
-@media (min-width: 820px) {
-  .textloop {
-  height: 320px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .textloop {
-  height: 320px;
-  }
+  text-align: center;
 }
 
 
-@media (min-width: 1400px) {
-  .textloop {
-  height: 320px;
-  }
-}
-
-@media (min-width: 1600px) {
-  .textloop {
-  height: 350px;
-  }
-}
 
 /* COMPARISON TABLE */
 
@@ -788,7 +786,7 @@ p.Ptab {
   outline: none;
 }
 
-/* HeroSection */ 
+/* rc slider */ 
 
 .rc-slider-handle:hover {
   border-color: #ff00a8;
