@@ -28,7 +28,7 @@ const AWPDetail = (props) => {
 
   return (
     <section className="content">
-      <div className="awp-detail-container lg:flex-row">
+      <div className="awp-detail-container lg:flex-row w-100pc px-0 mx-0">
         <div className="awp-detail-left">
           <If condition={accountReady}>
             <YourInvestment {...props} account={account} />
