@@ -17,8 +17,29 @@ const data01 = [
   { name: 'REN', value: 11.1 },
   { name: 'LINK', value: 11.1 },
 ];
+
+const getChartSize = () => {
+  if (window.innerWidth <= 410) {
+    return {
+      size: {
+        w: 320,
+        h: 360,
+      },
+    };
+  }
+  return {
+    size: {
+      w: 400,
+      h: 360,
+    },
+  };
+};
+
 const DeFi = () => (
-  <PieChart width={400} height={400}>
+  <PieChart
+    width={getChartSize().size.w}
+    height={getChartSize().size.h}
+  >
     <Pie
       dataKey="value"
       isAnimationActive="true"
