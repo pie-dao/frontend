@@ -16,7 +16,7 @@ const HeroSection = () => {
     <div className="hero-section lg:pb-30px">
       <div className="content lg:w-90pc lg:mx-5pc lg:max-w-800px">
         <div className="pretitle lg:text-big">
-          What is you could invest like
+          What if you could invest like
         </div>
 
         <TextLoop

@@ -31,69 +31,71 @@ const AddRemoveLiquidity = () => {
   const max = sliderMax();
 
   return (
-    <div className="liquidity-container lg:flex-row">
-      <div className="liquidity-left lg:w-auto lg:m-0">
-        <div className="tab-navi">
-          <div className={tab === 'add' ? 'tab-item active' : 'tab-item'} onClick={selectAdd}>
-            Add Liquidity
+    <section className="content">
+      <div className="liquidity-container lg:flex-row lg:w-94pc">
+        <div className="liquidity-left lg:w-auto lg:m-0 lg:min-w-300px">
+          <div className="tab-navi">
+            <div className={tab === 'add' ? 'tab-item active' : 'tab-item'} onClick={selectAdd}>
+              Add Liquidity
+            </div>
+            <div
+              className={tab === 'remove' ? 'tab-item active' : 'tab-item'}
+              onClick={selectRemove}
+            >
+              Remove Liquidity
+            </div>
           </div>
-          <div
-            className={tab === 'remove' ? 'tab-item active' : 'tab-item'}
-            onClick={selectRemove}
-          >
-            Remove Liquidity
+          <div className="liquidity-amount lg:text-liquidity-amount">
+            {slider[tab]}
           </div>
-        </div>
-        <div className="liquidity-amount lg:text-liquidity-amount">
-          {slider[tab]}
-        </div>
-        <div className="awp-label lg:text-big lg:leading-none lg:m-0">AWP++</div>
-        <div className="slider-wrapper">
-          <Slider
-            min={0}
-            max={max}
-            step={0.1}
-            onChange={addRemoveLiquidity.sliderChange}
-            value={slider[tab]}
-            vertical={false}
-          />
-        </div>
+          <div className="awp-label lg:text-big lg:leading-none lg:m-0">AWP++</div>
+          <div className="slider-wrapper">
+            <Slider
+              min={0}
+              max={max}
+              step={0.1}
+              onChange={addRemoveLiquidity.sliderChange}
+              value={slider[tab]}
+              vertical={false}
+            />
+          </div>
 
-        <button onClick={buttonClick} type="button" className="btn">
-          {tab === 'add' ? 'Add ' : 'Remove '}
-          Liquidity
-        </button>
-      </div>
-      <div className="liquidity-right lg:w-64pc lg:tex-left lg:flex-row">
-        <div className="liquidity-column lg:items-start lg:text-left ">
-          <h1 className="title lg:text-left lg:text-big">Liquidity Breakdown</h1>
-          <AwpLight />
-          <div className="normal-text lg:m-0 lg:text-left">
-            We backtested the All Weather Portfolio and the AWP++ against DeFi
-            Landing in the last 12 months. Don&apos;t take our word for it. Have a
-            look at the chart on the left.
+          <button onClick={buttonClick} type="button" className="btn">
+            {tab === 'add' ? 'Add ' : 'Remove '}
+            Liquidity
+          </button>
+        </div>
+        <div className="liquidity-right lg:w-auto lg:ml-2pc lg:tex-left lg:flex-row lg:flex-grow">
+          <div className="liquidity-column lg:items-start lg:text-left lg:pl-3pc lg:pr-1pc lg:max-w-300px">
+            <h1 className="title lg:text-left lg:text-big py-2pc">Liquidity Breakdown</h1>
+            <AwpLight />
+            <div className="normal-text lg:m-0 lg:text-left py-2pc">
+              We backtested the All Weather Portfolio and the AWP++ against DeFi
+              Landing in the last 12 months. Don&apos;t take our word for it. Have a
+              look at the chart on the left.
+            </div>
+          </div>
+          <div className="liquidity-column lg:flex-grow lg:pl-2pc lg:pr-3pc">
+            <SingleAsset token="tlt" />
+            <SingleAsset token="vti" />
+            <SingleAsset token="iei" />
+            <SingleAsset token="gld" />
+            <SingleAsset token="gsg" />
+
+            <SingleAsset token="btc" />
+            <SingleAsset token="eth" />
+            <SingleAsset token="link" />
+            <SingleAsset token="zrk" />
+            <SingleAsset token="snx" />
+            <SingleAsset token="ren" />
+            <SingleAsset token="lrc" />
+            <SingleAsset token="knc" />
+            <SingleAsset token="bnt" />
+            <SingleAsset token="mln" />
           </div>
         </div>
-        <div className="liquidity-column lg:flex-grow">
-          <SingleAsset token="tlt" />
-          <SingleAsset token="vti" />
-          <SingleAsset token="iei" />
-          <SingleAsset token="gld" />
-          <SingleAsset token="gsg" />
-
-          <SingleAsset token="btc" />
-          <SingleAsset token="eth" />
-          <SingleAsset token="link" />
-          <SingleAsset token="zrk" />
-          <SingleAsset token="snx" />
-          <SingleAsset token="ren" />
-          <SingleAsset token="lrc" />
-          <SingleAsset token="knc" />
-          <SingleAsset token="bnt" />
-          <SingleAsset token="mln" />
-        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

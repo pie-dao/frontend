@@ -34,10 +34,10 @@ const ComparisonTable = () => {
             10,000
           </div>
           <div className="one-year-gains">
-            <div className="label-yellow">+ 2,770</div>
+            <div className="label-yellow">+ $ 3,049</div>
           </div>
           <div className="apy lg:w-12pc">
-            <div className="label-green">28.21%</div>
+            <div className="label-green">30.49%</div>
           </div>
         </div>
       </div>
@@ -47,7 +47,7 @@ const ComparisonTable = () => {
           <div className="portfolio-name lg:w-36pc">
             <img
               className="icon-container"
-              src="../assets/img/portfolio_02.png"
+              src="../assets/img/awp-regular.png"
               alt="portfolio logo"
             />
             AWP
@@ -57,7 +57,7 @@ const ComparisonTable = () => {
             10,000
           </div>
           <div className="one-year-gains">
-            <div className="label-yellow">+ 2,770</div>
+            <div className="label-yellow">+ $ 2,770</div>
           </div>
           <div className="apy lg:w-12pc">
             <div className="label-green">18.22%</div>
@@ -80,10 +80,10 @@ const ComparisonTable = () => {
             10,000
           </div>
           <div className="one-year-gains">
-            <div className="label-yellow">+ 1,822</div>
+            <div className="label-yellow">+ $ 1,786</div>
           </div>
           <div className="apy lg:w-12pc">
-            <div className="label-green">17.59%</div>
+            <div className="label-green">17.86%</div>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@ const ComparisonTable = () => {
             10,000
           </div>
           <div className="one-year-gains">
-            <div className="label-yellow">+ 1,820</div>
+            <div className="label-yellow">+ $ 1,820</div>
           </div>
           <div className="apy lg:w-12pc">
             <div className="label-green">6.60%</div>
@@ -126,7 +126,7 @@ const ComparisonTable = () => {
             10,000
           </div>
           <div className="one-year-gains">
-            <div className="label-red">- 498</div>
+            <div className="label-red">- $ 498</div>
           </div>
           <div className="apy lg:w-12pc">
             <div className="label-red">4.98%</div>

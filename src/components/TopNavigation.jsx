@@ -28,7 +28,7 @@ const TopNavigation = ({ links, images }) => {
     <div className="nav-container">
       <div className="left">
         <Link onClick={navbar} to="/">
-          <img src={logo} className="h-30px lg:h-50px" alt="Logo" />
+          <img src={logo} height="30" width="auto" className="h-30px lg:h-50px" alt="Logo" />
         </Link>
       </div>
       <div className="right">
@@ -65,7 +65,7 @@ const TopNavigation = ({ links, images }) => {
           type="button"
           onClick={topNavigationStore.toggle}
         >
-          <img src="./assets/img/hamburgerIcon.svg" height="19" alt="hamburger icon" />
+          <img src="./assets/img/hamburgerIcon.svg" height="19" alt="hamburger icon" className="w-min-20px" />
         </button>
         {mobileMenuVisible && (
           <div className="overlay overlay-hugeinc open">

@@ -20,6 +20,11 @@ body {
   scroll-behavior: smooth;
 }
 
+.pointer {
+  @apply cursor-pointer;
+
+}
+
 button.btn {
   @apply min-w-150px mt-10px mb-20px p-20px text-white text-center font-primary font-bold;
   @apply rounded-5px border-none;
@@ -63,7 +68,7 @@ button.buttonModal:disabled {
 }
 
 .content {
-  @apply flex flex-col items-center w-90pc mx-5pc max-w-1280px;
+  @apply flex flex-col items-center w-96pc m-auto max-w-1280px;
 }
 
 .hamburger {
@@ -102,7 +107,7 @@ button.buttonModal:disabled {
 /* TopNavigation */
 
 .nav-container {
-  @apply font-secondary flex py-20px overflow-hidden w-90pc mx-5pc;
+  @apply font-secondary flex py-20px overflow-hidden w-96pc m-auto max-w-1280px;
 }
 
 .nav-container .left {
@@ -186,23 +191,24 @@ button.buttonModal:disabled {
 
 /* Minting Redeeming */
 .liquidity-container {
-  @apply flex flex-col-reverse justify-between content-start my-20px mx-0 py-0 px-5pc;
+  @apply flex flex-col justify-between content-start my-20px mx-0 py-0 w-96pc;
 }
 /* Left Side of the Page */
 .liquidity-left {
-  @apply w-100pc flex flex-col items-center mt-5pc py-2pc px-5pc rounded-6px bg-anothergrey;
+  @apply w-100pc flex flex-col items-center mt-5pc py-2pc px-6pc rounded-6px bg-anothergrey;
 }
 .tab-navi {
-  @apply flex w-100pc mt-3pc mr-0 mb-5pc ml-0;
+  @apply flex w-100pc mt-3pc mr-0 mb-5pc ml-0 py-2pc;
 }
 .tab-item {
   @apply py-5px px-5px mr-15px text-black text-left text-normal font-regular border-0;
+  cursor: pointer;
 }
 .tab-item.active {
   @apply border-b-2 border-black font-bolder;
 }
 .liquidity-amount {
-  @apply font-primary text-black text-liquidity-amount-mobile;
+  @apply font-primary text-black text-liquidity-amount-mobile py-2pc;
 }
 .awp-label {
   @apply font-primary text-awp-label text-ratherbig font-bolder text-center leading-16 my-5pc mx-0;
@@ -212,7 +218,7 @@ button.buttonModal:disabled {
   @apply w-100pc flex flex-col justify-between m-0 py-2pc px-0 rounded-6px bg-anothergrey text-center;
 }
 .liquidity-column {
-  @apply py-0 px-5pc flex flex-col justify-start items-center m-0 rounded-6px text-center;
+  @apply py-0 px-4pc flex flex-col justify-start items-center m-0 text-center;
 }
 /* Single Asset Item */
 .single-asset {
@@ -803,7 +809,7 @@ p.Ptab {
 /* AWPDetail */
 
 .awp-detail-container {
-  @apply flex flex-row items-center my-20px justify-between w-90pc mx-5pc;
+  @apply flex flex-col items-center my-20px justify-between w-90pc mx-5pc;
 }
 
 .awp-detail-container .row {
@@ -814,20 +820,20 @@ p.Ptab {
   @apply pr-5px;
 }
 
-.awp-detail-container .left {
+.awp-detail-left {
   @apply flex flex-col items-center m-0 flex-grow;
 }
 
-.awp-detail-container .right {
+.awp-detail-right {
   @apply flex flex-col items-center justify-center m-0 flex-grow pb-30px;
 }
 
 .awp-detail-container .text {
-  @apply text-left font-primary text-almost-black text-normal font-light p-0 leading-normal;
+  @apply text-center font-primary text-almost-black text-normal font-light p-0 leading-normal;
 }
 
 .awp-detail-container .title {
-  @apply text-left font-primary text-almost-black font-bold text-big;
+  @apply text-center font-primary text-almost-black font-bold text-big;
 } 
 
 .awp-detail-container .title.investment {
@@ -855,7 +861,7 @@ p.Ptab {
 }
 
 .transactions-table-container .transactions {
-  @apply flex flex-col justify-center items-center font-secondary;
+  @apply flex flex-col justify-center items-center font-secondary w-100pc;
 }
 
 .transactions-table-container .transaction {
@@ -957,7 +963,7 @@ p.Ptab {
 
 .exchange-modal .container .btn-uniswap {
   @apply items-center text-onerem text-almost-black h-8 bg-white cursor-pointer select-none;
-  @apply border border-solid border-grey-darkish rounded-md px-10px font-primary;
+  @apply border border-solid border-grey-darkish rounded-md pl-10px pr-28px font-primary;
   border-image: initial;
   outline: currentcolor none medium;
 }
@@ -971,7 +977,7 @@ p.Ptab {
 }
 
 .exchange-modal .input-container .left input {
-  @apply flex flex-grow min-w-300px p-10px shadow-none m-0 text-medium;
+  @apply flex flex-grow p-10px shadow-none m-0 text-medium w-100pc;
   border: medium none;
 }
 
@@ -1146,4 +1152,13 @@ p.Ptab {
   .mobile {
     display: block !important;
   }
+}
+
+/* CHARTS */
+.recharts-text {
+  font-size: 0.7rem;
+}
+
+.recharts-legend-item {
+  font-size: 0.8rem;
 }

@@ -21,7 +21,7 @@ const ExchangeModal = () => {
       className="exchange-modal"
       isActive={exchangeModal.isActive}
       closeModal={exchangeModal.close}
-      showAnimation={false}
+      showAnimation="true"
       modalBoxStyle={{
         width: '90%',
         maxWidth: 600,
@@ -72,7 +72,7 @@ const ExchangeModal = () => {
             <path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE" />
           </svg>
         </div>
-        <div className="input-container">
+        <div className="input-container lg:min-w-300px">
           <div className="top">
             <div className="left">Output</div>
             <div className="right" />
@@ -90,7 +90,7 @@ const ExchangeModal = () => {
               />
             </div>
             <div className="right">
-              <button type="button" className="btn-uniswap">
+              <button type="button" className="btn-uniswap lg:pr-10px">
                 <span className="btn-content">
                   <img src="/assets/img/portfolio_02.png" className="AWP-logo" alt="logo" />
                   <span>AWP++</span>

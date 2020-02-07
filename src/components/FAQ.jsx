@@ -16,6 +16,7 @@ const FAQ = () => {
             easing="ease-in"
             transitionTime={100}
             triggerTagName="div"
+            className="pointer"
           >
             <p>
               Governance is a process through which a group of stakeholders come
@@ -38,6 +39,7 @@ const FAQ = () => {
             easing="ease-in"
             transitionTime={100}
             triggerTagName="div"
+            className="pointer"
           >
             <p>
               DAO stands for &quot;Decentralized Autonomous Organization&quot;, which is a
@@ -60,6 +62,7 @@ const FAQ = () => {
             easing="ease-in"
             transitionTime={100}
             triggerTagName="div"
+            className="pointer"
           >
             <p>
               Pie Dao is a decentralized network of individuals backtesting and
@@ -86,6 +89,7 @@ const FAQ = () => {
             easing="ease-in"
             transitionTime={100}
             triggerTagName="div"
+            className="pointer"
           >
             <p>
               For the Pie DAO to be successful, the stakeholders in the system
@@ -113,6 +117,7 @@ const FAQ = () => {
             transitionTime={100}
             open={false}
             triggerTagName="div"
+            className="pointer"
           >
             <p>
               Ray Dalio is considered by many the most successful hedge fund
@@ -145,6 +150,7 @@ const FAQ = () => {
             easing="ease-in"
             transitionTime={100}
             triggerTagName="div"
+            className="pointer"
           >
             <p>
               Compound is a transparent, autonomous money market— allowing users
@@ -169,6 +175,7 @@ const FAQ = () => {
             easing="ease-in"
             transitionTime={100}
             triggerTagName="div"
+            className="pointer"
           >
             <p>
               The Pie Network is not a derivative, it is a protocol for
@@ -192,6 +199,7 @@ const FAQ = () => {
             easing="ease-in"
             transitionTime={100}
             triggerTagName="div"
+            className="pointer"
           >
             <p>
               Asset allocations on Pie Network are created by stakeholder of the
@@ -209,6 +217,7 @@ const FAQ = () => {
             easing="ease-in"
             transitionTime={100}
             triggerTagName="div"
+            className="pointer"
           >
             <p>
               The Pie DAO writes and publishes open source software on Github.
@@ -240,6 +249,7 @@ const FAQ = () => {
             easing="ease-in"
             transitionTime={100}
             triggerTagName="div"
+            className="pointer"
           >
             <p>
               The Pie DAO uses existing DeFi protocols as building blocks to
@@ -281,6 +291,7 @@ const FAQ = () => {
             easing="ease-in"
             transitionTime={100}
             triggerTagName="div"
+            className="pointer"
           >
             <p>
               While Pie Network and Pie DAO gives no guarantees, it is highly
