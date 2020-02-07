@@ -15,6 +15,35 @@ import yourInvestment from '../stores/yourInvestment';
 import If from './If';
 import Unless from './Unless';
 
+const getChartSize = () => {
+  if (window.innerWidth <= 410) {
+    return {
+      size: {
+        w: 320,
+        h: 360,
+      },
+      margin: {
+        top: 0,
+        right: 0,
+        left: 0,
+        bottom: 10,
+      },
+    };
+  }
+  return {
+    size: {
+      w: 500,
+      h: 360,
+    },
+    margin: {
+      top: 0,
+      right: 20,
+      left: 0,
+      bottom: 20,
+    },
+  };
+};
+
 const formatTimestamp = (timestamp) => (new Date(timestamp * 1000)).toUTCString();
 const formatTimestampDay = (timestamp) => (new Date(timestamp * 1000)).toDateString();
 
@@ -22,15 +51,10 @@ const YourInvestment = () => (
   <div className="your-investment-container">
     <If condition={yourInvestment.data}>
       <ComposedChart
-        width={500}
-        height={360}
         data={yourInvestment.data}
-        margin={{
-          bottom: 5,
-          left: 20,
-          right: 30,
-          top: 0,
-        }}
+        width={getChartSize().size.w}
+        height={getChartSize().size.h}
+        margin={getChartSize().margin}
       >
         <XAxis tickFormatter={formatTimestampDay} format="time" dataKey="timestamp" />
         <YAxis

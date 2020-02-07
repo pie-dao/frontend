@@ -15,19 +15,43 @@ import compoundAPR from '../stores/compoundAPR';
 import If from './If';
 import Unless from './Unless';
 
+const getChartSize = () => {
+  if (window.innerWidth <= 410) {
+    return {
+      size: {
+        w: 320,
+        h: 360,
+      },
+      margin: {
+        top: 0,
+        right: 0,
+        left: 0,
+        bottom: 10,
+      },
+    };
+  }
+  return {
+    size: {
+      w: 500,
+      h: 360,
+    },
+    margin: {
+      top: 0,
+      right: 20,
+      left: 0,
+      bottom: 20,
+    },
+  };
+};
+
 const CompoundAPR = () => (
   <div className="compound-apr-container">
     <If condition={compoundAPR.data}>
       <LineChart
-        width={500}
-        height={360}
         data={compoundAPR.data}
-        margin={{
-          top: 0,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
+        width={getChartSize().size.w}
+        height={getChartSize().size.h}
+        margin={getChartSize().margin}
       >
         <XAxis dataKey="month" />
         <YAxis domain={[0, 40]} />
@@ -39,7 +63,6 @@ const CompoundAPR = () => (
         <Line type="monotone" dataKey="compound" stroke="#0088FE" activeDot={{ r: 8 }} />
       </LineChart>
     </If>
-
     <Unless condition={compoundAPR.data}>
       <div className="placeholder" />
     </Unless>
