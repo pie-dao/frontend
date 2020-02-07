@@ -2,3 +2,7 @@
 NODE_OPTIONS = "--max_old_space_size=4096"
 REACT_APP_NETWORK_ID="42"
 REACT_APP_NETWORK_URL="https://kovan.infura.io/v3/ffa6c1dc83e44e6c9971d4706311d5ab"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -16,7 +16,7 @@ const HeroSection = () => {
     <div className="hero-section lg:pb-30px">
       <div className="content lg:w-90pc lg:mx-5pc lg:max-w-800px">
         <div className="pretitle lg:text-big">
-          What is you could invest like
+          What if you could invest like
         </div>
 
         <TextLoop
@@ -32,12 +32,12 @@ const HeroSection = () => {
             <br />
             Dalio
           </LoopName>
-          {/* <LoopName>Abigail Johnson</LoopName>
+          <LoopName>Abigail Johnson</LoopName>
           <LoopName>Warren Buffet</LoopName>
           <LoopName>Lubna Olayan</LoopName>
           <LoopName>George Soros</LoopName>
           <LoopName>Peter Lynch</LoopName>
-          <LoopName>Muriel Siebert</LoopName> */}
+          <LoopName>Muriel Siebert</LoopName>
         </TextLoop>
         <div className="subtitle lg:text-normal lg:leading-normal">
           Every Hall-of-Fame investor is obsessed with the question of how best

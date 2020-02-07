@@ -29,46 +29,48 @@ const TransactionsTable = () => {
 
   return (
     <div className="transactions-table-container">
-      <If condition={count > 0}>
-        <div className="title">Transaction List</div>
-        <div className="transactions">
-          {transactions.map((transaction) => (
-            <div className="transaction">
-              <div className="top">{formatTimestamp(transaction.timestamp)}</div>
-              <div className="bottom">
-                <div className="left">
-                  <div className="icon-container">
-                    <div className="image-container">
-                      <Identicon diameter={70} />
+      <section className="content">
+        <If condition={count > 0}>
+          <div className="title">Transaction List</div>
+          <div className="transactions lg:w-100pc">
+            {transactions.map((transaction) => (
+              <div className="transaction lg:w-100pc">
+                <div className="top">{formatTimestamp(transaction.timestamp)}</div>
+                <div className="bottom">
+                  <div className="left">
+                    <div className="icon-container">
+                      <div className="image-container">
+                        <Identicon diameter={70} />
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="right">
-                  <div className="row">
-                    <div className="name">{transactionName(transaction)}</div>
-                    <div className="awp-value">{transactionAWPValue(transaction)}</div>
-                  </div>
-
-                  <div className="row">
-                    <div className="state">
-                      <span className="color-label">
-                        { transaction.blockNumber === 'pending' ? 'Pending' : 'Confirmed' }
-                      </span>
+                  <div className="right">
+                    <div className="row">
+                      <div className="name">{transactionName(transaction)}</div>
+                      <div className="awp-value">{transactionAWPValue(transaction)}</div>
                     </div>
-                    <div className="usd-value">{transactionUSDValue(transaction)}</div>
+
+                    <div className="row">
+                      <div className="state">
+                        <span className="color-label">
+                          { transaction.blockNumber === 'pending' ? 'Pending' : 'Confirmed' }
+                        </span>
+                      </div>
+                      <div className="usd-value">{transactionUSDValue(transaction)}</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </If>
+            ))}
+          </div>
+        </If>
 
-      <If condition={count === 0}>
-        To view transactions please connect your wallet.
-        <ConnectWeb3Button />
-      </If>
+        <If condition={count === 0}>
+          To view transactions please connect your wallet.
+          <ConnectWeb3Button />
+        </If>
+      </section>
     </div>
   );
 };

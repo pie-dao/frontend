@@ -27,15 +27,13 @@ const yourInvestment = store({
           timestamp,
         } = transaction;
 
-        const daiPrice = BigNumber(awpAmount).dividedBy(daiAmount);
+        const daiPrice = BigNumber(daiAmount).dividedBy(awpAmount);
 
         totalPosition = totalPosition.plus(awpAmount);
 
         let totalPositionValue = totalPosition
           .multipliedBy(daiPrice)
           .dividedBy(10 ** 18);
-
-        console.log('TPV', totalPositionValue.toString());
 
         if (largest.isLessThan(totalPositionValue)) {
           largest = totalPositionValue;
@@ -49,10 +47,21 @@ const yourInvestment = store({
         };
       });
 
+      const timestamp = Math.round(Date.now() / 1000);
+      const totalPositionValue = totalPosition
+        .multipliedBy(myAccount.data.awpPrice)
+        .dividedBy(10 ** 18)
+        .toFixed(3);
+
+      console.log('newData', newData);
+
+      newData.push({
+        timestamp,
+        totalPositionValue,
+      });
+
       yourInvestment.data = newData;
       yourInvestment.chartTop = largest.multipliedBy(1.05).toFixed();
-
-      console.log('CHART TOP', yourInvestment.chartTop);
     }
   },
 });
