@@ -22,7 +22,7 @@ const PortfolioBreakdown = ({ mixpanel }) => {
           <TabList>
             <Tab
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'portfolio breakdown',
                   type: 'tab navi',
                   label: 'awp++',
@@ -33,7 +33,7 @@ const PortfolioBreakdown = ({ mixpanel }) => {
             </Tab>
             <Tab
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'portfolio breakdown',
                   type: 'tab navi',
                   label: 'crypto pie',
@@ -44,7 +44,7 @@ const PortfolioBreakdown = ({ mixpanel }) => {
             </Tab>
             <Tab
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'portfolio breakdown',
                   type: 'tab navi',
                   label: 'VTI',
@@ -55,7 +55,7 @@ const PortfolioBreakdown = ({ mixpanel }) => {
             </Tab>
             <Tab
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'portfolio breakdown',
                   type: 'tab navi',
                   label: 'TLT',
@@ -66,7 +66,7 @@ const PortfolioBreakdown = ({ mixpanel }) => {
             </Tab>
             <Tab
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'portfolio breakdown',
                   type: 'tab navi',
                   label: 'GSG',
@@ -77,7 +77,7 @@ const PortfolioBreakdown = ({ mixpanel }) => {
             </Tab>
             <Tab
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'portfolio breakdown',
                   type: 'tab navi',
                   label: 'GLD',
@@ -88,7 +88,7 @@ const PortfolioBreakdown = ({ mixpanel }) => {
             </Tab>
             <Tab
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'portfolio breakdown',
                   type: 'tab navi',
                   label: 'IEI',
@@ -128,7 +128,7 @@ const PortfolioBreakdown = ({ mixpanel }) => {
               <TabList className="noborder lightWeight">
                 <Tab
                   onClick={() => {
-                    mixpanel.cta({
+                    mixpanel.track({
                       position: 'portfolio breakdown',
                       type: 'tab navi',
                       label: 'crypto overview',
@@ -139,7 +139,7 @@ const PortfolioBreakdown = ({ mixpanel }) => {
                 </Tab>
                 <Tab
                   onClick={() => {
-                    mixpanel.cta({
+                    mixpanel.track({
                       position: 'portfolio breakdown',
                       type: 'tab navi',
                       label: 'DeFI',
@@ -307,7 +307,7 @@ const PortfolioBreakdown = ({ mixpanel }) => {
 
 PortfolioBreakdown.propTypes = {
   mixpanel: PropTypes.shape({
-    cta: PropTypes.func.isRequired,
+    track: PropTypes.func.isRequired,
   }).isRequired,
   links: PropTypes.shape({
     portfolio: PropTypes.func.isRequired,
