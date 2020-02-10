@@ -7,6 +7,7 @@ import Web3 from 'web3';
 
 import eth from './eth';
 import setIssuanceModuleABI from '../abi/setIssuanceModule';
+import uniSetRecipeABI from '../abi/uniSetRecipe';
 
 import myAccount from './myAccount';
 import erc20 from '../abi/erc20';
@@ -186,6 +187,35 @@ const addRemoveLiquidity = store({
       mintAmount,
       false,
       { gasLimit: 2000000 },
+    ));
+
+    emitter.on('txConfirmed', () => {
+      setTimeout(myAccount.fetch, 2000);
+      setTimeout(myAccount.fetch, 5000);
+      setTimeout(myAccount.fetch, 9000);
+      setTimeout(myAccount.fetch, 15000);
+    });
+  },
+  addLiquidityFromEth: async () => {
+    const {
+      uniSetRecipe,
+      awp,
+      account,
+      signer,
+    } = eth;
+
+    const contract = new ethers.Contract(uniSetRecipe, uniSetRecipeABI, signer);
+    // TODO get amount from input
+    const mintAmount = ethers.utils.parseEther('1');
+    console.log(mintAmount.toString());
+    const ethAmount = await contract.calcInputFromOutput(awp, mintAmount);
+    console.log(ethAmount);
+    const { emitter } = eth.notify(await contract.buyAndWrapToRebalancingSet(
+      awp,
+      mintAmount,
+      account,
+      Math.floor(Date.now() / 1000) + 3600,
+      { value: ethers.utils.bigNumberify(ethAmount).mul(105).div(100) },
     ));
 
     emitter.on('txConfirmed', () => {

@@ -11,6 +11,7 @@ const notify = Notify({
 
 const eth = store({
   account: undefined,
+  uniSetRecipe: '0x2aD39e85b48EF19641238fC439B00Ce5DcE4a994',
   awp: '0x70d1c8c8300a785ee4efe74db4d2972a7e669cf6',
   awpX: '0xF640d521793B5BF474fD4051543E9D238f108334',
   setIssuanceModule: '0x91E1489D04054Ae552a369504F94E0236909c53c',

@@ -195,6 +195,7 @@ const exchangeModal = store({
     evt.preventDefault();
 
     if (!eth.account) {
+      // eslint-disable-next-line no-alert
       alert('Please connect Metamask first');
       return;
     }
@@ -249,6 +250,7 @@ const exchangeModal = store({
     evt.preventDefault();
 
     if (!eth.account) {
+      // eslint-disable-next-line no-alert
       alert('Please connect Metamask first');
       return;
     }

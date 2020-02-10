@@ -15,7 +15,7 @@ const buttonClick = () => {
   if (tab === 'remove') {
     addRemoveLiquidity.redeem(slider[tab]);
   } else {
-    addRemoveLiquidity.mint(slider[tab]);
+    addRemoveLiquidity.addLiquidityFromEth(slider[tab]);
   }
 };
 
