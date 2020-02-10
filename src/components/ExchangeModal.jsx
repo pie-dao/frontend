@@ -21,7 +21,6 @@ const ExchangeModal = () => {
       className="exchange-modal"
       isActive={exchangeModal.isActive}
       closeModal={exchangeModal.close}
-      showAnimation="true"
       modalBoxStyle={{
         width: '90%',
         maxWidth: 600,
