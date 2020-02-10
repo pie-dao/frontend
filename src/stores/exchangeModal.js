@@ -167,7 +167,7 @@ const exchangeModal = store({
     const contract = new ethers.Contract(daiX, uniswap, signer);
     const minAmount = ethers.utils.parseEther(exchangeModal.outputValue).mul(995).div(1000);
 
-    const { emitter, hash } = eth.notify(await contract.tokenToTokenSwapInput(
+    const { emitter } = eth.notify(await contract.tokenToTokenSwapInput(
       ethers.utils.parseEther(exchangeModal.inputValue),
       minAmount,
       1,
@@ -176,13 +176,11 @@ const exchangeModal = store({
       { gasLimit: 200000 },
     ));
 
-    emitter.on('txPool', () => {
-      myAccount.addPendingTransaction(hash, exchangeModal.inputValue, minAmount);
-    });
-
-    emitter.on('txConfirmed', async () => {
-      await myAccount.fetch();
-      yourInvestment.init();
+    emitter.on('txConfirmed', () => {
+      setTimeout(async () => {
+        await myAccount.fetch();
+        yourInvestment.init();
+      }, 2000);
     });
 
     exchangeModal.close();

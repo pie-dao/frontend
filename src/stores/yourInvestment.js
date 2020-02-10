@@ -61,7 +61,7 @@ const yourInvestment = store({
       });
 
       yourInvestment.data = newData;
-      yourInvestment.chartTop = largest.multipliedBy(1.05).toFixed();
+      yourInvestment.chartTop = largest.multipliedBy(1.1).toFixed();
     }
   },
 });
