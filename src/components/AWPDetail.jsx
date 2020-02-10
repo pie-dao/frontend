@@ -47,8 +47,8 @@ const AWPDetail = (props) => {
               <div className="text lg:text-left">
               AWP++ is a buy-and-hold tokenized portfolio with diversified exposure
               to equity, commodities,T-bills (20y/3y), Crypto & DeFi Tokens.
-              The portfolio uses synthetic tokens based on 
-                <a href="https://umaproject.org/" target="_blank" rel="noopener noreferrer">UMA Project</a>
+              The portfolio uses synthetic tokens based on
+                <a href="https://umaproject.org/" target="_blank" rel="noopener noreferrer"> UMA Project </a>
               to give exposure to the price action of different assets.
                 <br />
               AWP++ tokens are always redeemable for the underlying tokens tracked by the index.
