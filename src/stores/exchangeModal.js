@@ -137,18 +137,23 @@ const calcDependentValue = (
   return calculatedDependentValue;
 };
 
-const filterInput = (input) => {
-  if (isNaN(input) || input.trim() === '') {
-    return 0;
-  }
-  return input;
+const focusInput = () => {
+  setTimeout(() => {
+    window.document.getElementById('invest-buy-input').focus();
+  }, 0);
+};
+
+const focusOutput = () => {
+  setTimeout(() => {
+    window.document.getElementById('invest-buy-output').focus();
+  }, 0);
 };
 
 const exchangeModal = store({
   error: undefined,
   exchangeRate: undefined,
   inputError: undefined,
-  inputValue: 1,
+  inputValue: undefined,
   isActive: false,
   isPending: false,
   marketRate: undefined,
@@ -162,12 +167,13 @@ const exchangeModal = store({
     const {
       awp,
       daiX,
+      provider,
       signer,
     } = eth;
     const contract = new ethers.Contract(daiX, uniswap, signer);
     const minAmount = ethers.utils.parseEther(exchangeModal.outputValue).mul(995).div(1000);
 
-    const { emitter, hash } = eth.notify(await contract.tokenToTokenSwapInput(
+    const { hash } = eth.notify(await contract.tokenToTokenSwapInput(
       ethers.utils.parseEther(exchangeModal.inputValue),
       minAmount,
       1,
@@ -176,11 +182,7 @@ const exchangeModal = store({
       { gasLimit: 200000 },
     ));
 
-    emitter.on('txPool', () => {
-      myAccount.addPendingTransaction(hash, exchangeModal.inputValue, minAmount);
-    });
-
-    emitter.on('txConfirmed', async () => {
+    provider.on(hash, async () => {
       await myAccount.fetch();
       yourInvestment.init();
     });
@@ -199,12 +201,20 @@ const exchangeModal = store({
       return;
     }
 
-    const value = BigNumber(filterInput(evt.target.value));
+    exchangeModal.inputError = undefined;
+
+    const value = BigNumber(evt.target.value);
+
+    if (value.isNaN()) {
+      exchangeModal.inputValue = '';
+      exchangeModal.outputValue = '';
+      focusInput();
+      return;
+    }
+
     exchangeModal.inputValue = value.toFixed();
 
     const normalizedValue = value.multipliedBy(10 ** 18);
-
-    exchangeModal.inputError = undefined;
 
     if (normalizedValue.isGreaterThan(myAccount.data.daiBalance)) {
       exchangeModal.inputError = 'Insufficient balance';
@@ -238,9 +248,7 @@ const exchangeModal = store({
       ? outputValueD.multipliedBy(maxSlippage)
       : undefined;
 
-    setTimeout(() => {
-      window.document.getElementById('invest-buy-input').focus();
-    }, 0);
+    focusInput();
   },
   open: () => {
     exchangeModal.isActive = true;
@@ -254,6 +262,14 @@ const exchangeModal = store({
     }
 
     const value = BigNumber(evt.target.value);
+
+    if (value.isNaN()) {
+      exchangeModal.inputValue = '';
+      exchangeModal.outputValue = '';
+      focusOutput();
+      return;
+    }
+
     exchangeModal.outputValue = value.toFixed();
 
     const etherAmount = ethers.utils.parseEther(evt.target.value);
@@ -285,9 +301,7 @@ const exchangeModal = store({
       ? outputValueD.multipliedBy(maxSlippage)
       : undefined;
 
-    setTimeout(() => {
-      window.document.getElementById('invest-buy-output').focus();
-    }, 0);
+    focusOutput();
   },
   reset: () => {
     exchangeModal.error = undefined;
@@ -313,6 +327,11 @@ const exchangeModal = store({
   sufficientAllowance: () => {
     const approved = BigNumber(myAccount.data.awpXDaiAllowance);
     const requiredAmount = BigNumber(exchangeModal.inputValue).multipliedBy(10 ** 18);
+
+    if (requiredAmount.isNaN() && approved.isGreaterThan(0)) {
+      return true;
+    }
+
     return approved.isGreaterThan(requiredAmount);
   },
 });
