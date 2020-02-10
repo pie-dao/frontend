@@ -18,11 +18,11 @@ const Home = () => {
     <div>
       {/* TODO SEO */}
       <HeroSection />
-      <ComparisonTable />
       <GradientBgSection />
-      <GradientQuote />
       <AWPExplainer />
+      <ComparisonTable />
       <PortfolioBreakdown />
+      <GradientQuote />
       <FAQ />
       <WhitepaperSection />
       <NewsletterSection />

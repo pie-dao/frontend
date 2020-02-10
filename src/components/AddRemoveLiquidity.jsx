@@ -36,13 +36,13 @@ const AddRemoveLiquidity = () => {
         <div className="liquidity-left lg:w-auto lg:m-0 lg:min-w-300px">
           <div className="tab-navi">
             <div className={tab === 'add' ? 'tab-item active' : 'tab-item'} onClick={selectAdd}>
-              Add Liquidity
+              Mint AWP++
             </div>
             <div
               className={tab === 'remove' ? 'tab-item active' : 'tab-item'}
               onClick={selectRemove}
             >
-              Remove Liquidity
+              Redeem AWP++
             </div>
           </div>
           <div className="liquidity-amount lg:text-liquidity-amount">
