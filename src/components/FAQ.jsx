@@ -20,7 +20,7 @@ const FAQ = ({ mixpanel }) => {
               triggerTagName="div"
               className="pointer"
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'homepage',
                   type: 'faq item',
                   label: 'governance',
@@ -50,7 +50,7 @@ const FAQ = ({ mixpanel }) => {
               triggerTagName="div"
               className="pointer"
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'homepage',
                   type: 'faq item',
                   label: 'dao',
@@ -80,7 +80,7 @@ const FAQ = ({ mixpanel }) => {
               triggerTagName="div"
               className="pointer"
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'homepage',
                   type: 'faq item',
                   label: 'PieDAO',
@@ -114,7 +114,7 @@ const FAQ = ({ mixpanel }) => {
               triggerTagName="div"
               className="pointer"
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'homepage',
                   type: 'faq item',
                   label: 'PieHolder',
@@ -149,7 +149,7 @@ const FAQ = ({ mixpanel }) => {
               triggerTagName="div"
               className="pointer"
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'homepage',
                   type: 'faq item',
                   label: 'Ray Dalio',
@@ -189,7 +189,7 @@ const FAQ = ({ mixpanel }) => {
               triggerTagName="div"
               className="pointer"
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'homepage',
                   type: 'faq item',
                   label: 'Compound',
@@ -221,7 +221,7 @@ const FAQ = ({ mixpanel }) => {
               triggerTagName="div"
               className="pointer"
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'homepage',
                   type: 'faq item',
                   label: 'derivatives',
@@ -252,7 +252,7 @@ const FAQ = ({ mixpanel }) => {
               triggerTagName="div"
               className="pointer"
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'homepage',
                   type: 'faq item',
                   label: 'asset allocation',
@@ -277,7 +277,7 @@ const FAQ = ({ mixpanel }) => {
               triggerTagName="div"
               className="pointer"
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'homepage',
                   type: 'faq item',
                   label: 'Pie DAO functions',
@@ -316,7 +316,7 @@ const FAQ = ({ mixpanel }) => {
               triggerTagName="div"
               className="pointer"
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'homepage',
                   type: 'faq item',
                   label: 'protocols',
@@ -365,7 +365,7 @@ const FAQ = ({ mixpanel }) => {
               triggerTagName="div"
               className="pointer"
               onClick={() => {
-                mixpanel.cta({
+                mixpanel.track({
                   position: 'homepage',
                   type: 'faq item',
                   label: 'risks',
@@ -388,7 +388,7 @@ const FAQ = ({ mixpanel }) => {
 
 FAQ.propTypes = {
   mixpanel: PropTypes.shape({
-    cta: PropTypes.func.isRequired,
+    track: PropTypes.func.isRequired,
   }).isRequired,
   links: PropTypes.shape({
     portfolio: PropTypes.func.isRequired,
