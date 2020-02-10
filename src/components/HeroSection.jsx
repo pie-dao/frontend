@@ -79,7 +79,6 @@ const HeroSection = ({ mixpanel, links }) => {
             type="button"
             className="btn"
             onClick={() => {
-              console.log('portfolio', portfolio);
               mixpanel.cta({});
             }}
           >
