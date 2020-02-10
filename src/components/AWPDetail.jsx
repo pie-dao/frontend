@@ -57,6 +57,13 @@ const AWPDetail = (props) => {
             <h1 className="title investment lg:text-left">Your Investment</h1>
             <div className="your-balance text lg:text-center">
               <div className="row">
+                <div>Balance</div>
+                <div className="earned">
+                  <div className="label label-black">AWP++</div>
+                  {threeDecimals(myAccount.awpBalance)}
+                </div>
+              </div>
+              <div className="row">
                 <div>Value</div>
                 <div className="earned">
                   <div className="label label-black">$</div>
