@@ -13,11 +13,11 @@ import FAQ from '../components/FAQ';
 import NewsletterSection from '../components/NewsletterSection';
 // import Seo from '../components/Seo';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div>
       {/* TODO SEO */}
-      <HeroSection />
+      <HeroSection {...props} />
       <GradientBgSection />
       <AWPExplainer />
       <ComparisonTable />

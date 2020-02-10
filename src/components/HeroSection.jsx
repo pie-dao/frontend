@@ -2,6 +2,7 @@
 /* eslint react/jsx-boolean-value: 0 */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { view } from 'react-easy-state';
 import TextLoop from 'react-text-loop';
 import PropTypes from 'prop-types';
@@ -11,7 +12,10 @@ const LoopName = ({ children }) => (
 );
 LoopName.propTypes = { children: PropTypes.node.isRequired };
 
-const HeroSection = () => {
+const HeroSection = ({ mixpanel, links }) => {
+  const {
+    portfolio,
+  } = links;
   return (
     <div className="hero-section lg:pb-30px">
       <div className="content lg:w-90pc lg:mx-5pc lg:max-w-800px">
@@ -67,13 +71,34 @@ const HeroSection = () => {
           Every Hall-of-Fame investor is obsessed with the question of how best
           to diversify in order to maximize returns and minimize risks.
         </div>
-        <button type="button" className="btn">
-          Get early access
-        </button>
+        <Link
+          to="/portfolio"
+          onClick={portfolio}
+        >
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              console.log('portfolio', portfolio);
+              mixpanel.cta({});
+            }}
+          >
+            Start now
+          </button>
+        </Link>
         <div className="smalltext">Invitation only. 500 users cap.</div>
       </div>
     </div>
   );
+};
+
+HeroSection.propTypes = {
+  mixpanel: PropTypes.shape({
+    cta: PropTypes.func.isRequired,
+  }).isRequired,
+  links: PropTypes.shape({
+    portfolio: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default view(HeroSection);
