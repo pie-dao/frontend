@@ -2,6 +2,7 @@ import React from 'react';
 import BigNumber from 'bignumber.js';
 
 import { view } from 'react-easy-state';
+import PropTypes from 'prop-types';
 
 import CompoundAPR from './CompoundAPR';
 import eth from '../stores/eth';
@@ -16,6 +17,7 @@ const threeDecimals = (amount) => BigNumber(amount).decimalPlaces(3).toFixed();
 
 const AWPDetail = (props) => {
   const { account } = eth;
+  const { mixpanel } = props;
 
   if (account && (!yourInvestment.data || yourInvestment.account !== account)) {
     yourInvestment.init(account);
@@ -102,13 +104,33 @@ const AWPDetail = (props) => {
             </div>
           </If>
 
-          <button className="btn modal" type="button" onClick={exchangeModal.open}>
+          <button
+            className="btn modal"
+            type="button"
+            onClick={() => {
+              exchangeModal.open();
+              mixpanel.cta({
+                position: 'portfolio',
+                type: 'button',
+                label: 'Buy on Uniswap',
+              });
+            }}
+          >
             Buy on Uniswap
           </button>
         </div>
       </div>
     </section>
   );
+};
+
+AWPDetail.propTypes = {
+  mixpanel: PropTypes.shape({
+    cta: PropTypes.func.isRequired,
+  }).isRequired,
+  links: PropTypes.shape({
+    portfolio: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default view(AWPDetail);
