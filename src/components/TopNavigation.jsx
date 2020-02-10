@@ -44,7 +44,7 @@ const TopNavigation = ({ links, images }) => {
           className="link hidden lg:block"
           onClick={mintredeem}
         >
-          mint/redeem
+          redeem AWP
         </Link>
         <a
           onClick={whitepaper}

@@ -67,7 +67,7 @@ const FAQ = () => {
             >
               <p>
                 Pie Dao is a decentralized network of individuals backtesting and
-                reaching consensous on asset allocations that we call: Pie. The
+                reaching consensus on asset allocations that we call: Pie. The
                 Pie DAO is a decentralized organization dedicated to bringing
                 accessibility and economic empowerment to anyone with an internet
                 connection. The PIE token holders are the decision makers in the
