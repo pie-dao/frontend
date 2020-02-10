@@ -79,7 +79,11 @@ const HeroSection = ({ mixpanel, links }) => {
             type="button"
             className="btn"
             onClick={() => {
-              mixpanel.cta({});
+              mixpanel.cta({
+                position: 'hero',
+                type: 'button',
+                label: 'Start Now',
+              });
             }}
           >
             Start now

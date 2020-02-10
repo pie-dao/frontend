@@ -1,7 +1,7 @@
 import React from 'react';
-
 import { Modal } from 'minimal-react-modal';
 import { view } from 'react-easy-state';
+import PropTypes from 'prop-types';
 
 import amountFormatter from '../utils/amountFormatter';
 import ConnectWeb3Button from './ConnectWeb3Button';
@@ -11,7 +11,7 @@ import If from './If';
 import myAccount from '../stores/myAccount';
 import Unless from './Unless';
 
-const ExchangeModal = () => {
+const ExchangeModal = ({ mixpanel }) => {
   const { account } = eth;
 
   const airdropRequired = myAccount.airdropRequired();
@@ -153,7 +153,14 @@ const ExchangeModal = () => {
                 type="button"
                 className="btn btn-primary"
                 disabled={exchangeModal.inputError}
-                onClick={exchangeModal.buy}
+                onClick={() => {
+                  exchangeModal.buy();
+                  mixpanel.cta({
+                    position: 'AWP++ Buy Modal',
+                    type: 'button',
+                    label: 'Buy',
+                  });
+                }}
               >
                 Buy
               </button>
@@ -174,6 +181,15 @@ const ExchangeModal = () => {
       </a>
     </Modal>
   );
+};
+
+ExchangeModal.propTypes = {
+  mixpanel: PropTypes.shape({
+    cta: PropTypes.func.isRequired,
+  }).isRequired,
+  links: PropTypes.shape({
+    portfolio: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default view(ExchangeModal);
