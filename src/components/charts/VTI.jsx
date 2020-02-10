@@ -20,8 +20,29 @@ const data01 = [
   { name: 'Utilities', value: 3 },
   { name: 'Basic Materials', value: 2 },
 ];
+
+const getChartSize = () => {
+  if (window.innerWidth <= 410) {
+    return {
+      size: {
+        w: 320,
+        h: 360,
+      },
+    };
+  }
+  return {
+    size: {
+      w: 400,
+      h: 360,
+    },
+  };
+};
+
 const VTI = () => (
-  <PieChart width={400} height={400}>
+  <PieChart
+    width={getChartSize().size.w}
+    height={getChartSize().size.h}
+  >
     <Pie
       dataKey="value"
       isAnimationActive="true"

@@ -25,19 +25,43 @@ const HeroSection = () => {
           defaultStyle={0}
           mask={true}
           fade={false}
-          className="textloop lg:w-500px"
+          className="textloop"
         >
           <LoopName>
             Ray
             <br />
             Dalio
           </LoopName>
-          <LoopName>Abigail Johnson</LoopName>
-          <LoopName>Warren Buffet</LoopName>
-          <LoopName>Lubna Olayan</LoopName>
-          <LoopName>George Soros</LoopName>
-          <LoopName>Peter Lynch</LoopName>
-          <LoopName>Muriel Siebert</LoopName>
+          <LoopName>
+            Abigail
+            <br />
+            Johnson
+          </LoopName>
+          <LoopName>
+            Warren
+            <br />
+            Buffet
+          </LoopName>
+          <LoopName>
+            Lubna
+            <br />
+            Olayan
+          </LoopName>
+          <LoopName>
+            George
+            <br />
+            Soros
+          </LoopName>
+          <LoopName>
+            Peter
+            <br />
+            Lynch
+          </LoopName>
+          <LoopName>
+            Muriel
+            <br />
+            Siebert
+          </LoopName>
         </TextLoop>
         <div className="subtitle lg:text-normal lg:leading-normal">
           Every Hall-of-Fame investor is obsessed with the question of how best

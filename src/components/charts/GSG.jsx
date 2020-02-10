@@ -19,8 +19,29 @@ const data01 = [
   { name: 'Corn', value: 3.3 },
   { name: 'Other', value: 15.16 },
 ];
+
+const getChartSize = () => {
+  if (window.innerWidth <= 410) {
+    return {
+      size: {
+        w: 320,
+        h: 360,
+      },
+    };
+  }
+  return {
+    size: {
+      w: 400,
+      h: 360,
+    },
+  };
+};
+
 const GSG = () => (
-  <PieChart width={400} height={400}>
+  <PieChart
+    width={getChartSize().size.w}
+    height={getChartSize().size.h}
+  >
     <Pie
       dataKey="value"
       isAnimationActive="true"

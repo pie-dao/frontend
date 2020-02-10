@@ -14,8 +14,29 @@ const data01 = [
   { name: 'Commodity, Gold', value: 6.75 },
   { name: 'Commodity, Broad Diversified', value: 6.75 },
 ];
+
+const getChartSize = () => {
+  if (window.innerWidth <= 410) {
+    return {
+      size: {
+        w: 320,
+        h: 360,
+      },
+    };
+  }
+  return {
+    size: {
+      w: 400,
+      h: 360,
+    },
+  };
+};
+
 const AWP = () => (
-  <PieChart width={400} height={400}>
+  <PieChart
+    width={getChartSize().size.w}
+    height={getChartSize().size.h}
+  >
     <Pie
       dataKey="value"
       isAnimationActive="true"
