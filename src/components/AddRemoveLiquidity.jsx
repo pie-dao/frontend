@@ -101,8 +101,7 @@ const AddRemoveLiquidity = ({ mixpanel }) => {
               <AwpLight />
               <div className="normal-text lg:m-0 lg:text-left py-2pc">
               We backtested the All Weather Portfolio and the AWP++ against DeFi
-              Landing in the last 12 months. Don&apos;t take our word for it. Have a
-              look at the chart on the left.
+              Landing in the last 12 months. Don&apos;t take our word for it.
               </div>
             </div>
             <div className="liquidity-column lg:flex-grow lg:pl-2pc lg:pr-3pc">
