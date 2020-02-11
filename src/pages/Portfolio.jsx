@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { view } from 'react-easy-state';
-
 import AWPDetail from '../components/AWPDetail';
 import Seo from '../components/Seo';
-import TransactionsTable from '../components/TransactionsTable';
+import PortfolioDetail from '../components/PortfolioDetail';
 import PasswordGate from '../components/PasswordGate';
 
 const Portfolio = (props) => {
@@ -34,7 +32,7 @@ const Portfolio = (props) => {
       />
       <PasswordGate>
         <AWPDetail {...props} />
-        <TransactionsTable {...props} />
+        <PortfolioDetail />
       </PasswordGate>
     </div>
   );

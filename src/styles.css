@@ -220,7 +220,7 @@ button.buttonModal:disabled {
 }
 /* Right Side of the Page */
 .liquidity-right {
-  @apply w-100pc flex flex-col justify-between m-0 py-2pc px-0 rounded-6px bg-anothergrey text-center;
+  @apply w-100pc flex flex-col justify-between m-0 py-2pc px-0 rounded-6px text-center bg-grey-light;
 }
 .liquidity-column {
   @apply py-0 px-4pc flex flex-col justify-start items-center m-0 text-center;
@@ -807,6 +807,11 @@ p.Ptab {
   border-color: #ff00a8;
   box-shadow: 0 0 0 1px #ff00a8;
   outline: none;
+}
+/* PORTFOLIO DETAIL */
+
+.portfolio-detail {
+  @apply flex flex-col font-secondary pt-5pc pr-0 pb-5pc pl-0 w-90pc mx-5pc;
 }
 
 /* AWPDetail */
