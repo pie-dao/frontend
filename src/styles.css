@@ -602,6 +602,12 @@ button.buttonModal:disabled {
   @apply flex flex-col font-secondary pt-5pc pr-0 pb-5pc pl-0 w-90pc mx-5pc;
 }
 
+.faq-link {
+  @apply font-bolder;
+}
+.faq-link:hover {
+  opacity: 0.8;
+}
 .faq-gradient {
   @apply flex-col w-100pc text-medium-mobile;
   background: linear-gradient(to right, #f10096 0%, #21d7ff 100%);

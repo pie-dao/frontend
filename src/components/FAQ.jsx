@@ -131,7 +131,7 @@ const FAQ = ({ mixpanel }) => {
                 still have the option of voting directly by interacting with the
                 smart contacts via a friendly user interface.
                 <br />
-                <a href="https://pie283460.typeform.com/to/uy9NZt" target="blank">
+                <a className="faq-link" href="https://pie283460.typeform.com/to/uy9NZt" target="blank">
                   Request access to Whitepaper
                 </a>
               </p>
@@ -167,7 +167,7 @@ const FAQ = ({ mixpanel }) => {
                 funds. Bloomberg ranked him as the world&apos;s 58th-wealthiest person
                 in June 2019.
                 <br />
-                <a href="https://en.wikipedia.org/wiki/Ray_Dalio" target="blank">
+                <a className="faq-link" href="https://en.wikipedia.org/wiki/Ray_Dalio" target="blank">
                   Read more on Wikipedia
                 </a>
               </p>
@@ -336,17 +336,17 @@ const FAQ = ({ mixpanel }) => {
                 Among other things, the Pie Network smartcontracts integrate with:
                 <ul>
                   <li>
-                    <a target="blank" href="https://umaproject.org/">
+                    <a className="faq-link" target="blank" href="https://umaproject.org/">
                       UMA Project
                     </a>
                   </li>
                   <li>
-                    <a target="blank" href="https://www.synthetix.io/">
+                    <a className="faq-link" target="blank" href="https://www.synthetix.io/">
                       Synthetix
                     </a>
                   </li>
                   <li>
-                    <a target="blank" href="https://makerdao.com/en/">
+                    <a className="faq-link" target="blank" href="https://makerdao.com/en/">
                       MakerDAO
                     </a>
                   </li>
