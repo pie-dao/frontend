@@ -320,9 +320,9 @@ const exchangeModal = store({
       return '-';
     }
 
-    const base = BigNumber(exchangeRate).dividedBy(marketRate).dividedBy(10 ** 18);
-
-    return BigNumber(1).minus(base).toFixed(2);
+    const inversedExchangeRate = (new BigNumber(10 ** 18)).dividedBy(exchangeRate);
+    const base = BigNumber(marketRate).div(inversedExchangeRate);
+    return base.minus(1).multipliedBy(100).toFixed(2);
   },
   sufficientAllowance: () => {
     const approved = BigNumber(myAccount.data.awpXDaiAllowance);
