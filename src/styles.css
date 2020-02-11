@@ -861,7 +861,7 @@ p.Ptab {
 /* TransactionsTable */
 
 .transactions-table-container {
-  @apply w-100pc flex flex-col p-0 font-secondary bg-grey-light;
+  @apply w-100pc flex flex-col pt-0 pr-0 pl-0 pb-5pc font-secondary bg-grey-light;
 }
 
 .transactions-table-container .title {
