@@ -21,7 +21,7 @@ const buttonClick = () => {
 
 const AddRemoveLiquidity = () => {
   const {
-    // selectAdd,
+    selectAdd,
     selectRemove,
     slider,
     sliderMax,
@@ -35,9 +35,9 @@ const AddRemoveLiquidity = () => {
       <div className="liquidity-container lg:flex-row lg:w-94pc">
         <div className="liquidity-left lg:w-auto lg:m-0 lg:min-w-300px">
           <div className="tab-navi">
-            {/* <div className={tab === 'add' ? 'tab-item active' : 'tab-item'} onClick={selectAdd}>
+            <div className={tab === 'add' ? 'tab-item active' : 'tab-item'} onClick={selectAdd}>
               Mint AWP++
-            </div> */}
+            </div>
             <div
               className={tab === 'remove' ? 'tab-item active' : 'tab-item'}
               onClick={selectRemove}

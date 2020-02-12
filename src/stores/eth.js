@@ -11,7 +11,7 @@ const notify = Notify({
 
 const eth = store({
   account: undefined,
-  awp: '0x70d1c8c8300a785ee4efe74db4d2972a7e669cf6',
+  awp: '0x7cb095e839c2da9fc693435ac4e9dc0b25bd8e74',
   awpX: '0xF640d521793B5BF474fD4051543E9D238f108334',
   setIssuanceModule: '0x91E1489D04054Ae552a369504F94E0236909c53c',
   setTransferProxy: '0x61d264865756751392C0f00357Cc26ea70D98E3B',
