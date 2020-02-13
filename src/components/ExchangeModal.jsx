@@ -136,14 +136,36 @@ const ExchangeModal = ({ mixpanel }) => {
 
         <If condition={account}>
           <If condition={airdropRequired}>
-            <button type="button" className="btn btn-primary" onClick={myAccount.airdrop}>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => {
+                myAccount.airdrop();
+                mixpanel.cta({
+                  position: 'AWP++ Buy Modal',
+                  type: 'button',
+                  label: 'get eth',
+                });
+              }}
+            >
               Get Some ETH & DAI
             </button>
           </If>
 
           <Unless condition={airdropRequired}>
             <Unless condition={sufficientAllowance}>
-              <button type="button" className="btn btn-primary" onClick={exchangeModal.approve}>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => {
+                  exchangeModal.approve();
+                  mixpanel.cta({
+                    position: 'AWP++ Buy Modal',
+                    type: 'button',
+                    label: 'approve dai',
+                  });
+                }}
+              >
                 Unlock DAI
               </button>
             </Unless>
