@@ -58,6 +58,11 @@ const ExchangeModal = () => {
               />
             </div>
             <div className="right">
+              <button type="button" className="btn-uniswap" onClick={exchangeModal.max}>
+                <span className="btn-content">
+                  <span>MAX</span>
+                </span>
+              </button>
               <button type="button" className="btn-uniswap">
                 <span className="btn-content">
                   <img src="/assets/img/dai.png" className="DAI-logo" alt="logo" />

@@ -254,6 +254,16 @@ const exchangeModal = store({
 
     focusInput();
   },
+  max: () => {
+    console.log('max', myAccount.daiBalance);
+    const mockEvent = {
+      preventDefault: () => {},
+      target: {
+        value: myAccount.daiBalance,
+      },
+    };
+    exchangeModal.inputChange(mockEvent);
+  },
   open: () => {
     exchangeModal.isActive = true;
   },
