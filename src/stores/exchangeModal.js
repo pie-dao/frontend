@@ -205,6 +205,10 @@ const exchangeModal = store({
 
     const value = BigNumber(evt.target.value);
 
+    if (value.isZero()) {
+      return;
+    }
+
     if (value.isNaN()) {
       exchangeModal.inputValue = '';
       exchangeModal.outputValue = '';
@@ -262,6 +266,10 @@ const exchangeModal = store({
     }
 
     const value = BigNumber(evt.target.value);
+
+    if (value.isZero()) {
+      return;
+    }
 
     if (value.isNaN()) {
       exchangeModal.inputValue = '';

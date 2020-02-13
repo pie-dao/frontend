@@ -53,8 +53,6 @@ const yourInvestment = store({
         .dividedBy(10 ** 18)
         .toFixed(3);
 
-      console.log('newData', newData);
-
       newData.push({
         timestamp,
         totalPositionValue,

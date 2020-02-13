@@ -8,6 +8,10 @@ import eth from './eth';
 import erc20 from '../abi/erc20';
 import gun from './gun';
 
+const airdropEndpoint = (address) => (
+  `https://pie-protocol-api.herokuapp.com/portfolio/airdrop/${address}`
+);
+
 const buildFreshData = () => ({
   awpBalance: undefined,
   awpBalanceInDai: undefined,
@@ -344,6 +348,41 @@ const myAccount = store({
       transactionHash,
     });
   },
+  airdrop: async () => {
+    const {
+      account,
+      dai,
+      notify,
+      provider,
+    } = eth;
+
+    const daiContract = erc20Contract(dai, provider);
+    const response = await fetch(airdropEndpoint(account));
+    const { daiTransaction, ethTransaction } = await response.json();
+
+    notify(ethTransaction);
+    const { emitter } = notify(daiTransaction);
+
+    const checkThenUpdate = async () => {
+      const balance = await daiContract.balanceOf(account);
+      if (BigNumber(balance.toString()).isZero()) {
+        console.log('waiting 500ms to check balance again');
+        setTimeout(checkThenUpdate, 500);
+      } else {
+        myAccount.fetch();
+      }
+    };
+
+    emitter.on('txConfirmed', () => checkThenUpdate());
+  },
+  airdropRequired: () => {
+    try {
+      return !BigNumber(myAccount.daiBalance).isGreaterThan(0);
+    } catch (e) {
+      console.error(e);
+      return false;
+    }
+  },
   approveDai: async () => {
     const {
       daiX,
@@ -360,7 +399,7 @@ const myAccount = store({
     notify(await daiContract.approve(daiX, maxUint, { gasLimit, gasPrice }));
     myAccount.data.awpXDaiAllowance = maxUint;
   },
-  db: () => gun.get('myAccount').get(eth.account),
+  db: () => gun.get('myAccountV2').get(eth.account),
   fetch: async () => {
     try {
       await storeData(await fetchData());

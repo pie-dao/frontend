@@ -11,14 +11,14 @@ const notify = Notify({
 
 const eth = store({
   account: undefined,
-  awp: '0x70d1c8c8300a785ee4efe74db4d2972a7e669cf6',
-  awpX: '0xF640d521793B5BF474fD4051543E9D238f108334',
+  awp: '0x7cb095e839c2da9fc693435ac4e9dc0b25bd8e74',
+  awpX: '0xb28d6F7A62Dd1B7b39fAC5e67DBf1dBe3653AEF6',
   setIssuanceModule: '0x91E1489D04054Ae552a369504F94E0236909c53c',
   setTransferProxy: '0x61d264865756751392C0f00357Cc26ea70D98E3B',
   bntIndex: '0xf09a28dcf6e78c1d41c007e9c455690b9caa856a',
   btcIndex: '0x8ff461ce88b24eed98626d31ebc4dad4c3766909',
-  dai: '0x1d7e3a1a65a367db1d1d3f51a54ac01a2c4c92ff',
-  daiX: '0x1a3e8f0A53E0524fC2DF6841408abe778C8Ecd9d',
+  dai: '0xff2c8f09c8b20847972db158d8c63e45f026796f',
+  daiX: '0xc3a4e9a3adc7e128a43a5da6dac5677b90a17d01',
   error: undefined,
   ethIndex: '0x5a7f66df53bfe91668163ac9bc4e032a9b1a7933',
   gldIndex: '0x50ba867f2e744cc37454226f5d284eb508225bfe',

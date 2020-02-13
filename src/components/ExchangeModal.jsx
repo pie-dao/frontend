@@ -14,6 +14,7 @@ import Unless from './Unless';
 const ExchangeModal = () => {
   const { account } = eth;
 
+  const airdropRequired = myAccount.airdropRequired();
   const sufficientAllowance = exchangeModal.sufficientAllowance();
 
   return (
@@ -134,22 +135,30 @@ const ExchangeModal = () => {
         </Unless>
 
         <If condition={account}>
-          <Unless condition={sufficientAllowance}>
-            <button type="button" className="btn btn-primary" onClick={exchangeModal.approve}>
-              Unlock DAI
-            </button>
-          </Unless>
-
-          <If condition={sufficientAllowance}>
-            <button
-              type="button"
-              className="btn btn-primary"
-              disabled={exchangeModal.inputError}
-              onClick={exchangeModal.buy}
-            >
-              Buy
+          <If condition={airdropRequired}>
+            <button type="button" className="btn btn-primary" onClick={myAccount.airdrop}>
+              Get Some ETH & DAI
             </button>
           </If>
+
+          <Unless condition={airdropRequired}>
+            <Unless condition={sufficientAllowance}>
+              <button type="button" className="btn btn-primary" onClick={exchangeModal.approve}>
+                Unlock DAI
+              </button>
+            </Unless>
+
+            <If condition={sufficientAllowance}>
+              <button
+                type="button"
+                className="btn btn-primary"
+                disabled={exchangeModal.inputError}
+                onClick={exchangeModal.buy}
+              >
+                Buy
+              </button>
+            </If>
+          </Unless>
         </If>
       </div>
 
