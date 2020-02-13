@@ -9,7 +9,7 @@ import { Web3ReactProvider } from '@web3-react/core';
 import eth from './stores/eth';
 import ExchangeModal from './components/ExchangeModal';
 import myAccount from './stores/myAccount';
-import PasswordGate from './components/PasswordGate';
+// import PasswordGate from './components/PasswordGate';
 import Routes from './Routes';
 import TopNavigation from './components/TopNavigation';
 import WalletModal from './components/WalletModal';
@@ -41,14 +41,12 @@ setTimeout(() => {
 const App = (props) => (
   <Web3ReactProvider getLibrary={getLibrary}>
     <Router history={instance}>
-      <PasswordGate>
-        <div className="App">
-          <TopNavigation {...props} />
-          <Routes {...props} />
-          <WalletModal {...props} />
-          <ExchangeModal {...props} />
-        </div>
-      </PasswordGate>
+      <div className="App">
+        <TopNavigation {...props} />
+        <Routes {...props} />
+        <WalletModal {...props} />
+        <ExchangeModal {...props} />
+      </div>
     </Router>
   </Web3ReactProvider>
 );
