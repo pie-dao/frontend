@@ -871,6 +871,14 @@ p.Ptab {
   @apply w-100pc;
 }
 
+.transaction-link {
+  @apply ml-10px;
+}
+
+.transaction-link:hover {
+  opacity: 0.8;
+}
+
 .transactions-table-container .transaction .bottom {
   @apply w-100pc flex flex-row items-center mt-10px;
 }

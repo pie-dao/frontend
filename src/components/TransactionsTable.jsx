@@ -60,8 +60,9 @@ const TransactionsTable = () => {
                           { transaction.blockNumber === 'pending' ? 'Pending' : 'Confirmed' }
                         </span>
                         <span>
-                          <a target="_blank" rel="noopener noreferrer" href={buildLink(chainId, transaction.transactionHash, 'transaction')}>
-                            View transaction
+                          <a className="transaction-link" target="_blank" rel="noopener noreferrer" href={buildLink(chainId, transaction.transactionHash, 'transaction')}>
+                            View transaction&nbsp;
+                            <span role="img" aria-label="link">🔗</span>
                           </a>
                         </span>
                       </div>
