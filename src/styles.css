@@ -974,6 +974,21 @@ p.Ptab {
   @apply w-4 h-4 mr-5px;
 }
 
+.exchange-modal .container .btn-max {
+  @apply items-center text-onerem text-white h-8 bg-black cursor-pointer select-none mr-5px;
+  @apply border border-solid border-black rounded-5px px-10px font-primary;
+  border-image: initial;
+  outline: currentcolor none medium;
+}
+
+.exchange-modal .container .btn-uniswap .btn-max {
+  @apply flex items-center justify-between;
+}
+
+.exchange-modal .container .btn-max .btn-content img {
+  @apply w-4 h-4 mr-5px;
+}
+
 .exchange-modal .input-container .left input {
   @apply flex flex-grow p-10px shadow-none m-0 text-medium w-100pc;
   border: medium none;

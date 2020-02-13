@@ -58,7 +58,7 @@ const ExchangeModal = () => {
               />
             </div>
             <div className="right">
-              <button type="button" className="btn-uniswap" onClick={exchangeModal.max}>
+              <button type="button" className="btn-max" onClick={exchangeModal.max}>
                 <span className="btn-content">
                   <span>MAX</span>
                 </span>
