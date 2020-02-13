@@ -30,13 +30,13 @@ const getLibrary = (newProvider) => {
   return ethersProvider;
 };
 
-setTimeout(() => {
+window.addEventListener('DOMContentLoaded', () => {
   const existingProvider = provider(['frame', 'injected']);
 
   if (existingProvider) {
     getLibrary(existingProvider);
   }
-}, 500);
+});
 
 const App = (props) => (
   <Web3ReactProvider getLibrary={getLibrary}>
