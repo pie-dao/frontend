@@ -7,6 +7,7 @@ import Web3 from 'web3';
 
 import eth from './eth';
 import setIssuanceModuleABI from '../abi/setIssuanceModule';
+import balancerPoolABI from '../abi/balancerPool';
 
 import myAccount from './myAccount';
 import erc20 from '../abi/erc20';
@@ -149,17 +150,19 @@ const addRemoveLiquidity = store({
   },
   redeem: async () => {
     const {
-      setIssuanceModule,
       awp,
       signer,
     } = eth;
-    const contract = new ethers.Contract(setIssuanceModule, setIssuanceModuleABI, signer);
+    const contract = new ethers.Contract(awp, balancerPoolABI, signer);
     const redeemAmount = ethers.utils.parseEther(addRemoveLiquidity.slider.remove);
 
-    const { emitter } = eth.notify(await contract.redeemRebalancingSet(
-      awp,
+    const numTokens = await contract.getNumTokens();
+    // Create a array with 0 amounts with the same length as numTokens
+    const minAmounts = new Array(numTokens.toNumber()).fill(0);
+
+    const { emitter } = eth.notify(await contract.exitPool(
       redeemAmount,
-      false,
+      minAmounts,
       { gasLimit: 2000000 },
     ));
 
@@ -185,7 +188,6 @@ const addRemoveLiquidity = store({
       awp,
       mintAmount,
       false,
-      { gasLimit: 2000000 },
     ));
 
     emitter.on('txConfirmed', () => {
