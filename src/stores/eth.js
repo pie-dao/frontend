@@ -21,6 +21,7 @@ const eth = store({
   daiX: '0xc3a4e9a3adc7e128a43a5da6dac5677b90a17d01',
   disconnected: false,
   error: undefined,
+  errorObject: undefined,
   ethIndex: '0x5a7f66df53bfe91668163ac9bc4e032a9b1a7933',
   gldIndex: '0x50ba867f2e744cc37454226f5d284eb508225bfe',
   gsgIndex: '0xb3fbd03338febe9412995c2f85c67837aba0d783',
@@ -42,21 +43,36 @@ const eth = store({
   vtiIndex: '0x6818148626150841D4BAEc19aeF8cd75413112e0',
   zrkIndex: '0xe6b123645a67b29de05b71e99f0c2210e439bb79',
 
+  dismissError: () => {
+    eth.error = undefined;
+    try {
+      eth.errorObject.dismiss();
+    } catch (e) {
+      eth.errorObject = undefined;
+    }
+  },
   getLibrary: (provider) => {
+    eth.dismissError();
+
     if (eth.disconnected) {
       console.log('Disconnected', eth.disconnected);
       return undefined;
     }
 
-    eth.error = undefined;
     if (provider.networkVersion !== '42') {
       eth.error = 'Incorrect network. Please connect to kovan.';
-      console.error(eth.error, provider.networkVersion);
+      eth.errorObject = notify.notification({
+        eventCode: 'wrongNetwork',
+        type: 'error',
+        message: eth.error,
+      });
       return undefined;
     }
+
     eth.provider = new ethers.providers.Web3Provider(provider);
     eth.signer = eth.provider.getSigner();
     eth.account = provider.selectedAddress;
+
     return eth.provider;
   },
   init: () => {
