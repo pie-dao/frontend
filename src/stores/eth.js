@@ -19,6 +19,7 @@ const eth = store({
   btcIndex: '0x8ff461ce88b24eed98626d31ebc4dad4c3766909',
   dai: '0xff2c8f09c8b20847972db158d8c63e45f026796f',
   daiX: '0xc3a4e9a3adc7e128a43a5da6dac5677b90a17d01',
+  disconnected: false,
   error: undefined,
   ethIndex: '0x5a7f66df53bfe91668163ac9bc4e032a9b1a7933',
   gldIndex: '0x50ba867f2e744cc37454226f5d284eb508225bfe',
@@ -42,6 +43,11 @@ const eth = store({
   zrkIndex: '0xe6b123645a67b29de05b71e99f0c2210e439bb79',
 
   getLibrary: (provider) => {
+    if (eth.disconnected) {
+      console.log('Disconnected', eth.disconnected);
+      return undefined;
+    }
+
     eth.error = undefined;
     if (provider.networkVersion !== '42') {
       eth.error = 'Incorrect network. Please connect to kovan.';
@@ -52,6 +58,9 @@ const eth = store({
     eth.signer = eth.provider.getSigner();
     eth.account = provider.selectedAddress;
     return eth.provider;
+  },
+  init: () => {
+    eth.disconnected = localStorage.getItem('disconnected') === 'true';
   },
   notify: ({ hash }) => {
     const { emitter } = notify.hash(hash);

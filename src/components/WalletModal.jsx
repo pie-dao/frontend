@@ -11,8 +11,6 @@ import walletModal from '../stores/walletModal';
 import WalletOption from './WalletOption';
 import Unless from './Unless';
 
-import { buildLink } from '../utils/etherscan';
-
 const WalletModal = () => {
   const { account, networkId } = eth;
 
@@ -20,9 +18,15 @@ const WalletModal = () => {
     supportedChainIds: [networkId],
   });
 
-  const { activate, chainId } = useWeb3React();
+  const { activate, deactivate } = useWeb3React();
+
+  const disconnect = () => {
+    walletModal.disconnect();
+    deactivate();
+  };
 
   const onClick = async () => {
+    walletModal.reconnect();
     walletModal.isPending = true;
 
     await activate(injected, (error) => {
@@ -52,13 +56,7 @@ const WalletModal = () => {
       }}
     >
       <If condition={account || false}>
-        <a
-          href={buildLink(chainId, account, 'account')}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          {account}
-        </a>
+        <button type="button" className="btn" onClick={disconnect}>Disconnect</button>
       </If>
 
       <Unless condition={walletModal.isPending || account || walletModal.error}>
