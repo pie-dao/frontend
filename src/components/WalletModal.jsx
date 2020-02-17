@@ -31,6 +31,7 @@ const WalletModal = () => {
 
     await activate(injected, (error) => {
       walletModal.error = error;
+      walletModal.disconnect();
       if (error.name === 'UnsupportedChainIdError') {
         walletModal.error.message = 'This chain is not supported. '
           + 'Please connect your wallet to Kovan.';
