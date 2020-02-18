@@ -3,9 +3,11 @@
 import React from 'react';
 import { view } from 'react-easy-state';
 
+import newsletterSection from '../stores/newsletterSection';
+
 const NewsletterSection = () => {
   return (
-    <div className="newsletter lg:py-100px lg:px-10pc">
+    <div className="newsletter lg:py-100px lg:px-10pc" id="subscribe-to-newsletter">
       <div className="pretitle font-bolder lg:text-big">
         Be on top of the game
       </div>
@@ -16,6 +18,7 @@ const NewsletterSection = () => {
         id="mc-embedded-subscribe-form"
         name="mc-embedded-subscribe-form"
         className="newsletter-form validate"
+        onSubmit={newsletterSection.updateNow}
         target="_blank"
         noValidate=""
       >
@@ -71,13 +74,13 @@ const NewsletterSection = () => {
               tabIndex="-1"
             />
           </div>
-          <button type="button" className="btn w-100pc">
+          <button type="submit" className="btn w-100pc">
             Get early access
           </button>
         </section>
       </form>
       <div className="urgency">
-        <div className="label-black">128</div>
+        <div className="label-black">{newsletterSection.subscribers}</div>
         / 500 Hurry Up!
       </div>
     </div>
