@@ -12,8 +12,29 @@ const data01 = [
   { name: 'Commodity, Gold', value: 6.75 },
   { name: 'Commodity, Broad Diversified', value: 6.75 },
 ];
+
+const getChartSize = () => {
+  if (window.innerWidth <= 600) {
+    return {
+      size: {
+        w: 300,
+        h: 340,
+      },
+    };
+  }
+  return {
+    size: {
+      w: 600,
+      h: 460,
+    },
+  };
+};
+
 const AwpLightPortfolioPage = () => (
-  <PieChart width={400} height={300}>
+  <PieChart
+    width={getChartSize().size.w}
+    height={getChartSize().size.h}
+  >
     <Pie
       dataKey="value"
       isAnimationActive="true"
