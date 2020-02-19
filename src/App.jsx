@@ -9,7 +9,6 @@ import { Web3ReactProvider } from '@web3-react/core';
 import eth from './stores/eth';
 import ExchangeModal from './components/ExchangeModal';
 import myAccount from './stores/myAccount';
-// import PasswordGate from './components/PasswordGate';
 import Routes from './Routes';
 import TopNavigation from './components/TopNavigation';
 import WalletModal from './components/WalletModal';

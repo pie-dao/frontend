@@ -29,17 +29,13 @@ const WalletModal = () => {
     walletModal.reconnect();
     walletModal.isPending = true;
 
-    await activate(injected, (error) => {
-      walletModal.error = error;
-      walletModal.disconnect();
-      if (error.name === 'UnsupportedChainIdError') {
-        walletModal.error.message = 'This chain is not supported. '
-          + 'Please connect your wallet to Kovan.';
-      }
-      walletModal.isPending = false;
-    }, false);
+    try {
+      await activate(injected, walletModal.onError);
+    } catch (e) {
+      walletModal.onError(e);
+    }
 
-    if (!walletModal.error) {
+    if (!eth.error) {
       walletModal.close();
     }
   };
@@ -60,7 +56,7 @@ const WalletModal = () => {
         <button type="button" className="btn" onClick={disconnect}>Disconnect</button>
       </If>
 
-      <Unless condition={walletModal.isPending || account || walletModal.error}>
+      <Unless condition={walletModal.isPending || account || eth.error}>
         <WalletOption onClick={onClick} />
       </Unless>
 
@@ -70,11 +66,11 @@ const WalletModal = () => {
         </div>
       </If>
 
-      <If condition={walletModal.error}>
+      <If condition={eth.error}>
         <div className="error">
           <img src="/assets/img/error.jpg" alt="error icon" />
           <div>Error Connecting</div>
-          <div>{(walletModal.error || {}).message}</div>
+          <div>{eth.error}</div>
           <button type="button" className="btn" onClick={walletModal.reset}>Go Back</button>
         </div>
       </If>

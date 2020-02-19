@@ -59,13 +59,13 @@ const eth = store({
       return undefined;
     }
 
+    if (!provider.networkVersion) {
+      eth.error = 'Ethereum not found. Unable to connect. Is MetaMask installed?';
+      return undefined;
+    }
+
     if (provider.networkVersion !== '42') {
-      eth.error = 'Incorrect network. Please connect to kovan.';
-      eth.errorObject = notify.notification({
-        eventCode: 'wrongNetwork',
-        type: 'error',
-        message: eth.error,
-      });
+      eth.wrongNetwork();
       return undefined;
     }
 
@@ -81,6 +81,20 @@ const eth = store({
   notify: ({ hash }) => {
     const { emitter } = notify.hash(hash);
     return { emitter, hash };
+  },
+  reset: () => {
+    eth.account = undefined;
+    eth.provider = undefined;
+    eth.signer = undefined;
+  },
+  wrongNetwork: () => {
+    eth.reset();
+    eth.error = 'Incorrect network. Please connect to kovan.';
+    eth.errorObject = notify.notification({
+      eventCode: 'wrongNetwork',
+      type: 'error',
+      message: eth.error,
+    });
   },
 });
 
