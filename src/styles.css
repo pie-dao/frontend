@@ -175,6 +175,10 @@ button.buttonModal:disabled {
 
 /* Wallet Modal */
 
+.wallet-modal {
+  @apply flex justify-center;
+}
+
 .wallet-modal .error,
 .wallet-modal .pending {
   @apply flex flex-col justify-center items-center font-secondary bg-white px-2pc;

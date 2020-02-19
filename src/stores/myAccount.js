@@ -413,6 +413,38 @@ const myAccount = store({
     myAccount.db().get('data').once(receiveDBData);
     myAccount.initialized = true;
   },
+  reset: () => {
+    myAccount.awpBalance = undefined;
+    myAccount.awpGain = undefined;
+    myAccount.awpPrice = undefined;
+    myAccount.awpTransactions = [];
+    myAccount.awpXETHBalance = undefined;
+    myAccount.awpXTokenBalance = undefined;
+    myAccount.bntIndexBalance = undefined;
+    myAccount.btcIndexBalance = undefined;
+    myAccount.daiBalance = undefined;
+    myAccount.daiSpent = undefined;
+    myAccount.daiXETHBalance = undefined;
+    myAccount.daiXTokenBalance = undefined;
+    myAccount.data = buildFreshData();
+    myAccount.error = undefined;
+    myAccount.ethBalance = undefined;
+    myAccount.ethIndexBalance = undefined;
+    myAccount.gldIndexBalance = undefined;
+    myAccount.gsgIndexBalance = undefined;
+    myAccount.ieiIndexBalance = undefined;
+    myAccount.initialized = false;
+    myAccount.kncIndexBalance = undefined;
+    myAccount.linkIndexBalance = undefined;
+    myAccount.lrcIndexBalance = undefined;
+    myAccount.mkrIndexBalance = undefined;
+    myAccount.mlnIndexBalance = undefined;
+    myAccount.renIndexBalance = undefined;
+    myAccount.snxIndexBalance = undefined;
+    myAccount.tltIndexBalance = undefined;
+    myAccount.vtiIndexBalance = undefined;
+    myAccount.zrkIndexBalance = undefined;
+  },
 });
 
 export default myAccount;

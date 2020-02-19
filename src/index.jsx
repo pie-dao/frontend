@@ -7,6 +7,7 @@ import { render } from 'react-dom';
 
 import App from './App';
 import compoundAPR from './stores/compoundAPR';
+import eth from './stores/eth';
 
 const images = {
   logo: '/assets/logo.png',
@@ -31,6 +32,7 @@ const content = {
 };
 
 compoundAPR.init('https://pie-protocol-api.herokuapp.com/charts/comparison/2019-12');
+eth.init();
 
 mixpanel.init('5a14e8a5c178e521e0d0d0a4e644f022', { debug: false });
 
