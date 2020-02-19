@@ -24,7 +24,7 @@ const PortfolioDetail = (props) => {
           </TabList>
           <TabPanel>
             <div className="liquidity-right lg:w-auto lg:tex-left lg:flex-row lg:flex-grow">
-              <div className="liquidity-column lg:items-start lg:text-left lg:pl-3pc lg:pr-1pc lg:max-w-500px">
+              <div className="liquidity-column lg:items-start lg:text-left lg:pl-3pc lg:pr-1pc lg:max-w-700px">
                 <h1 className="title lg:text-left lg:text-big py-2pc">Liquidity Breakdown</h1>
                 <AwpLightPortfolioPage />
                 <div className="normal-text lg:m-0 lg:text-left py-2pc">
