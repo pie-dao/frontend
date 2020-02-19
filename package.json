@@ -66,6 +66,7 @@
     "react-text-loop": "^2.3.0",
     "recharts": "^2.0.0-beta.1",
     "setprotocol.js": "^1.2.2-rc30",
+    "simpleid-js-sdk": "^1.0.0",
     "styled-components": "^5.0.0",
     "uuid": "^3.3.3",
     "web3": "^1.2.5"
