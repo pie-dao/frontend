@@ -4,6 +4,7 @@
 import React from 'react';
 import { view } from 'react-easy-state';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import PropTypes from 'prop-types';
 import CryptoBasket from './charts/CryptoBasket';
 import DeFi from './charts/DeFi';
 import TLT from './charts/TLT';
@@ -13,19 +14,89 @@ import IEI from './charts/IEI';
 import VTI from './charts/VTI';
 import AWP from './charts/AWP';
 
-const PortfolioBreakdown = () => {
+const PortfolioBreakdown = ({ mixpanel }) => {
   return (
     <div className="content">
       <section className="PortfolioBreakdown lg:w-90pc lg:mx-5pc">
         <Tabs defaultIndex={0}>
           <TabList>
-            <Tab>AWP++</Tab>
-            <Tab>Crypto Pie</Tab>
-            <Tab>VTI</Tab>
-            <Tab>TLT</Tab>
-            <Tab>GSG</Tab>
-            <Tab>GLD</Tab>
-            <Tab>IEI</Tab>
+            <Tab
+              onClick={() => {
+                mixpanel.track({
+                  position: 'portfolio breakdown',
+                  type: 'tab navi',
+                  label: 'awp++',
+                });
+              }}
+            >
+            AWP++
+            </Tab>
+            <Tab
+              onClick={() => {
+                mixpanel.track({
+                  position: 'portfolio breakdown',
+                  type: 'tab navi',
+                  label: 'crypto pie',
+                });
+              }}
+            >
+              Crypto Pie
+            </Tab>
+            <Tab
+              onClick={() => {
+                mixpanel.track({
+                  position: 'portfolio breakdown',
+                  type: 'tab navi',
+                  label: 'VTI',
+                });
+              }}
+            >
+              VTI
+            </Tab>
+            <Tab
+              onClick={() => {
+                mixpanel.track({
+                  position: 'portfolio breakdown',
+                  type: 'tab navi',
+                  label: 'TLT',
+                });
+              }}
+            >
+              TLT
+            </Tab>
+            <Tab
+              onClick={() => {
+                mixpanel.track({
+                  position: 'portfolio breakdown',
+                  type: 'tab navi',
+                  label: 'GSG',
+                });
+              }}
+            >
+              GSG
+            </Tab>
+            <Tab
+              onClick={() => {
+                mixpanel.track({
+                  position: 'portfolio breakdown',
+                  type: 'tab navi',
+                  label: 'GLD',
+                });
+              }}
+            >
+              GLD
+            </Tab>
+            <Tab
+              onClick={() => {
+                mixpanel.track({
+                  position: 'portfolio breakdown',
+                  type: 'tab navi',
+                  label: 'IEI',
+                });
+              }}
+            >
+              IEI
+            </Tab>
           </TabList>
           <TabPanel>
             <div className="portfolio-container lg:flex-row">
@@ -55,8 +126,28 @@ const PortfolioBreakdown = () => {
           <TabPanel>
             <Tabs>
               <TabList className="noborder lightWeight">
-                <Tab>Overview</Tab>
-                <Tab>DeFi</Tab>
+                <Tab
+                  onClick={() => {
+                    mixpanel.track({
+                      position: 'portfolio breakdown',
+                      type: 'tab navi',
+                      label: 'crypto overview',
+                    });
+                  }}
+                >
+                  Overview
+                </Tab>
+                <Tab
+                  onClick={() => {
+                    mixpanel.track({
+                      position: 'portfolio breakdown',
+                      type: 'tab navi',
+                      label: 'DeFI',
+                    });
+                  }}
+                >
+                  DeFi
+                </Tab>
               </TabList>
               <TabPanel>
                 <div className="portfolio-container lg:flex-row">
@@ -212,6 +303,15 @@ const PortfolioBreakdown = () => {
       </section>
     </div>
   );
+};
+
+PortfolioBreakdown.propTypes = {
+  mixpanel: PropTypes.shape({
+    track: PropTypes.func.isRequired,
+  }).isRequired,
+  links: PropTypes.shape({
+    portfolio: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default view(PortfolioBreakdown);

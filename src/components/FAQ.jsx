@@ -3,8 +3,9 @@
 import React from 'react';
 import { view } from 'react-easy-state';
 import Collapsible from 'react-collapsible';
+import PropTypes from 'prop-types';
 
-const FAQ = () => {
+const FAQ = ({ mixpanel }) => {
   return (
     <div className="content">
       <div className="faq lg:w-90pc lg:mx-10pc">
@@ -18,6 +19,13 @@ const FAQ = () => {
               transitionTime={100}
               triggerTagName="div"
               className="pointer"
+              onClick={() => {
+                mixpanel.track({
+                  position: 'homepage',
+                  type: 'faq item',
+                  label: 'governance',
+                });
+              }}
             >
               <p>
                 Governance is a process through which a group of stakeholders come
@@ -41,6 +49,13 @@ const FAQ = () => {
               transitionTime={100}
               triggerTagName="div"
               className="pointer"
+              onClick={() => {
+                mixpanel.track({
+                  position: 'homepage',
+                  type: 'faq item',
+                  label: 'dao',
+                });
+              }}
             >
               <p>
                 DAO stands for &quot;Decentralized Autonomous Organization&quot;, which is a
@@ -64,6 +79,13 @@ const FAQ = () => {
               transitionTime={100}
               triggerTagName="div"
               className="pointer"
+              onClick={() => {
+                mixpanel.track({
+                  position: 'homepage',
+                  type: 'faq item',
+                  label: 'PieDAO',
+                });
+              }}
             >
               <p>
                 Pie Dao is a decentralized network of individuals backtesting and
@@ -91,6 +113,13 @@ const FAQ = () => {
               transitionTime={100}
               triggerTagName="div"
               className="pointer"
+              onClick={() => {
+                mixpanel.track({
+                  position: 'homepage',
+                  type: 'faq item',
+                  label: 'PieHolder',
+                });
+              }}
             >
               <p>
                 For the Pie DAO to be successful, the stakeholders in the system
@@ -119,6 +148,13 @@ const FAQ = () => {
               open={false}
               triggerTagName="div"
               className="pointer"
+              onClick={() => {
+                mixpanel.track({
+                  position: 'homepage',
+                  type: 'faq item',
+                  label: 'Ray Dalio',
+                });
+              }}
             >
               <p>
                 Ray Dalio is considered by many the most successful hedge fund
@@ -152,6 +188,13 @@ const FAQ = () => {
               transitionTime={100}
               triggerTagName="div"
               className="pointer"
+              onClick={() => {
+                mixpanel.track({
+                  position: 'homepage',
+                  type: 'faq item',
+                  label: 'Compound',
+                });
+              }}
             >
               <p>
                 Compound is a transparent, autonomous money market— allowing users
@@ -177,6 +220,13 @@ const FAQ = () => {
               transitionTime={100}
               triggerTagName="div"
               className="pointer"
+              onClick={() => {
+                mixpanel.track({
+                  position: 'homepage',
+                  type: 'faq item',
+                  label: 'derivatives',
+                });
+              }}
             >
               <p>
                 The Pie Network is not a derivative, it is a protocol for
@@ -201,6 +251,13 @@ const FAQ = () => {
               transitionTime={100}
               triggerTagName="div"
               className="pointer"
+              onClick={() => {
+                mixpanel.track({
+                  position: 'homepage',
+                  type: 'faq item',
+                  label: 'asset allocation',
+                });
+              }}
             >
               <p>
                 Asset allocations on Pie Network are created by stakeholder of the
@@ -219,6 +276,13 @@ const FAQ = () => {
               transitionTime={100}
               triggerTagName="div"
               className="pointer"
+              onClick={() => {
+                mixpanel.track({
+                  position: 'homepage',
+                  type: 'faq item',
+                  label: 'Pie DAO functions',
+                });
+              }}
             >
               <p>
                 The Pie DAO writes and publishes open source software on Github.
@@ -251,6 +315,13 @@ const FAQ = () => {
               transitionTime={100}
               triggerTagName="div"
               className="pointer"
+              onClick={() => {
+                mixpanel.track({
+                  position: 'homepage',
+                  type: 'faq item',
+                  label: 'protocols',
+                });
+              }}
             >
               <p>
                 The Pie DAO uses existing DeFi protocols as building blocks to
@@ -293,6 +364,13 @@ const FAQ = () => {
               transitionTime={100}
               triggerTagName="div"
               className="pointer"
+              onClick={() => {
+                mixpanel.track({
+                  position: 'homepage',
+                  type: 'faq item',
+                  label: 'risks',
+                });
+              }}
             >
               <p>
                 While Pie Network and Pie DAO gives no guarantees, it is highly
@@ -306,6 +384,15 @@ const FAQ = () => {
       </div>
     </div>
   );
+};
+
+FAQ.propTypes = {
+  mixpanel: PropTypes.shape({
+    track: PropTypes.func.isRequired,
+  }).isRequired,
+  links: PropTypes.shape({
+    portfolio: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default view(FAQ);

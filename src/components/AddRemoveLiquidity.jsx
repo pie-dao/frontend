@@ -2,6 +2,7 @@
 import React from 'react';
 import { view } from 'react-easy-state';
 import Slider from 'rc-slider';
+import PropTypes from 'prop-types';
 
 import PasswordGate from './PasswordGate';
 import addRemoveLiquidity from '../stores/addRemoveLiquidity';
@@ -20,7 +21,7 @@ const buttonClick = () => {
   }
 };
 
-const AddRemoveLiquidity = () => {
+const AddRemoveLiquidity = ({ mixpanel }) => {
   const {
     // selectAdd,
     selectRemove,
@@ -37,15 +38,31 @@ const AddRemoveLiquidity = () => {
         <div className="liquidity-container lg:flex-row lg:w-94pc">
           <div className="liquidity-left lg:w-auto lg:m-0 lg:min-w-300px">
             <div className="tab-navi">
-              {/*
-              <div className={tab === 'add' ? 'tab-item active' : 'tab-item'} onClick={selectAdd}>
-              Mint AWP++
-              </div> */}
+              <div
+                className={tab === 'add' ? 'tab-item active' : 'tab-item'}
+                onClick={() => {
+                  // selectAdd();
+                  mixpanel.cta({
+                    position: 'Mint-Redeem',
+                    type: 'tab navi',
+                    label: 'Mint',
+                  });
+                }}
+              >
+                Mint AWP++
+              </div>
               <div
                 className={tab === 'remove' ? 'tab-item active' : 'tab-item'}
-                onClick={selectRemove}
+                onClick={() => {
+                  selectRemove();
+                  mixpanel.cta({
+                    position: 'Mint-Redeem',
+                    type: 'tab navi',
+                    label: 'Redeem',
+                  });
+                }}
               >
-              Redeem AWP++
+                Redeem AWP++
               </div>
             </div>
             <div className="liquidity-amount lg:text-liquidity-amount">
@@ -62,10 +79,20 @@ const AddRemoveLiquidity = () => {
                 vertical={false}
               />
             </div>
-
-            <button onClick={buttonClick} type="button" className="btn">
+            <button
+              onClick={() => {
+                buttonClick();
+                mixpanel.cta({
+                  position: 'Mint-Redeem',
+                  type: 'tab navi',
+                  label: 'Redeem',
+                });
+              }}
+              type="button"
+              className="btn"
+            >
               {tab === 'add' ? 'Add ' : 'Remove '}
-            Liquidity
+              Liquidity
             </button>
           </div>
           <div className="liquidity-right lg:w-auto lg:ml-2pc lg:tex-left lg:flex-row lg:flex-grow">
@@ -101,6 +128,15 @@ const AddRemoveLiquidity = () => {
       </section>
     </PasswordGate>
   );
+};
+
+AddRemoveLiquidity.propTypes = {
+  mixpanel: PropTypes.shape({
+    cta: PropTypes.func.isRequired,
+  }).isRequired,
+  links: PropTypes.shape({
+    portfolio: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default view(AddRemoveLiquidity);
