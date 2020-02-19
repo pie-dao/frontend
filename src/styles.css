@@ -22,7 +22,6 @@ body {
 
 .pointer {
   @apply cursor-pointer;
-
 }
 
 button.btn {
@@ -42,7 +41,9 @@ button.btn:focus {
 }
 
 button.btn:disabled {
-  @apply bg-grey pointer-events-none;
+  @apply pointer-events-none;
+  transition: none !important;
+  background: #b7b7b7 !important;
 }
 
 button.btn.modal {

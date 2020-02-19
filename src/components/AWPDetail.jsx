@@ -106,6 +106,7 @@ const AWPDetail = (props) => {
 
           <button
             className="btn modal"
+            disabled={exchangeModal.isDisabled() ? 'disabled' : ''}
             type="button"
             onClick={() => {
               exchangeModal.open();

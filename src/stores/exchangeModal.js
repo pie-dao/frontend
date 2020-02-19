@@ -254,6 +254,7 @@ const exchangeModal = store({
 
     focusInput();
   },
+  isDisabled: () => !!eth.error,
   max: () => {
     console.log('max', myAccount.daiBalance);
     const mockEvent = {
@@ -265,6 +266,10 @@ const exchangeModal = store({
     exchangeModal.inputChange(mockEvent);
   },
   open: () => {
+    if (exchangeModal.isDisabled()) {
+      return;
+    }
+
     exchangeModal.isActive = true;
   },
   outputChange: (evt) => {

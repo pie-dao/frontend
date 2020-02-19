@@ -7,9 +7,9 @@ import myAccount from './myAccount';
 let exchangeActive = false;
 
 const walletModal = store({
-  error: undefined,
   isActive: false,
   isPending: false,
+
   close: () => {
     walletModal.isActive = false;
     walletModal.reset();
@@ -28,6 +28,15 @@ const walletModal = store({
     myAccount.reset();
     localStorage.setItem('disconnected', true);
   },
+  onError(e) {
+    if (e) {
+      console.error('walletModal activate error', e);
+    }
+
+    myAccount.reset();
+    walletModal.isPending = false;
+    eth.wrongNetwork();
+  },
   open: () => {
     if (exchangeModal.isActive) {
       exchangeActive = true;
@@ -40,7 +49,11 @@ const walletModal = store({
     localStorage.setItem('disconnected', false);
   },
   reset: () => {
-    walletModal.error = undefined;
+    if (eth.error && !eth.errorObject) {
+      walletModal.isActive = false;
+    } else {
+      eth.dismissError();
+    }
     walletModal.isPending = false;
   },
 });
