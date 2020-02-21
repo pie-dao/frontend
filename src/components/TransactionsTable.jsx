@@ -7,6 +7,8 @@ import ConnectWeb3Button from './ConnectWeb3Button';
 import Identicon from './Identicon';
 import If from './If';
 import myAccount from '../stores/myAccount';
+import { buildLink } from '../utils/etherscan';
+import eth from '../stores/eth';
 
 const formatTimestamp = (timestamp) => (new Date(timestamp * 1000)).toUTCString();
 const transactionName = ({ direction }) => (
@@ -21,6 +23,7 @@ const transactionUSDValue = ({ direction, daiAmount }) => (
 
 const TransactionsTable = () => {
   const transactions = (myAccount.awpTransactions || []).sort((a, b) => b.timestamp - a.timestamp);
+  const { networkId } = eth;
   const count = transactions.length;
 
   if (count === 0) {
@@ -55,6 +58,12 @@ const TransactionsTable = () => {
                       <div className="state">
                         <span className="color-label">
                           { transaction.blockNumber === 'pending' ? 'Pending' : 'Confirmed' }
+                        </span>
+                        <span>
+                          <a className="transaction-link" target="_blank" rel="noopener noreferrer" href={buildLink(networkId, transaction.transactionHash, 'transaction')}>
+                            View transaction&nbsp;
+                            <span role="img" aria-label="link">🔗</span>
+                          </a>
                         </span>
                       </div>
                       <div className="usd-value">{transactionUSDValue(transaction)}</div>
