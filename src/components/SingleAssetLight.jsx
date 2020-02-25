@@ -5,11 +5,14 @@ import { view } from 'react-easy-state';
 
 import addRemoveLiquidity from '../stores/addRemoveLiquidity';
 
+
 const round = (weight) => BigNumber(weight).decimalPlaces(2).toFixed();
 
 const SingleAssetLight = ({ token }) => {
+  const { amount, tab } = addRemoveLiquidity;
   const { symbol, weight } = addRemoveLiquidity[token];
 
+  const amt = BigNumber(amount(token, tab)).toFixed();
 
   return (
     <div className="single-asset">
@@ -18,6 +21,8 @@ const SingleAssetLight = ({ token }) => {
           <img className="icon" src="/assets/img/available.svg" alt="icon" />
         </div>
         <div className="asset-amount">
+          {amt}
+          &nbsp;
           {symbol}
         </div>
       </div>
