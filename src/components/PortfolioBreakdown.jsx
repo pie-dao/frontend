@@ -29,7 +29,7 @@ const PortfolioBreakdown = ({ mixpanel }) => {
                 });
               }}
             >
-            AWP++
+              AWP++
             </Tab>
             <Tab
               onClick={() => {

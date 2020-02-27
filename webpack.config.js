@@ -1,3 +1,4 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -47,6 +48,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new CopyWebpackPlugin([
       {
         from: 'src/assets',
