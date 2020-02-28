@@ -58,7 +58,7 @@ const ComparisonTable = () => {
               10,000
             </div>
             <div className="one-year-gains">
-              <div className="label-yellow">+ $ 2,770</div>
+              <div className="label-yellow">+ $ 1,822</div>
             </div>
             <div className="apy lg:w-12pc">
               <div className="label-green">18.22%</div>
@@ -104,7 +104,7 @@ const ComparisonTable = () => {
               10,000
             </div>
             <div className="one-year-gains">
-              <div className="label-yellow">+ $ 1,820</div>
+              <div className="label-yellow">+ $ 6,60</div>
             </div>
             <div className="apy lg:w-12pc">
               <div className="label-green">6.60%</div>
