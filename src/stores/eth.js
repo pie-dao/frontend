@@ -1,6 +1,7 @@
 import { ethers } from 'ethers';
 import { store } from 'react-easy-state';
 import Notify from 'bnc-notify';
+import SimpleID from 'simpleid-js-sdk';
 
 const NETWORK_ID = 42;
 
@@ -37,6 +38,8 @@ const eth = store({
   provider: undefined,
   renIndex: '0x16755ad903793b0d173889d0f4acfe319b1d0b62',
   signer: undefined,
+  simpleID: undefined,
+  simpleIDAppID: '76c97a89-5ff2-4730-beac-3320eed25ded',
   snxIndex: '0xd301aff0da4a2035fbb2e3804bb000cdc1ad9050',
   startingBlock: 16268627,
   tltIndex: '0x9Cfe6CA5f4C082Aee3415a602B1800c5debdc52d',
@@ -52,6 +55,7 @@ const eth = store({
     }
   },
   getLibrary: (provider) => {
+    eth.reset();
     eth.dismissError();
 
     if (eth.disconnected) {
@@ -69,23 +73,45 @@ const eth = store({
       return undefined;
     }
 
-    eth.provider = new ethers.providers.Web3Provider(provider);
-    eth.signer = eth.provider.getSigner();
-    eth.account = provider.selectedAddress;
+    eth.initializeAccount(provider);
+    eth.initializeSimpleID();
 
     return eth.provider;
   },
   init: () => {
     eth.disconnected = localStorage.getItem('disconnected') === 'true';
   },
+  initializeAccount: (provider) => {
+    eth.provider = new ethers.providers.Web3Provider(provider);
+    eth.signer = eth.provider.getSigner();
+    eth.account = provider.selectedAddress;
+  },
+  initializeSimpleID: () => {
+    const { account, network, simpleIDAppID } = eth;
+
+    eth.simpleID = new SimpleID({
+      network,
+
+      appOrigin: window.location.origin,
+      appName: 'PieDAO',
+      appId: simpleIDAppID,
+      renderNotifications: true,
+    });
+
+    eth.simpleID.passUserInfo({ address: account });
+  },
   notify: ({ hash }) => {
     const { emitter } = notify.hash(hash);
     return { emitter, hash };
   },
   reset: () => {
+    if (eth.simpleID) {
+      eth.simpleID.signOut();
+    }
     eth.account = undefined;
     eth.provider = undefined;
     eth.signer = undefined;
+    eth.simpleID = undefined;
   },
   wrongNetwork: () => {
     eth.reset();
