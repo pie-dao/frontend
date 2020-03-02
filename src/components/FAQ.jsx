@@ -107,7 +107,7 @@ const FAQ = ({ mixpanel }) => {
         <div className="faq-gradient">
           <div className="faq-item lg:pt-15px lg:pr-5px lg:pb-15px lg:pl-15px">
             <Collapsible
-              trigger="How do PIE holders govern the Pie DAO?"
+              trigger="How do DOUGH holders govern the Pie DAO?"
               easing="ease-in"
               transitionTime={100}
               triggerTagName="div"
@@ -214,7 +214,7 @@ const FAQ = ({ mixpanel }) => {
         <div className="faq-gradient">
           <div className="faq-item lg:pt-15px lg:pr-5px lg:pb-15px lg:pl-15px">
             <Collapsible
-              trigger="Is a Pie itself a derivative?"
+              trigger="Is a Pie Portfolio Allocation itself a derivative?"
               easing="ease-in"
               transitionTime={100}
               triggerTagName="div"
