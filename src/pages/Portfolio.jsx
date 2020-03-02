@@ -6,7 +6,6 @@ import { view } from 'react-easy-state';
 import AWPDetail from '../components/AWPDetail';
 import Seo from '../components/Seo';
 import TransactionsTable from '../components/TransactionsTable';
-import PasswordGate from '../components/PasswordGate';
 
 const Portfolio = (props) => {
   const {
@@ -32,10 +31,8 @@ const Portfolio = (props) => {
         image={image}
         keywords={keywords}
       />
-      <PasswordGate>
-        <AWPDetail {...props} />
-        <TransactionsTable {...props} />
-      </PasswordGate>
+      <AWPDetail {...props} />
+      <TransactionsTable {...props} />
     </div>
   );
 };
