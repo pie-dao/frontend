@@ -235,7 +235,7 @@ const FAQ = ({ mixpanel }) => {
                 The PieDAO smart contract is nothing more than open source software, and
                 individual users of the Pie allocation are the ones that create a
                 tokenized derivative. The Pie DAO has zero
-                involvement in the creation of individual derivative tokens, 
+                involvement in the creation of individual derivative tokens,
                 the organization debates asset allocations only.
               </p>
             </Collapsible>
