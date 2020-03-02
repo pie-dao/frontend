@@ -28,7 +28,7 @@ const ComparisonTable = () => {
                 alt="portfolio logo"
               />
               AWP ++
-              <div className="label-gradient">PIE</div>
+              <div className="label-gradient">by PieDAO</div>
             </div>
             <div className="initial-amount">
               <div className="label-black lg:py-3px lg:px-6px">$</div>
@@ -104,7 +104,7 @@ const ComparisonTable = () => {
               10,000
             </div>
             <div className="one-year-gains">
-              <div className="label-yellow">+ $ 6,60</div>
+              <div className="label-yellow">+ $ 660,0</div>
             </div>
             <div className="apy lg:w-12pc">
               <div className="label-green">6.60%</div>

@@ -15,12 +15,12 @@ const images = {
 };
 
 const content = {
-  name: 'Pie - Top investment for everyone',
+  name: 'PieDAO - Top investment for everyone',
   seo: {
     description: 'The richest people in the World have gained 10% every year for the past 10 '
       + 'years. We think it is fair for you to make some real money too.',
     discord: {
-      description: 'Redirecting to Pie Network Discord Channel',
+      description: 'Redirecting to PieDAO Discord Channel',
       keywords: 'Community, Discord, ETF, Investment, Rebalancing, Robo advisor, ethereum,'
         + 'ethereum wallet, wallet, crypto wallet, decentralized app, dapps',
       title: 'Dexwallet Discord Channel',
@@ -29,7 +29,7 @@ const content = {
     keywords: 'ETF, Investment, Rebalancing, Robo advisor, ethereum, ethereum wallet, wallet, '
       + 'crypto wallet, decentralized app, dapps',
   },
-  url: 'https://pie.network/',
+  url: 'https://piedao.org/',
 };
 
 compoundAPR.init('https://pie-protocol-api.herokuapp.com/charts/comparison/2019-12');
