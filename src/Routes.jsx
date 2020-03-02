@@ -3,16 +3,22 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { view } from 'react-easy-state';
 
-import Home from './pages/Home';
+import Landing from './pages/Landing';
 import Portfolio from './pages/Portfolio';
 import MintRedeem from './pages/MintRedeem';
 import Charts from './pages/Charts';
 import Discord from './pages/Discord';
+import AwpPlusPlus from './pages/AwpPlusPlus';
 
 const Routes = (props) => (
   <Switch>
+
     <Route exact path="/">
-      <Home {...props} />
+      <Landing {...props} />
+    </Route>
+
+    <Route path="/awp-plusplus">
+      <AwpPlusPlus {...props} />
     </Route>
 
     <Route path="/portfolio">

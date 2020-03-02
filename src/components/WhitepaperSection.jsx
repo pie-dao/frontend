@@ -12,11 +12,19 @@ const WhitepaperSection = () => {
           <span role="img" aria-label="cake">
             &nbsp;🍰
           </span>
-          ? Request the Whitepaper
+          ?
+          <br />
+          <a
+            href="https://docs.piedao.org/pie-dao/dough"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Join PieDAO
+          </a>
         </div>
         <a
           className="whitepaper-link lg:text-quiteverybig"
-          href="https://pie283460.typeform.com/to/uy9NZt"
+          href="https://docs.piedao.org/pie-dao/dough"
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -19,17 +19,17 @@ const GradientBgSection = ({ mixpanel }) => {
         <br />
         <a
           className="underline"
-          href="https://pie283460.typeform.com/to/uy9NZt"
+          href="https://docs.piedao.org/pie-dao/dough"
           target="blank"
           onClick={() => {
             mixpanel.cta({
               position: 'homepage',
               type: 'link',
-              label: 'Request whitepaper',
+              label: 'Join PieDAO',
             });
           }}
         >
-          Request Whitepaper
+          Join PieDAO
         </a>
       </div>
     </div>

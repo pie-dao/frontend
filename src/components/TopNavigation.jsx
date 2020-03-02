@@ -32,6 +32,21 @@ const TopNavigation = ({ links, images }) => {
         </Link>
       </div>
       <div className="right">
+        <a
+          className="link hidden lg:block"
+          href="https://docs.piedao.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          docs
+        </a>
+        <Link
+          to="/awp-plusplus"
+          className="link hidden lg:block"
+          onClick={portfolio}
+        >
+          what is AWP++?
+        </Link>
         <Link
           to="/portfolio"
           className="link hidden lg:block"
@@ -44,7 +59,7 @@ const TopNavigation = ({ links, images }) => {
           className="link hidden lg:block"
           onClick={mintredeem}
         >
-          redeem AWP
+          redeem
         </Link>
         <a
           onClick={whitepaper}
@@ -87,6 +102,25 @@ const TopNavigation = ({ links, images }) => {
                   </Link>
                 </li>
                 <li>
+                  <a
+                    onClick={topNavigationStore.toggle}
+                    className="navbar-item"
+                    href="https://docs.piedao.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    docs
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    to="/awp-plusplus"
+                    onClick={topNavigationStore.toggle}
+                  >
+                    what is AWP++?
+                  </Link>
+                </li>
+                <li>
                   <Link
                     to="/portfolio"
                     onClick={topNavigationStore.toggle}
@@ -99,7 +133,7 @@ const TopNavigation = ({ links, images }) => {
                     to="/mint-redeem"
                     onClick={topNavigationStore.toggle}
                   >
-                    mint/redeem
+                    redeem
                   </Link>
                 </li>
                 <li>

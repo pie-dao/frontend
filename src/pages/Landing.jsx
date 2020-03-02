@@ -3,31 +3,25 @@
 import React from 'react';
 import { view } from 'react-easy-state';
 import HeroSection from '../components/HeroSection';
-import ComparisonTable from '../components/ComparisonTable';
 import GradientBgSection from '../components/GradientBgSection';
 import GradientQuote from '../components/GradientQuote';
-import AWPExplainer from '../components/AWPExplainer';
-import PortfolioBreakdown from '../components/PortfolioBreakdown';
 import WhitepaperSection from '../components/WhitepaperSection';
 import FAQ from '../components/FAQ';
 import NewsletterSection from '../components/NewsletterSection';
 // import Seo from '../components/Seo';
 
-const Home = (props) => {
+const Landing = (props) => {
   return (
     <div>
       {/* TODO SEO */}
       <HeroSection {...props} />
       <GradientBgSection />
-      <AWPExplainer />
-      <ComparisonTable />
-      <PortfolioBreakdown />
-      <GradientQuote />
       <FAQ />
-      <WhitepaperSection />
+      <GradientQuote />
       <NewsletterSection />
+      <WhitepaperSection />
     </div>
   );
 };
 
-export default view(Home);
+export default view(Landing);
