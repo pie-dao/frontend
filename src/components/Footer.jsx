@@ -105,6 +105,8 @@ const Footer = ({ mixpanel }) => {
         >
             Gighub
         </a>
+        <img src="/assets/img/ethDark.svg" height="30" width="auto" className="h-30px lg:h-30px lg:ml-20px" alt="Ethereum" />
+        <img src="/assets/img/aragon.svg" height="30" width="auto" className="h-30px lg:h-50px lg:ml-20px" alt="Argon" />
       </div>
     </div>
   );
