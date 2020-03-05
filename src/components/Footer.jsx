@@ -47,6 +47,21 @@ const Footer = ({ mixpanel }) => {
         </a>
         <a
           className="footer-link hidden lg:block"
+          href="https://medium.com/piedao"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            mixpanel.track({
+              position: 'Footer',
+              type: 'link',
+              label: 'Medium',
+            });
+          }}
+        >
+            Medium
+        </a>
+        <a
+          className="footer-link hidden lg:block"
           href="https://forum.piedao.org/"
           target="_blank"
           rel="noopener noreferrer"
