@@ -8,6 +8,7 @@ import GradientQuote from '../components/GradientQuote';
 import WhitepaperSection from '../components/WhitepaperSection';
 import FAQ from '../components/FAQ';
 import NewsletterSection from '../components/NewsletterSection';
+import Footer from '../components/Footer';
 // import Seo from '../components/Seo';
 
 const Landing = (props) => {
@@ -20,6 +21,7 @@ const Landing = (props) => {
       <GradientQuote />
       <NewsletterSection />
       <WhitepaperSection />
+      <Footer />
     </div>
   );
 };

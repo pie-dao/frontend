@@ -105,6 +105,28 @@ button.buttonModal:disabled {
   @apply w-100pc mt-3pc mr-0 mb-5pc ml-0;
 }
 
+/* Footer */
+
+.footer-container {
+  @apply font-secondary flex py-20px overflow-hidden w-96pc m-auto max-w-1280px;
+}
+
+.footer-link {
+  @apply text-almost-black no-underline ml-8 text-prettysmall;
+}
+
+.footer-link:hover {
+  @apply opacity-60;
+}
+
+.footer-container .left {
+  @apply flex flex-grow items-center;
+}
+
+.footer-container .right {
+  @apply flex flex-grow items-center justify-end;
+}
+
 /* TopNavigation */
 
 .nav-container {
