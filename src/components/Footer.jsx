@@ -9,14 +9,14 @@ const Footer = ({ mixpanel }) => {
     <div className="footer-container">
       <div className="left">
         <span
-          className="footer-link hidden lg:block"
+          className="footer-link lg:block"
         >
             PieDAO 2020
         </span>
       </div>
-      <div className="right">
+      <div className="right lg:ml-8">
         <a
-          className="footer-link hidden lg:block"
+          className="footer-link lg:block"
           href="https://discord.gg/eJTYNUF"
           target="_blank"
           rel="noopener noreferrer"
@@ -31,7 +31,7 @@ const Footer = ({ mixpanel }) => {
             Discord
         </a>
         <a
-          className="footer-link hidden lg:block"
+          className="footer-link lg:ml-8"
           href="https://twitter.com/PieDAO_DeFi?s=20"
           target="_blank"
           rel="noopener noreferrer"
@@ -46,7 +46,7 @@ const Footer = ({ mixpanel }) => {
             Twitter
         </a>
         <a
-          className="footer-link hidden lg:block"
+          className="footer-link lg:ml-8"
           href="https://medium.com/piedao"
           target="_blank"
           rel="noopener noreferrer"
@@ -61,7 +61,7 @@ const Footer = ({ mixpanel }) => {
             Medium
         </a>
         <a
-          className="footer-link hidden lg:block"
+          className="footer-link lg:ml-8"
           href="https://forum.piedao.org/"
           target="_blank"
           rel="noopener noreferrer"
@@ -76,7 +76,7 @@ const Footer = ({ mixpanel }) => {
             Forum
         </a>
         <a
-          className="footer-link hidden lg:block"
+          className="footer-link lg:ml-8"
           href="https://docs.piedao.org/"
           target="_blank"
           rel="noopener noreferrer"
@@ -91,7 +91,7 @@ const Footer = ({ mixpanel }) => {
             Documentation
         </a>
         <a
-          className="footer-link hidden lg:block"
+          className="footer-link lg:ml-8"
           href="hhttps://github.com/pie-dao/"
           target="_blank"
           rel="noopener noreferrer"
@@ -105,8 +105,8 @@ const Footer = ({ mixpanel }) => {
         >
             Gighub
         </a>
-        <img src="/assets/img/ethDark.svg" height="30" width="auto" className="h-30px lg:h-30px lg:ml-20px" alt="Ethereum" />
-        <img src="/assets/img/aragon.svg" height="30" width="auto" className="h-30px lg:h-50px lg:ml-20px" alt="Argon" />
+        <img src="/assets/img/ethDark.svg" height="30" width="auto" className="h-50px mt-10px lg:h-30px lg:ml-20px lg:mt-0" alt="Ethereum" />
+        <img src="/assets/img/aragon.svg" height="30" width="auto" className="h-50px mt-10px lg:h-50px lg:ml-20px lg:mt-0" alt="Argon" />
       </div>
     </div>
   );
