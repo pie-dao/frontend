@@ -32,6 +32,21 @@ const Footer = ({ mixpanel }) => {
         </a>
         <a
           className="footer-link hidden lg:block"
+          href="https://twitter.com/PieDAO_DeFi?s=20"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            mixpanel.track({
+              position: 'Footer',
+              type: 'link',
+              label: 'Twitter',
+            });
+          }}
+        >
+            Twitter
+        </a>
+        <a
+          className="footer-link hidden lg:block"
           href="https://forum.piedao.org/"
           target="_blank"
           rel="noopener noreferrer"
