@@ -6,6 +6,7 @@ import { view } from 'react-easy-state';
 import AWPDetail from '../components/AWPDetail';
 import Seo from '../components/Seo';
 import TransactionsTable from '../components/TransactionsTable';
+import Footer from '../components/Footer';
 
 const Portfolio = (props) => {
   const {
@@ -33,6 +34,7 @@ const Portfolio = (props) => {
       />
       <AWPDetail {...props} />
       <TransactionsTable {...props} />
+      <Footer />
     </div>
   );
 };

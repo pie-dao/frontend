@@ -9,6 +9,7 @@ import PortfolioBreakdown from '../components/PortfolioBreakdown';
 import WhitepaperSection from '../components/WhitepaperSection';
 import FAQ from '../components/FAQ';
 import NewsletterSection from '../components/NewsletterSection';
+import Footer from '../components/Footer';
 // import Seo from '../components/Seo';
 
 const AwpPlusPlus = () => {
@@ -21,6 +22,7 @@ const AwpPlusPlus = () => {
       <FAQ />
       <WhitepaperSection />
       <NewsletterSection />
+      <Footer />
     </div>
   );
 };
