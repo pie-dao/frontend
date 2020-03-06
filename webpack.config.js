@@ -48,7 +48,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new CopyWebpackPlugin([
       {
         from: 'src/assets',
