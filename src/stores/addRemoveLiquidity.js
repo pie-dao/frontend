@@ -1,15 +1,11 @@
 import BigNumber from 'bignumber.js';
 import { ethers } from 'ethers';
 import { store } from 'react-easy-state';
-import SetProtocol from 'setprotocol.js';
-
-import Web3 from 'web3';
 
 import eth from './eth';
 import setIssuanceModuleABI from '../abi/setIssuanceModule';
 
 import myAccount from './myAccount';
-import erc20 from '../abi/erc20';
 
 const addRemoveLiquidity = store({
   bnt: {
@@ -195,59 +191,7 @@ const addRemoveLiquidity = store({
       setTimeout(myAccount.fetch, 15000);
     });
   },
-  doAllowances: async () => {
-    const {
-      setTransferProxy,
-      signer,
-      account,
-      maxUint,
-    } = eth;
-    const config = {
-      coreAddress: '0x3ee64Fe0b9246Ae52845F01A79c4b3A6D252289a',
-      exchangeIssuanceModuleAddress: '0x887E45236B280B33C743075ac11dD69E3c581697',
-      kyberNetworkWrapperAddress: '0x4093415A2eA915EaacF44Ac08A42434aE6A9d4e5',
-      protocolViewerAddress: '0x5754FA9d232812F817F5Ca58152Ad1E991e916dD',
-      RebalancingLibrary: '0x0bb980258dAfb6cFda58CB4421aF1d0E019C52ef',
-      rebalanceAuctionModuleAddress: '0xeA510E982c92620A19475F8Dc777bAaa3c2A00F5',
-      rebalancingSetExchangeIssuanceModule: '0xC2eF8799315E08f4ee08eA29913D2e51dba5aB78',
-      rebalancingSetIssuanceModule: '0x91E1489D04054Ae552a369504F94E0236909c53c',
-      rebalancingSetTokenFactoryAddress: '0xdc5B19c7085eBEE3AF84cf30418c0ECa11Ed1933',
-      setTokenFactoryAddress: '0x952F78C33D3fb884C00b22e69B9119cd70582F80',
-      transferProxyAddress: '0x61d264865756751392C0f00357Cc26ea70D98E3B',
-      vaultAddress: '0x45Ab785b6c04f11b5e49B03d60f3642A8Ffe9246',
-      wrappedEtherAddress: '0x8a18c7034aCEfD1748199a58683Ee5F22e2d4e45',
-    };
-
-    const provider = new Web3
-      .providers
-      .HttpProvider('https://kovan.infura.io/v3/076b582fd6164444af0b426614496e15');
-
-    const set = new SetProtocol(provider, config);
-
-    const components = await set
-      .setToken
-      .calculateComponentAmountsForIssuanceAsync(
-        '0x1b862b62b150d73068c9190a36a25c736601fb92',
-        new BigNumber(ethers.utils.parseEther(addRemoveLiquidity.slider.add).toString()),
-      );
-
-    console.log(components);
-
-    // eslint-disable-next-line no-restricted-syntax
-    for (const component of components) {
-      console.log(component);
-
-      const token = new ethers.Contract(component.address, erc20, signer);
-
-      // eslint-disable-next-line no-await-in-loop
-      const allowance = await token.allowance(account, setTransferProxy);
-
-      if (component.unit.gt(allowance)) {
-        // eslint-disable-next-line no-await-in-loop
-        eth.notify(token.approve(setTransferProxy, maxUint));
-      }
-    }
-  },
+  doAllowances: async () => '',
 });
 
 export default addRemoveLiquidity;
