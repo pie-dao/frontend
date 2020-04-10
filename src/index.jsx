@@ -61,4 +61,6 @@ const props = {
   },
 };
 
+window.location.href = 'https://btc.piedao.org';
+
 render(<App {...props} />, document.getElementById('App'));
